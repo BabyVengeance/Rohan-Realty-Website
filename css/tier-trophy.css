@@ -1,0 +1,292 @@
+/* ==========================================================================
+   TIER 3 DESIGN ENGINE: R10,000,000+ (OBSIDIAN TROPHY LUXURY)
+   Properties: 5 Nightjar Close (R28,000,000) & 55 Hawaan Drive (R19,995,000)
+   ========================================================================== */
+
+:root {
+  --tier-obsidian: #08090D;
+  --tier-charcoal: #12151E;
+  --tier-surface-card: #181D2A;
+  --tier-gold: #D4AF37;
+  --tier-gold-glow: rgba(212, 175, 55, 0.25);
+  --tier-border-gold: rgba(212, 175, 55, 0.25);
+}
+
+body.theme-trophy {
+  background-color: var(--tier-obsidian);
+  color: #F8FAFC;
+}
+
+/* Trophy Hero */
+.hero-trophy {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-top: var(--nav-height);
+  padding-bottom: clamp(3.5rem, 6vw, 6rem);
+  background-color: var(--tier-obsidian);
+  color: #FFFFFF;
+  overflow: hidden;
+}
+
+.hero-trophy__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-trophy__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-trophy__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(8, 9, 13, 0.2) 0%, rgba(8, 9, 13, 0.8) 70%, rgba(8, 9, 13, 0.98) 100%),
+              linear-gradient(180deg, rgba(8, 9, 13, 0.5) 0%, rgba(8, 9, 13, 0.95) 100%);
+}
+
+.hero-trophy__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.hero-trophy__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.4rem 1rem;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid var(--tier-border-gold);
+  color: var(--tier-gold);
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: var(--radius-xs);
+  margin-bottom: 1.5rem;
+}
+
+.hero-trophy__badge::before {
+  content: '★';
+  font-size: 0.875rem;
+}
+
+.hero-trophy__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.75rem, 5.5vw, 4.75rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.875rem;
+  color: #FFFFFF;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.hero-trophy__price {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 800;
+  color: var(--tier-gold);
+  display: block;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.02em;
+}
+
+.hero-trophy__subtitle {
+  font-size: clamp(1.0625rem, 1.6vw, 1.35rem);
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 65ch;
+  line-height: 1.6;
+  margin-bottom: 2.25rem;
+}
+
+/* Trophy Spec Bar */
+.trophy-spec-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1.25rem;
+  background: rgba(18, 21, 30, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--tier-border-gold);
+  border-radius: var(--radius-xs);
+  padding: 1.5rem 2rem;
+  margin-bottom: 2.5rem;
+  max-width: 1040px;
+}
+
+.trophy-spec-bar__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.trophy-spec-bar__label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--tier-gold);
+  margin-bottom: 0.35rem;
+  font-family: var(--font-heading);
+}
+
+.trophy-spec-bar__value {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+/* Trophy Sections Base */
+.trophy-section {
+  padding: clamp(5rem, 8vw, 7.5rem) 0;
+  background-color: var(--tier-obsidian);
+  color: #FFFFFF;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.trophy-section--alt {
+  background-color: var(--tier-charcoal);
+}
+
+.trophy-section .section-title {
+  font-family: var(--font-serif);
+  color: #FFFFFF;
+}
+
+.trophy-section .section-subtitle {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Trophy Feature Cards */
+.trophy-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.trophy-card {
+  background: var(--tier-surface-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-xs);
+  padding: 2.25rem;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.trophy-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--tier-gold) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.trophy-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--tier-border-gold);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+.trophy-card:hover::before {
+  opacity: 1;
+}
+
+.trophy-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-xs);
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid var(--tier-border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tier-gold);
+  margin-bottom: 1.5rem;
+}
+
+.trophy-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.trophy-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 0.75rem;
+}
+
+.trophy-card__text {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+/* Video & Virtual Tour Section */
+.trophy-video-wrap {
+  margin-top: 3.5rem;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  border: 1px solid var(--tier-border-gold);
+  background: #000000;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+.trophy-video-player {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+}
+
+/* Trophy Gallery Adjustments */
+.gallery-section--trophy {
+  background-color: var(--tier-obsidian);
+}
+
+.gallery-section--trophy .gallery-btn {
+  background: var(--tier-charcoal);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.gallery-section--trophy .gallery-btn:hover,
+.gallery-section--trophy .gallery-btn.is-active {
+  background: var(--tier-gold);
+  border-color: var(--tier-gold);
+  color: #08090D;
+}
+
+.gallery-section--trophy .gallery-item {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.gallery-section--trophy .gallery-item:hover {
+  border-color: var(--tier-border-gold);
+}
+
+@media (max-width: 1024px) {
+  .trophy-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .trophy-spec-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rohan Realty | Luxury Residences &amp; Prime Commercial Assets | Blue Ocean Realty</title>
+  <meta name="description" content="Rohan Realty — Exclusive representation for luxury residential estates, coastal villas, and high-yield commercial assets in KwaZulu-Natal. Operating with Blue Ocean Realty.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Rohan Realty | Luxury Real Estate &amp; Commercial Brokerage">
+  <meta property="og:description" content="Prime coastal residences and strategic industrial assets across KwaZulu-Natal. Personal representation by Rohan Ramlall.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/agent/rohan-ramlall-portrait.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/branding/favicon.png">
+
+  <!-- Google Fonts: Outfit & Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="css/main.css">
+  
+  <style>
+    /* Home Hero Fold */
+    .home-hero {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: calc(var(--nav-height) + 2rem);
+      padding-bottom: 4rem;
+      background-color: var(--color-navy-dark);
+      color: #FFFFFF;
+      overflow: hidden;
+    }
+
+    .home-hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .home-hero__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .home-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(6, 11, 20, 0.75) 0%, rgba(6, 11, 20, 0.85) 60%, rgba(6, 11, 20, 0.98) 100%);
+    }
+
+    .home-hero__content {
+      position: relative;
+      z-index: 2;
+      max-width: 920px;
+    }
+
+    .home-hero__title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.75rem, 5.5vw, 4.75rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      color: #FFFFFF;
+    }
+
+    .home-hero__title span {
+      background: linear-gradient(135deg, #ECC880 0%, #C9A050 50%, #B08530 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .home-hero__subtitle {
+      font-size: clamp(1.125rem, 1.8vw, 1.35rem);
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.6;
+      margin-bottom: 2.75rem;
+      max-width: 68ch;
+    }
+
+    /* Dual Sector Gateway Cards */
+    .gateways {
+      padding: clamp(4rem, 7vw, 6.5rem) 0;
+      background-color: var(--color-surface);
+    }
+
+    .gateway-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .gateway-card {
+      position: relative;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      min-height: 480px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 3rem;
+      color: #FFFFFF;
+      text-decoration: none;
+      box-shadow: 0 16px 40px rgba(10, 25, 47, 0.12);
+      transition: all var(--transition-normal);
+    }
+
+    .gateway-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 60px rgba(10, 25, 47, 0.22);
+    }
+
+    .gateway-card__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .gateway-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gateway-card:hover .gateway-card__img {
+      transform: scale(1.06);
+    }
+
+    .gateway-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(6, 11, 20, 0.1) 0%, rgba(6, 11, 20, 0.75) 60%, rgba(6, 11, 20, 0.95) 100%);
+      z-index: 2;
+    }
+
+    .gateway-card__content {
+      position: relative;
+      z-index: 3;
+    }
+
+    .gateway-card__title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      color: #FFFFFF;
+    }
+
+    .gateway-card__desc {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .gateway-card__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      font-family: var(--font-heading);
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+    }
+
+    .gateway-card__cta svg {
+      width: 18px;
+      height: 18px;
+      transition: transform var(--transition-fast);
+    }
+
+    .gateway-card:hover .gateway-card__cta svg {
+      transform: translateX(6px);
+    }
+
+    /* Featured Marquee Properties */
+    .marquee-section {
+      padding: clamp(5rem, 8vw, 7.5rem) 0;
+      background-color: var(--color-bg-light);
+    }
+
+    .property-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .property-card {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--transition-normal);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    }
+
+    .property-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 45px rgba(10, 25, 47, 0.12);
+      border-color: rgba(201, 160, 80, 0.4);
+    }
+
+    .property-card__media {
+      position: relative;
+      height: 270px;
+      overflow: hidden;
+      background-color: #0A192F;
+    }
+
+    .property-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .property-card:hover .property-card__img {
+      transform: scale(1.05);
+    }
+
+    .property-card__badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(6, 11, 20, 0.85);
+      border: 1px solid rgba(201, 160, 80, 0.3);
+      color: var(--color-primary);
+      padding: 0.3rem 0.75rem;
+      font-family: var(--font-heading);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: var(--radius-xs);
+    }
+
+    .property-card__body {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .property-card__price {
+      font-family: var(--font-heading);
+      font-size: 1.625rem;
+      font-weight: 800;
+      color: var(--color-navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .property-card__title {
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .property-card__location {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+    }
+
+    .property-card__specs {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--color-border);
+      margin-top: auto;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-navy);
+    }
+
+    .property-card__spec-item {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+    }
+
+    .property-card__spec-item svg {
+      width: 16px;
+      height: 16px;
+      color: var(--color-primary);
+    }
+
+    /* Advisor Feature Section */
+    .advisor-section {
+      padding: clamp(5rem, 8vw, 7.5rem) 0;
+      background-color: var(--color-navy);
+      color: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .advisor__grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: clamp(2.5rem, 5vw, 5rem);
+      align-items: center;
+    }
+
+    .advisor__media {
+      position: relative;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(201, 160, 80, 0.3);
+    }
+
+    .advisor__img {
+      width: 100%;
+      height: 540px;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .advisor__badge-overlay {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      right: 1.5rem;
+      background: rgba(6, 11, 20, 0.88);
+      backdrop-filter: blur(10px);
+      padding: 1.25rem;
+      border: 1px solid rgba(201, 160, 80, 0.3);
+      border-radius: var(--radius-xs);
+    }
+
+    .advisor__name {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+
+    .advisor__role {
+      font-size: 0.8125rem;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 2px;
+    }
+
+    .advisor__content .section-title {
+      color: #FFFFFF;
+    }
+
+    .advisor__text {
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 2rem;
+    }
+
+    .advisor__pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .advisor__pillar {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 1.25rem;
+      border-radius: var(--radius-xs);
+    }
+
+    .advisor__pillar-title {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 0.375rem;
+    }
+
+    .advisor__pillar-desc {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 1024px) {
+      .gateway-grid,
+      .advisor__grid {
+        grid-template-columns: 1fr;
+      }
+      .advisor__img {
+        height: 440px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       CANONICAL HEADER & CO-BRANDED NAVIGATION
+       ============================================================ -->
+  <header class="site-header site-header--transparent" role="banner">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand" aria-label="Rohan Realty Home">
+        <div class="nav__brand-primary">
+          <span class="nav__brand-title">ROHAN <span>REALTY</span></span>
+          <span class="nav__brand-sub">Blue Ocean Realty</span>
+        </div>
+        <div class="nav__brand-divider" aria-hidden="true"></div>
+        <div class="nav__brand-agency">
+          <img src="assets/branding/blue-ocean-logo.png" alt="Blue Ocean Realty" class="nav__brand-logo" width="160" height="40" loading="eager">
+        </div>
+      </a>
+
+      <nav class="nav__links" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav__link nav__link--active" aria-current="page">Home</a>
+        <a href="residential.html" class="nav__link">Residential</a>
+        <a href="commercial.html" class="nav__link">Commercial &amp; Industrial</a>
+        <a href="about.html" class="nav__link">About</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a href="contact.html" class="btn btn--primary nav__cta">Private Consultation</a>
+        <button class="nav__toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileNav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="nav__mobile" id="mobileNav" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+    <a href="index.html" class="nav__mobile-link nav__mobile-link--active" aria-current="page">Home</a>
+    <a href="residential.html" class="nav__mobile-link">Residential Collection</a>
+    <a href="commercial.html" class="nav__mobile-link">Commercial &amp; Industrial</a>
+    <a href="about.html" class="nav__mobile-link">About Rohan &amp; Agency</a>
+    <a href="contact.html" class="nav__mobile-link">Contact Desk</a>
+    <a href="contact.html" class="btn btn--primary nav__mobile-cta">Private Consultation</a>
+  </div>
+  <div class="nav__mobile-backdrop" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+  <section class="home-hero" aria-label="Rohan Realty Flagship Introduction">
+    <div class="home-hero__bg">
+      <img src="assets/properties/5-nightjar-close/images/photo_01_384268194.jpg" alt="Luxury Coastal Architecture in KwaZulu-Natal" class="home-hero__img" width="1920" height="1080" loading="eager" onerror="this.style.display='none'">
+      <div class="home-hero__overlay"></div>
+    </div>
+
+    <div class="container">
+      <div class="home-hero__content">
+        <span class="section-kicker">Rohan Realty &bull; Blue Ocean Realty</span>
+        <h1 class="home-hero__title">
+          Private Coastal Residences &amp; <span>Strategic Commercial Portfolios</span>
+        </h1>
+        <p class="home-hero__subtitle">
+          Discreet representation for high-net-worth acquisitions across Ballito, Zimbali, Umhlanga, and premier KZN logistics corridors. Powered by modern media reach and institutional brokerage governance.
+        </p>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="residential.html" class="btn btn--primary">
+            Explore Residential
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="commercial.html" class="btn btn--outline">
+            Commercial &amp; Industrial
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       DUAL SECTOR GATEWAYS (Residential vs Commercial)
+       ============================================================ -->
+  <section class="gateways" aria-label="Property Portfolios Overview">
+    <div class="container">
+      <div style="text-align: center; max-width: 720px; margin: 0 auto;">
+        <span class="section-kicker">Specialized Asset Classes</span>
+        <h2 class="section-title">Two Disciplines. Uncompromising Standard.</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">
+          Whether securing a multi-generational coastal trophy residence or deploying capital into prime industrial warehousing, our advisory provides absolute discretion and transactional rigor.
+        </p>
+      </div>
+
+      <div class="gateway-grid">
+        <!-- Residential Gateway -->
+        <a href="residential.html" class="gateway-card" aria-label="View Luxury Residential Portfolio">
+          <div class="gateway-card__bg">
+            <img src="assets/properties/55-hawaan-drive/images/house-01.jpg" alt="Coastal Luxury Residences" class="gateway-card__img" width="800" height="600" loading="lazy">
+            <div class="gateway-card__overlay"></div>
+          </div>
+          <div class="gateway-card__content">
+            <span class="section-kicker">Portfolio 01</span>
+            <h3 class="gateway-card__title">The Residential Collection</h3>
+            <p class="gateway-card__desc">
+              Ocean-facing architectural masterpieces, penthouses, and gated eco-estates across Hawaan Forest, Zimbali, and Izinga Ridge.
+            </p>
+            <div class="gateway-card__cta">
+              Browse Residential
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </a>
+
+        <!-- Commercial Gateway -->
+        <a href="commercial.html" class="gateway-card" aria-label="View Commercial & Industrial Portfolio">
+          <div class="gateway-card__bg">
+            <img src="assets/properties/12-sera-bella/images/exterior-1.jpg" alt="Commercial and Industrial Real Estate" class="gateway-card__img" width="800" height="600" loading="lazy">
+            <div class="gateway-card__overlay"></div>
+          </div>
+          <div class="gateway-card__content">
+            <span class="section-kicker">Portfolio 02</span>
+            <h3 class="gateway-card__title">Commercial &amp; Industrial</h3>
+            <p class="gateway-card__desc">
+              Strategic distribution warehouses, manufacturing hubs, logistics facilities, and high-density commercial development land.
+            </p>
+            <div class="gateway-card__cta">
+              Browse Commercial
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FEATURED MARQUEE RESIDENCES
+       ============================================================ -->
+  <section class="marquee-section" aria-label="Featured Marquee Properties">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem;">
+        <div>
+          <span class="section-kicker">Exclusive Representation</span>
+          <h2 class="section-title">Current Active Mandates</h2>
+          <p class="section-subtitle">A curated preview of our high-value residential portfolio.</p>
+        </div>
+        <a href="residential.html" class="btn btn--navy">View All Properties</a>
+      </div>
+
+      <div class="property-grid">
+        <!-- 5 Nightjar Close -->
+        <article class="property-card">
+          <div class="property-card__media">
+            <img src="assets/properties/5-nightjar-close/images/photo_01_384268194.jpg" alt="5 Nightjar Close, Hawaan Forest Estate" class="property-card__img" width="600" height="400" loading="lazy">
+            <span class="property-card__badge">Tier 3 Trophy Luxury</span>
+          </div>
+          <div class="property-card__body">
+            <div class="property-card__price">R 28,000,000</div>
+            <h3 class="property-card__title">Architectural Masterpiece</h3>
+            <div class="property-card__location">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              5 Nightjar Close, Hawaan Forest Estate, Umhlanga
+            </div>
+            <div class="property-card__specs">
+              <div class="property-card__spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                5 Beds
+              </div>
+              <div class="property-card__spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6z"/></svg>
+                5.5 Baths
+              </div>
+              <div class="property-card__spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/></svg>
+                4 Garages
+              </div>
+            </div>
+            <a href="5-nightjar-close.html" class="btn btn--primary" style="margin-top: 1.25rem;">View Full Mandate</a>
+          </div>
+        </article>
+
+        <!-- 55 Hawaan Drive -->
+        <article class="property-card">
+          <div class="property-card__media">
+            <img src="assets/properties/55-hawaan-drive/images/house-03.jpg" alt="55 Hawaan Drive, Hawaan Forest Estate" class="property-card__img" width="600" height="400" loading="lazy">
+            <span class="property-card__badge">Tier 3 Trophy Luxury</span>
+          </div>
+          <div class="property-card__body">
+            <div class="property-card__price">R 19,995,000</div>
+            <h3 class="property-card__title">Contemporary Forest Sanctuary</h3>
+            <div class="property-card__location">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              55 Hawaan Drive, Hawaan Forest Estate
+            </div>
+            <div class="property-card__specs">
+              <div class="property-card__spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                4 Beds
+              </div>
+              <div class="property-card__spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6z"/></svg>
+                4.5 Baths
+              </div>
+              <div class="property-card__spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/></svg>
+                3 Garages
+              </div>
+            </div>
+            <a href="55-hawaan-drive.html" class="btn btn--primary" style="margin-top: 1.25rem;">View Full Mandate</a>
+          </div>
+        </article>
+
+        <!-- 12 Sera Bella -->
+        <article class="property-card">
+          <div class="property-card__media">
+            <img src="assets/properties/12-sera-bella/images/exterior-1.jpg" alt="12 Sera Bella, Izinga Ridge" class="property-card__img" width="600" height="400" loading="lazy">
+            <span class="property-card__badge" style="color: #C5A880; border-color: #C5A880;">Tier 2 Executive &bull; 0 Duty</span>
+          </div>
+          <div class="property-card__body">
+            <div class="property-card__price">R 9,575,000</div>
+            <h3 class="property-card__title">Executive Freehold Residence</h3>
+            <div class="property-card__location">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              12 Sera Bella, Izinga Ridge, Umhlanga
+            </div>
+            <div class="property-card__specs">
+              <div class="property-card__spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                4 Beds
+              </div>
+              <div class="property-card__spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6z"/></svg>
+                4 Baths
+              </div>
+              <div class="property-card__spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/></svg>
+                2 Garages
+              </div>
+            </div>
+            <a href="12-sera-bella.html" class="btn btn--primary" style="margin-top: 1.25rem;">View Full Mandate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ADVISOR SPOTLIGHT (Rohan Ramlall x Blue Ocean Realty)
+       ============================================================ -->
+  <section class="advisor-section" aria-label="Advisor Spotlight">
+    <div class="container">
+      <div class="advisor__grid">
+        <div class="advisor__media">
+          <img src="assets/agent/rohan-ramlall-portrait.jpg" alt="Rohan Ramlall overlooking coastal luxury real estate" class="advisor__img" width="800" height="1067" loading="lazy">
+          <div class="advisor__badge-overlay">
+            <div class="advisor__name">Rohan Ramlall</div>
+            <div class="advisor__role">Property Practitioner &bull; Blue Ocean Realty</div>
+          </div>
+        </div>
+
+        <div class="advisor__content">
+          <span class="section-kicker">Personal Advisory &amp; Digital Reach</span>
+          <h2 class="section-title">A Modern Perspective on High-Net-Worth Property.</h2>
+          <p class="advisor__text">
+            Operating at the intersection of modern cinematic media distribution and institutional advisory, Rohan Ramlall delivers active buyer discovery for marquee sellers and bespoke off-market acquisition services for private clients.
+          </p>
+
+          <div class="advisor__pillars">
+            <div class="advisor__pillar">
+              <h4 class="advisor__pillar-title">Media Dominance</h4>
+              <p class="advisor__pillar-desc">
+                High-definition property cinema engaging over 100,000+ views across Instagram, TikTok, and direct investor channels.
+              </p>
+            </div>
+            <div class="advisor__pillar">
+              <h4 class="advisor__pillar-title">Institutional Backing</h4>
+              <p class="advisor__pillar-desc">
+                Full legal, contract, and compliance fidelity through Blue Ocean Realty's executive hub in Durban North.
+              </p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="about.html" class="btn btn--primary">Read Full Story</a>
+            <a href="tel:0695224226" class="btn btn--outline">Direct Call: 069 522 4226</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ENQUIRY / CONSULTATION SECTION
+       ============================================================ -->
+  <section class="enquiry-section" id="enquiry" aria-label="Confidential Enquiry Desk">
+    <div class="container">
+      <div class="enquiry__inner">
+        <div class="enquiry__info">
+          <span class="section-kicker">Private Client Desk</span>
+          <h2 class="section-title">Schedule a Confidential Consultation</h2>
+          <p class="enquiry__text">
+            Whether inquiring regarding an active mandate, exploring confidential off-market opportunities, or seeking an authoritative valuation of your asset, our desk handles all discussions with absolute discretion.
+          </p>
+
+          <div class="enquiry__contact-items">
+            <div class="enquiry__contact-item">
+              <div class="enquiry__contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <div class="enquiry__contact-label">Lead Property Practitioner</div>
+                <div class="enquiry__contact-value">Rohan Ramlall &bull; <a href="tel:0695224226">069 522 4226</a></div>
+              </div>
+            </div>
+
+            <div class="enquiry__contact-item">
+              <div class="enquiry__contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+              </div>
+              <div>
+                <div class="enquiry__contact-label">Agency Headquarters</div>
+                <div class="enquiry__contact-value">Suite 6, 66 Adelaide Tambo Dr, Durban North</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="enquiry__card">
+          <h3 class="enquiry__card-title">Direct Client Inquiry</h3>
+          <p class="enquiry__card-desc">Complete your details for a prompt response from Rohan Ramlall.</p>
+
+          <form name="contact-enquiry" novalidate>
+            <div class="form__row">
+              <div class="form__group">
+                <label for="name" class="form__label">Full Name *</label>
+                <input type="text" id="name" name="name" class="form__input" placeholder="Your full name" required>
+              </div>
+              <div class="form__group">
+                <label for="phone" class="form__label">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" class="form__input" placeholder="082 123 4567" required>
+              </div>
+            </div>
+
+            <div class="form__group">
+              <label for="email" class="form__label">Email Address *</label>
+              <input type="email" id="email" name="email" class="form__input" placeholder="client@address.co.za" required>
+            </div>
+
+            <div class="form__group">
+              <label for="interest" class="form__label">Area of Interest</label>
+              <select id="interest" name="interest" class="form__select">
+                <option value="Residential Luxury Acquisition">Residential Luxury Acquisition</option>
+                <option value="Commercial / Industrial Property">Commercial / Industrial Property</option>
+                <option value="Development Land Inquiries">Development Land Inquiries</option>
+                <option value="Confidential Listing Mandate">Confidential Listing Mandate</option>
+              </select>
+            </div>
+
+            <div class="form__group">
+              <label for="message" class="form__label">Confidential Brief</label>
+              <textarea id="message" name="message" class="form__textarea" rows="3" placeholder="Specify requirements, timelines, or properties of interest..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary form__submit">
+              Submit Private Inquiry
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CANONICAL COMPLIANCE FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Col 1: Brand & Brokerage -->
+        <div class="footer__col-brand">
+          <a href="index.html" class="footer__brand-title">
+            ROHAN <span>REALTY</span>
+          </a>
+          <p class="footer__brand-desc">
+            Bespoke representation for ultra-luxury residential properties and high-yield commercial assets across KwaZulu-Natal.
+          </p>
+          <div class="footer__brand-creds">
+            <div><strong>Rohan Ramlall</strong> &bull; Property Practitioner</div>
+            <div>Operating under <strong>Blue Ocean Realty</strong></div>
+            <div>Registered with the <strong>PPRA</strong> (Property Practitioners Regulatory Authority)</div>
+          </div>
+        </div>
+
+        <!-- Col 2: Residential -->
+        <div>
+          <h4 class="footer__col-title">Residential</h4>
+          <ul class="footer__links">
+            <li><a href="residential.html">All Luxury Residences</a></li>
+            <li><a href="5-nightjar-close.html">5 Nightjar Close (R28M)</a></li>
+            <li><a href="55-hawaan-drive.html">55 Hawaan Drive (R19.995M)</a></li>
+            <li><a href="12-sera-bella.html">12 Sera Bella (R9.575M)</a></li>
+            <li><a href="6-sera-bella.html">6 Sera Bella (R8.995M)</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Commercial & Advisory -->
+        <div>
+          <h4 class="footer__col-title">Commercial &amp; Agency</h4>
+          <ul class="footer__links">
+            <li><a href="commercial.html">Commercial &amp; Industrial</a></li>
+            <li><a href="commercial.html#land">Development Land</a></li>
+            <li><a href="about.html">About Rohan Ramlall</a></li>
+            <li><a href="contact.html">Private Client Desk</a></li>
+            <li><a href="contact.html#valuation">Request Confidential Valuation</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & Socials -->
+        <div>
+          <h4 class="footer__col-title">Direct Contact</h4>
+          <div class="footer__contact-items">
+            <div class="footer__contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <div>
+                <div>Direct / WhatsApp: <a href="tel:0695224226" style="color:#FFFFFF; font-weight:700;">069 522 4226</a></div>
+                <div style="font-size:0.75rem; color:rgba(255,255,255,0.6);">Rohan Ramlall</div>
+              </div>
+            </div>
+            <div class="footer__contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+              <div>
+                <div>Blue Ocean Realty Office</div>
+                <div style="font-size:0.75rem; color:rgba(255,255,255,0.6);">Suite 6, 66 Adelaide Tambo Dr, Durban North</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer__socials">
+            <a href="https://www.instagram.com/rohanrealty.co.za?rpxt=MWtrcWkybTcxODBlZA==" target="_blank" rel="noopener noreferrer" class="footer__social-btn" aria-label="Instagram @rohanrealty.co.za">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://www.tiktok.com/@rohanrealty.co.za?_r=1&_t=ZS-9B7lsh26nrA" target="_blank" rel="noopener noreferrer" class="footer__social-btn" aria-label="TikTok @rohanrealty.co.za">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+            </a>
+            <a href="https://www.facebook.com/share/1Gdn6cE84s/" target="_blank" rel="noopener noreferrer" class="footer__social-btn" aria-label="Facebook Rohan Realty">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__divider"></div>
+
+      <div class="footer__bottom">
+        <p class="footer__disclaimer">
+          All property representations, specifications, dimensions, rates, and values displayed on rohanrealty.co.za are believed to be accurate at time of listing but do not constitute legal representation or warranties. Prospective buyers and institutional investors must satisfy themselves through independent due diligence. Operating with full fidelity under Blue Ocean Realty, Suite 6, 66 Adelaide Tambo Drive, Durban North.
+        </p>
+        <div class="footer__copy">
+          <div>&copy; 2026 Rohan Realty &amp; Blue Ocean Realty. All rights reserved.</div>
+          <div>POPIA Compliant Real Estate Operations &bull; Registered with the PPRA</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Master Portal Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
