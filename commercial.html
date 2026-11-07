@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Commercial &amp; Industrial Real Estate | Rohan Realty &bull; Blue Ocean Realty</title>
-  <meta name="description" content="Prime commercial logistics warehouses, heavy industrial distribution facilities, and commercial development land across KwaZulu-Natal. Information Memorandums on request.">
+  <title>Commercial &amp; Industrial Portfolio | Rohan Realty &bull; Blue Ocean Realty</title>
+  <meta name="description" content="Explore premier commercial, industrial warehousing, corporate headquarters, and prime development land in Umhlanga, Durban North, and KwaZulu-Natal. Full information packs on request.">
   
   <!-- Open Graph -->
   <meta property="og:title" content="Commercial &amp; Industrial Real Estate | Rohan Realty">
-  <meta property="og:description" content="Industrial warehousing, logistics hubs, and commercial land in Riverhorse Valley, Springfield, and North Coast corridors.">
+  <meta property="og:description" content="Prime commercial development land, logistics warehouses, and Grade-A corporate offices across KwaZulu-Natal with Blue Ocean Realty backing.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/branding/blue-ocean-banner.jpg">
+  <meta property="og:image" content="assets/properties/commercial/urban-corner/1.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/branding/favicon.png">
@@ -34,15 +34,53 @@
     }
 
     .commercial-section {
-      padding: clamp(4.5rem, 7vw, 7rem) 0;
+      padding: clamp(3.5rem, 6vw, 6rem) 0;
       background-color: var(--color-bg-light);
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 3rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      padding: 0.625rem 1.25rem;
+      border-radius: var(--radius-xs);
+      font-family: var(--font-heading);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border: 1px solid var(--color-border);
+      background: #FFFFFF;
+      color: var(--color-text-main);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    .filter-btn--active {
+      background: var(--color-navy);
+      color: #FFFFFF;
+      border-color: var(--color-navy);
+      box-shadow: 0 4px 12px rgba(10, 25, 47, 0.15);
     }
 
     .commercial-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 2.5rem;
-      margin-top: 3.5rem;
     }
 
     .comm-card {
@@ -52,21 +90,21 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
       transition: all var(--transition-normal);
     }
 
     .comm-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 25px 60px rgba(10, 25, 47, 0.16);
-      border-color: rgba(201, 160, 80, 0.45);
+      box-shadow: 0 20px 48px rgba(10, 25, 47, 0.12);
+      border-color: rgba(201, 160, 80, 0.4);
     }
 
     .comm-card__media {
       position: relative;
-      height: 320px;
+      height: 300px;
       overflow: hidden;
-      background-color: #0A192F;
+      background-color: var(--color-navy-dark);
     }
 
     .comm-card__img {
@@ -77,18 +115,25 @@
     }
 
     .comm-card:hover .comm-card__img {
-      transform: scale(1.05);
+      transform: scale(1.04);
     }
 
-    .comm-card__badge {
+    .comm-card__tag-group {
       position: absolute;
-      top: 1.25rem;
-      left: 1.25rem;
-      background: rgba(6, 11, 20, 0.88);
+      top: 1rem;
+      left: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      z-index: 2;
+    }
+
+    .comm-card__badge-type {
+      background: rgba(6, 11, 20, 0.9);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(201, 160, 80, 0.35);
+      border: 1px solid rgba(201, 160, 80, 0.4);
       color: var(--color-primary);
-      padding: 0.35rem 0.875rem;
+      padding: 0.35rem 0.75rem;
       font-family: var(--font-heading);
       font-size: 0.6875rem;
       font-weight: 700;
@@ -97,19 +142,43 @@
       border-radius: var(--radius-xs);
     }
 
+    .comm-card__badge-cat {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      color: var(--color-navy);
+      padding: 0.35rem 0.75rem;
+      font-family: var(--font-heading);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: var(--radius-xs);
+    }
+
     .comm-card__body {
-      padding: 2.25rem;
+      padding: 2rem;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
     }
 
-    .comm-card__price {
+    .comm-card__pricing {
+      margin-bottom: 0.75rem;
+    }
+
+    .comm-card__rate {
       font-family: var(--font-heading);
-      font-size: 1.875rem;
+      font-size: 1.75rem;
       font-weight: 800;
       color: var(--color-navy);
-      margin-bottom: 0.375rem;
+      line-height: 1.1;
+    }
+
+    .comm-card__base-rental {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-primary-dark);
+      margin-top: 0.25rem;
     }
 
     .comm-card__title {
@@ -117,13 +186,14 @@
       font-size: 1.25rem;
       font-weight: 700;
       color: var(--color-text-main);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.375rem;
+      line-height: 1.3;
     }
 
     .comm-card__location {
       font-size: 0.875rem;
       color: var(--color-text-muted);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.125rem;
       display: flex;
       align-items: center;
       gap: 0.375rem;
@@ -134,16 +204,20 @@
       line-height: 1.6;
       color: var(--color-text-muted);
       margin-bottom: 1.5rem;
+      flex-grow: 1;
     }
 
     .comm-card__specs {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 0.75rem;
-      padding: 1.25rem 0;
+      padding: 1rem 0;
       border-top: 1px solid var(--color-border);
       border-bottom: 1px solid var(--color-border);
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
+      background: var(--color-surface);
+      border-radius: var(--radius-xs);
+      padding: 0.875rem 1rem;
     }
 
     .comm-card__spec {
@@ -161,14 +235,77 @@
 
     .comm-card__spec-val {
       font-family: var(--font-heading);
-      font-size: 0.9375rem;
+      font-size: 0.875rem;
       font-weight: 700;
       color: var(--color-navy);
+    }
+
+    .comm-card__actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .comm-card__btn {
+      flex: 1;
+      text-align: center;
+      padding: 0.75rem 1rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .comm-advisory {
+      margin-top: 5rem;
+      padding: 3.5rem;
+      background: var(--color-navy);
+      color: #FFFFFF;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(201, 160, 80, 0.3);
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .comm-advisory__title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.75rem;
+    }
+
+    .comm-advisory__p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .comm-advisory__action {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
 
     @media (max-width: 1024px) {
       .commercial-grid {
         grid-template-columns: 1fr;
+      }
+      .comm-advisory {
+        grid-template-columns: 1fr;
+        padding: 2.5rem;
+      }
+      .comm-card__specs {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .comm-card__actions {
+        flex-direction: column;
       }
     }
   </style>
@@ -225,10 +362,10 @@
        ============================================================ -->
   <section class="page-hero" aria-label="Commercial Portfolio Introduction">
     <div class="container">
-      <span class="section-kicker">Industrial &bull; Logistics &bull; Development</span>
-      <h1 class="section-title section-title--inverse">Commercial &amp; Industrial Assets</h1>
+      <span class="section-kicker">Industrial &bull; Logistics &bull; Commercial Land &bull; Corporate Offices</span>
+      <h1 class="section-title section-title--inverse">Commercial &amp; Industrial Portfolio</h1>
       <p class="section-subtitle section-subtitle--inverse">
-        Prime distribution warehousing, heavy manufacturing plants, corporate commercial headquarters, and strategic development land in KwaZulu-Natal.
+        Prime development land, distribution warehousing, Grade-A corporate headquarters, and high-yield commercial property across Umhlanga, Durban North, and the KwaZulu-Natal logistics corridor.
       </p>
     </div>
   </section>
@@ -239,265 +376,660 @@
   <section class="commercial-section" aria-label="Commercial Assets Catalog">
     <div class="container">
 
-      <div class="commercial-grid">
-        <!-- Asset 1: Riverhorse Valley -->
-        <article class="comm-card">
-          <div class="comm-card__media">
-            <img src="assets/branding/blue-ocean-banner.jpg" alt="Riverhorse Valley Logistics Distribution Center" class="comm-card__img" width="800" height="500" loading="lazy">
-            <span class="comm-card__badge">High-Yield Logistics</span>
-          </div>
-          <div class="comm-card__body">
-            <div class="comm-card__price">R 42,500,000</div>
-            <h2 class="comm-card__title">Prime Logistics Distribution Hub &bull; Riverhorse Valley</h2>
-            <div class="comm-card__location">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Riverhorse Valley Logistics Corridor, eThekwini
-            </div>
-            <p class="comm-card__desc">
-              Premier grade-A distribution warehouse with full superlink articulation. High eave height, cross-dock configuration, ESKOM heavy 3-phase power, and direct N2 highway accessibility.
-            </p>
-            <div class="comm-card__specs">
-              <div class="comm-card__spec">
-                <span class="comm-card__spec-label">GLA Extent</span>
-                <span class="comm-card__spec-val">4,800 m&sup2;</span>
-              </div>
-              <div class="comm-card__spec">
-                <span class="comm-card__spec-label">Power</span>
-                <span class="comm-card__spec-val">800 kVA</span>
-              </div>
-              <div class="comm-card__spec">
-                <span class="comm-card__spec-label">Eaves</span>
-                <span class="comm-card__spec-val">12m Height</span>
-              </div>
-              <div class="comm-card__spec">
-                <span class="comm-card__spec-label">Access</span>
-                <span class="comm-card__spec-val">Superlink</span>
-              </div>
-            </div>
-            <a href="contact.html?property=Riverhorse+Logistics" class="btn btn--primary">
-              Request Information Memorandum (IM)
-            </a>
-          </div>
-        </article>
+      <!-- Category Filter Tabs -->
+      <div class="filter-bar" role="tablist" aria-label="Property Categories">
+        <button class="filter-btn filter-btn--active" data-filter="all" role="tab" aria-selected="true">All Properties (11)</button>
+        <button class="filter-btn" data-filter="land" role="tab" aria-selected="false">Prime Land</button>
+        <button class="filter-btn" data-filter="industrial" role="tab" aria-selected="false">Industrial &amp; Logistics</button>
+        <button class="filter-btn" data-filter="office" role="tab" aria-selected="false">Corporate Offices</button>
+        <button class="filter-btn" data-filter="retail" role="tab" aria-selected="false">Retail &amp; Showrooms</button>
+      </div>
 
-        <!-- Asset 2: Springfield Industrial Park -->
-        <article class="comm-card">
-          <div class="comm-card__media">
-            <img src="assets/properties/12-sera-bella/images/exterior-1.jpg" alt="Springfield Industrial Park Manufacturing Facility" class="comm-card__img" width="800" height="500" loading="lazy">
-            <span class="comm-card__badge">Manufacturing / Warehousing</span>
-          </div>
-          <div class="comm-card__body">
-            <div class="comm-card__price">R 24,000,000</div>
-            <h2 class="comm-card__title">High-Power Industrial Facility &bull; Springfield Park</h2>
-            <div class="comm-card__location">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Springfield Park Industrial Zone, Durban
-            </div>
-            <p class="comm-card__desc">
-              High-output industrial facility tailored for engineering, light manufacturing, or central warehousing. Dedicated 3-phase substation, heavy yard turning circle, and high-security perimeter.
-            </p>
-            <div class="comm-card__specs">
-              <div class="comm-card__spec">
-                <span class="comm-card__spec-label">GLA Extent</span>
-                <span class="comm-card__spec-val">2,950 m&sup2;</span>
-              </div>
-              <div class="comm-card__spec">
-                <span class="comm-card__spec-label">Power</span>
-                <span class="comm-card__spec-val">500 kVA</span>
-              </div>
-              <div class="comm-card__spec">
-                <span class="comm-card__spec-label">Eaves</span>
-                <span class="comm-card__spec-val">8.5m Height</span>
-              </div>
-              <div class="comm-card__spec">
-                <span class="comm-card__spec-label">Yard</span>
-                <span class="comm-card__spec-val">Concrete</span>
-              </div>
-            </div>
-            <a href="contact.html?property=Springfield+Industrial" class="btn btn--primary">
-              Request Information Memorandum (IM)
-            </a>
-          </div>
-        </article>
+      <div class="commercial-grid" id="commercialGrid">
 
-        <!-- Asset 3: Shaka's Head Prime Land -->
-        <article class="comm-card" id="land">
+        <!-- 1. Urban Corner, Umhlanga (Land) -->
+        <article class="comm-card" data-category="land">
           <div class="comm-card__media">
-            <img src="assets/properties/5-nightjar-close/images/photo_05_384268198.jpg" alt="Shaka's Head Commercial Development Land" class="comm-card__img" width="800" height="500" loading="lazy">
-            <span class="comm-card__badge" style="color: #FFB800; border-color: #FFB800;">Prime Development Land</span>
+            <img src="assets/properties/commercial/urban-corner/1.png" alt="Urban Corner Umhlanga Prime Commercial Land" class="comm-card__img" width="800" height="500" loading="eager">
+            <div class="comm-card__tag-group">
+              <span class="comm-card__badge-type">For Sale</span>
+              <span class="comm-card__badge-cat">Prime Land</span>
+            </div>
           </div>
           <div class="comm-card__body">
-            <div class="comm-card__price">R 16,500,000</div>
-            <h2 class="comm-card__title">Commercial Highway Frontage Land &bull; Shaka's Head</h2>
+            <div class="comm-card__pricing">
+              <div class="comm-card__rate">R 33,000,000</div>
+              <div class="comm-card__base-rental">Excl. VAT &bull; Investment Land Opportunity</div>
+            </div>
+            <h2 class="comm-card__title">Urban Corner, Umhlanga: Prime Commercial Land</h2>
             <div class="comm-card__location">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Shaka's Head, Ballito Commercial Corridor
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Corner Park Way &amp; Twilight Drive, Umhlanga
             </div>
             <p class="comm-card__desc">
-              Strategic greenfield commercial land parcel positioned along the booming North Coast growth corridor. Approved zoning for commercial, mini-unit park development, or national retail showroom.
+              Unmatched commercial development parcel situated in Umhlanga’s booming corporate node. Approved bulk allocation, dual street exposure, and immediate proximity to the Gateway precinct.
             </p>
             <div class="comm-card__specs">
               <div class="comm-card__spec">
-                <span class="comm-card__spec-label">Site Erf</span>
-                <span class="comm-card__spec-val">12,500 m&sup2;</span>
+                <span class="comm-card__spec-label">Land Size</span>
+                <span class="comm-card__spec-val">4,831 m²</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Bulk Size</span>
+                <span class="comm-card__spec-val">8,213 m²</span>
               </div>
               <div class="comm-card__spec">
                 <span class="comm-card__spec-label">Zoning</span>
-                <span class="comm-card__spec-val">Commercial 2</span>
+                <span class="comm-card__spec-val">Commercial</span>
               </div>
               <div class="comm-card__spec">
-                <span class="comm-card__spec-label">Coverage</span>
-                <span class="comm-card__spec-val">60%</span>
-              </div>
-              <div class="comm-card__spec">
-                <span class="comm-card__spec-label">Frontage</span>
-                <span class="comm-card__spec-val">N2 Highway</span>
+                <span class="comm-card__spec-label">Availability</span>
+                <span class="comm-card__spec-val">Immediate</span>
               </div>
             </div>
-            <a href="contact.html?property=Shakas+Head+Land" class="btn btn--primary">
-              Request Land Feasibility Pack
-            </a>
+            <div class="comm-card__actions">
+              <a href="contact.html?property=Urban%20Corner%20Umhlanga%20Prime%20Land" class="btn btn--primary comm-card__btn">Request Info Pack</a>
+              <a href="https://wa.me/27695224226?text=Hi%20Rohan,%20I%20am%20inquiring%20about%20Urban%20Corner%20Umhlanga%20(R33M)." target="_blank" rel="noopener noreferrer" class="btn btn--outline comm-card__btn">WhatsApp Broker</a>
+            </div>
           </div>
         </article>
 
-        <!-- Asset 4: Umhlanga Ridge Corporate Office -->
-        <article class="comm-card">
+        <!-- 2. 1 Fortrose Avenue, Northfield Business Park (Industrial) -->
+        <article class="comm-card" data-category="industrial">
           <div class="comm-card__media">
-            <img src="assets/properties/6-sera-bella/images/photo-01.jpg" alt="Umhlanga Ridge Executive Corporate Suite" class="comm-card__img" width="800" height="500" loading="lazy">
-            <span class="comm-card__badge">AAA Grade Office Suite</span>
+            <img src="assets/properties/commercial/northfield-park/1.jpg" alt="1 Fortrose Avenue JT Ross Park Northfield Logistics Facility" class="comm-card__img" width="800" height="500" loading="eager">
+            <div class="comm-card__tag-group">
+              <span class="comm-card__badge-type">To Let</span>
+              <span class="comm-card__badge-cat">Industrial &amp; Logistics</span>
+            </div>
           </div>
           <div class="comm-card__body">
-            <div class="comm-card__price">R 11,800,000</div>
-            <h2 class="comm-card__title">Corporate Office Suite &bull; Umhlanga Ridge</h2>
+            <div class="comm-card__pricing">
+              <div class="comm-card__rate">R 110 / m²</div>
+              <div class="comm-card__base-rental">Warehouse @ R110/m² &bull; Offices @ R125/m²</div>
+            </div>
+            <h2 class="comm-card__title">1 Fortrose Avenue, JT Ross Park: Northfield</h2>
             <div class="comm-card__location">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Umhlanga Ridge Commercial Precinct
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              JT Ross Park: Northfield, Glen Anil / Durban North
             </div>
             <p class="comm-card__desc">
-              Premium commercial office space within a landmark green-star rated building. Full backup generators, fibre backbones, 18 dedicated basement parking bays, and strong institutional tenant profile.
+              State-of-the-art logistics facility with an optimal warehouse-to-office ratio. Features a dedicated 1,510 m² concrete hardstand yard, dock levellers, on-grade ramp, and full NFPA sprinkler compliance.
             </p>
             <div class="comm-card__specs">
               <div class="comm-card__spec">
-                <span class="comm-card__spec-label">GLA Extent</span>
-                <span class="comm-card__spec-val">620 m&sup2;</span>
+                <span class="comm-card__spec-label">Total GLA</span>
+                <span class="comm-card__spec-val">2,730.79 m²</span>
               </div>
               <div class="comm-card__spec">
-                <span class="comm-card__spec-label">Yield</span>
-                <span class="comm-card__spec-val">9.2% Net</span>
+                <span class="comm-card__spec-label">Warehouse</span>
+                <span class="comm-card__spec-val">2,453.40 m²</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Yard Area</span>
+                <span class="comm-card__spec-val">1,510 m²</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Availability</span>
+                <span class="comm-card__spec-val">1 July 2026</span>
+              </div>
+            </div>
+            <div class="comm-card__actions">
+              <a href="contact.html?property=1%20Fortrose%20Avenue%20Northfield" class="btn btn--primary comm-card__btn">Request Info Pack</a>
+              <a href="https://wa.me/27695224226?text=Hi%20Rohan,%20I%20am%20inquiring%20about%201%20Fortrose%20Ave%20Northfield%20Park." target="_blank" rel="noopener noreferrer" class="btn btn--outline comm-card__btn">WhatsApp Broker</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Glass House Building 5 (Office HQ) -->
+        <article class="comm-card" data-category="office">
+          <div class="comm-card__media">
+            <img src="assets/properties/commercial/glass-house-b5/1.jpg" alt="Glass House Building 5 First Floor Offices" class="comm-card__img" width="800" height="500" loading="lazy">
+            <div class="comm-card__tag-group">
+              <span class="comm-card__badge-type">To Let</span>
+              <span class="comm-card__badge-cat">Corporate HQ</span>
+            </div>
+          </div>
+          <div class="comm-card__body">
+            <div class="comm-card__pricing">
+              <div class="comm-card__rate">R 160 / m²</div>
+              <div class="comm-card__base-rental">Indicative Base: R 268,572.80 / month</div>
+            </div>
+            <h2 class="comm-card__title">Glass House Building 5: First Floor HQ</h2>
+            <div class="comm-card__location">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Glass House Office Park, Umhlanga Rocks Drive, La Lucia Ridge
+            </div>
+            <p class="comm-card__desc">
+              Substantial 1,678 m² single-tenant corporate floorplate. Features 4-star green rated infrastructure, continuous backup power generators, 48-hour reserve water systems, and 69 allocated parking bays.
+            </p>
+            <div class="comm-card__specs">
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Rentable Area</span>
+                <span class="comm-card__spec-val">1,678.58 m²</span>
               </div>
               <div class="comm-card__spec">
                 <span class="comm-card__spec-label">Parking</span>
-                <span class="comm-card__spec-val">18 Bays</span>
+                <span class="comm-card__spec-val">69 Bays</span>
               </div>
               <div class="comm-card__spec">
                 <span class="comm-card__spec-label">Backup</span>
-                <span class="comm-card__spec-val">Gen + Solar</span>
+                <span class="comm-card__spec-val">Full Gen &bull; Water</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Availability</span>
+                <span class="comm-card__spec-val">1 Apr 2025</span>
               </div>
             </div>
-            <a href="contact.html?property=Umhlanga+Corporate" class="btn btn--primary">
-              Request Information Memorandum (IM)
-            </a>
+            <div class="comm-card__actions">
+              <a href="contact.html?property=Glass%20House%20Building%205%20Umhlanga" class="btn btn--primary comm-card__btn">Request Info Pack</a>
+              <a href="https://wa.me/27695224226?text=Hi%20Rohan,%20I%20am%20inquiring%20about%20Glass%20House%20Building%205." target="_blank" rel="noopener noreferrer" class="btn btn--outline comm-card__btn">WhatsApp Broker</a>
+            </div>
           </div>
         </article>
+
+        <!-- 4. 21 Richefond Circle (Office) -->
+        <article class="comm-card" data-category="office">
+          <div class="comm-card__media">
+            <img src="assets/properties/commercial/21-richefond/1.jpg" alt="21 Richefond Circle Ground Floor Unit" class="comm-card__img" width="800" height="500" loading="lazy">
+            <div class="comm-card__tag-group">
+              <span class="comm-card__badge-type">To Let</span>
+              <span class="comm-card__badge-cat">Corporate Office</span>
+            </div>
+          </div>
+          <div class="comm-card__body">
+            <div class="comm-card__pricing">
+              <div class="comm-card__rate">R 185 / m²</div>
+              <div class="comm-card__base-rental">Indicative Base: R 102,197.70 / month</div>
+            </div>
+            <h2 class="comm-card__title">21 Richefond Circle: Ground Floor Suite</h2>
+            <div class="comm-card__location">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ridgeside Office Precinct, Umhlanga Ridge
+            </div>
+            <p class="comm-card__desc">
+              Prestigious Grade-A corporate suite in Umhlanga’s premier business precinct. Equipped with high-speed fiber backbone, dual generator power, 28 parking bays, and biometric security controls.
+            </p>
+            <div class="comm-card__specs">
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Rentable Area</span>
+                <span class="comm-card__spec-val">552.42 m²</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Parking</span>
+                <span class="comm-card__spec-val">28 Bays</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Backup</span>
+                <span class="comm-card__spec-val">Power &bull; Water</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Availability</span>
+                <span class="comm-card__spec-val">1 June 2026</span>
+              </div>
+            </div>
+            <div class="comm-card__actions">
+              <a href="contact.html?property=21%20Richefond%20Circle%20Umhlanga" class="btn btn--primary comm-card__btn">Request Info Pack</a>
+              <a href="https://wa.me/27695224226?text=Hi%20Rohan,%20I%20am%20inquiring%20about%2021%20Richefond%20Circle." target="_blank" rel="noopener noreferrer" class="btn btn--outline comm-card__btn">WhatsApp Broker</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. The Glades Office Park (Standalone Campus) -->
+        <article class="comm-card" data-category="office">
+          <div class="comm-card__media">
+            <img src="assets/properties/commercial/the-glades/1.jpg" alt="The Glades Office Park Standalone Building" class="comm-card__img" width="800" height="500" loading="lazy">
+            <div class="comm-card__tag-group">
+              <span class="comm-card__badge-type">To Let</span>
+              <span class="comm-card__badge-cat">Standalone HQ</span>
+            </div>
+          </div>
+          <div class="comm-card__body">
+            <div class="comm-card__pricing">
+              <div class="comm-card__rate">R 185 / m²</div>
+              <div class="comm-card__base-rental">Indicative Base: R 183,544.05 / month</div>
+            </div>
+            <h2 class="comm-card__title">The Glades Office Park: Stand Alone HQ</h2>
+            <div class="comm-card__location">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              The Glades, Armstrong Avenue, La Lucia Ridge
+            </div>
+            <p class="comm-card__desc">
+              Exclusive standalone corporate headquarters offering private brand identity and naming rights. Includes 50 bays (13 covered, 37 open), private backup generator, and serene manicured park gardens.
+            </p>
+            <div class="comm-card__specs">
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Rentable Area</span>
+                <span class="comm-card__spec-val">992.13 m²</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Parking</span>
+                <span class="comm-card__spec-val">50 Bays</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Identity</span>
+                <span class="comm-card__spec-val">Standalone</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Availability</span>
+                <span class="comm-card__spec-val">1 Feb 2026</span>
+              </div>
+            </div>
+            <div class="comm-card__actions">
+              <a href="contact.html?property=The%20Glades%20Standalone%20Building" class="btn btn--primary comm-card__btn">Request Info Pack</a>
+              <a href="https://wa.me/27695224226?text=Hi%20Rohan,%20I%20am%20inquiring%20about%20The%20Glades%20Standalone%20Building." target="_blank" rel="noopener noreferrer" class="btn btn--outline comm-card__btn">WhatsApp Broker</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. Dunlop House, 265 Sydney Road (Port Logistics Office) -->
+        <article class="comm-card" data-category="office">
+          <div class="comm-card__media">
+            <img src="assets/properties/commercial/dunlop-house/1.jpg" alt="Dunlop House 265 Sydney Road Congela Port Office" class="comm-card__img" width="800" height="500" loading="lazy">
+            <div class="comm-card__tag-group">
+              <span class="comm-card__badge-type">To Let</span>
+              <span class="comm-card__badge-cat">Port Logistics Office</span>
+            </div>
+          </div>
+          <div class="comm-card__body">
+            <div class="comm-card__pricing">
+              <div class="comm-card__rate">R 85 / m²</div>
+              <div class="comm-card__base-rental">Indicative Base: R 64,600.00 / month</div>
+            </div>
+            <h2 class="comm-card__title">Dunlop House: 265 Sydney Road</h2>
+            <div class="comm-card__location">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              265 Sydney Road, Congela, Durban Port Corridor
+            </div>
+            <p class="comm-card__desc">
+              Secure 760 m² second-floor commercial office space with immediate access to Durban’s port container terminals and the southern industrial basin. Dedicated parking and 24-hour perimeter security.
+            </p>
+            <div class="comm-card__specs">
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Rentable Area</span>
+                <span class="comm-card__spec-val">760.00 m²</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Parking</span>
+                <span class="comm-card__spec-val">Open Bays @ R300</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Access</span>
+                <span class="comm-card__spec-val">Port Arterial</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Availability</span>
+                <span class="comm-card__spec-val">Immediate</span>
+              </div>
+            </div>
+            <div class="comm-card__actions">
+              <a href="contact.html?property=Dunlop%20House%20Sydney%20Road" class="btn btn--primary comm-card__btn">Request Info Pack</a>
+              <a href="https://wa.me/27695224226?text=Hi%20Rohan,%20I%20am%20inquiring%20about%20Dunlop%20House%20Sydney%20Rd." target="_blank" rel="noopener noreferrer" class="btn btn--outline comm-card__btn">WhatsApp Broker</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7. 580 Riverside Road (Flex Retail / Showroom) -->
+        <article class="comm-card" data-category="retail">
+          <div class="comm-card__media">
+            <img src="assets/properties/commercial/580-riverside/1.jpg" alt="580 Riverside Road Durban North Commercial Showroom" class="comm-card__img" width="800" height="500" loading="lazy">
+            <div class="comm-card__tag-group">
+              <span class="comm-card__badge-type">To Let</span>
+              <span class="comm-card__badge-cat">Retail &amp; Showroom</span>
+            </div>
+          </div>
+          <div class="comm-card__body">
+            <div class="comm-card__pricing">
+              <div class="comm-card__rate">R 100 / m²</div>
+              <div class="comm-card__base-rental">Indicative Base: R 65,037.00 / month (Negotiable)</div>
+            </div>
+            <h2 class="comm-card__title">580 Riverside Road: Ground &amp; 1st Floor</h2>
+            <div class="comm-card__location">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              580 Riverside Road, Durban North
+            </div>
+            <p class="comm-card__desc">
+              High-visibility commercial building offering flexible ground and first-floor accommodations. Features road-facing showroom display, shared heavy-vehicle yard access, and immediate M4 freeway access.
+            </p>
+            <div class="comm-card__specs">
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Rentable Area</span>
+                <span class="comm-card__spec-val">650.37 m²</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Layout</span>
+                <span class="comm-card__spec-val">Ground + 1st</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Yard</span>
+                <span class="comm-card__spec-val">Shared Access</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Availability</span>
+                <span class="comm-card__spec-val">Immediate</span>
+              </div>
+            </div>
+            <div class="comm-card__actions">
+              <a href="contact.html?property=580%20Riverside%20Road" class="btn btn--primary comm-card__btn">Request Info Pack</a>
+              <a href="https://wa.me/27695224226?text=Hi%20Rohan,%20I%20am%20inquiring%20about%20580%20Riverside%20Road." target="_blank" rel="noopener noreferrer" class="btn btn--outline comm-card__btn">WhatsApp Broker</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8. The Avenues Centre, Hilton (Retail Showroom) -->
+        <article class="comm-card" data-category="retail">
+          <div class="comm-card__media">
+            <img src="assets/properties/commercial/the-avenues-hilton/1.jpg" alt="The Avenues Centre Hilton Retail Showroom" class="comm-card__img" width="800" height="500" loading="lazy">
+            <div class="comm-card__tag-group">
+              <span class="comm-card__badge-type">To Let</span>
+              <span class="comm-card__badge-cat">Retail Showroom</span>
+            </div>
+          </div>
+          <div class="comm-card__body">
+            <div class="comm-card__pricing">
+              <div class="comm-card__rate">R 200 / m²</div>
+              <div class="comm-card__base-rental">Indicative Base: R 41,800.00 / month</div>
+            </div>
+            <h2 class="comm-card__title">The Avenues Centre: Prime Retail Unit</h2>
+            <div class="comm-card__location">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              The Avenues Centre, Hilton, KZN Midlands
+            </div>
+            <p class="comm-card__desc">
+              High-footfall 209 m² commercial retail shop in Hilton’s premier convenience shopping destination. Captures affluent Midlands residential demographics, backed by full center generator infrastructure.
+            </p>
+            <div class="comm-card__specs">
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Rentable Area</span>
+                <span class="comm-card__spec-val">209.00 m²</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Power</span>
+                <span class="comm-card__spec-val">Generator Backup</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Category</span>
+                <span class="comm-card__spec-val">Retail Shop</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Availability</span>
+                <span class="comm-card__spec-val">Immediate</span>
+              </div>
+            </div>
+            <div class="comm-card__actions">
+              <a href="contact.html?property=The%20Avenues%20Centre%20Hilton" class="btn btn--primary comm-card__btn">Request Info Pack</a>
+              <a href="https://wa.me/27695224226?text=Hi%20Rohan,%20I%20am%20inquiring%20about%20The%20Avenues%20Centre%20Hilton." target="_blank" rel="noopener noreferrer" class="btn btn--outline comm-card__btn">WhatsApp Broker</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9. Building 2, Glass House Office Park (Office) -->
+        <article class="comm-card" data-category="office">
+          <div class="comm-card__media">
+            <img src="assets/properties/commercial/glass-house-b2/1.jpg" alt="Building 2 Glass House Office Park Ground Floor" class="comm-card__img" width="800" height="500" loading="lazy">
+            <div class="comm-card__tag-group">
+              <span class="comm-card__badge-type">To Let</span>
+              <span class="comm-card__badge-cat">Corporate Office</span>
+            </div>
+          </div>
+          <div class="comm-card__body">
+            <div class="comm-card__pricing">
+              <div class="comm-card__rate">R 150 / m²</div>
+              <div class="comm-card__base-rental">Indicative Base: R 13,743.65 / month (716 m² total)</div>
+            </div>
+            <h2 class="comm-card__title">Building 2, Glass House Office Park</h2>
+            <div class="comm-card__location">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Glass House Office Park, Umhlanga Rocks Drive, La Lucia Ridge
+            </div>
+            <p class="comm-card__desc">
+              Ground-floor office suite situated in the heart of La Lucia Ridge’s most established executive address. Access to lush communal gardens, premium café, on-site generator, and dedicated security.
+            </p>
+            <div class="comm-card__specs">
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Total Area</span>
+                <span class="comm-card__spec-val">716.00 m²</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Floor</span>
+                <span class="comm-card__spec-val">Ground Floor</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Security</span>
+                <span class="comm-card__spec-val">24/7 Gated Park</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Availability</span>
+                <span class="comm-card__spec-val">Immediate</span>
+              </div>
+            </div>
+            <div class="comm-card__actions">
+              <a href="contact.html?property=Building%202%20Glass%20House%20Park" class="btn btn--primary comm-card__btn">Request Info Pack</a>
+              <a href="https://wa.me/27695224226?text=Hi%20Rohan,%20I%20am%20inquiring%20about%20Building%202%20Glass%20House%20Park." target="_blank" rel="noopener noreferrer" class="btn btn--outline comm-card__btn">WhatsApp Broker</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 10. Glass House Building 1 (Boutique Office) -->
+        <article class="comm-card" data-category="office">
+          <div class="comm-card__media">
+            <img src="assets/properties/commercial/glass-house-b1/1.jpg" alt="Glass House Building 1 Ground Floor Office" class="comm-card__img" width="800" height="500" loading="lazy">
+            <div class="comm-card__tag-group">
+              <span class="comm-card__badge-type">To Let</span>
+              <span class="comm-card__badge-cat">Boutique Office</span>
+            </div>
+          </div>
+          <div class="comm-card__body">
+            <div class="comm-card__pricing">
+              <div class="comm-card__rate">R 175 / m²</div>
+              <div class="comm-card__base-rental">Indicative Base: R 41,125.00 / month</div>
+            </div>
+            <h2 class="comm-card__title">Glass House Building 1: Ground Floor</h2>
+            <div class="comm-card__location">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Glass House Office Park, Umhlanga Rocks Drive, La Lucia Ridge
+            </div>
+            <p class="comm-card__desc">
+              Turnkey 235 m² boutique ground-floor corporate unit. Ideal for professional consultancy, legal practice, or financial services looking for immediate plug-and-play occupancy in Umhlanga.
+            </p>
+            <div class="comm-card__specs">
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Rentable Area</span>
+                <span class="comm-card__spec-val">235.00 m²</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Parking</span>
+                <span class="comm-card__spec-val">Covered &bull; Open</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Infrastructure</span>
+                <span class="comm-card__spec-val">Generator Backup</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Availability</span>
+                <span class="comm-card__spec-val">Immediate</span>
+              </div>
+            </div>
+            <div class="comm-card__actions">
+              <a href="contact.html?property=Glass%20House%20Building%201" class="btn btn--primary comm-card__btn">Request Info Pack</a>
+              <a href="https://wa.me/27695224226?text=Hi%20Rohan,%20I%20am%20inquiring%20about%20Glass%20House%20Building%201." target="_blank" rel="noopener noreferrer" class="btn btn--outline comm-card__btn">WhatsApp Broker</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 11. 7 The Boulevard, Westway Office Park (Office) -->
+        <article class="comm-card" data-category="office">
+          <div class="comm-card__media">
+            <img src="assets/properties/commercial/7-boulevard-westway/1.jpg" alt="7 The Boulevard Westway Office Park Westville" class="comm-card__img" width="800" height="500" loading="lazy">
+            <div class="comm-card__tag-group">
+              <span class="comm-card__badge-type">To Let</span>
+              <span class="comm-card__badge-cat">Corporate Office</span>
+            </div>
+          </div>
+          <div class="comm-card__body">
+            <div class="comm-card__pricing">
+              <div class="comm-card__rate">R 148 / m²</div>
+              <div class="comm-card__base-rental">Indicative Base: R 19,846.80 / month</div>
+            </div>
+            <h2 class="comm-card__title">7 The Boulevard: Westway Office Park</h2>
+            <div class="comm-card__location">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              7 The Boulevard, Westway Office Park, Westville (N3 Corridor)
+            </div>
+            <p class="comm-card__desc">
+              Immediate first-floor office accommodation within Westway Office Park. Strategic N3 highway access adjacent to the Pavilion Mall, 15 dedicated parking bays, and multi-tier boom gate security.
+            </p>
+            <div class="comm-card__specs">
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Rentable Area</span>
+                <span class="comm-card__spec-val">134.10 m²</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Parking</span>
+                <span class="comm-card__spec-val">15 Bays (10 Cov)</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Location</span>
+                <span class="comm-card__spec-val">N3 Westville</span>
+              </div>
+              <div class="comm-card__spec">
+                <span class="comm-card__spec-label">Availability</span>
+                <span class="comm-card__spec-val">Immediate</span>
+              </div>
+            </div>
+            <div class="comm-card__actions">
+              <a href="contact.html?property=7%20The%20Boulevard%20Westway" class="btn btn--primary comm-card__btn">Request Info Pack</a>
+              <a href="https://wa.me/27695224226?text=Hi%20Rohan,%20I%20am%20inquiring%20about%207%20The%20Boulevard%20Westway." target="_blank" rel="noopener noreferrer" class="btn btn--outline comm-card__btn">WhatsApp Broker</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Corporate Advisory Banner -->
+      <div class="comm-advisory">
+        <div>
+          <span class="section-kicker" style="color: var(--color-primary-light);">Corporate Real Estate Solutions</span>
+          <h2 class="comm-advisory__title">Have a Bespoke Industrial or Commercial Requirement?</h2>
+          <p class="comm-advisory__p">
+            Whether you require large-scale industrial bulk land, build-to-suit logistics facilities, or off-market corporate relocations across KwaZulu-Natal, Rohan Ramlall and Blue Ocean Realty provide discreet, end-to-end transaction advisory.
+          </p>
+        </div>
+        <div class="comm-advisory__action">
+          <a href="contact.html?property=Bespoke%20Commercial%20Mandate" class="btn btn--primary" style="text-align: center; justify-content: center; width: 100%;">Submit Corporate Brief</a>
+          <a href="https://wa.me/27695224226?text=Hi%20Rohan,%20I%20have%20a%20commercial%20property%20mandate%20to%20discuss." target="_blank" rel="noopener noreferrer" class="btn btn--outline" style="color: #FFFFFF; border-color: rgba(255,255,255,0.4); text-align: center; justify-content: center; width: 100%;">Direct Executive WhatsApp</a>
+        </div>
       </div>
 
     </div>
   </section>
 
   <!-- ============================================================
-       CANONICAL COMPLIANCE FOOTER
+       CANONICAL FOOTER
        ============================================================ -->
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer__grid">
-        <!-- Col 1: Brand & Brokerage -->
-        <div class="footer__col-brand">
-          <a href="index.html" class="footer__brand-title">
-            ROHAN <span>REALTY</span>
-          </a>
-          <p class="footer__brand-desc">
-            Bespoke representation for ultra-luxury residential properties and high-yield commercial assets across KwaZulu-Natal.
+        <div>
+          <div class="footer__brand-title">ROHAN <span>REALTY</span></div>
+          <p class="footer__brand-tagline">
+            Curated South African coastal sanctuaries, trophy penthouses, and prime commercial assets. Powered by Blue Ocean Realty's licensed brokerage infrastructure.
           </p>
-          <div class="footer__brand-creds">
-            <div><strong>Rohan Ramlall</strong> &bull; Property Practitioner</div>
-            <div>Operating under <strong>Blue Ocean Realty</strong></div>
-            <div>Registered with the <strong>PPRA</strong> (Property Practitioners Regulatory Authority)</div>
+          <div class="footer__contact-item">
+            <strong>Direct:</strong> <a href="tel:+27695224226">+27 69 522 4226</a>
+          </div>
+          <div class="footer__contact-item">
+            <strong>Agency Office:</strong> <a href="tel:+27315637207">+27 31 563 7207</a>
+          </div>
+          <div class="footer__contact-item">
+            <strong>Email:</strong> <a href="mailto:rohan@blueoceanrealty.co.za">rohan@blueoceanrealty.co.za</a>
           </div>
         </div>
 
-        <!-- Col 2: Residential -->
         <div>
-          <h4 class="footer__col-title">Residential</h4>
+          <h4 class="footer__col-title">Portfolio</h4>
           <ul class="footer__links">
-            <li><a href="residential.html">All Luxury Residences</a></li>
-            <li><a href="5-nightjar-close.html">5 Nightjar Close (R28M)</a></li>
-            <li><a href="55-hawaan-drive.html">55 Hawaan Drive (R19.995M)</a></li>
-            <li><a href="12-sera-bella.html">12 Sera Bella (R9.575M)</a></li>
-            <li><a href="6-sera-bella.html">6 Sera Bella (R8.995M)</a></li>
+            <li><a href="residential.html" class="footer__link">Residential Collection</a></li>
+            <li><a href="commercial.html" class="footer__link">Commercial &amp; Industrial</a></li>
+            <li><a href="5-nightjar-close.html" class="footer__link">5 Nightjar Close (R28M)</a></li>
+            <li><a href="55-hawaan-drive.html" class="footer__link">55 Hawaan Drive (R19.995M)</a></li>
+            <li><a href="12-sera-bella.html" class="footer__link">12 Sera Bella (R9.575M)</a></li>
+            <li><a href="6-sera-bella.html" class="footer__link">6 Sera Bella (R8.995M)</a></li>
           </ul>
         </div>
 
-        <!-- Col 3: Commercial & Advisory -->
         <div>
-          <h4 class="footer__col-title">Commercial &amp; Agency</h4>
+          <h4 class="footer__col-title">Corporate &amp; Agency</h4>
           <ul class="footer__links">
-            <li><a href="commercial.html">Commercial &amp; Industrial</a></li>
-            <li><a href="commercial.html#land">Development Land</a></li>
-            <li><a href="about.html">About Rohan Ramlall</a></li>
-            <li><a href="contact.html">Private Client Desk</a></li>
-            <li><a href="contact.html#valuation">Request Confidential Valuation</a></li>
+            <li><a href="about.html" class="footer__link">About Rohan &amp; Agency</a></li>
+            <li><a href="contact.html" class="footer__link">Private Concierge Desk</a></li>
+            <li><a href="about.html#blue-ocean" class="footer__link">Blue Ocean Realty Firm</a></li>
+            <li><a href="about.html#social" class="footer__link">Social Channels</a></li>
           </ul>
         </div>
 
-        <!-- Col 4: Contact & Socials -->
         <div>
-          <h4 class="footer__col-title">Direct Contact</h4>
-          <div class="footer__contact-items">
-            <div class="footer__contact-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              <div>
-                <div>Direct / WhatsApp: <a href="tel:0695224226" style="color:#FFFFFF; font-weight:700;">069 522 4226</a></div>
-                <div style="font-size:0.75rem; color:rgba(255,255,255,0.6);">Rohan Ramlall</div>
-              </div>
-            </div>
-            <div class="footer__contact-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-              <div>
-                <div>Blue Ocean Realty Office</div>
-                <div style="font-size:0.75rem; color:rgba(255,255,255,0.6);">Suite 6, 66 Adelaide Tambo Dr, Durban North</div>
-              </div>
-            </div>
+          <h4 class="footer__col-title">Blue Ocean Realty Head Office</h4>
+          <div class="footer__contact-item">
+            Suite 6, 66 Adelaide Tambo Drive,<br>
+            Durban North, 4051,<br>
+            KwaZulu-Natal, South Africa
           </div>
-
-          <div class="footer__socials">
-            <a href="https://www.instagram.com/rohanrealty.co.za?rpxt=MWtrcWkybTcxODBlZA==" target="_blank" rel="noopener noreferrer" class="footer__social-btn" aria-label="Instagram @rohanrealty.co.za">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-            </a>
-            <a href="https://www.tiktok.com/@rohanrealty.co.za?_r=1&_t=ZS-9B7lsh26nrA" target="_blank" rel="noopener noreferrer" class="footer__social-btn" aria-label="TikTok @rohanrealty.co.za">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
-            </a>
-            <a href="https://www.facebook.com/share/1Gdn6cE84s/" target="_blank" rel="noopener noreferrer" class="footer__social-btn" aria-label="Facebook Rohan Realty">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-            </a>
+          <div class="footer__contact-item" style="margin-top: 1rem;">
+            <small style="color: var(--color-text-muted);">
+              Licensed with the PPRA (Property Practitioners Regulatory Authority). All mandates verified.
+            </small>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="footer__divider"></div>
-
-      <div class="footer__bottom">
-        <p class="footer__disclaimer">
-          All property representations, specifications, dimensions, rates, and values displayed on rohanrealty.co.za are believed to be accurate at time of listing but do not constitute legal representation or warranties. Prospective buyers and institutional investors must satisfy themselves through independent due diligence. Operating with full fidelity under Blue Ocean Realty, Suite 6, 66 Adelaide Tambo Drive, Durban North.
-        </p>
-        <div class="footer__copy">
-          <div>&copy; 2026 Rohan Realty &amp; Blue Ocean Realty. All rights reserved.</div>
-          <div>POPIA Compliant Real Estate Operations &bull; Registered with the PPRA</div>
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <div>
+          &copy; 2026 Rohan Realty &bull; Rohan Ramlall. Operating under Blue Ocean Realty. All rights reserved.
+        </div>
+        <div class="footer__bottom-links">
+          <span>PPRA Registered</span>
+          <span>&bull;</span>
+          <span>Durban North &bull; Umhlanga</span>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Master Portal Scripts -->
+  <!-- Scripts -->
   <script src="js/main.js"></script>
+  <script>
+    // Client-side filtering logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('#commercialGrid .comm-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.getAttribute('data-filter');
+
+          // Update active button state
+          filterBtns.forEach(b => {
+            b.classList.remove('filter-btn--active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('filter-btn--active');
+          btn.setAttribute('aria-selected', 'true');
+
+          // Filter cards
+          cards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (filter === 'all' || category === filter) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html>
