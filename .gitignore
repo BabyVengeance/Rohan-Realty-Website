@@ -1,0 +1,11 @@
+# Knowledge Hub - Client Raw Files & Local Context
+context/raw/
+context/**/*.pdf
+context/**/*.docx
+context/**/*.pptx
+context/**/*.zip
+
+# System & Editor
+.DS_Store
+Thumbs.db
+node_modules/
