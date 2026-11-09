@@ -793,6 +793,61 @@ a {
 /* --------------------------------------------------------------------------
    8. Responsive Breakpoints
    -------------------------------------------------------------------------- */
+
+/* 1. Tablet Landscape & Intermediate Viewports (1025px - 1280px): Spacious Navbar & Reduced-Size Logos */
+@media (max-width: 1280px) {
+  .nav__inner {
+    padding: 0 clamp(1rem, 2vw, 1.75rem) !important;
+    gap: 1rem !important;
+  }
+
+  /* Compact Dual Logos on Tablet */
+  .nav__brand {
+    gap: 0.5rem !important;
+  }
+
+  .nav__brand-title {
+    font-size: 1.05rem !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  .nav__brand-sub {
+    display: none !important;
+  }
+
+  .nav__brand-divider {
+    height: 20px !important;
+    margin: 0 !important;
+    opacity: 0.6 !important;
+  }
+
+  .nav__brand-logo {
+    height: 26px !important;
+    width: auto !important;
+  }
+
+  /* Spacious Nav Links on Tablet */
+  .nav__links {
+    gap: clamp(0.6rem, 1.2vw, 1.15rem) !important;
+  }
+
+  .nav__link {
+    font-size: 0.8125rem !important;
+    padding: 0.35rem 0.15rem !important;
+  }
+
+  /* Compact CTA on Tablet */
+  .nav__actions .btn--primary.nav__cta,
+  .nav__actions .nav__cta,
+  .btn--primary.nav__cta,
+  .nav__cta {
+    min-height: 38px !important;
+    padding: 0.45rem 0.95rem !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em !important;
+  }
+}
+
 @media (max-width: 1024px) {
   .nav__links {
     display: none !important;
@@ -809,6 +864,10 @@ a {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --nav-height: 72px;
+  }
+
   input, select, textarea {
     font-size: 16px !important; /* Prevents iOS auto-zoom on form focus */
   }
@@ -818,16 +877,65 @@ a {
   .nav__actions .btn--primary {
     display: none !important;
   }
+
+  /* Strictly BLUE OCEAN REALTY ONLY on Mobile (Never Rohan Realty) */
+  .nav__brand-primary {
+    display: none !important;
+  }
+
+  .nav__brand-divider {
+    display: none !important;
+  }
+
+  .nav__brand-agency {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .nav__brand-logo {
+    display: block !important;
+    height: 32px !important;
+    width: auto !important;
+    max-width: 155px !important;
+    object-fit: contain !important;
+  }
+
+  .nav__brand {
+    gap: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 }
 
 @media (max-width: 640px) {
   :root {
-    --nav-height: 74px;
+    --nav-height: 68px;
   }
-  .nav__brand-divider,
-  .nav__brand-agency {
+
+  /* Re-affirm BLUE OCEAN REALTY ONLY on Small Handhelds */
+  .nav__brand-primary {
     display: none !important;
   }
+
+  .nav__brand-divider {
+    display: none !important;
+  }
+
+  .nav__brand-agency {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .nav__brand-logo {
+    display: block !important;
+    height: 29px !important;
+    max-width: 140px !important;
+  }
+
+  .nav__inner {
+    padding: 0 1rem !important;
+  }
+
   .footer__grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;

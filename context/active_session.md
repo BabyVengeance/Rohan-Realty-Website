@@ -1,10 +1,21 @@
 # Active Session — Rohan Realty
 
-## Current Status: Navbar Bottom Border Removed — 100% Seamless Transitions Verified
+## Current Status: Tablet Navbar Congestion Resolved & Mobile Blue Ocean Realty Exclusivity Enforced
 
 ### Accomplished in this Session
 
-1. **Elimination of Navbar Bottom Border Line Across All Pages:**
+1. **Tablet Viewport Navbar De-congestion Overhaul (1025px - 1280px):**
+   - **Reduced Dual Logo Footprint:** Scaled down `ROHAN REALTY` title to `1.05rem` (`16.8px`), hid redundant submark, reduced divider to `20px`, and reduced `BLUE OCEAN Realty` logo height to `26px` (width reduced from 152px to ~104px). Total brand footprint compressed from 340px to ~230px, reclaiming >110px of horizontal space.
+   - **Spacious Link Matrix:** Reduced link gap to `clamp(0.6rem, 1.2vw, 1.15rem)` and font size to `0.8125rem` (13px), reducing links footprint from 500px to ~410px.
+   - **Compact CTA Consultation Button:** Scaled padding to `0.45rem 0.95rem` and font size to `0.75rem` (`min-height: 38px`), reducing button width from 210px to ~145px.
+   - **Net Result:** Total navbar content footprint reduced by >300px, creating ~300px to 450px of open breathing room across tablet landscape viewports.
+
+2. **Mobile Branding Exclusivity Enforced (<= 768px):**
+   - **Strict Blue Ocean Realty Only:** Completely hid `ROHAN REALTY` (`.nav__brand-primary: none !important`) and divider (`.nav__brand-divider: none !important`).
+   - **Prominent Agency Emblem:** Rendered strictly the `BLUE OCEAN Realty` logo (`.nav__brand-agency: flex !important; .nav__brand-logo: height 32px; width auto; max-width 155px;`).
+   - **Clean Mobile Architecture:** Left side features strictly the Blue Ocean Realty brand mark; right side features the accessible 48px hamburger menu button, with zero congestion and zero overlap.
+
+3. **Elimination of Navbar Bottom Border Line Across All Pages:**
    - **Root Cause Isolated:** A `border-bottom: 1px solid transparent !important` was declared on `.site-header` in `css/header.css` and `css/main.css`. In Chromium/WebKit rasterization with high-DPI display scaling (125%/150%), rendering a 1px transparent border on a fixed gradient container over photography produces a 1px dark compositing edge seam.
    - **Fix Implemented:**
      - Enforced `border: none !important; border-bottom: none !important;` on `.site-header`, `.site-header--transparent`, and `.site-header--scrolled` across both [`css/header.css`](file:///e:/MONEY/Real%20estate/rohan%20realty/Rohan%20Realty/css/header.css) and [`css/main.css`](file:///e:/MONEY/Real%20estate/rohan%20realty/Rohan%20Realty/css/main.css).

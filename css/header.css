@@ -574,12 +574,78 @@ body {
 }
 
 /* Responsive Breakpoints */
+
+/* 1. Tablet Landscape & Intermediate Viewports (1025px - 1280px): Spacious Navbar & Reduced-Size Logos */
+@media (max-width: 1280px) {
+  .site-header .nav__inner,
+  .nav__inner {
+    padding: 0 clamp(1rem, 2vw, 1.75rem) !important;
+    gap: 1rem !important;
+  }
+
+  /* Compact Dual Logos on Tablet */
+  .site-header .nav__brand,
+  .nav__brand {
+    gap: 0.5rem !important;
+  }
+
+  .site-header .nav__brand-title,
+  .nav__brand-title {
+    font-size: 1.05rem !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  .site-header .nav__brand-sub,
+  .nav__brand-sub {
+    display: none !important;
+  }
+
+  .site-header .nav__brand-divider,
+  .nav__brand-divider {
+    height: 20px !important;
+    margin: 0 !important;
+    opacity: 0.6 !important;
+  }
+
+  .site-header .nav__brand-logo,
+  .nav__brand-logo {
+    height: 26px !important;
+    width: auto !important;
+  }
+
+  /* Spacious Nav Links on Tablet */
+  .site-header .nav__links,
+  .nav__links {
+    gap: clamp(0.6rem, 1.2vw, 1.15rem) !important;
+  }
+
+  .site-header .nav__link,
+  .nav__link {
+    font-size: 0.8125rem !important;
+    padding: 0.35rem 0.15rem !important;
+  }
+
+  /* Compact CTA on Tablet */
+  .site-header .nav__actions .btn--primary.nav__cta,
+  .site-header .nav__actions .nav__cta,
+  .nav__actions .btn--primary.nav__cta,
+  .nav__actions .nav__cta,
+  .btn--primary.nav__cta,
+  .nav__cta {
+    min-height: 38px !important;
+    padding: 0.45rem 0.95rem !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em !important;
+  }
+}
+
 @media (max-width: 1100px) {
   .notion-toc--offset {
     bottom: calc(74px + env(safe-area-inset-bottom, 0px) + 1rem) !important;
   }
 }
 
+/* 2. Tablet Portrait & Below (<= 1024px): Switch to Hamburger Drawer */
 @media (max-width: 1024px) {
   .site-header .nav__links,
   .nav__links {
@@ -591,32 +657,91 @@ body {
   }
 }
 
+/* 3. Mobile Viewports (<= 768px): BLUE OCEAN REALTY ONLY (Never Rohan Realty) */
 @media (max-width: 768px) {
+  :root {
+    --nav-height: 72px;
+  }
+
   input, select, textarea {
     font-size: 16px !important; /* Prevents iOS auto-zoom on form focus */
   }
 
+  /* Hide Desktop CTA */
   .site-header .nav__actions .btn--primary.nav__cta,
   .site-header .nav__actions .nav__cta,
   .nav__actions .btn--primary.nav__cta,
   .nav__actions .nav__cta {
     display: none !important;
   }
-}
 
-@media (max-width: 640px) {
-  :root {
-    --nav-height: 74px;
-  }
-  .site-header .nav__brand-divider,
-  .site-header .nav__brand-agency,
-  .nav__brand-divider,
-  .nav__brand-agency {
+  /* Strictly BLUE OCEAN REALTY ONLY on Mobile */
+  .site-header .nav__brand-primary,
+  .nav__brand-primary {
     display: none !important;
   }
-  .site-header .nav__brand-title,
-  .nav__brand-title {
-    font-size: 1.15rem !important;
+
+  .site-header .nav__brand-divider,
+  .nav__brand-divider {
+    display: none !important;
+  }
+
+  .site-header .nav__brand-agency,
+  .nav__brand-agency {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .site-header .nav__brand-logo,
+  .nav__brand-logo {
+    display: block !important;
+    height: 32px !important;
+    width: auto !important;
+    max-width: 155px !important;
+    object-fit: contain !important;
+  }
+
+  .site-header .nav__brand,
+  .nav__brand {
+    gap: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+/* 4. Small Mobile Phones (<= 640px): Retain Blue Ocean Realty Logo Exclusively */
+@media (max-width: 640px) {
+  :root {
+    --nav-height: 68px;
+  }
+
+  /* Strictly BLUE OCEAN REALTY ONLY */
+  .site-header .nav__brand-primary,
+  .nav__brand-primary {
+    display: none !important;
+  }
+
+  .site-header .nav__brand-divider,
+  .nav__brand-divider {
+    display: none !important;
+  }
+
+  .site-header .nav__brand-agency,
+  .nav__brand-agency {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .site-header .nav__brand-logo,
+  .nav__brand-logo {
+    display: block !important;
+    height: 29px !important;
+    max-width: 140px !important;
+  }
+
+  .site-header .nav__inner,
+  .nav__inner {
+    padding: 0 1rem !important;
   }
 }
 
