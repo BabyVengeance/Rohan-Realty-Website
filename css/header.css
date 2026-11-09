@@ -1,0 +1,629 @@
+/* ==========================================================================
+   CANONICAL MASTER HEADER & CO-BRANDED NAVIGATION
+   Domain: rohanrealty.co.za | Sovereign Minimalism Standards
+   Matching index.html Homepage Specifications 1:1
+   ========================================================================== */
+
+/* Global Mobile Ergonomics & Viewport Hardening */
+html {
+  overflow-x: clip !important;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: clip !important;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --color-primary: #C9A050;
+  --color-primary-hover: #B88E3E;
+  --color-primary-glow: rgba(201, 160, 80, 0.25);
+  --color-navy: #0A192F;
+  --color-navy-dark: #060B14;
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --nav-height: 84px;
+  --nav-max-width: 1440px;
+  --radius-xs: 4px;
+  --touch-min: 48px;
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Header Container */
+.site-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: var(--nav-height, 84px) !important;
+  z-index: 1000 !important;
+  transition: background var(--transition-normal, 0.35s ease), box-shadow var(--transition-normal, 0.35s ease) !important;
+  border: none !important;
+  border-bottom: none !important;
+  box-sizing: border-box !important;
+}
+
+.site-header--transparent {
+  background: linear-gradient(180deg, rgba(6, 11, 20, 0.88) 0%, rgba(6, 11, 20, 0.4) 60%, rgba(6, 11, 20, 0) 100%) !important;
+  border: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.site-header--scrolled {
+  background: rgba(6, 11, 20, 0.96) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: none !important;
+  border-bottom: none !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Expansive Inner Container (Strict 1440px Viewport Matching Homepage) */
+.site-header .nav__inner,
+.nav__inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  height: 100% !important;
+  max-width: 1440px !important;
+  margin: 0 auto !important;
+  padding: 0 clamp(1.25rem, 3.5vw, 2.5rem) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Co-Branded Lockup: Rohan Realty x Blue Ocean Realty */
+.site-header .nav__brand,
+.nav__brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem) !important;
+  text-decoration: none !important;
+  flex-shrink: 0 !important;
+}
+
+.site-header .nav__brand-primary,
+.nav__brand-primary {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.site-header .nav__brand-title,
+.nav__brand-title {
+  font-family: var(--font-heading, 'Outfit', sans-serif) !important;
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #FFFFFF !important;
+  line-height: 1.1 !important;
+}
+
+.site-header .nav__brand-title span,
+.nav__brand-title span {
+  color: var(--color-primary, #C9A050) !important;
+}
+
+.site-header .nav__brand-sub,
+.nav__brand-sub {
+  font-family: var(--font-heading, 'Outfit', sans-serif) !important;
+  font-size: 0.625rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  margin-top: 2px !important;
+}
+
+.site-header .nav__brand-divider,
+.nav__brand-divider {
+  width: 1px !important;
+  height: 32px !important;
+  background-color: rgba(201, 160, 80, 0.35) !important;
+}
+
+.site-header .nav__brand-agency,
+.nav__brand-agency {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.site-header .nav__brand-logo,
+.nav__brand-logo {
+  height: 38px !important;
+  width: auto !important;
+  display: block !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4)) !important;
+}
+
+/* Nav Links Matrix */
+.site-header .nav__links,
+.nav__links {
+  display: flex !important;
+  align-items: center !important;
+  gap: clamp(1rem, 1.8vw, 2.25rem) !important;
+}
+
+.site-header .nav__link,
+.nav__link {
+  font-family: var(--font-heading, 'Outfit', sans-serif) !important;
+  font-size: clamp(0.875rem, 0.95vw, 0.9375rem) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  position: relative !important;
+  padding: 0.5rem 0 !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+  transition: color var(--transition-fast, 0.2s ease) !important;
+}
+
+.site-header .nav__link::after,
+.nav__link::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 0 !important;
+  height: 2px !important;
+  background-color: var(--color-primary, #C9A050) !important;
+  transition: width var(--transition-fast, 0.2s ease) !important;
+}
+
+.site-header .nav__link:hover,
+.nav__link:hover {
+  color: #FFFFFF !important;
+}
+
+.site-header .nav__link:hover::after,
+.site-header .nav__link--active::after,
+.nav__link:hover::after,
+.nav__link--active::after {
+  width: 100% !important;
+}
+
+.site-header .nav__link--active,
+.nav__link--active {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+/* Nav Actions & Mobile Toggle */
+.site-header .nav__actions,
+.nav__actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  flex-shrink: 0 !important;
+}
+
+.btn--primary.nav__cta,
+.nav__cta {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 44px !important;
+  padding: 0.625rem 1.375rem !important;
+  font-family: var(--font-heading, 'Outfit', sans-serif) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  background: linear-gradient(135deg, #ECC880 0%, #C9A050 50%, #B08530 100%) !important;
+  color: #060B14 !important;
+  border: 1px solid #ECC880 !important;
+  border-radius: var(--radius-xs, 4px) !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(201, 160, 80, 0.28) !important;
+  transition: all var(--transition-fast, 0.2s ease) !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+}
+
+.btn--primary.nav__cta:hover,
+.nav__cta:hover {
+  background: linear-gradient(135deg, #F3D99E 0%, #D4AF37 50%, #BD923B 100%) !important;
+  box-shadow: 0 6px 20px rgba(201, 160, 80, 0.4) !important;
+  transform: translateY(-2px) !important;
+  color: #060B14 !important;
+}
+
+.site-header .nav__toggle,
+.nav__toggle {
+  display: none !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 5px !important;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+  min-height: 48px !important;
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: var(--radius-xs, 4px) !important;
+  cursor: pointer !important;
+  z-index: 1201 !important;
+  padding: 0 !important;
+  -webkit-tap-highlight-color: transparent !important;
+  touch-action: manipulation !important;
+  transition: border-color var(--transition-fast, 0.2s ease), background-color var(--transition-fast, 0.2s ease), transform var(--transition-fast, 0.2s ease) !important;
+}
+
+.site-header .nav__toggle:active,
+.nav__toggle:active {
+  transform: scale(0.96) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.site-header .nav__toggle span,
+.nav__toggle span {
+  display: block !important;
+  width: 22px !important;
+  height: 2px !important;
+  background-color: #FFFFFF !important;
+  transition: transform var(--transition-fast, 0.2s ease), opacity var(--transition-fast, 0.2s ease) !important;
+}
+
+.site-header .nav__toggle[aria-expanded="true"],
+.nav__toggle[aria-expanded="true"] {
+  border-color: var(--color-primary, #C9A050) !important;
+  background: rgba(6, 11, 20, 0.9) !important;
+}
+
+.site-header .nav__toggle[aria-expanded="true"] span:nth-child(1),
+.nav__toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg) !important;
+  background-color: var(--color-primary, #C9A050) !important;
+}
+.site-header .nav__toggle[aria-expanded="true"] span:nth-child(2),
+.nav__toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0 !important;
+}
+.site-header .nav__toggle[aria-expanded="true"] span:nth-child(3),
+.nav__toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg) !important;
+  background-color: var(--color-primary, #C9A050) !important;
+}
+
+/* Mobile Menu Overlay */
+.nav__mobile {
+  position: fixed !important;
+  top: 0 !important;
+  right: -100% !important;
+  width: 100% !important;
+  max-width: 380px !important;
+  height: 100dvh !important;
+  background-color: #060B14 !important;
+  border-left: 1px solid rgba(201, 160, 80, 0.25) !important;
+  padding: calc(var(--nav-height, 84px) + 1.5rem) 1.75rem 2.5rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.25rem !important;
+  z-index: 1200 !important;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.75) !important;
+  transition: right var(--transition-normal, 0.35s ease) !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  box-sizing: border-box !important;
+}
+
+.nav__mobile.is-open {
+  right: 0 !important;
+}
+
+.nav__mobile-link {
+  font-family: var(--font-heading, 'Outfit', sans-serif) !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  padding: 0.75rem 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  text-decoration: none !important;
+  transition: color var(--transition-fast, 0.2s ease) !important;
+}
+
+.nav__mobile-link:hover,
+.nav__mobile-link--active {
+  color: var(--color-primary, #C9A050) !important;
+}
+
+.nav__mobile-cta {
+  margin-top: 1rem !important;
+  width: 100% !important;
+}
+
+.nav__mobile-backdrop {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(4px) !important;
+  z-index: 1199 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity var(--transition-fast, 0.2s ease) !important;
+}
+
+.nav__mobile-backdrop.is-visible {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* ==========================================================================
+   NOTION-STYLE FLOATING SIDE NAVIGATION ("OUTLINE RAIL")
+   Persistent, Minimalist & Auto-Expanding on Hover
+   ========================================================================== */
+
+.notion-toc {
+  position: fixed !important;
+  right: clamp(1rem, 2vw, 2.25rem) !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 900 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  pointer-events: auto !important;
+  user-select: none !important;
+}
+
+/* 1. The Collapsed Rail (Subtle Horizontal Dashes) */
+.notion-toc__rail {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 8px !important;
+  padding: 12px 6px !important;
+  cursor: pointer !important;
+}
+
+.notion-toc__tick {
+  display: block !important;
+  height: 2px !important;
+  width: 12px !important;
+  background-color: rgba(255, 255, 255, 0.28) !important;
+  border-radius: 1px !important;
+  transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.notion-toc__rail:hover .notion-toc__tick {
+  background-color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.notion-toc__tick:hover {
+  width: 18px !important;
+  background-color: #C9A050 !important;
+}
+
+/* Active Highlighted Tick */
+.notion-toc__tick.is-active,
+.notion-toc__tick--active {
+  width: 22px !important;
+  height: 2.5px !important;
+  background-color: #C9A050 !important;
+  box-shadow: 0 0 10px rgba(201, 160, 80, 0.6) !important;
+}
+
+/* 2. Expanded Floating Outline Card (Notion Flyout) */
+.notion-toc__card {
+  position: absolute !important;
+  right: calc(100% + 8px) !important;
+  top: 50% !important;
+  transform: translateY(-50%) translateX(12px) scale(0.96) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 240px !important;
+  max-width: 85vw !important;
+  background: rgba(6, 11, 20, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(201, 160, 80, 0.35) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75) !important;
+  padding: 1rem 0.85rem !important;
+  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Invisible bridge so cursor moving from rail to card never drops hover */
+.notion-toc__card::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  right: -14px !important;
+  width: 14px !important;
+}
+
+/* Trigger Expansion on Rail Hover or Card Hover or Open State */
+.notion-toc:hover .notion-toc__card,
+.notion-toc.is-expanded .notion-toc__card {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateY(-50%) translateX(0) scale(1) !important;
+}
+
+.notion-toc__card-header {
+  font-family: var(--font-heading, 'Outfit', sans-serif) !important;
+  font-size: 0.6875rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: #C9A050 !important;
+  padding: 0 0.5rem 0.65rem 0.5rem !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  margin-bottom: 0.4rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.notion-toc__items {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+  max-height: 55vh !important;
+  overflow-y: auto !important;
+  padding-right: 2px !important;
+}
+
+.notion-toc__items::-webkit-scrollbar {
+  width: 3px !important;
+}
+
+.notion-toc__items::-webkit-scrollbar-thumb {
+  background: rgba(201, 160, 80, 0.3) !important;
+  border-radius: 2px !important;
+}
+
+.notion-toc__item {
+  font-family: var(--font-heading, 'Outfit', sans-serif) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 500 !important;
+  color: rgba(255, 255, 255, 0.75) !important;
+  padding: 0.45rem 0.65rem !important;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  transition: all 0.15s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  border-left: 2px solid transparent !important;
+}
+
+.notion-toc__item:hover {
+  color: #FFFFFF !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  padding-left: 0.85rem !important;
+}
+
+.notion-toc__item.is-active,
+.notion-toc__item--active {
+  color: #C9A050 !important;
+  font-weight: 700 !important;
+  background: rgba(201, 160, 80, 0.12) !important;
+  border-left-color: #C9A050 !important;
+  padding-left: 0.85rem !important;
+}
+
+.notion-toc__btn {
+  display: none !important;
+}
+
+/* 3. Mobile / Narrow Screen Adaptation (< 1100px) */
+@media (max-width: 1100px) {
+  .notion-toc {
+    top: auto !important;
+    bottom: 1.5rem !important;
+    right: 1.25rem !important;
+    transform: none !important;
+  }
+
+  .notion-toc__rail {
+    display: none !important;
+  }
+
+  .notion-toc__btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+    border-radius: 50% !important;
+    background: rgba(6, 11, 20, 0.94) !important;
+    border: 1px solid rgba(201, 160, 80, 0.4) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+    color: #C9A050 !important;
+    cursor: pointer !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .notion-toc__btn:hover,
+  .notion-toc__btn:active {
+    transform: scale(0.96) !important;
+    background: #060B14 !important;
+    border-color: #C9A050 !important;
+  }
+
+  .notion-toc__card {
+    top: auto !important;
+    bottom: 56px !important;
+    right: 0 !important;
+    transform: translateY(12px) scale(0.96) !important;
+  }
+
+  .notion-toc.is-open .notion-toc__card {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateY(0) scale(1) !important;
+  }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1100px) {
+  .notion-toc--offset {
+    bottom: calc(74px + env(safe-area-inset-bottom, 0px) + 1rem) !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .site-header .nav__links,
+  .nav__links {
+    display: none !important;
+  }
+  .site-header .nav__toggle,
+  .nav__toggle {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important; /* Prevents iOS auto-zoom on form focus */
+  }
+
+  .site-header .nav__actions .btn--primary.nav__cta,
+  .site-header .nav__actions .nav__cta,
+  .nav__actions .btn--primary.nav__cta,
+  .nav__actions .nav__cta {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --nav-height: 74px;
+  }
+  .site-header .nav__brand-divider,
+  .site-header .nav__brand-agency,
+  .nav__brand-divider,
+  .nav__brand-agency {
+    display: none !important;
+  }
+  .site-header .nav__brand-title,
+  .nav__brand-title {
+    font-size: 1.15rem !important;
+  }
+}
+
+/* Commercial Carousel Mobile Controls (Always visible on touch) */
+@media (max-width: 768px) {
+  #carousel-container > div.opacity-0,
+  #carousel-container .opacity-0 {
+    opacity: 0.9 !important;
+  }
+}

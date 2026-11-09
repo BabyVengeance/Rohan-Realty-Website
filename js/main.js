@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
      -------------------------------------------------------------------------- */
   const navToggle = document.querySelector('.nav__toggle');
   const navMobile = document.querySelector('.nav__mobile');
-  const navBackdrop = document.querySelector('.nav__mobile-backdrop');
+  const navBackdrop = document.querySelector('.nav__mobile-backdrop') || document.getElementById('mobileNavBackdrop');
 
   const openMobileNav = () => {
     navToggle?.setAttribute('aria-expanded', 'true');
@@ -45,7 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   if (navToggle && navMobile) {
-    navToggle.addEventListener('click', () => {
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
       if (isExpanded) {
         closeMobileNav();
@@ -55,6 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     navBackdrop?.addEventListener('click', closeMobileNav);
+    navBackdrop?.addEventListener('touchstart', closeMobileNav, { passive: true });
+
+    // Close on click outside drawer
+    document.addEventListener('click', (e) => {
+      if (navMobile.classList.contains('is-open') && !navMobile.contains(e.target) && !navToggle.contains(e.target)) {
+        closeMobileNav();
+      }
+    });
 
     // Close on ESC key
     document.addEventListener('keydown', (e) => {
@@ -67,6 +76,13 @@ document.addEventListener('DOMContentLoaded', () => {
     navMobile.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', closeMobileNav);
     });
+
+    // Close drawer when resizing past desktop threshold
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024 && navMobile.classList.contains('is-open')) {
+        closeMobileNav();
+      }
+    }, { passive: true });
   }
 
   /* --------------------------------------------------------------------------
@@ -75,12 +91,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   const navLinks = document.querySelectorAll('.nav__link, .nav__mobile-link');
 
+  const residentialProps = ['5-nightjar-close.html', '55-hawaan-drive.html', '12-sera-bella.html', '6-sera-bella.html'];
+  const commercialProps = [
+    'urban-corner.html', 'northfield-business-park.html', 'glass-house-building-5.html',
+    '21-richefond.html', 'the-glades-office-park.html', 'dunlop-house.html',
+    '580-riverside-road.html', 'the-avenues-centre.html', 'glass-house-building-2.html',
+    'glass-house-building-1.html', '7-the-boulevard.html'
+  ];
+
+  let targetActive = currentPath;
+  if (residentialProps.includes(currentPath)) targetActive = 'residential.html';
+  if (commercialProps.includes(currentPath)) targetActive = 'commercial.html';
+  if (targetActive === '') targetActive = 'index.html';
+
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
     if (!href) return;
     const cleanHref = href.split('/').pop().split('#')[0];
 
-    if (cleanHref === currentPath || (currentPath === '' && cleanHref === 'index.html')) {
+    if (cleanHref === targetActive) {
       link.classList.add('nav__link--active');
       link.classList.add('nav__mobile-link--active');
       link.setAttribute('aria-current', 'page');
@@ -192,5 +221,273 @@ document.addEventListener('DOMContentLoaded', () => {
 
     calculateRepayment();
   }
+
+  /* --------------------------------------------------------------------------
+     6. Notion-Style Floating Side Navigation Engine (Outline Rail)
+     Auto-discovers sections, tracks active scroll state, and handles flyout
+     -------------------------------------------------------------------------- */
+  const initNotionSideNav = () => {
+    // 1. Only run on property landing pages (exclude main portal indices)
+    const portalPages = ['index.html', 'residential.html', 'commercial.html', 'about.html', 'contact.html', ''];
+    const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+    if (portalPages.includes(currentFile)) {
+      return;
+    }
+
+    // 2. Discover eligible section elements with valid IDs
+    const candidateNodes = Array.from(document.querySelectorAll('section[id], div#inquiry[id]'));
+    
+    // Ignore modals, overlays, footers, or hidden elements
+    const ignoreIds = new Set(['mobileNav', 'mobileNavBackdrop', 'galleryModal', 'videoModal', 'imageModal', 'photoModal']);
+
+    // Canonical humanized titles for common property sections
+    const standardTitles = {
+      'hero': 'Overview',
+      'featured': 'Overview & Valuation',
+      'overview': 'Overview',
+      'duty-benefit': 'Transfer Duty Benefit',
+      'transfer-duty': 'Zero Transfer Duty',
+      'engineering': 'Autonomous Engineering',
+      'suites': 'Master Suites',
+      'gallery': 'Curated Gallery',
+      'highlights': 'Key Highlights',
+      'video-tour': 'Walkthrough Video',
+      'specs': 'Specifications',
+      'features': 'Architectural Specs',
+      'calculator': 'Repayment Calculator',
+      'location': 'Location & Access',
+      'enquiry': 'Private Consultation',
+      'inquiry': 'Confidential Brief',
+      'browse': 'Related Mandates'
+    };
+
+    const sections = [];
+    candidateNodes.forEach(node => {
+      const id = node.getAttribute('id');
+      if (!id || ignoreIds.has(id)) return;
+      if (node.getAttribute('aria-hidden') === 'true' || (node.offsetParent === null && node.id !== 'hero')) return;
+
+      // Determine human label
+      let label = node.getAttribute('data-toc-title');
+      if (!label && standardTitles[id]) {
+        label = standardTitles[id];
+      }
+      if (!label) {
+        const heading = node.querySelector('h1, h2, h3, .section-title, .hero__title');
+        if (heading) {
+          const rawText = heading.textContent.replace(/\s+/g, ' ').trim();
+          label = rawText.length > 26 ? rawText.slice(0, 24).trim() + '…' : rawText;
+        } else {
+          // Humanize id from kebab-case
+          label = id.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        }
+      }
+
+      // Decode any HTML entities (e.g. &amp; -> &)
+      if (label && label.includes('&')) {
+        const txt = document.createElement('textarea');
+        txt.innerHTML = label;
+        label = txt.value;
+      }
+
+      sections.push({ id, label, element: node });
+    });
+
+    // Require at least 3 sections to justify side navigation
+    if (sections.length < 3) return;
+
+    // 3. Construct Notion-style DOM structure
+    const tocNav = document.createElement('nav');
+    tocNav.className = 'notion-toc';
+    tocNav.id = 'notionToc';
+    tocNav.setAttribute('aria-label', 'Property Page Outline');
+
+    // Mobile trigger button (< 1100px)
+    const mobileBtn = document.createElement('button');
+    mobileBtn.className = 'notion-toc__btn';
+    mobileBtn.id = 'notionTocBtn';
+    mobileBtn.setAttribute('aria-label', 'Toggle Page Outline');
+    mobileBtn.setAttribute('aria-expanded', 'false');
+    mobileBtn.innerHTML = `
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="15" y2="12"></line>
+        <line x1="3" y1="18" x2="18" y2="18"></line>
+      </svg>
+    `;
+
+    // Collapsed tick rail
+    const rail = document.createElement('div');
+    rail.className = 'notion-toc__rail';
+    rail.setAttribute('aria-hidden', 'true');
+    rail.title = 'Page Outline (Hover to expand)';
+
+    // Expanded flyout card
+    const card = document.createElement('div');
+    card.className = 'notion-toc__card';
+    card.setAttribute('role', 'region');
+    card.setAttribute('aria-label', 'Page Sections');
+
+    const cardHeader = document.createElement('div');
+    cardHeader.className = 'notion-toc__card-header';
+    cardHeader.innerHTML = `
+      <span>Outline</span>
+      <span style="opacity: 0.55; font-size: 0.625rem; font-weight: 500; text-transform: none;">Jump To</span>
+    `;
+    card.appendChild(cardHeader);
+
+    const itemsContainer = document.createElement('div');
+    itemsContainer.className = 'notion-toc__items';
+
+    // Populate ticks and card links
+    const tickElements = [];
+    const itemElements = [];
+
+    sections.forEach((sec, idx) => {
+      // Tick
+      const tick = document.createElement('div');
+      tick.className = 'notion-toc__tick' + (idx === 0 ? ' is-active' : '');
+      tick.setAttribute('data-target', sec.id);
+      tick.title = sec.label;
+      rail.appendChild(tick);
+      tickElements.push(tick);
+
+      // Card item
+      const item = document.createElement('a');
+      item.className = 'notion-toc__item' + (idx === 0 ? ' is-active' : '');
+      item.href = `#${sec.id}`;
+      item.setAttribute('data-target', sec.id);
+      item.innerHTML = `
+        <span class="notion-toc__bullet" style="display:inline-block; width:5px; height:5px; border-radius:50%; background:currentColor; opacity:0.6; flex-shrink:0;"></span>
+        <span class="notion-toc__label" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${sec.label}</span>
+      `;
+      itemsContainer.appendChild(item);
+      itemElements.push(item);
+    });
+
+    card.appendChild(itemsContainer);
+    // Offset button if page has a fixed mobile action bar
+    if (document.querySelector('.mobile-action-bar')) {
+      tocNav.classList.add('notion-toc--offset');
+    }
+
+    tocNav.appendChild(mobileBtn);
+    tocNav.appendChild(rail);
+    tocNav.appendChild(card);
+    document.body.appendChild(tocNav);
+
+    // 4. Smooth Scrolling Handler with Fixed Navbar Offset (88px)
+    const scrollToSection = (targetId) => {
+      const targetNode = document.getElementById(targetId);
+      if (!targetNode) return;
+      const navOffset = 88;
+      const elementPosition = targetNode.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = Math.max(0, elementPosition - navOffset);
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+
+      // Close mobile card on click
+      tocNav.classList.remove('is-open');
+      mobileBtn.setAttribute('aria-expanded', 'false');
+    };
+
+    // Attach click listeners to ticks and items
+    tickElements.forEach(tick => {
+      tick.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const targetId = tick.getAttribute('data-target');
+        scrollToSection(targetId);
+      });
+    });
+
+    itemElements.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = item.getAttribute('data-target');
+        scrollToSection(targetId);
+      });
+    });
+
+    // Mobile button toggle
+    mobileBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = tocNav.classList.toggle('is-open');
+      mobileBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    // Close on click outside or ESC
+    document.addEventListener('click', (e) => {
+      if (!tocNav.contains(e.target)) {
+        tocNav.classList.remove('is-open');
+        mobileBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && tocNav.classList.contains('is-open')) {
+        tocNav.classList.remove('is-open');
+        mobileBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // 5. Scroll-Spy Engine: Highlight current active section in rail & card
+    let activeId = sections[0].id;
+
+    const setActiveSection = (id) => {
+      if (activeId === id) return;
+      activeId = id;
+
+      tickElements.forEach(tick => {
+        const matches = tick.getAttribute('data-target') === id;
+        tick.classList.toggle('is-active', matches);
+        tick.classList.toggle('notion-toc__tick--active', matches);
+      });
+
+      itemElements.forEach(item => {
+        const matches = item.getAttribute('data-target') === id;
+        item.classList.toggle('is-active', matches);
+        item.classList.toggle('notion-toc__item--active', matches);
+      });
+    };
+
+    const updateScrollSpy = () => {
+      const scrollPos = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+
+      // Top of page edge case
+      if (scrollPos < 100) {
+        setActiveSection(sections[0].id);
+        return;
+      }
+
+      // Bottom of page edge case
+      if (scrollPos + windowHeight >= docHeight - 40) {
+        setActiveSection(sections[sections.length - 1].id);
+        return;
+      }
+
+      // Find section currently in view
+      const navOffset = 110;
+      let currentSectionId = sections[0].id;
+
+      for (let i = 0; i < sections.length; i++) {
+        const rect = sections[i].element.getBoundingClientRect();
+        if (rect.top <= navOffset + 80) {
+          currentSectionId = sections[i].id;
+        }
+      }
+
+      setActiveSection(currentSectionId);
+    };
+
+    window.addEventListener('scroll', updateScrollSpy, { passive: true });
+    updateScrollSpy(); // Initial calibration
+  };
+
+  initNotionSideNav();
 
 });

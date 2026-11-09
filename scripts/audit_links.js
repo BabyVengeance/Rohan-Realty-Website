@@ -9,7 +9,18 @@ const pages = [
   '5-nightjar-close.html',
   '55-hawaan-drive.html',
   '12-sera-bella.html',
-  '6-sera-bella.html'
+  '6-sera-bella.html',
+  'urban-corner.html',
+  'northfield-business-park.html',
+  'glass-house-building-5.html',
+  '21-richefond.html',
+  'the-glades-office-park.html',
+  'dunlop-house.html',
+  '580-riverside-road.html',
+  'the-avenues-centre.html',
+  'glass-house-building-2.html',
+  'glass-house-building-1.html',
+  '7-the-boulevard.html'
 ];
 
 let totalLinks = 0;
@@ -23,26 +34,17 @@ pages.forEach(p => {
     if (href.startsWith('http') || href.startsWith('tel:') || href.startsWith('mailto:') || href === '#') continue;
     totalLinks++;
 
-    const [cleanUrl, queryPart] = href.split('?');
-    const [pagePart, hashPart] = cleanUrl.split('#');
+    const [cleanUrl] = href.split('?');
+    const [pagePart] = cleanUrl.split('#');
     const targetFile = pagePart || p;
 
     if (!fs.existsSync(targetFile)) {
       brokenLinks.push({ from: p, href, reason: `Target file ${targetFile} not found` });
-      continue;
-    }
-
-    if (hashPart) {
-      const targetHtml = fs.readFileSync(targetFile, 'utf8');
-      if (!targetHtml.includes(`id="${hashPart}"`) && !targetHtml.includes(`name="${hashPart}"`)) {
-        // Warning for internal hash
-        // console.log(`Warning: hash #${hashPart} in ${targetFile} (from ${p}) not found`);
-      }
     }
   }
 });
 
-console.log(`Audited ${totalLinks} internal links across all 9 pages.`);
+console.log(`Audited ${totalLinks} internal links across all 20 pages.`);
 if (brokenLinks.length > 0) {
   console.error('Broken links found:', brokenLinks);
   process.exit(1);
