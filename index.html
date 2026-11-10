@@ -322,31 +322,50 @@
       align-items: center;
     }
 
+    .advisor__media-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
     .advisor__media {
       position: relative;
       border-radius: var(--radius-sm);
       overflow: hidden;
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
       border: 1px solid rgba(201, 160, 80, 0.3);
+      background-color: #060B14;
     }
 
     .advisor__img {
       width: 100%;
-      height: 540px;
+      height: 480px;
       object-fit: cover;
-      object-position: top center;
+      object-position: center 60%;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .advisor__badge-overlay {
-      position: absolute;
-      bottom: 1.5rem;
-      left: 1.5rem;
-      right: 1.5rem;
-      background: rgba(6, 11, 20, 0.88);
-      backdrop-filter: blur(10px);
-      padding: 1.25rem;
-      border: 1px solid rgba(201, 160, 80, 0.3);
-      border-radius: var(--radius-xs);
+    .advisor__media:hover .advisor__img {
+      transform: scale(1.02);
+    }
+
+    .advisor__card {
+      background: rgba(6, 11, 20, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(201, 160, 80, 0.35);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+    }
+
+    .advisor__card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
     }
 
     .advisor__name {
@@ -354,6 +373,22 @@
       font-size: 1.25rem;
       font-weight: 800;
       color: #FFFFFF;
+      letter-spacing: -0.01em;
+    }
+
+    .advisor__badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.25rem 0.625rem;
+      background: rgba(201, 160, 80, 0.12);
+      border: 1px solid rgba(201, 160, 80, 0.4);
+      border-radius: 9999px;
+      color: var(--color-primary);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
     .advisor__role {
@@ -361,7 +396,35 @@
       color: var(--color-primary);
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      margin-top: 2px;
+      font-weight: 600;
+      margin-top: 0.35rem;
+    }
+
+    .advisor__meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.65);
+      margin-top: 0.625rem;
+      padding-top: 0.625rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .advisor__meta-sep {
+      color: rgba(201, 160, 80, 0.5);
+    }
+
+    .advisor__meta-link {
+      color: #FFFFFF;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    .advisor__meta-link:hover {
+      color: var(--color-primary);
     }
 
     .advisor__content .section-title {
@@ -409,7 +472,16 @@
         grid-template-columns: 1fr;
       }
       .advisor__img {
-        height: 440px;
+        height: 420px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .advisor__img {
+        height: 360px;
+      }
+      .advisor__card {
+        padding: 1.125rem 1.25rem;
       }
     }
   </style>
@@ -564,14 +636,14 @@
 
       <div class="property-grid">
         <!-- 5 Nightjar Close -->
-        <article class="property-card">
-          <div class="property-card__media">
+        <article class="property-card" data-href="5-nightjar-close.html">
+          <a href="5-nightjar-close.html" class="property-card__media" aria-label="View 5 Nightjar Close details">
             <img src="assets/properties/5-nightjar-close/images/photo_01_384268194.jpg" alt="5 Nightjar Close, Hawaan Forest Estate" class="property-card__img" width="600" height="400" loading="lazy">
             <span class="property-card__badge">Tier 3 Trophy Luxury</span>
-          </div>
+          </a>
           <div class="property-card__body">
             <div class="property-card__price">R 28,000,000</div>
-            <h3 class="property-card__title">Architectural Masterpiece</h3>
+            <h3 class="property-card__title"><a href="5-nightjar-close.html" style="color: inherit; text-decoration: none;">Architectural Masterpiece</a></h3>
             <div class="property-card__location">
               <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               5 Nightjar Close, Hawaan Forest Estate, Umhlanga
@@ -595,14 +667,14 @@
         </article>
 
         <!-- 55 Hawaan Drive -->
-        <article class="property-card">
-          <div class="property-card__media">
+        <article class="property-card" data-href="55-hawaan-drive.html">
+          <a href="55-hawaan-drive.html" class="property-card__media" aria-label="View 55 Hawaan Drive details">
             <img src="assets/properties/55-hawaan-drive/images/house-03.jpg" alt="55 Hawaan Drive, Hawaan Forest Estate" class="property-card__img" width="600" height="400" loading="lazy">
             <span class="property-card__badge">Tier 3 Trophy Luxury</span>
-          </div>
+          </a>
           <div class="property-card__body">
             <div class="property-card__price">R 19,995,000</div>
-            <h3 class="property-card__title">Contemporary Forest Residence</h3>
+            <h3 class="property-card__title"><a href="55-hawaan-drive.html" style="color: inherit; text-decoration: none;">Contemporary Forest Residence</a></h3>
             <div class="property-card__location">
               <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               55 Hawaan Drive, Hawaan Forest Estate
@@ -626,14 +698,14 @@
         </article>
 
         <!-- 12 Sera Bella -->
-        <article class="property-card">
-          <div class="property-card__media">
+        <article class="property-card" data-href="12-sera-bella.html">
+          <a href="12-sera-bella.html" class="property-card__media" aria-label="View 12 Sera Bella details">
             <img src="assets/properties/12-sera-bella/images/exterior-1.jpg" alt="12 Sera Bella, Izinga Ridge" class="property-card__img" width="600" height="400" loading="lazy">
             <span class="property-card__badge" style="color: #C5A880; border-color: #C5A880;">Tier 2 Executive &bull; 0 Duty</span>
-          </div>
+          </a>
           <div class="property-card__body">
             <div class="property-card__price">R 9,575,000</div>
-            <h3 class="property-card__title">Executive Freehold Residence</h3>
+            <h3 class="property-card__title"><a href="12-sera-bella.html" style="color: inherit; text-decoration: none;">Executive Freehold Residence</a></h3>
             <div class="property-card__location">
               <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               12 Sera Bella, Izinga Ridge, Umhlanga
@@ -665,11 +737,23 @@
   <section class="advisor-section" aria-label="Advisor Spotlight">
     <div class="container">
       <div class="advisor__grid">
-        <div class="advisor__media">
-          <img src="assets/agent/rohan-ramlall-portrait.jpg" alt="Rohan Ramlall overlooking coastal luxury real estate" class="advisor__img" width="800" height="1067" loading="lazy">
-          <div class="advisor__badge-overlay">
-            <div class="advisor__name">Rohan Ramlall</div>
-            <div class="advisor__role">Candidate Candidate Property Practitioner &bull; Blue Ocean Realty (Pty) Ltd (Pty) Ltd</div>
+        <div class="advisor__media-col">
+          <div class="advisor__media">
+            <img src="assets/agent/rohan-ramlall-portrait.jpg" alt="Rohan Ramlall overlooking coastal luxury real estate" class="advisor__img" width="800" height="1067" loading="lazy">
+          </div>
+          <div class="advisor__card">
+            <div class="advisor__card-header">
+              <div class="advisor__name">Rohan Ramlall</div>
+              <span class="advisor__badge-pill">PPRA Registered</span>
+            </div>
+            <div class="advisor__role">Candidate Property Practitioner &bull; Blue Ocean Realty (Pty) Ltd</div>
+            <div class="advisor__meta">
+              <span>Supervised Candidate</span>
+              <span class="advisor__meta-sep">&bull;</span>
+              <span>Durban North Hub</span>
+              <span class="advisor__meta-sep">&bull;</span>
+              <a href="tel:0695224226" class="advisor__meta-link">069 522 4226</a>
+            </div>
           </div>
         </div>
 

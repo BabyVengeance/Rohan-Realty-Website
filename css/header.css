@@ -1077,3 +1077,33 @@ button[type="submit"]:disabled {
   filter: grayscale(40%) !important;
 }
 
+
+/* ==========================================================================
+   UNIVERSAL PROPERTY HERO VIEWPORT HARDENING (100dvh Zero-Leak Invariant)
+   ========================================================================== */
+#featured,
+.hero {
+  min-height: 100vh !important;
+  min-height: 100dvh !important;
+  box-sizing: border-box !important;
+}
+
+/* ==========================================================================
+   UNIVERSAL PROPERTY CARD CLICKABILITY & HOVER AFFORDANCE
+   ========================================================================== */
+.property-card,
+.estate-card,
+.comm-card,
+#property-grid > div,
+[data-clickable-card] {
+  cursor: pointer !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease !important;
+}
+
+.property-card:hover,
+.estate-card:hover,
+.comm-card:hover,
+#property-grid > div:hover,
+[data-clickable-card]:hover {
+  transform: translateY(-4px);
+}

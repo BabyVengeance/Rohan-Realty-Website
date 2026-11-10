@@ -68,14 +68,14 @@
   <div class="nav__mobile-backdrop" id="mobileNavBackdrop" aria-hidden="true"></div>
 
     <!-- Hero Section -->
-    <section id="featured" class="relative bg-[#060B14] min-h-[92vh] flex items-center overflow-hidden pt-36 pb-24" data-toc-title="Overview &amp; Valuation">
+    <section id="featured" class="relative bg-[#060B14] min-h-screen min-h-[100dvh] flex items-center overflow-hidden pt-28 pb-16" data-toc-title="Overview &amp; Valuation">
         <div class="absolute inset-0 opacity-50">
             <img src="assets/properties/commercial/glass-house-b2/1.jpg" alt="Building 2, Glass House Office Park"
                 class="w-full h-full object-cover">
         </div>
         <div class="absolute inset-0 property-gradient"></div>
 
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-white">
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 text-white w-full">
             <div class="inline-flex items-center gap-2.5 border border-[#C9A050]/40 bg-[#060B14]/85 px-4 py-1.5 rounded-sm text-xs font-semibold uppercase tracking-widest text-[#C9A050] mb-6 shadow-sm">
                 <span>Blue Ocean Realty</span>
                 <span class="text-[#C9A050]/40">&bull;</span>
@@ -330,10 +330,10 @@
                                 Direct WhatsApp Broker
                             </a>
                             <div class="mt-4 pt-4 border-t border-slate-100 flex items-center gap-3">
-                                <img src="assets/agent/rohan-ramlall-portrait.jpg" alt="Rohan Ramlall" class="w-12 h-12 rounded-full object-cover border-2 border-amber-400">
+                                <img src="assets/agent/rohan-ramlall-portrait.jpg" alt="Rohan Ramlall" class="w-12 h-12 rounded-full object-cover border-2 border-amber-400" style="object-position: center 60%;">
                                 <div class="text-xs">
                                     <p class="font-bold text-slate-900">Rohan Ramlall</p>
-                                    <p class="text-slate-500">Candidate Candidate Property Practitioner &bull; Blue Ocean Realty (Pty) Ltd (Pty) Ltd</p>
+                                    <p class="text-slate-500">Candidate Property Practitioner &bull; Blue Ocean Realty (Pty) Ltd</p>
                                     <a href="tel:+27695224226" class="text-[#060B14] font-semibold hover:text-[#C9A050] transition">+27 69 522 4226</a>
                                 </div>
                             </div>
@@ -364,7 +364,7 @@
             <div id="property-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Current Featured Property as a Card -->
                 <div
-                    class="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition group">
+                    class="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition group" data-clickable-card="true">
                     <div class="relative h-56 overflow-hidden">
                         <img src="assets/properties/commercial/urban-corner/1.png" alt="Urban Corner, Umhlanga"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -400,15 +400,15 @@
                                 8,213 m&sup2; Bulk Size
                             </div>
                         </div>
-                        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
-                            class="w-full mt-6 py-3 border border-slate-200 rounded-lg text-sm font-bold hover:bg-slate-900 hover:text-white transition uppercase tracking-wider">Explore
-                            Investment</button>
+                        <a href="urban-corner.html"
+                            class="block w-full text-center mt-6 py-3 bg-[#060B14] text-[#C9A050] border border-[#C9A050]/30 rounded-sm text-xs font-bold uppercase tracking-wider hover:bg-[#1C2541] hover:text-white transition shadow-sm">Explore
+                            Investment</a>
                     </div>
                 </div>
 
                 <!-- Glass House Building 1 Listing -->
                 <div data-transaction="rent" data-category="commercial"
-                    class="property-card bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition group">
+                    class="property-card bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition group" data-clickable-card="true">
                     <div class="relative h-56 overflow-hidden">
                         <img src="assets/properties/commercial/glass-house-b1/1.jpg" alt="Glass House Building 1"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -451,7 +451,7 @@
 
                 <!-- The Glades Office Park Listing -->
                 <div data-transaction="rent" data-category="commercial"
-                    class="property-card bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition group">
+                    class="property-card bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition group" data-clickable-card="true">
                     <div class="relative h-56 overflow-hidden">
                         <img src="assets/properties/commercial/the-glades/1.jpg" alt="The Glades Office Park"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500 text-transparent flex justify-center items-center">

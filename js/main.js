@@ -517,4 +517,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initNotionSideNav();
 
+  /* --------------------------------------------------------------------------
+     6. Universal Property Card Clickability Engine
+     Ensures clicking anywhere on any property card navigates directly to its mandate
+     -------------------------------------------------------------------------- */
+  const initPropertyCardClickability = () => {
+    document.addEventListener('click', (e) => {
+      // Find enclosing property card
+      const card = e.target.closest('.property-card, .estate-card, .comm-card, #property-grid > div, [data-clickable-card]');
+      if (!card) return;
+
+      // Identify if the click was directly on a secondary action (e.g. WhatsApp, phone, request info)
+      const interactive = e.target.closest('a, button, input, textarea, select');
+      if (interactive) {
+        const href = interactive.getAttribute('href') || '';
+        // If it's an external or secondary action, let it execute naturally
+        if (href.startsWith('https://wa.me') || href.startsWith('tel:') || href.includes('contact.html') || (interactive.tagName === 'BUTTON' && !interactive.getAttribute('onclick')?.includes('.html'))) {
+          return;
+        }
+        // If it's the primary card link or explore button, let standard navigation proceed
+        return;
+      }
+
+      // Check for target URL: first from data-href, then by querying internal mandate link
+      let targetUrl = card.getAttribute('data-href');
+      if (!targetUrl) {
+        const primaryLink = card.querySelector('a[href$=".html"]:not([href*="contact"]):not([href*="about"]):not([href*="residential"]):not([href*="commercial"]):not([href*="privacy"]):not([href*="terms"]):not([href*="statutory"]):not([href*="index"])');
+        if (primaryLink) {
+          targetUrl = primaryLink.getAttribute('href');
+        }
+      }
+
+      if (!targetUrl) return;
+
+      // Handle modifier keys for new tab / window
+      if (e.ctrlKey || e.metaKey || e.button === 1) {
+        window.open(targetUrl, '_blank');
+      } else {
+        window.location.href = targetUrl;
+      }
+    });
+  };
+
+  initPropertyCardClickability();
+
 });

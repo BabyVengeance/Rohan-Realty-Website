@@ -200,9 +200,11 @@ ALL_HTML_FILES.forEach(filename => {
     modified = true;
   }
 
-  // 4. Update any remaining non-compliant candidate labels
+  // 4. Update any remaining non-compliant candidate labels cleanly (idempotent)
   content = content.replace(/Commercial Mandate Lead &bull; Blue Ocean/gi, 'Candidate Property Practitioner &bull; Blue Ocean Realty (Pty) Ltd');
-  content = content.replace(/Property Practitioner &bull; Blue Ocean Realty/gi, 'Candidate Property Practitioner &bull; Blue Ocean Realty (Pty) Ltd');
+  content = content.replace(/Candidate Candidate Property Practitioner/gi, 'Candidate Property Practitioner');
+  content = content.replace(/\(Pty\) Ltd\s*\(Pty\) Ltd/gi, '(Pty) Ltd');
+  content = content.replace(/(?<!Candidate\s+)Property Practitioner &bull; Blue Ocean Realty(?!\s+\(Pty\) Ltd)/gi, 'Candidate Property Practitioner &bull; Blue Ocean Realty (Pty) Ltd');
   content = content.replace(/<div><strong>Rohan Ramlall<\/strong> &bull; Property Practitioner<\/div>/gi, '<div><strong>Rohan Ramlall</strong> &bull; Candidate Property Practitioner</div>');
 
   if (modified) {
