@@ -1,62 +1,35 @@
 # Active Session — Rohan Realty
 
-## Current Status: Tablet Navbar Congestion Resolved & Mobile Blue Ocean Realty Exclusivity Enforced
+## Current Status: Legal Compliance & Statutory Disclosures Engine Fully Deployed & Verified
 
 ### Accomplished in this Session
 
-1. **Tablet Viewport Navbar De-congestion Overhaul (1025px - 1280px):**
-   - **Reduced Dual Logo Footprint:** Scaled down `ROHAN REALTY` title to `1.05rem` (`16.8px`), hid redundant submark, reduced divider to `20px`, and reduced `BLUE OCEAN Realty` logo height to `26px` (width reduced from 152px to ~104px). Total brand footprint compressed from 340px to ~230px, reclaiming >110px of horizontal space.
-   - **Spacious Link Matrix:** Reduced link gap to `clamp(0.6rem, 1.2vw, 1.15rem)` and font size to `0.8125rem` (13px), reducing links footprint from 500px to ~410px.
-   - **Compact CTA Consultation Button:** Scaled padding to `0.45rem 0.95rem` and font size to `0.75rem` (`min-height: 38px`), reducing button width from 210px to ~145px.
-   - **Net Result:** Total navbar content footprint reduced by >300px, creating ~300px to 450px of open breathing room across tablet landscape viewports.
+1. **Pillar 1: About Section Supervision & Affiliation Architecture (`about.html` & `index.html`):**
+   - **PPRA Regulation 34.3.4.6 Enforced:** Eliminated unauthorized non-candidate designations. Rohan Ramlall is formally declared as a **Candidate Property Practitioner** operating under the active mentorship and statutory supervision of Principal **Benjamin Govindraj** at **Blue Ocean Realty (Pty) Ltd**.
+   - **Non-Independent Agency Notice:** Declared that `rohanrealty.co.za` operates as a curated digital showcase and personal media hub; all mandates, OTPs, leases, and commissions are concluded strictly under Blue Ocean Realty (Pty) Ltd.
+   - **Interim Standard Applied:** FFC numbers clearly designated as *In Process / Available on Request (PPRA Registered)* to maintain absolute truth in advertising and avoid placeholder leaks.
 
-2. **Mobile Branding Exclusivity Enforced (<= 768px):**
-   - **Strict Blue Ocean Realty Only:** Completely hid `ROHAN REALTY` (`.nav__brand-primary: none !important`) and divider (`.nav__brand-divider: none !important`).
-   - **Prominent Agency Emblem:** Rendered strictly the `BLUE OCEAN Realty` logo (`.nav__brand-agency: flex !important; .nav__brand-logo: height 32px; width auto; max-width 155px;`).
-   - **Clean Mobile Architecture:** Left side features strictly the Blue Ocean Realty brand mark; right side features the accessible 48px hamburger menu button, with zero congestion and zero overlap.
+2. **Pillar 2: Global 4-Column Responsive Footer & Statutory Compliance Strip:**
+   - **Standardized Across All 20 Pages:** Converted all fragmented single-column and custom footers into the canonical 4-column responsive grid (`.footer__grid`), resolving parity failures on `5-nightjar-close.html`, `55-hawaan-drive.html`, `12-sera-bella.html`, and `6-sera-bella.html`.
+   - **Dedicated Legal Route Column:** Direct navigation to Privacy Policy (POPIA), Terms of Use & E&OE, PPRA Disclosure & Section 54, and PAIA manual.
+   - **Full-Width Sub-Footer Regulatory Banner:** Enforces PPA Act 22 of 2019 disclosures, Section 54 trust account declarations, firm licensing status, and supervising practitioner oversight.
 
-3. **Elimination of Navbar Bottom Border Line Across All Pages:**
-   - **Root Cause Isolated:** A `border-bottom: 1px solid transparent !important` was declared on `.site-header` in `css/header.css` and `css/main.css`. In Chromium/WebKit rasterization with high-DPI display scaling (125%/150%), rendering a 1px transparent border on a fixed gradient container over photography produces a 1px dark compositing edge seam.
-   - **Fix Implemented:**
-     - Enforced `border: none !important; border-bottom: none !important;` on `.site-header`, `.site-header--transparent`, and `.site-header--scrolled` across both [`css/header.css`](file:///e:/MONEY/Real%20estate/rohan%20realty/Rohan%20Realty/css/header.css) and [`css/main.css`](file:///e:/MONEY/Real%20estate/rohan%20realty/Rohan%20Realty/css/main.css).
-     - Removed `border-bottom-color` from the scroll transition and scrolled state.
-     - The dark navy gradient (`linear-gradient(180deg, rgba(6, 11, 20, 0.88) 0%, rgba(6, 11, 20, 0.4) 60%, rgba(6, 11, 20, 0) 100%)`) now blends 100% seamlessly into hero photography with zero dividing lines or visual seam artifacts on all 20 pages.
+3. **Pillar 3: Three Standalone Legal Policy Pages Authored & Linked:**
+   - [`privacy-policy.html`](file:///e:/MONEY/Real%20estate/rohan%20realty/Rohan%20Realty/privacy-policy.html): Complete South African POPIA Act 4 of 2013 data protection policy covering Joint Responsible Parties, lawful processing grounds, FICA Act 38 of 2001 verification, zero third-party data selling, data subject rights (access, rectification, deletion), and Information Regulator recourse.
+   - [`terms-and-conditions.html`](file:///e:/MONEY/Real%20estate/rohan%20realty/Rohan%20Realty/terms-and-conditions.html): Comprehensive Errors and Omissions Excepted (E&OE) framework, non-binding digital presentations (no FAIS advice / binding OTPs), mandate integrity, and intellectual property/drone media copyright protections.
+   - [`statutory-disclosure.html`](file:///e:/MONEY/Real%20estate/rohan%20realty/Rohan%20Realty/statutory-disclosure.html): Full statutory disclosure schedule, PPA Section 54 trust banking account declaration (zero trust monies through portal; funds administered via conveyancer trust accounts or Blue Ocean Realty's Section 54 audited account), and PAIA Section 51 manual request access.
 
-2. **Full Mobile Optimization Hardening Across All 20 Pages:**
-   - **Root Viewport Stability:** Injected `html, body { overflow-x: clip !important; -webkit-text-size-adjust: 100%; }` into global CSS. Guarantees 0 horizontal scrolling down to an extreme 320px viewport width on all 20 pages.
-   - **iOS Auto-Zoom Prevention:** Enforced `input, select, textarea { font-size: 16px !important; }` on viewports $\le 768\text{px}$. Eliminates annoying iOS Safari auto-zooming on form interaction.
-   - **Touch Target Ergonomics ($\ge 48\text{px} \times 48\text{px}$):**
-     - Hamburger toggle (`.nav__toggle`): `min-width: 48px !important; min-height: 48px !important; -webkit-tap-highlight-color: transparent; touch-action: manipulation;` with active press feedback (`scale(0.96)`).
-     - Notion TOC toggle (`.notion-toc__btn`): `min-width: 48px !important; min-height: 48px !important;` with active press feedback.
-     - Mobile drawer links (`.nav__mobile-link`): `min-height: 48px !important; display: flex; align-items: center;` for effortless thumb tapping.
-     - CTA buttons (`.nav__mobile-cta`): `min-height: 48px !important;`.
-   - **Commercial Page Mobile Polish:** Unmasked carousel controls on touch devices (`opacity: 0.9 !important;` on $\le 768\text{px}$) so mobile visitors have immediately accessible next/prev controls.
-   - **Sticky Mobile Action Bar Stacking:** Calibrated `.notion-toc` positioning with dynamic bottom offset on pages containing bottom action bars (`55-hawaan-drive.html` and `6-sera-bella.html`), eliminating any button collisions.
+4. **Pillar 4: Form-Level POPIA Consent Mechanics & Button Gating:**
+   - **Mandatory Opt-In Checkbox:** Injected across all inquiry forms on the portal with explicit consent text and direct link to `privacy-policy.html`.
+   - **Client-Side Gating in `js/main.js`:** Submit button starts in a disabled state and dynamically enables/disables based on affirmative checkbox selection. Unchecked submission attempts are blocked.
+   - **POPIA Trust Micro-Disclosure:** Rendered directly beneath every form submission button.
 
-2. **Universal Hamburger Navigation Engine Verified:**
-   - **20 / 20 Pages Verified:**
-     - 5 Portal pages (`index.html`, `residential.html`, `commercial.html`, `about.html`, `contact.html`).
-     - 4 Residential landing pages (`5-nightjar-close.html`, `55-hawaan-drive.html`, `12-sera-bella.html`, `6-sera-bella.html`).
-     - 11 Commercial landing pages (`urban-corner.html`, `northfield-business-park.html`, `glass-house-building-5.html`, `21-richefond.html`, `the-glades-office-park.html`, `dunlop-house.html`, `580-riverside-road.html`, `the-avenues-centre.html`, `glass-house-building-2.html`, `glass-house-building-1.html`, `7-the-boulevard.html`).
-   - **Responsive Trigger Behavior:**
-     - Desktop ($> 1024\text{px}$): Desktop links visible, hamburger button hidden (`display: none !important`).
-     - Tablet / Mobile ($\le 1024\text{px}$): Desktop links hidden, hamburger button rendered (`display: flex !important`).
-     - Mobile Phones ($\le 768\text{px}$): Desktop CTA hidden to provide maximum breathing room for the co-branded logo and hamburger button.
-     - Small Screens ($\le 640\text{px}$): Secondary logo hidden, displaying high-contrast "ROHAN REALTY" wordmark and hamburger button with zero overflow.
-   - **Interaction & Accessibility:**
-     - Accessible ARIA state: `aria-expanded="true/false"`, `aria-label="Toggle navigation menu"`, `aria-controls="mobileNav"`.
-     - Smooth SVG morph: Hamburger 3 bars transform into an "X" when open.
-     - 0ms instant touch response: `touchstart` listener on backdrop.
-     - Multiple dismiss triggers: Tap "X" button, tap backdrop, tap any link, click outside, press Escape, or resize past 1024px.
-     - Background scroll lock: `document.body.style.overflow = 'hidden'` while drawer is active; restored immediately on close.
-
-3. **Empirical Quality & Verification:**
-   - [`scripts/verify_all_pages.js`](file:///e:/MONEY/Real%20estate/rohan realty/Rohan Realty/scripts/verify_all_pages.js): All 20 HTML files 100% healthy (0 errors).
-   - [`scripts/audit_links.js`](file:///e:/MONEY/Real%20estate/rohan realty/Rohan Realty/scripts/audit_links.js): 546 internal links verified (100% resolving).
-   - [`scripts/deep_media_audit.js`](file:///e:/MONEY/Real%20estate/rohan realty/Rohan Realty/scripts/deep_media_audit.js): 317 local media assets verified (0 missing).
-   - Core utilities strictly preserved in `scripts/`; scratch files purged.
+5. **Empirical Quality & Verification:**
+   - [`scripts/verify_components.js`](file:///e:/MONEY/Real%20estate/rohan%20realty/Rohan%20Realty/scripts/verify_components.js): 30/30 component parity checks passed (100% synchronized).
+   - [`scripts/verify_all_pages.js`](file:///e:/MONEY/Real%20estate/rohan%20realty/Rohan%20Realty/scripts/verify_all_pages.js): All 23 HTML files 100% healthy (0 errors).
+   - [`scripts/audit_links.js`](file:///e:/MONEY/Real%20estate/rohan%20realty/Rohan%20Realty/scripts/audit_links.js): 842 internal links audited; 100% resolving cleanly.
 
 ### Next Execution Milestones
-1. Stage and commit all mobile optimizations to Git.
-2. Verify live deployment preview on Cloudflare Pages.
-3. Final visual sanity check on live devices.
+1. Stage and commit all legal compliance changes and new policy pages to Git.
+2. When final PPRA Fidelity Fund Certificate numbers arrive from the client, run `scripts/sync_legal_compliance.js` to slot them into the disclosure schedules.
+3. Deploy to Cloudflare Pages preview and test live form submissions.

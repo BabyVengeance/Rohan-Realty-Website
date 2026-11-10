@@ -632,6 +632,70 @@ a {
   border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
 
+/* ==========================================================================
+   STATUTORY COMPLIANCE BANNER & REGULATORY STYLING
+   ========================================================================== */
+.footer-compliance-banner {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1.75rem 0 2rem;
+  margin-top: 2rem;
+  font-size: 0.75rem;
+  line-height: 1.65;
+  color: #94A3B8;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius-xs);
+}
+
+.footer-compliance-banner .compliance-heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  color: #E2E8F0;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+
+.footer-compliance-banner .compliance-ffc {
+  color: #CBD5E1;
+  margin-bottom: 0.75rem;
+  font-size: 0.75rem;
+}
+
+.footer-compliance-banner .compliance-ffc strong {
+  color: #FFFFFF;
+}
+
+.footer-compliance-banner .compliance-notice {
+  color: #94A3B8;
+  font-size: 0.71875rem;
+  line-height: 1.6;
+}
+
+.footer-compliance-banner .compliance-notice strong {
+  color: #CBD5E1;
+}
+
+.footer-compliance-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.75rem;
+}
+
+.footer-compliance-links a {
+  color: #CBD5E1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+}
+
+.footer-compliance-links a:hover {
+  color: var(--color-primary);
+}
+
 /* --------------------------------------------------------------------------
    7. Synchronized Enquiry / Contact Form Component (Royal Blue Anchor)
    -------------------------------------------------------------------------- */
@@ -1163,4 +1227,170 @@ a {
     transform: translateY(0) scale(1) !important;
   }
 }
+
+/* ==========================================================================
+   FORM-LEVEL POPIA CONSENT MECHANICS & GATING
+   ========================================================================== */
+.form__group--consent {
+  margin: 1.25rem 0 1rem 0;
+}
+
+.form__checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  user-select: none;
+}
+
+.form__checkbox {
+  margin-top: 0.2rem;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.form__checkbox-text {
+  flex: 1;
+}
+
+.form__checkbox-link {
+  color: var(--color-navy);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--transition-fast);
+}
+
+.form__checkbox-link:hover {
+  color: var(--color-primary);
+}
+
+.form__subtext {
+  font-size: 0.71875rem;
+  color: #64748B;
+  margin-top: 0.75rem;
+  text-align: center;
+  line-height: 1.45;
+}
+
+/* Submit button disabled state */
+.form__submit:disabled,
+button[type="submit"]:disabled {
+  opacity: 0.55 !important;
+  cursor: not-allowed !important;
+  filter: grayscale(40%) !important;
+}
+
+/* ==========================================================================
+   LEGAL POLICY PAGES STYLING (Privacy Policy, Terms, Statutory Disclosures)
+   ========================================================================== */
+.legal-hero {
+  padding-top: calc(var(--nav-height) + 3.5rem);
+  padding-bottom: 3.5rem;
+  background-color: var(--color-navy-dark);
+  color: #FFFFFF;
+  border-bottom: 1px solid rgba(201, 160, 80, 0.2);
+}
+
+.legal-content {
+  padding: clamp(3.5rem, 6vw, 5rem) 0;
+  background-color: #FFFFFF;
+  color: var(--color-text-main);
+}
+
+.legal-article {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.legal-card {
+  background: var(--color-surface-offset);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-xs);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.legal-card p {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--color-navy);
+}
+
+.legal-section {
+  margin-bottom: 2.75rem;
+}
+
+.legal-section h2 {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.legal-section h3 {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  margin: 1.25rem 0 0.5rem;
+}
+
+.legal-section p,
+.legal-section li {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: #334155;
+}
+
+.legal-section p {
+  margin-bottom: 1rem;
+}
+
+.legal-section ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.legal-section li {
+  margin-bottom: 0.5rem;
+}
+
+.legal-schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0 2rem;
+  font-size: 0.875rem;
+}
+
+.legal-schedule-table th,
+.legal-schedule-table td {
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.legal-schedule-table th {
+  background: var(--color-surface-offset);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+.legal-schedule-table td strong {
+  color: var(--color-navy);
+}
+
 

@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* --------------------------------------------------------------------------
-     4. Consultation & Viewing Enquiry Form Handler
+     4. Consultation & Viewing Enquiry Form Handler + POPIA Consent Gating
      -------------------------------------------------------------------------- */
   const urlParams = new URLSearchParams(window.location.search);
   const propertyParam = urlParams.get('property');
@@ -132,6 +132,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Setup POPIA consent gating across all forms
+  document.querySelectorAll('form').forEach(form => {
+    const consentCheckbox = form.querySelector('input[name="popia_consent"], input[name="popiaConsent"]');
+    const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+
+    if (consentCheckbox && submitBtn) {
+      // Ensure it starts unchecked unless explicitly filled
+      if (consentCheckbox.hasAttribute('checked')) {
+        consentCheckbox.checked = false;
+        consentCheckbox.removeAttribute('checked');
+      }
+      submitBtn.disabled = !consentCheckbox.checked;
+
+      consentCheckbox.addEventListener('change', () => {
+        submitBtn.disabled = !consentCheckbox.checked;
+      });
+    }
+  });
+
   const forms = document.querySelectorAll('form[name="viewing-enquiry"], form[name="contact-enquiry"]');
 
   forms.forEach(form => {
@@ -139,6 +158,14 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       
       const submitBtn = form.querySelector('button[type="submit"]');
+      const consentCheckbox = form.querySelector('input[name="popia_consent"], input[name="popiaConsent"]');
+
+      if (consentCheckbox && !consentCheckbox.checked) {
+        alert('Please review and check the POPIA consent box before submitting your request.');
+        consentCheckbox.focus();
+        return;
+      }
+      
       const originalText = submitBtn ? submitBtn.innerHTML : 'Submit';
       
       // Basic validation

@@ -20,7 +20,10 @@ const pages = [
   'the-avenues-centre.html',
   'glass-house-building-2.html',
   'glass-house-building-1.html',
-  '7-the-boulevard.html'
+  '7-the-boulevard.html',
+  'privacy-policy.html',
+  'terms-and-conditions.html',
+  'statutory-disclosure.html'
 ];
 
 let totalLinks = 0;

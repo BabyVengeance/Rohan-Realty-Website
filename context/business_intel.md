@@ -9,12 +9,13 @@
   2. **Commercial & Industrial:** Prime logistics hubs, heavy/light industrial warehousing, retail developments, and commercial development land.
 
 ## 2. Contact & Key Stakeholders
-- **Lead Specialist:** Rohan Ramlall
+- **Practitioner:** Rohan Ramlall (Candidate Property Practitioner, PPRA Registered)
 - **Direct Phone:** 069 522 4226 (+27 69 522 4226)
-- **Agency Partner:** Benjamin Govinraj (073 691 0478)
-- **Agency Entity:** Blue Ocean Realty, KZN
+- **Principal Property Practitioner / Mentor:** Benjamin Govindraj (073 691 0478)
+- **Agency Firm:** Blue Ocean Realty (Pty) Ltd (PPRA Registered Firm)
 - **Email:** info@blueoceanrealty.co.za
-- **Physical Node:** KwaZulu-Natal, South Africa
+- **Physical Headquarters:** Suite 6, 66 Adelaide Tambo Drive, Durban North, 4051, KwaZulu-Natal
+- **Statutory Standing:** Operating under statutory mentorship and supervision pursuant to PPRA Regulation 34.3.4.6. All mandates, OTPs, leases, and Section 54 trust accounts concluded strictly under Blue Ocean Realty (Pty) Ltd. FFC numbers currently marked: *In Process / Available on Request*.
 
 ## 3. Social Media & Distribution Channels
 - **Instagram:** [https://www.instagram.com/rohanrealty.co.za](https://www.instagram.com/rohanrealty.co.za)

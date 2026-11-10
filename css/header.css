@@ -752,3 +752,328 @@ body {
     opacity: 0.9 !important;
   }
 }
+
+/* ==========================================================================
+   CANONICAL FOOTER & STATUTORY COMPLIANCE BANNER
+   ========================================================================== */
+.footer {
+  background-color: var(--color-navy-dark, #060B14) !important;
+  color: #FFFFFF !important;
+  padding-top: 4.5rem !important;
+  padding-bottom: 2.5rem !important;
+  border-top: 1px solid rgba(201, 160, 80, 0.25) !important;
+  position: relative !important;
+  font-family: var(--font-body, 'Roboto', sans-serif) !important;
+}
+
+.footer .container,
+.footer > div {
+  max-width: 1440px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: clamp(1.25rem, 4vw, 2.5rem) !important;
+  padding-right: clamp(1.25rem, 4vw, 2.5rem) !important;
+  box-sizing: border-box !important;
+}
+
+.footer__grid {
+  display: grid !important;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr !important;
+  gap: clamp(2rem, 3.5vw, 3.5rem) !important;
+  margin-bottom: 3.5rem !important;
+  text-align: left !important;
+}
+
+.footer__col-brand {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.25rem !important;
+}
+
+.footer__brand-title {
+  font-family: var(--font-heading, 'Outfit', sans-serif) !important;
+  font-size: 1.5rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+}
+
+.footer__brand-title span {
+  color: var(--color-primary, #C9A050) !important;
+}
+
+.footer__brand-desc {
+  font-size: 0.9375rem !important;
+  line-height: 1.6 !important;
+  color: #94A3B8 !important;
+  max-width: 40ch !important;
+  margin: 0 !important;
+}
+
+.footer__brand-creds {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.375rem !important;
+  font-size: 0.8125rem !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.footer__brand-creds strong {
+  color: #FFFFFF !important;
+}
+
+.footer__col-title {
+  font-family: var(--font-heading, 'Outfit', sans-serif) !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: var(--color-primary, #C9A050) !important;
+  margin-bottom: 1.5rem !important;
+  margin-top: 0 !important;
+}
+
+.footer__links {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important;
+}
+
+.footer__links a {
+  font-size: 0.9375rem !important;
+  color: rgba(255, 255, 255, 0.75) !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+}
+
+.footer__links a:hover {
+  color: #FFFFFF !important;
+  padding-left: 4px !important;
+}
+
+.footer__contact-items {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.875rem !important;
+}
+
+.footer__contact-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 0.75rem !important;
+  font-size: 0.875rem !important;
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.footer__contact-item svg {
+  width: 18px !important;
+  height: 18px !important;
+  color: var(--color-primary, #C9A050) !important;
+  flex-shrink: 0 !important;
+  margin-top: 3px !important;
+}
+
+.footer__socials {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.875rem !important;
+  margin-top: 1.25rem !important;
+}
+
+.footer__social-btn {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 4px !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+}
+
+.footer__social-btn:hover {
+  background: var(--color-primary, #C9A050) !important;
+  border-color: var(--color-primary, #C9A050) !important;
+  color: #060B14 !important;
+  transform: translateY(-2px) !important;
+}
+
+.footer__social-btn svg {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.footer__divider {
+  height: 1px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  margin-bottom: 2rem !important;
+}
+
+.footer__bottom {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1rem !important;
+}
+
+.footer__copy {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: wrap !important;
+  gap: 1rem !important;
+  font-size: 0.8125rem !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  padding-top: 1rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.04) !important;
+}
+
+/* Statutory Sub-Footer Compliance Banner */
+.footer-compliance-banner {
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+  padding: 1.75rem 0 2rem !important;
+  margin-top: 2rem !important;
+  font-size: 0.75rem !important;
+  line-height: 1.65 !important;
+  color: #94A3B8 !important;
+  background: rgba(0, 0, 0, 0.3) !important;
+  border-radius: 4px !important;
+  text-align: left !important;
+}
+
+.footer-compliance-banner .compliance-heading {
+  font-family: var(--font-heading, 'Outfit', sans-serif) !important;
+  font-weight: 700 !important;
+  font-size: 0.8125rem !important;
+  color: #E2E8F0 !important;
+  letter-spacing: 0.04em !important;
+  margin-bottom: 0.5rem !important;
+  margin-top: 0 !important;
+}
+
+.footer-compliance-banner .compliance-ffc {
+  color: #CBD5E1 !important;
+  margin-bottom: 0.75rem !important;
+  margin-top: 0 !important;
+  font-size: 0.75rem !important;
+}
+
+.footer-compliance-banner .compliance-ffc strong {
+  color: #FFFFFF !important;
+}
+
+.footer-compliance-banner .compliance-notice {
+  color: #94A3B8 !important;
+  font-size: 0.71875rem !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+}
+
+.footer-compliance-banner .compliance-notice strong {
+  color: #CBD5E1 !important;
+}
+
+.footer-compliance-links {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 1.25rem !important;
+  margin-top: 1rem !important;
+  padding-top: 0.75rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  font-size: 0.75rem !important;
+}
+
+.footer-compliance-links a {
+  color: #CBD5E1 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+  transition: color 0.2s ease !important;
+}
+
+.footer-compliance-links a:hover {
+  color: var(--color-primary, #C9A050) !important;
+}
+
+@media (max-width: 1024px) {
+  .footer__grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer__grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.25rem !important;
+  }
+  .footer {
+    padding-top: 3.5rem !important;
+  }
+}
+
+/* POPIA Form Checkbox & Disabled Submit State */
+.form__group--consent {
+  margin: 1.25rem 0 1rem 0 !important;
+  text-align: left !important;
+}
+
+.form__checkbox-label {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 0.75rem !important;
+  cursor: pointer !important;
+  font-size: 0.8125rem !important;
+  line-height: 1.5 !important;
+  color: #64748B !important;
+  user-select: none !important;
+}
+
+.form__checkbox {
+  margin-top: 0.2rem !important;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  accent-color: var(--color-primary, #C9A050) !important;
+  cursor: pointer !important;
+}
+
+.form__checkbox-text {
+  flex: 1 !important;
+}
+
+.form__checkbox-link {
+  color: var(--color-navy, #0A192F) !important;
+  font-weight: 600 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+  transition: color 0.2s ease !important;
+}
+
+.form__checkbox-link:hover {
+  color: var(--color-primary, #C9A050) !important;
+}
+
+.form__subtext {
+  font-size: 0.71875rem !important;
+  color: #64748B !important;
+  margin-top: 0.75rem !important;
+  text-align: center !important;
+  line-height: 1.45 !important;
+}
+
+.form__submit:disabled,
+button[type="submit"]:disabled {
+  opacity: 0.55 !important;
+  cursor: not-allowed !important;
+  filter: grayscale(40%) !important;
+}
+

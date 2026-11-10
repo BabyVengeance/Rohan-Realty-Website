@@ -12,6 +12,9 @@ const REQUIRED_PAGES = [
   'residential.html',
   'commercial.html',
   'contact.html',
+  'privacy-policy.html',
+  'terms-and-conditions.html',
+  'statutory-disclosure.html',
   '5-nightjar-close.html',
   '55-hawaan-drive.html',
   '12-sera-bella.html',
@@ -38,11 +41,22 @@ REQUIRED_PAGES.forEach(file => {
     passed++;
   }
 
-  // 2. Footer Verification
+  // 2. Footer & Statutory Compliance Verification
   if (!html.includes('<footer class="footer"') || !html.includes('class="footer__grid"')) {
     errors.push(`[FOOTER MISMATCH] ${file} is missing canonical <footer class="footer"> or .footer__grid.`);
+  } else if (!html.includes('class="footer-compliance-banner"')) {
+    errors.push(`[COMPLIANCE BANNER MISSING] ${file} is missing .footer-compliance-banner.`);
   } else {
     passed++;
+  }
+
+  // 2b. Form-Level POPIA Consent Check
+  if (html.includes('<form')) {
+    if (!html.includes('name="popia_consent"') && !html.includes('id="popiaConsent"')) {
+      errors.push(`[POPIA CONSENT MISSING] ${file} contains a form but is missing POPIA consent checkbox.`);
+    } else {
+      passed++;
+    }
   }
 
   // 3. Asset Integrity Verification
