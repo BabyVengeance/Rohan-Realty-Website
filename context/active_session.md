@@ -1,55 +1,47 @@
-# Active Session — Rohan Realty
+# Active Session — Blue Ocean Realty (Pty) Ltd
 
-## Current Status: Legal Compliance & Statutory Disclosures Engine Fully Deployed & Verified
+## Current Status: Portal Fully Re-Positioned Under Blue Ocean Realty with Statutory PPRA Compliance
 
 ### Accomplished in this Session
 
-1. **Pillar 1: About Section Supervision & Affiliation Architecture (`about.html` & `index.html`):**
-   - **PPRA Regulation 34.3.4.6 Enforced:** Eliminated unauthorized non-candidate designations. Rohan Ramlall is formally declared as a **Candidate Property Practitioner** operating under the active mentorship and statutory supervision of Principal **Benjamin Govindraj** at **Blue Ocean Realty (Pty) Ltd**.
-   - **Non-Independent Agency Notice:** Declared that `rohanrealty.co.za` operates as a curated digital showcase and personal media hub; all mandates, OTPs, leases, and commissions are concluded strictly under Blue Ocean Realty (Pty) Ltd.
-   - **Interim Standard Applied:** FFC numbers clearly designated as *In Process / Available on Request (PPRA Registered)* to maintain absolute truth in advertising and avoid placeholder leaks.
+1. **Strategic Legal Realignment (Property Practitioners Act 22 of 2019):**
+   - Eliminated statutory liability under PPA Section 48, Section 56, and Regulation 34 by transforming the entire website into the official commercial showcase of **Blue Ocean Realty (Pty) Ltd**.
+   - Removed all primary-level branding of "Rohan Realty" from navigation bars and footers across all 23 templates, removing the impression of an independent or unlicensed trading entity.
+   - Formally designated Rohan Ramlall as a **Candidate Property Practitioner** operating under the statutory mentorship and direct supervision of Principal Property Practitioner **Benjamin Govindraj** at Blue Ocean Realty (Pty) Ltd.
 
-2. **Pillar 2: Global 4-Column Responsive Footer & Statutory Compliance Strip:**
-   - **Standardized Across All 20 Pages:** Converted all fragmented single-column and custom footers into the canonical 4-column responsive grid (`.footer__grid`), resolving parity failures on `5-nightjar-close.html`, `55-hawaan-drive.html`, `12-sera-bella.html`, and `6-sera-bella.html`.
-   - **Dedicated Legal Route Column:** Direct navigation to Privacy Policy (POPIA), Terms of Use & E&OE, PPRA Disclosure & Section 54, and PAIA manual.
-   - **Full-Width Sub-Footer Regulatory Banner:** Enforces PPA Act 22 of 2019 disclosures, Section 54 trust account declarations, firm licensing status, and supervising practitioner oversight.
+2. **Universal Header Brand Anchor Refactor (23 Templates):**
+   - Replaced the co-branded dual lockup (`ROHAN REALTY` text + gold divider + logo) with the clean, authoritative standalone Blue Ocean Realty logo (`assets/branding/blue-ocean-logo.png`).
+   - Standardized `aria-label="Blue Ocean Realty Home"` and high-DPI scaling across all 23 HTML files.
+   - Polished `.site-header .nav__brand-logo` in `css/header.css` with fluid clamp sizing (`clamp(38px, 4vw, 44px)`), refined drop-shadow, and responsive mobile rendering.
+   - Updated mobile drawer label from "About Rohan & Agency" to "About Agency & Team".
 
-3. **Pillar 3: Three Standalone Legal Policy Pages Authored & Linked:**
-   - [`privacy-policy.html`](file:///e:/MONEY/Real%20estate/rohan%20realty/Rohan%20Realty/privacy-policy.html): Complete South African POPIA Act 4 of 2013 data protection policy covering Joint Responsible Parties, lawful processing grounds, FICA Act 38 of 2001 verification, zero third-party data selling, data subject rights (access, rectification, deletion), and Information Regulator recourse.
-   - [`terms-and-conditions.html`](file:///e:/MONEY/Real%20estate/rohan%20realty/Rohan%20Realty/terms-and-conditions.html): Comprehensive Errors and Omissions Excepted (E&OE) framework, non-binding digital presentations (no FAIS advice / binding OTPs), mandate integrity, and intellectual property/drone media copyright protections.
-   - [`statutory-disclosure.html`](file:///e:/MONEY/Real%20estate/rohan%20realty/Rohan%20Realty/statutory-disclosure.html): Full statutory disclosure schedule, PPA Section 54 trust banking account declaration (zero trust monies through portal; funds administered via conveyancer trust accounts or Blue Ocean Realty's Section 54 audited account), and PAIA Section 51 manual request access.
+3. **Canonical 4-Column Footer Transformation (23 Templates):**
+   - **Column 1 (`footer__col-brand`):** Transformed title to `BLUE OCEAN <span>REALTY</span>` with premier KZN luxury and commercial brokerage description and corporate credentials.
+   - **Column 4 (`footer__contact-items`):** Cleanly separated leadership roles: Candidate Property Practitioner (Rohan Ramlall), Principal Property Practitioner (Benjamin Govindraj), and Durban North Executive Office.
+   - **Sub-Footer Regulatory Notice:** Reframed notice to confirm all property marketing, mandates, OTPs, leases, and Section 54 trust account funds are facilitated strictly through Blue Ocean Realty (Pty) Ltd.
+   - **Copyright Line:** Updated across all 23 files to `&copy; 2026 Blue Ocean Realty (Pty) Ltd. All rights reserved.` with POPIA and PPA Act 22 of 2019 compliance notices.
+   - **Social Meta:** Updated Facebook button accessible names to `Facebook Blue Ocean Realty`.
 
-4. **Pillar 4: Form-Level POPIA Consent Mechanics & Button Gating:**
-   - **Mandatory Opt-In Checkbox:** Injected across all inquiry forms on the portal with explicit consent text and direct link to `privacy-policy.html`.
-   - **Client-Side Gating in `js/main.js`:** Submit button starts in a disabled state and dynamically enables/disables based on affirmative checkbox selection. Unchecked submission attempts are blocked.
-   - **POPIA Trust Micro-Disclosure:** Rendered directly beneath every form submission button.
+4. **About Section & Advisor Spotlight Amendments (`about.html` & `index.html`):**
+   - Maintained 100% of the existing visual layout, photography, quote card, and grid structure.
+   - Reframed affiliation badges to `Blue Ocean Realty (Pty) Ltd • Candidate Property Practitioner`.
+   - Updated mentorship callout box to state that the portal serves as a specialized showcase for Blue Ocean Realty's premier mandates.
+   - Amended media reach copy: "Leveraging high-production digital media and his established audience across Instagram (@rohanrealty.co.za), TikTok, and Facebook, Rohan provides high-impact property cinematic showcases for Blue Ocean Realty's premier mandates."
+   - Updated Agency Foundation section to confirm that every mandate and transaction operates under Blue Ocean Realty's executive governance.
 
-5. **Pillar 5: Advisor Spotlight Card Refactor & Portrait Unblocking (`index.html` & `about.html`):**
-   - **Card Relocation Below Photo:** Extracted `.advisor__badge-overlay` from overlapping the portrait and restructured it into an independent luxury card (`.advisor__card`) anchored neatly below `.advisor__media`.
-   - **Portrait Visibility & Focal Calibration:** Adjusted `.advisor__img` and `.about-story__img` from `object-position: top center` to `object-position: center 60%`, eliminating empty sky waste and centering Rohan's executive portrait, sunglasses, and coastal balcony horizon with zero obstruction.
-   - **Legal Designation De-duplication:** Cleared duplicate string occurrences (`Candidate Candidate Property Practitioner` and `(Pty) Ltd (Pty) Ltd`) across `index.html` and 11 commercial listings, hardening `scripts/sync_legal_compliance.js` with idempotent regex rules.
+5. **Metadata, Open Graph & Cross-Page Consistency:**
+   - Standardized `<title>` and `og:title` tags across residential, commercial, legal, and all 15 property listing pages from "Rohan Realty • Blue Ocean Realty" to "Blue Ocean Realty".
+   - Updated hero section aria-labels and kickers to `Blue Ocean Realty Flagship Introduction` and `Blue Ocean Realty • KwaZulu-Natal`.
 
-6. **Pillar 6: Universal Property Page Hero Viewport Hardening (Zero-Leak Invariant):**
-   - **Diagnosis of `urban-corner.html` Leak:** The 11 commercial property heroes had declared `min-h-[92vh]`. Because the transparent navigation header is `fixed` at `top: 0`, the hero begins at `y = 0` and terminated at 92vh, leaking 8% of the white overview section into the bottom viewport fold.
-   - **Commercial Portfolio Elevation (11 Pages):** Standardized all 11 commercial listings (`urban-corner.html`, `21-richefond.html`, `580-riverside-road.html`, `7-the-boulevard.html`, `dunlop-house.html`, `glass-house-building-1.html`, `glass-house-building-2.html`, `glass-house-building-5.html`, `northfield-business-park.html`, `the-avenues-centre.html`, `the-glades-office-park.html`) from `min-h-[92vh]` to `min-h-screen min-h-[100dvh]`, with optimized top padding (`pt-28`) and bottom clearance (`pb-16`).
-   - **Hero Restoration on `6-sera-bella.html`:** Discovered and restored the missing `<section class="hero" id="hero">` on Unit 6 Sera Bella that had been inadvertently clipped during earlier navbar updates, re-establishing its full 100vh executive hero showcase and linking it to the transfer duty matrix.
-   - **Global CSS Enforcement in `css/header.css`:** Added `#featured, .hero { min-height: 100vh !important; min-height: 100dvh !important; box-sizing: border-box !important; }` to guarantee across all 15 property pages that heroes fill 100% of the screen fold with zero subsequent section leaks on mobile, tablet, and desktop.
-
-7. **Pillar 7: Universal Property Card Clickability Engine:**
-   - **Full-Card Navigation Engine in `js/main.js`:** Added delegated event listeners across `.property-card`, `.estate-card`, `.comm-card`, `#property-grid > div`, and `[data-clickable-card]`. Clicking anywhere on the card surface (media, title, location, specs, body, padding) seamlessly navigates directly to the mandate URL.
-   - **Secondary Interactive Isolation:** Clicks on distinct secondary actions (WhatsApp click-to-chat, phone direct calls, contact request modals) trigger their specific functions without navigation conflicts.
-   - **Multi-Tab / Keyboard Support:** Supports `ctrlKey`, `metaKey`, and middle mouse button (`button === 1`) to open property mandates in new tabs.
-   - **Semantic Markup Enrichment:** Added explicit `data-href` attributes, wrapped card media images in `<a>` tags, and hyperlinked card headings across `index.html`, `residential.html`, `commercial.html`, and related mandate grids.
-   - **Broken Related Link Remediation:** Repaired broken Urban Corner buttons in `21-richefond.html` and `glass-house-building-2.html` to direct to `urban-corner.html`.
-   - **Global Visual Affordance (`css/header.css`):** Enforced `cursor: pointer !important` and smooth tactile hover lifts (`translateY(-4px)`) across all property card classes.
-
-8. **Empirical Quality & Verification:**
-   - [`scripts/verify_components.js`](file:///e:/MONEY/Real%20estate/rohan%20realty/Rohan%20Realty/scripts/verify_components.js): 30/30 component parity checks passed (100% synchronized).
-   - [`scripts/verify_all_pages.js`](file:///e:/MONEY/Real%20estate/rohan%20realty/Rohan%20Realty/scripts/verify_all_pages.js): All 23 HTML files 100% healthy (0 errors).
-   - [`scripts/audit_links.js`](file:///e:/MONEY/Real%20estate/rohan%20realty/Rohan%20Realty/scripts/audit_links.js): 877/877 internal links audited; 100% resolving cleanly (+33 verified card links).
-   - [`scripts/deep_media_audit.js`](file:///e:/MONEY/Real%20estate/rohan%20realty/Rohan%20Realty/scripts/deep_media_audit.js): 300/300 local media assets verified.
+6. **Empirical Quality & Verification:**
+   - Ran automated verification script across all 23 HTML templates:
+     - 0 instances of "Rohan Realty" remaining in headers, footers, meta tags, or body copy.
+     - 23/23 templates verified for `assets/branding/blue-ocean-logo.png` and `aria-label="Blue Ocean Realty Home"`.
+     - 23/23 templates verified for `BLUE OCEAN <span>REALTY</span>` and statutory PPRA notice in footers.
+     - 23/23 templates verified for `&copy; 2026 Blue Ocean Realty (Pty) Ltd`.
+     - Zero unicode emojis confirmed across all files.
 
 ### Next Execution Milestones
-1. Stage and commit all legal compliance changes and new policy pages to Git.
-2. When final PPRA Fidelity Fund Certificate numbers arrive from the client, run `scripts/sync_legal_compliance.js` to slot them into the disclosure schedules.
-3. Deploy to Cloudflare Pages preview and test live form submissions.
+1. Review live browser rendering across desktop (1440px) and mobile (375px) viewports.
+2. Commit all updated templates and active session documentation to Git.
+3. Deploy to Cloudflare Pages staging preview for stakeholder demonstration.

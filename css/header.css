@@ -78,7 +78,7 @@ body {
   box-sizing: border-box !important;
 }
 
-/* Co-Branded Lockup: Rohan Realty x Blue Ocean Realty */
+/* Brand Anchor: Blue Ocean Realty (Pty) Ltd */
 .site-header .nav__brand,
 .nav__brand {
   display: flex !important;
@@ -136,10 +136,16 @@ body {
 
 .site-header .nav__brand-logo,
 .nav__brand-logo {
-  height: 38px !important;
+  height: clamp(38px, 4vw, 44px) !important;
   width: auto !important;
   display: block !important;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4)) !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35)) !important;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.site-header .nav__brand-logo:hover,
+.nav__brand-logo:hover {
+  transform: scale(1.02);
 }
 
 /* Nav Links Matrix */
