@@ -33,25 +33,29 @@
    - Standardized `<title>` and `og:title` tags across residential, commercial, legal, and all 15 property listing pages from "Rohan Realty • Blue Ocean Realty" to "Blue Ocean Realty".
    - Updated hero section aria-labels and kickers to `Blue Ocean Realty Flagship Introduction` and `Blue Ocean Realty • KwaZulu-Natal`.
 
-6. **Two-Tier Property Filter and Sorting Systems (`residential.html` & `commercial.html`):**
-   - Engineered an elevated, niche-tailored luxury discovery console adhering to Sovereign Minimalism and `/humanizer` directives (simple words, zero robotic AI slop).
-   - **Tier 1 Primary Segment Pill Track:**
-     - Residential: All Homes, Hawaan Forest Estate, Izinga Estate.
-     - Commercial: All Properties, For Sale (Investment & Development Land), To Let (Offices, Warehousing & Retail).
-   - **Tier 2 Granular Refinement Bar:**
-     - Search input with instant client-side text filtering across property title, suburb, and key specifications.
-     - Residential dropdowns: Price Range (All Prices, Under R10M, R10M - R20M, Over R20M), Bedrooms (Any Bedrooms, 4+ Bedrooms, 5+ Bedrooms), Sort By (Featured Mandates, Price: High to Low, Price: Low to High).
-     - Commercial dropdowns: Property Category (All Categories, Corporate Offices, Industrial & Logistics, Retail & Showrooms, Prime Land), Suburb/Location (All Locations, Umhlanga Ridgeside, Durban North, Hilton / Midlands), Sort By (Featured Mandates, Size: Largest First, Rate / Price: High to Low, Rate / Price: Low to High).
-   - **Live Result Counter & Reset Button:**
-     - Dynamic counter ("Showing X homes" / "Showing X commercial properties") that updates in real time.
-     - "Reset filters" button that appears automatically whenever non-default filters are active.
-   - **Off-Market Fallback Card:**
-     - Integrated `#residentialNoResults` and `#commercialNoResults` cards with direct WhatsApp chat CTAs (`wa.me/27695224226`) and "Clear All Filters" actions.
+6. **Universal Category-Based Filter and Sorting Engine (`residential.html` & `commercial.html`):**
+   - Engineered scalable, generic industry-standard property categories and pure mathematical filter ranges that automatically categorize any future listing without requiring code updates.
+   - **Residential Categories & Generic Ranges:**
+     - **Tier 1 Property Categories:** All Homes, Houses & Villas (`house`), Gated Estates (`estate`), Townhouses & Clusters (`townhouse`), Apartments & Penthouses (`apartment`).
+     - **Tier 2 Generic Refinement Bar:**
+       - Search: Matches location, estate, address, or keywords.
+       - Price Range (pure numeric range evaluation): All Prices, Under R5,000,000, R5M - R10,000,000, R10M - R20,000,000, R20M - R30,000,000, Over R30,000,000.
+       - Bedrooms: All Bedrooms, 1+ Beds, 2+ Beds, 3+ Beds, 4+ Beds, 5+ Beds.
+       - Sort: Featured Mandates, Price: High to Low, Price: Low to High, Bedrooms: Most First.
+   - **Commercial Categories & Generic Ranges:**
+     - **Tier 1 Sector Categories:** All Properties, Corporate Offices (`office`), Industrial & Logistics (`industrial`), Retail & Showrooms (`retail`), Prime Land & Development (`land`).
+     - **Tier 2 Generic Refinement Bar:**
+       - Search: Matches park, location, or keywords.
+       - Transaction Type: All Transactions, To Let / Lease, For Sale / Investment.
+       - Floor Size (pure numeric m² range evaluation): All Sizes, Under 250 m², 250 - 500 m², 500 - 1,000 m², 1,000 - 2,500 m², Over 2,500 m².
+       - Sort: Featured Mandates, Size: Largest First, Size: Smallest First, Rate: High to Low, Rate: Low to High.
+   - **Dynamic Pill Count Engine:**
+     - JavaScript dynamically calculates and populates live count badges on every pill tab on page load based on DOM elements. Adding new cards with standard attributes automatically increments category counts.
+   - **Off-Market Fallback & Empty State:**
+     - When filters yield 0 public matches (e.g. Apartments & Penthouses before stock is added), the system presents `#residentialNoResults` or `#commercialNoResults` with direct WhatsApp advisory triggers (`wa.me/27695224226`) and a 1-click Reset button.
    - **Automated Verification:**
-     - 4/4 residential properties verified for area, price tier, and numeric sorting.
-     - 11/11 commercial properties verified for transaction type, category, and size/rate sorting.
-     - Zero emojis across all UI copy, attributes, and scripts.
-     - All 23 HTML files audited and verified with 100% balanced DOM tree tags (`openDivs === closeDivs`).
+     - Audited all category counts, numeric filters, and tag balance (`openDivs === closeDivs`).
+     - Zero emojis across all templates, copy, scripts, and documentation.
 
 ### Next Execution Milestones
 1. Review live browser rendering across desktop (1440px) and mobile (375px) viewports.

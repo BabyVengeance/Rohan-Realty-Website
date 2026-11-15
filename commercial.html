@@ -535,46 +535,48 @@
 
       <!-- Property Discovery Console -->
       <div class="property-controls" role="region" aria-label="Commercial Property Filters">
-        <!-- Top Row: Transaction Type Pills -->
-        <div class="control-pills" role="tablist" aria-label="Filter by Transaction Type">
-          <button class="control-pill control-pill--active" data-type-filter="all" role="tab" aria-selected="true">All Properties (11)</button>
-          <button class="control-pill" data-type-filter="sale" role="tab" aria-selected="false">For Sale</button>
-          <button class="control-pill" data-type-filter="lease" role="tab" aria-selected="false">To Let</button>
+        <!-- Top Row: General Category Tabs -->
+        <div class="control-pills" role="tablist" aria-label="Filter by Commercial Category">
+          <button class="control-pill control-pill--active" data-commercial-category="all" role="tab" aria-selected="true">All Properties <span class="pill-count">(11)</span></button>
+          <button class="control-pill" data-commercial-category="office" role="tab" aria-selected="false">Corporate Offices <span class="pill-count">(6)</span></button>
+          <button class="control-pill" data-commercial-category="industrial" role="tab" aria-selected="false">Industrial &amp; Logistics <span class="pill-count">(2)</span></button>
+          <button class="control-pill" data-commercial-category="retail" role="tab" aria-selected="false">Retail &amp; Showrooms <span class="pill-count">(2)</span></button>
+          <button class="control-pill" data-commercial-category="land" role="tab" aria-selected="false">Prime Land &amp; Development <span class="pill-count">(1)</span></button>
         </div>
 
         <!-- Refinement Bar -->
         <div class="refinement-bar">
           <div class="search-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="text" class="search-input" id="commercialSearch" placeholder="Search by park, area, or property..." aria-label="Search commercial properties">
+            <input type="text" class="search-input" id="commercialSearch" placeholder="Search by park, location, or keyword..." aria-label="Search commercial properties">
           </div>
 
           <div>
-            <select class="control-select" id="commCategoryFilter" aria-label="Filter by Property Type">
-              <option value="all">All Types</option>
-              <option value="office">Corporate Offices</option>
-              <option value="industrial">Industrial &amp; Logistics</option>
-              <option value="land">Commercial Land</option>
-              <option value="retail">Retail &amp; Showrooms</option>
+            <select class="control-select" id="commTypeFilter" aria-label="Filter by Transaction Type">
+              <option value="all">All Transactions</option>
+              <option value="lease">To Let / Lease</option>
+              <option value="sale">For Sale / Investment</option>
             </select>
           </div>
 
           <div>
-            <select class="control-select" id="commLocationFilter" aria-label="Filter by Location">
-              <option value="all">All Locations</option>
-              <option value="umhlanga">Umhlanga &amp; Ridgeside</option>
-              <option value="durban-north">Durban North &amp; Riverside</option>
-              <option value="northfield">Northfield &amp; Riverhorse</option>
-              <option value="hilton">Hilton &amp; Midlands</option>
+            <select class="control-select" id="commSizeFilter" aria-label="Filter by Floor Size">
+              <option value="all">All Sizes</option>
+              <option value="0-250">Under 250 m&sup2;</option>
+              <option value="250-500">250 &ndash; 500 m&sup2;</option>
+              <option value="500-1000">500 &ndash; 1,000 m&sup2;</option>
+              <option value="1000-2500">1,000 &ndash; 2,500 m&sup2;</option>
+              <option value="2500-999999999">Over 2,500 m&sup2;</option>
             </select>
           </div>
 
           <div>
             <select class="control-select" id="commSortFilter" aria-label="Sort Properties">
-              <option value="featured">Recommended</option>
-              <option value="price-desc">Price: High to Low</option>
-              <option value="price-asc">Price: Low to High</option>
+              <option value="featured">Featured Mandates</option>
               <option value="size-desc">Size: Largest First</option>
+              <option value="size-asc">Size: Smallest First</option>
+              <option value="price-desc">Rate: High to Low</option>
+              <option value="price-asc">Rate: Low to High</option>
             </select>
           </div>
         </div>
@@ -1277,42 +1279,70 @@
   <!-- Commercial Discovery Script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const typeBtns = document.querySelectorAll('[data-type-filter]');
+      const categoryBtns = document.querySelectorAll('[data-commercial-category]');
       const searchInput = document.getElementById('commercialSearch');
-      const categoryFilter = document.getElementById('commCategoryFilter');
-      const locationFilter = document.getElementById('commLocationFilter');
+      const typeFilter = document.getElementById('commTypeFilter');
+      const sizeFilter = document.getElementById('commSizeFilter');
       const sortFilter = document.getElementById('commSortFilter');
       const counterEl = document.getElementById('commercialCount');
       const resetBtn = document.getElementById('commercialReset');
-      const noResultsReset = document.getElementById('noResultsResetComm');
+      const noResultsReset = document.getElementById('noResultsReset');
       const noResultsCard = document.getElementById('commercialNoResults');
       const grid = document.getElementById('commercialGrid');
       const originalCards = Array.from(document.querySelectorAll('#commercialGrid .comm-card'));
 
-      let currentType = 'all';
+      let currentCategory = 'all';
+
+      // Dynamically calculate and refresh pill counts from DOM
+      function updatePillCounts() {
+        categoryBtns.forEach(btn => {
+          const cat = btn.getAttribute('data-commercial-category');
+          const countSpan = btn.querySelector('.pill-count');
+          if (!countSpan) return;
+          if (cat === 'all') {
+            countSpan.textContent = `(${originalCards.length})`;
+          } else {
+            const count = originalCards.filter(card => {
+              const cardCat = card.getAttribute('data-category') || '';
+              return cardCat === cat;
+            }).length;
+            countSpan.textContent = `(${count})`;
+          }
+        });
+      }
+      updatePillCounts();
 
       function applyFilters() {
         const query = (searchInput ? searchInput.value.trim().toLowerCase() : '');
-        const selectedCategory = categoryFilter ? categoryFilter.value : 'all';
-        const selectedLocation = locationFilter ? locationFilter.value : 'all';
+        const selectedType = typeFilter ? typeFilter.value : 'all';
+        const selectedSize = sizeFilter ? sizeFilter.value : 'all';
         const selectedSort = sortFilter ? sortFilter.value : 'featured';
 
+        let minSize = 0;
+        let maxSize = Infinity;
+        if (selectedSize !== 'all') {
+          const parts = selectedSize.split('-').map(Number);
+          minSize = parts[0];
+          maxSize = parts[1] || Infinity;
+        }
+
         let visibleCount = 0;
-        const isFiltered = (currentType !== 'all' || query !== '' || selectedCategory !== 'all' || selectedLocation !== 'all' || selectedSort !== 'featured');
+        const isFiltered = (currentCategory !== 'all' || query !== '' || selectedType !== 'all' || selectedSize !== 'all' || selectedSort !== 'featured');
 
         // Filter cards
         originalCards.forEach(card => {
-          const type = card.getAttribute('data-type');
-          const category = card.getAttribute('data-category');
-          const location = card.getAttribute('data-location');
+          const type = card.getAttribute('data-type') || '';
+          const category = card.getAttribute('data-category') || '';
+          const location = (card.getAttribute('data-location') || '').toLowerCase();
           const title = (card.getAttribute('data-title') || '').toLowerCase();
+          const size = parseFloat(card.getAttribute('data-size')) || 0;
 
-          const matchesType = (currentType === 'all' || type === currentType);
-          const matchesCategory = (selectedCategory === 'all' || category === selectedCategory);
-          const matchesLocation = (selectedLocation === 'all' || location === selectedLocation);
-          const matchesQuery = (query === '' || title.includes(query));
+          const matchesCategory = (currentCategory === 'all' || category === currentCategory);
+          const matchesType = (selectedType === 'all' || type === selectedType);
+          const matchesSize = (size >= minSize && size <= maxSize);
+          const matchesQuery = (query === '' || title.includes(query) || location.includes(query));
 
-          if (matchesType && matchesCategory && matchesLocation && matchesQuery) {
+          if (matchesCategory && matchesType && matchesSize && matchesQuery) {
             card.style.display = 'flex';
             visibleCount++;
           } else {
@@ -1331,6 +1361,7 @@
             if (selectedSort === 'price-desc') return priceB - priceA;
             if (selectedSort === 'price-asc') return priceA - priceB;
             if (selectedSort === 'size-desc') return sizeB - sizeA;
+            if (selectedSort === 'size-asc') return sizeA - sizeB;
             return 0;
           });
           sortedCards.forEach(card => grid.appendChild(card));
@@ -1356,24 +1387,24 @@
       }
 
       function resetAll() {
-        currentType = 'all';
-        typeBtns.forEach(btn => {
-          const isAll = btn.getAttribute('data-type-filter') === 'all';
+        currentCategory = 'all';
+        categoryBtns.forEach(btn => {
+          const isAll = btn.getAttribute('data-commercial-category') === 'all';
           btn.classList.toggle('control-pill--active', isAll);
           btn.setAttribute('aria-selected', isAll ? 'true' : 'false');
         });
         if (searchInput) searchInput.value = '';
-        if (categoryFilter) categoryFilter.value = 'all';
-        if (locationFilter) locationFilter.value = 'all';
+        if (typeFilter) typeFilter.value = 'all';
+        if (sizeFilter) sizeFilter.value = 'all';
         if (sortFilter) sortFilter.value = 'featured';
         applyFilters();
       }
 
       // Event listeners
-      typeBtns.forEach(btn => {
+      categoryBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          currentType = btn.getAttribute('data-type-filter');
-          typeBtns.forEach(b => {
+          currentCategory = btn.getAttribute('data-commercial-category');
+          categoryBtns.forEach(b => {
             b.classList.remove('control-pill--active');
             b.setAttribute('aria-selected', 'false');
           });
@@ -1384,8 +1415,8 @@
       });
 
       if (searchInput) searchInput.addEventListener('input', applyFilters);
-      if (categoryFilter) categoryFilter.addEventListener('change', applyFilters);
-      if (locationFilter) locationFilter.addEventListener('change', applyFilters);
+      if (typeFilter) typeFilter.addEventListener('change', applyFilters);
+      if (sizeFilter) sizeFilter.addEventListener('change', applyFilters);
       if (sortFilter) sortFilter.addEventListener('change', applyFilters);
       if (resetBtn) resetBtn.addEventListener('click', resetAll);
       if (noResultsReset) noResultsReset.addEventListener('click', resetAll);

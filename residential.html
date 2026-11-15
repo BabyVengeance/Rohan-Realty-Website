@@ -456,42 +456,50 @@
 
       <!-- Property Discovery Console -->
       <div class="property-controls" role="region" aria-label="Residential Property Filters">
-        <!-- Top Row: Area Buttons -->
-        <div class="control-pills" role="tablist" aria-label="Filter by Area">
-          <button class="control-pill control-pill--active" data-area-filter="all" role="tab" aria-selected="true">All Areas (4)</button>
-          <button class="control-pill" data-area-filter="hawaan" role="tab" aria-selected="false">Hawaan Forest Estate (2)</button>
-          <button class="control-pill" data-area-filter="izinga" role="tab" aria-selected="false">Izinga (2)</button>
+        <!-- Top Row: General Category Tabs -->
+        <div class="control-pills" role="tablist" aria-label="Filter by Property Category">
+          <button class="control-pill control-pill--active" data-category-filter="all" role="tab" aria-selected="true">All Homes <span class="pill-count">(4)</span></button>
+          <button class="control-pill" data-category-filter="house" role="tab" aria-selected="false">Houses &amp; Villas <span class="pill-count">(2)</span></button>
+          <button class="control-pill" data-category-filter="estate" role="tab" aria-selected="false">Gated Estates <span class="pill-count">(4)</span></button>
+          <button class="control-pill" data-category-filter="townhouse" role="tab" aria-selected="false">Townhouses &amp; Clusters <span class="pill-count">(2)</span></button>
+          <button class="control-pill" data-category-filter="apartment" role="tab" aria-selected="false">Apartments &amp; Penthouses <span class="pill-count">(0)</span></button>
         </div>
 
         <!-- Refinement Bar -->
         <div class="refinement-bar">
           <div class="search-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="text" class="search-input" id="residentialSearch" placeholder="Search by area or street..." aria-label="Search residential properties">
+            <input type="text" class="search-input" id="residentialSearch" placeholder="Search by area, estate, or street..." aria-label="Search residential properties">
           </div>
 
           <div>
-            <select class="control-select" id="priceFilter" aria-label="Filter by Price">
+            <select class="control-select" id="priceFilter" aria-label="Filter by Price Range">
               <option value="all">All Prices</option>
-              <option value="under-10m">Under R10M</option>
-              <option value="10m-20m">R10M to R20M</option>
-              <option value="over-20m">Over R20M</option>
+              <option value="0-5000000">Under R5,000,000</option>
+              <option value="5000000-10000000">R5M &ndash; R10,000,000</option>
+              <option value="10000000-20000000">R10M &ndash; R20,000,000</option>
+              <option value="20000000-30000000">R20M &ndash; R30,000,000</option>
+              <option value="30000000-999999999">Over R30,000,000</option>
             </select>
           </div>
 
           <div>
             <select class="control-select" id="bedroomFilter" aria-label="Filter by Bedrooms">
               <option value="all">All Bedrooms</option>
-              <option value="4">4 Bedrooms</option>
-              <option value="5">5 Bedrooms</option>
+              <option value="1">1+ Bedrooms</option>
+              <option value="2">2+ Bedrooms</option>
+              <option value="3">3+ Bedrooms</option>
+              <option value="4">4+ Bedrooms</option>
+              <option value="5">5+ Bedrooms</option>
             </select>
           </div>
 
           <div>
             <select class="control-select" id="sortFilter" aria-label="Sort Properties">
-              <option value="featured">Featured Order</option>
+              <option value="featured">Featured Mandates</option>
               <option value="price-desc">Price: High to Low</option>
               <option value="price-asc">Price: Low to High</option>
+              <option value="beds-desc">Bedrooms: Most First</option>
             </select>
           </div>
         </div>
@@ -504,7 +512,7 @@
 
       <div class="portfolio-grid" id="residentialGrid">
         <!-- 5 Nightjar Close -->
-        <article class="estate-card" data-href="5-nightjar-close.html" data-area="hawaan" data-price="28000000" data-price-tier="over-20m" data-bedrooms="5" data-title="5 Nightjar Close Hawaan Forest Estate Umhlanga Rocks">
+        <article class="estate-card" data-href="5-nightjar-close.html" data-category="house estate" data-area="hawaan" data-price="28000000" data-bedrooms="5" data-title="5 Nightjar Close Hawaan Forest Estate Umhlanga Rocks">
           <a href="5-nightjar-close.html" class="estate-card__media" aria-label="View 5 Nightjar Close details">
             <img src="assets/properties/5-nightjar-close/images/photo_01_384268194.jpg" alt="5 Nightjar Close, Hawaan Forest Estate" class="estate-card__img" width="800" height="500" loading="lazy">
             <span class="estate-card__tier-badge">Rare 2,195 m&sup2; Double Stand</span>
@@ -545,7 +553,7 @@
         </article>
 
         <!-- 55 Hawaan Drive -->
-        <article class="estate-card" data-href="55-hawaan-drive.html" data-area="hawaan" data-price="19995000" data-price-tier="10m-20m" data-bedrooms="4" data-title="55 Hawaan Drive Forest Villa Hawaan Forest Estate Umhlanga">
+        <article class="estate-card" data-href="55-hawaan-drive.html" data-category="house estate" data-area="hawaan" data-price="19995000" data-bedrooms="4" data-title="55 Hawaan Drive Forest Villa Hawaan Forest Estate Umhlanga">
           <a href="55-hawaan-drive.html" class="estate-card__media" aria-label="View 55 Hawaan Drive details">
             <img src="assets/properties/55-hawaan-drive/images/house-01.jpg" alt="55 Hawaan Drive, Hawaan Forest Estate" class="estate-card__img" width="800" height="500" loading="lazy">
             <span class="estate-card__tier-badge">Off-Grid Solar &bull; Glass Atrium</span>
@@ -586,7 +594,7 @@
         </article>
 
         <!-- 12 Sera Bella -->
-        <article class="estate-card" data-href="12-sera-bella.html" data-area="izinga" data-price="9575000" data-price-tier="under-10m" data-bedrooms="4" data-title="12 Sera Bella Izinga Ridge Umhlanga">
+        <article class="estate-card" data-href="12-sera-bella.html" data-category="townhouse estate" data-area="izinga" data-price="9575000" data-bedrooms="4" data-title="12 Sera Bella Izinga Ridge Umhlanga">
           <a href="12-sera-bella.html" class="estate-card__media" aria-label="View 12 Sera Bella details">
             <img src="assets/properties/12-sera-bella/images/exterior-1.jpg" alt="12 Sera Bella, Izinga Ridge" class="estate-card__img" width="800" height="500" loading="lazy">
             <span class="estate-card__tier-badge">481 m&sup2; Flagship &bull; Zero Duty</span>
@@ -627,7 +635,7 @@
         </article>
 
         <!-- 6 Sera Bella -->
-        <article class="estate-card" data-href="6-sera-bella.html" data-area="izinga" data-price="8995000" data-price-tier="under-10m" data-bedrooms="4" data-title="Unit 6 Sera Bella 61 Mahogany Drive Izinga Umhlanga">
+        <article class="estate-card" data-href="6-sera-bella.html" data-category="townhouse estate" data-area="izinga" data-price="8995000" data-bedrooms="4" data-title="Unit 6 Sera Bella 61 Mahogany Drive Izinga Umhlanga">
           <a href="6-sera-bella.html" class="estate-card__media" aria-label="View Unit 6 Sera Bella details">
             <img src="assets/properties/6-sera-bella/images/photo-01.jpg" alt="Unit 6 Sera Bella, Izinga" class="estate-card__img" width="800" height="500" loading="lazy">
             <span class="estate-card__tier-badge">Private Level Lawn &bull; Zero Duty</span>
@@ -829,7 +837,7 @@
   <!-- Residential Discovery Script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const areaBtns = document.querySelectorAll('[data-area-filter]');
+      const categoryBtns = document.querySelectorAll('[data-category-filter]');
       const searchInput = document.getElementById('residentialSearch');
       const priceFilter = document.getElementById('priceFilter');
       const bedroomFilter = document.getElementById('bedroomFilter');
@@ -841,30 +849,59 @@
       const grid = document.getElementById('residentialGrid');
       const originalCards = Array.from(document.querySelectorAll('#residentialGrid .estate-card'));
 
-      let currentArea = 'all';
+      let currentCategory = 'all';
+
+      // Dynamically calculate and refresh pill counts from DOM
+      function updatePillCounts() {
+        categoryBtns.forEach(btn => {
+          const cat = btn.getAttribute('data-category-filter');
+          const countSpan = btn.querySelector('.pill-count');
+          if (!countSpan) return;
+          if (cat === 'all') {
+            countSpan.textContent = `(${originalCards.length})`;
+          } else {
+            const count = originalCards.filter(card => {
+              const tokens = (card.getAttribute('data-category') || '').split(/\s+/);
+              return tokens.includes(cat);
+            }).length;
+            countSpan.textContent = `(${count})`;
+          }
+        });
+      }
+      updatePillCounts();
 
       function applyFilters() {
         const query = (searchInput ? searchInput.value.trim().toLowerCase() : '');
-        const selectedPriceTier = priceFilter ? priceFilter.value : 'all';
+        const selectedPriceRange = priceFilter ? priceFilter.value : 'all';
         const selectedBedrooms = bedroomFilter ? bedroomFilter.value : 'all';
         const selectedSort = sortFilter ? sortFilter.value : 'featured';
 
+        let minPrice = 0;
+        let maxPrice = Infinity;
+        if (selectedPriceRange !== 'all') {
+          const parts = selectedPriceRange.split('-').map(Number);
+          minPrice = parts[0];
+          maxPrice = parts[1] || Infinity;
+        }
+
+        const minBeds = selectedBedrooms !== 'all' ? parseInt(selectedBedrooms, 10) : 0;
+
         let visibleCount = 0;
-        const isFiltered = (currentArea !== 'all' || query !== '' || selectedPriceTier !== 'all' || selectedBedrooms !== 'all' || selectedSort !== 'featured');
+        const isFiltered = (currentCategory !== 'all' || query !== '' || selectedPriceRange !== 'all' || selectedBedrooms !== 'all' || selectedSort !== 'featured');
 
         // Filter cards
         originalCards.forEach(card => {
-          const area = card.getAttribute('data-area');
-          const priceTier = card.getAttribute('data-price-tier');
-          const bedrooms = card.getAttribute('data-bedrooms');
+          const categoryTokens = (card.getAttribute('data-category') || '').split(/\s+/);
+          const price = parseFloat(card.getAttribute('data-price')) || 0;
+          const bedrooms = parseInt(card.getAttribute('data-bedrooms'), 10) || 0;
           const title = (card.getAttribute('data-title') || '').toLowerCase();
 
-          const matchesArea = (currentArea === 'all' || area === currentArea);
+          const matchesCategory = (currentCategory === 'all' || categoryTokens.includes(currentCategory));
           const matchesQuery = (query === '' || title.includes(query));
-          const matchesPrice = (selectedPriceTier === 'all' || priceTier === selectedPriceTier);
-          const matchesBedrooms = (selectedBedrooms === 'all' || bedrooms === selectedBedrooms);
+          const matchesPrice = (price >= minPrice && price <= maxPrice);
+          const matchesBedrooms = (bedrooms >= minBeds);
 
-          if (matchesArea && matchesQuery && matchesPrice && matchesBedrooms) {
+          if (matchesCategory && matchesQuery && matchesPrice && matchesBedrooms) {
             card.style.display = 'flex';
             visibleCount++;
           } else {
@@ -875,10 +912,14 @@
         // Sort cards
         if (selectedSort !== 'featured') {
           const sortedCards = [...originalCards].sort((a, b) => {
-            const priceA = parseInt(a.getAttribute('data-price'), 10) || 0;
-            const priceB = parseInt(b.getAttribute('data-price'), 10) || 0;
+            const priceA = parseFloat(a.getAttribute('data-price')) || 0;
+            const priceB = parseFloat(b.getAttribute('data-price')) || 0;
+            const bedsA = parseInt(a.getAttribute('data-bedrooms'), 10) || 0;
+            const bedsB = parseInt(b.getAttribute('data-bedrooms'), 10) || 0;
+
             if (selectedSort === 'price-desc') return priceB - priceA;
             if (selectedSort === 'price-asc') return priceA - priceB;
+            if (selectedSort === 'beds-desc') return bedsB - bedsA;
             return 0;
           });
           sortedCards.forEach(card => grid.appendChild(card));
@@ -904,9 +945,9 @@
       }
 
       function resetAll() {
-        currentArea = 'all';
-        areaBtns.forEach(btn => {
-          const isAll = btn.getAttribute('data-area-filter') === 'all';
+        currentCategory = 'all';
+        categoryBtns.forEach(btn => {
+          const isAll = btn.getAttribute('data-category-filter') === 'all';
           btn.classList.toggle('control-pill--active', isAll);
           btn.setAttribute('aria-selected', isAll ? 'true' : 'false');
         });
@@ -918,10 +959,10 @@
       }
 
       // Event listeners
-      areaBtns.forEach(btn => {
+      categoryBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          currentArea = btn.getAttribute('data-area-filter');
-          areaBtns.forEach(b => {
+          currentCategory = btn.getAttribute('data-category-filter');
+          categoryBtns.forEach(b => {
             b.classList.remove('control-pill--active');
             b.setAttribute('aria-selected', 'false');
           });
