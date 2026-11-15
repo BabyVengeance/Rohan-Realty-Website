@@ -24,8 +24,8 @@
 
 4. **About Section & Advisor Spotlight Amendments (`about.html` & `index.html`):**
    - Maintained 100% of the existing visual layout, photography, quote card, and grid structure.
-   - Reframed affiliation badges to `Blue Ocean Realty (Pty) Ltd • Candidate Property Practitioner`.
-   - Updated mentorship callout box to state that the portal serves as a specialized showcase for Blue Ocean Realty's premier mandates.
+   - Removed intrusive statutory callout box and badge pill from the About narrative on `about.html`, restoring an elevated, unhindered editorial reading flow for prospective clients.
+   - All statutory disclosures (PPRA Regulation 34 mentorship, Benjamin Govindraj supervision, Firm FFC standing, and Section 54 trust account declarations) remain 100% legally active and accessible in `statutory-disclosure.html`, `terms-and-conditions.html`, and the universal compliance banner in every footer.
    - Amended media reach copy: "Leveraging high-production digital media and his established audience across Instagram (@rohanrealty.co.za), TikTok, and Facebook, Rohan provides high-impact property cinematic showcases for Blue Ocean Realty's premier mandates."
    - Updated Agency Foundation section to confirm that every mandate and transaction operates under Blue Ocean Realty's executive governance.
 
