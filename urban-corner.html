@@ -227,8 +227,20 @@
                         <p class="text-sm text-slate-500 mb-6 font-medium">Confidential details and financial snapshot
                             available upon request.</p>
 
-                        <form action="https://api.web3forms.com/submit" method="POST" id="contact-form" onsubmit="handleForm(event)" class="space-y-4 text-slate-900">
-                            <input type="hidden" name="access_key" value="b0614a11-d4cb-459e-9c91-fea8e0bce7cb">
+                        <form action="https://formsubmit.co/rohanramlall2005@gmail.com" method="POST" id="contact-form" onsubmit="handleForm(event)" class="space-y-4 text-slate-900" novalidate>
+                            <!-- FormSubmit & Dispatch Routing Configuration -->
+                            <input type="hidden" name="_cc" value="benjamingovindraj@gmail.com">
+                            <input type="hidden" name="_subject" value="[Blue Ocean Realty] Commercial Info Pack: Urban Corner, Umhlanga Ridge Town Centre">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_autoresponse" value="Thank you for requesting the Information Memorandum for Urban Corner, Umhlanga Ridge Town Centre. Rohan Ramlall and Benjamin Govindraj have received your request and will contact you directly.">
+                            <input type="hidden" name="form_type" value="Commercial Info Pack Request">
+                            <input type="hidden" name="property_name" value="Urban Corner, Umhlanga Ridge Town Centre">
+                            <input type="hidden" name="page_url" value="urban-corner.html">
+
+                            <!-- Security Honeypot & Anti-Bot Traps (Zero Spam Invariant) -->
+                            <input type="text" name="_honey" class="form__honey" style="display:none !important; position:absolute; left:-9999px; width:1px; height:1px;" tabindex="-1" autocomplete="off" aria-hidden="true">
+                            <input type="hidden" name="_submission_time" value="">
                             <div>
                                 <label class="block text-sm font-bold text-slate-700 mb-1">Name</label>
                                 <input type="text" required placeholder="John Doe"
@@ -610,47 +622,9 @@
         }
 
         function handleForm(e) {
-            e.preventDefault();
-            const form = e.target;
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
-            // Show loading state
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-
-            const formData = new FormData(form);
-            const object = Object.fromEntries(formData);
-            const json = JSON.stringify(object);
-
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
-            })
-            .then(async (response) => {
-                let json = await response.json();
-                if (response.status == 200) {
-                    const modal = document.getElementById('successModal');
-                    modal.classList.remove('hidden');
-                    modal.classList.add('flex');
-                    form.reset();
-                } else {
-                    console.log(response);
-                    alert("Something went wrong. Please try again later.");
-                }
-            })
-            .catch(error => {
-                console.log(error);
-                alert("Something went wrong. Please try again later.");
-            })
-            .finally(() => {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            });
+            if (window.handleForm) {
+                window.handleForm(e);
+            }
         }
 
         function closeModal() {

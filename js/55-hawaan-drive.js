@@ -476,44 +476,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ============================================================
      7. ENQUIRY FORM CLIENT-SIDE VALIDATION & HANDLING
+     (Coordinated via Blue Ocean Unified Form Engine in js/main.js)
      ============================================================ */
-  const enquiryForm = document.getElementById('propertyEnquiryForm');
-  const formFeedback = document.getElementById('formFeedback');
-  const submitBtn = document.getElementById('submitBtn');
-
-  if (enquiryForm) {
-    enquiryForm.addEventListener('submit', function (e) {
-      const nameInput = document.getElementById('name');
-      const phoneInput = document.getElementById('phone');
-      const emailInput = document.getElementById('email');
-
-      if (!nameInput.value.trim() || !phoneInput.value.trim() || !emailInput.value.trim()) {
-        e.preventDefault();
-        showFeedback('Please provide your name, phone number, and email address.', 'error');
-        return;
-      }
-
-      // Email format check
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(emailInput.value.trim())) {
-        e.preventDefault();
-        showFeedback('Please enter a valid email address.', 'error');
-        return;
-      }
-
-      // If valid, show submitting state
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = `
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin" style="animation: spin 1s linear infinite; width: 18px; height: 18px;">
-            <circle cx="12" cy="12" r="10" stroke-opacity="0.25"/>
-            <path d="M12 2a10 10 0 0 1 10 10" />
-          </svg>
-          <span>Sending Request...</span>
-        `;
-      }
-    });
-  }
+  // Unified PHP + FormSubmit fallback dispatch is handled by js/main.js
 
   function showFeedback(msg, type) {
     if (!formFeedback) return;

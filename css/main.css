@@ -1288,6 +1288,41 @@ button[type="submit"]:disabled {
   filter: grayscale(40%) !important;
 }
 
+/* Honeypot & Feedback Indicators (Anti-Bot Invariant) */
+.form__honey {
+  display: none !important;
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.form__feedback {
+  padding: 0.875rem 1rem;
+  border-radius: var(--radius-sm, 6px);
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  display: none;
+}
+
+.form__feedback.is-error {
+  display: block;
+  background-color: #FEF2F2;
+  color: #991B1B;
+  border: 1px solid #FCA5A5;
+}
+
+.form__feedback.is-success {
+  display: block;
+  background-color: #F0FDF4;
+  color: #166534;
+  border: 1px solid #86EFAC;
+}
+
 /* ==========================================================================
    LEGAL POLICY PAGES STYLING (Privacy Policy, Terms, Statutory Disclosures)
    ========================================================================== */

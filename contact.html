@@ -229,7 +229,20 @@
             Submit your brief below. Rohan Ramlall will respond personally within 4 business hours.
           </p>
 
-          <form name="contact-enquiry" novalidate>
+          <form name="contact-enquiry" action="https://formsubmit.co/rohanramlall2005@gmail.com" method="POST" novalidate>
+            <!-- FormSubmit & Dispatch Routing Configuration -->
+            <input type="hidden" name="_cc" value="benjamingovindraj@gmail.com">
+            <input type="hidden" name="_subject" value="[Blue Ocean Realty] Private Advisory Consultation Request">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_autoresponse" value="Thank you for submitting your brief. Rohan Ramlall will review your requirements and respond personally within 4 business hours.">
+            <input type="hidden" name="form_type" value="Private Advisory Consultation">
+            <input type="hidden" name="property_name" value="Private Advisory Desk">
+            <input type="hidden" name="page_url" value="contact.html">
+
+            <!-- Security Honeypot & Anti-Bot Traps (Zero Spam Invariant) -->
+            <input type="text" name="_honey" class="form__honey" style="display:none !important; position:absolute; left:-9999px; width:1px; height:1px;" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="_submission_time" value="">
             <div class="form__row">
               <div class="form__group">
                 <label for="contact-name" class="form__label">Full Name *</label>

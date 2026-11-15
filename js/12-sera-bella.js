@@ -357,35 +357,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* --------------------------------------------------------------------------
      6. Lead Capture Form Validation & Feedback
+     (Coordinated via Blue Ocean Unified Form Engine in js/main.js)
      -------------------------------------------------------------------------- */
-  const enquiryForm = document.getElementById('propertyEnquiryForm');
-  const formFeedback = document.getElementById('formFeedback');
+  // Unified PHP + FormSubmit fallback dispatch is handled by js/main.js
 
-  if (enquiryForm) {
-    enquiryForm.addEventListener('submit', (e) => {
-      const name = enquiryForm.querySelector('#name')?.value.trim();
-      const phone = enquiryForm.querySelector('#phone')?.value.trim();
-      const email = enquiryForm.querySelector('#email')?.value.trim();
-
-      if (!name || !phone || !email) {
-        e.preventDefault();
-        showFeedback('Please complete all required fields.', 'is-error');
-        return;
-      }
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        e.preventDefault();
-        showFeedback('Please provide a valid email address.', 'is-error');
-        return;
-      }
-
-      const submitBtn = enquiryForm.querySelector('#submitBtn');
-      if (submitBtn) {
-        submitBtn.innerHTML = '<span>Submitting Request...</span>';
-      }
-    });
-  }
 
   function showFeedback(msg, className) {
     if (!formFeedback) return;

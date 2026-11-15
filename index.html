@@ -822,7 +822,20 @@
           <h3 class="enquiry__card-title">Direct Client Inquiry</h3>
           <p class="enquiry__card-desc">Complete your details for a prompt response from Rohan Ramlall.</p>
 
-          <form name="contact-enquiry" novalidate>
+          <form name="contact-enquiry" action="https://formsubmit.co/rohanramlall2005@gmail.com" method="POST" novalidate>
+            <!-- FormSubmit & Dispatch Routing Configuration -->
+            <input type="hidden" name="_cc" value="benjamingovindraj@gmail.com">
+            <input type="hidden" name="_subject" value="[Blue Ocean Realty] Direct Client Inquiry - Flagship Portal">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_autoresponse" value="Thank you for contacting Blue Ocean Realty. Rohan Ramlall and our private advisory team have received your inquiry and will be in touch shortly.">
+            <input type="hidden" name="form_type" value="Flagship Portal Inquiry">
+            <input type="hidden" name="property_name" value="Flagship Portal Advisory">
+            <input type="hidden" name="page_url" value="index.html">
+
+            <!-- Security Honeypot & Anti-Bot Traps (Zero Spam Invariant) -->
+            <input type="text" name="_honey" class="form__honey" style="display:none !important; position:absolute; left:-9999px; width:1px; height:1px;" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="_submission_time" value="">
             <div class="form__row">
               <div class="form__group">
                 <label for="name" class="form__label">Full Name *</label>

@@ -278,53 +278,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* --------------------------------------------------------------------------
      5. Lead Capture Form Handling & Validation
+     (Coordinated via Blue Ocean Unified Form Engine in js/main.js)
      -------------------------------------------------------------------------- */
-  const enquiryForm = document.getElementById('propertyEnquiryForm');
-  const formFeedback = document.getElementById('formFeedback');
+  // Unified PHP + FormSubmit fallback dispatch is handled by js/main.js
 
-  if (enquiryForm) {
-    enquiryForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const nameInput = enquiryForm.querySelector('#name');
-      const phoneInput = enquiryForm.querySelector('#phone');
-      const emailInput = enquiryForm.querySelector('#email');
-      const popiaCheck = enquiryForm.querySelector('#popiaConsent');
-
-      if (!nameInput.value.trim() || !phoneInput.value.trim() || !emailInput.value.trim()) {
-        showFeedback('Please complete all required fields.', 'is-error');
-        return;
-      }
-
-      if (!popiaCheck.checked) {
-        showFeedback('Please consent to POPIA data processing to continue.', 'is-error');
-        return;
-      }
-
-      // Simulate successful Netlify submission feedback
-      const submitBtn = enquiryForm.querySelector('#submitBtn');
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span>Submitting Request...</span>';
-      }
-
-      setTimeout(() => {
-        showFeedback('Thank you! Your viewing request has been received. A Blue Ocean property specialist will contact you shortly.', 'is-success');
-        enquiryForm.reset();
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = `
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2" />
-              <line x1="16" y1="2" x2="16" y2="6" />
-              <line x1="8" y1="2" x2="8" y2="6" />
-              <line x1="3" y1="10" x2="21" y2="10" />
-            </svg>
-            <span>Request a Private Viewing</span>`;
-        }
-      }, 1000);
-    });
-  }
 
   function showFeedback(msg, className) {
     if (!formFeedback) return;

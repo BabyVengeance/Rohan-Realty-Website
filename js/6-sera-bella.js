@@ -444,47 +444,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* --------------------------------------------------------------------------
      6. Enquiry Form Validation & Submission Handler
+     (Coordinated via Blue Ocean Unified Form Engine in js/main.js)
      -------------------------------------------------------------------------- */
-  const enquiryForm = document.getElementById('propertyEnquiryForm');
-  const formFeedback = document.getElementById('formFeedback');
-  const submitBtn = document.getElementById('submitBtn');
+  // Unified PHP + FormSubmit fallback dispatch is handled by js/main.js
 
-  if (enquiryForm) {
-    enquiryForm.addEventListener('submit', (e) => {
-      const name = enquiryForm.querySelector('#name')?.value.trim();
-      const phone = enquiryForm.querySelector('#phone')?.value.trim();
-      const email = enquiryForm.querySelector('#email')?.value.trim();
-
-      if (!name || !phone || !email) {
-        e.preventDefault();
-        showFeedback('Please provide your full name, phone number, and email address to arrange a viewing.', 'error');
-        return;
-      }
-
-      // Basic email regex
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        e.preventDefault();
-        showFeedback('Please provide a valid email address.', 'error');
-        return;
-      }
-
-      // Validating South African phone numbers (at least 9-10 digits)
-      const cleanedPhone = phone.replace(/[^\d+]/g, '');
-      if (cleanedPhone.length < 9) {
-        e.preventDefault();
-        showFeedback('Please provide a valid telephone number for booking confirmation.', 'error');
-        return;
-      }
-
-      // Let FormSubmit handle native POST or async feedback
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        const btnText = submitBtn.querySelector('span');
-        if (btnText) btnText.textContent = 'Submitting Request...';
-      }
-    });
-  }
 
   function showFeedback(message, type) {
     if (!formFeedback) return;
