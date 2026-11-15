@@ -33,13 +33,25 @@
    - Standardized `<title>` and `og:title` tags across residential, commercial, legal, and all 15 property listing pages from "Rohan Realty • Blue Ocean Realty" to "Blue Ocean Realty".
    - Updated hero section aria-labels and kickers to `Blue Ocean Realty Flagship Introduction` and `Blue Ocean Realty • KwaZulu-Natal`.
 
-6. **Empirical Quality & Verification:**
-   - Ran automated verification script across all 23 HTML templates:
-     - 0 instances of "Rohan Realty" remaining in headers, footers, meta tags, or body copy.
-     - 23/23 templates verified for `assets/branding/blue-ocean-logo.png` and `aria-label="Blue Ocean Realty Home"`.
-     - 23/23 templates verified for `BLUE OCEAN <span>REALTY</span>` and statutory PPRA notice in footers.
-     - 23/23 templates verified for `&copy; 2026 Blue Ocean Realty (Pty) Ltd`.
-     - Zero unicode emojis confirmed across all files.
+6. **Two-Tier Property Filter and Sorting Systems (`residential.html` & `commercial.html`):**
+   - Engineered an elevated, niche-tailored luxury discovery console adhering to Sovereign Minimalism and `/humanizer` directives (simple words, zero robotic AI slop).
+   - **Tier 1 Primary Segment Pill Track:**
+     - Residential: All Homes, Hawaan Forest Estate, Izinga Estate.
+     - Commercial: All Properties, For Sale (Investment & Development Land), To Let (Offices, Warehousing & Retail).
+   - **Tier 2 Granular Refinement Bar:**
+     - Search input with instant client-side text filtering across property title, suburb, and key specifications.
+     - Residential dropdowns: Price Range (All Prices, Under R10M, R10M - R20M, Over R20M), Bedrooms (Any Bedrooms, 4+ Bedrooms, 5+ Bedrooms), Sort By (Featured Mandates, Price: High to Low, Price: Low to High).
+     - Commercial dropdowns: Property Category (All Categories, Corporate Offices, Industrial & Logistics, Retail & Showrooms, Prime Land), Suburb/Location (All Locations, Umhlanga Ridgeside, Durban North, Hilton / Midlands), Sort By (Featured Mandates, Size: Largest First, Rate / Price: High to Low, Rate / Price: Low to High).
+   - **Live Result Counter & Reset Button:**
+     - Dynamic counter ("Showing X homes" / "Showing X commercial properties") that updates in real time.
+     - "Reset filters" button that appears automatically whenever non-default filters are active.
+   - **Off-Market Fallback Card:**
+     - Integrated `#residentialNoResults` and `#commercialNoResults` cards with direct WhatsApp chat CTAs (`wa.me/27695224226`) and "Clear All Filters" actions.
+   - **Automated Verification:**
+     - 4/4 residential properties verified for area, price tier, and numeric sorting.
+     - 11/11 commercial properties verified for transaction type, category, and size/rate sorting.
+     - Zero emojis across all UI copy, attributes, and scripts.
+     - All 23 HTML files audited and verified with 100% balanced DOM tree tags (`openDivs === closeDivs`).
 
 ### Next Execution Milestones
 1. Review live browser rendering across desktop (1440px) and mobile (375px) viewports.

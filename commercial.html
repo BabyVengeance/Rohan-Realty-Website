@@ -38,16 +38,33 @@
       background-color: var(--color-bg-light);
     }
 
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 3rem;
-      align-items: center;
-      justify-content: center;
+    /* ============================================================
+       PROPERTY CONTROLS: TWO-TIER FILTER & SORT SYSTEM
+       ============================================================ */
+    .property-controls {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: clamp(1.25rem, 2vw, 1.75rem);
+      margin-bottom: 2.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     }
 
-    .filter-btn {
+    .control-pills {
+      display: flex;
+      gap: 0.625rem;
+      overflow-x: auto;
+      padding-bottom: 0.875rem;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 1.25rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .control-pills::-webkit-scrollbar {
+      display: none;
+    }
+
+    .control-pill {
       padding: 0.625rem 1.25rem;
       border-radius: var(--radius-xs);
       font-family: var(--font-heading);
@@ -55,26 +72,172 @@
       font-weight: 600;
       letter-spacing: 0.04em;
       border: 1px solid var(--color-border);
-      background: #FFFFFF;
+      background: var(--color-bg-light);
       color: var(--color-text-main);
       cursor: pointer;
       transition: all var(--transition-fast);
-      min-height: 44px;
+      min-height: 48px;
+      white-space: nowrap;
       display: inline-flex;
       align-items: center;
       justify-content: center;
     }
 
-    .filter-btn:hover {
+    .control-pill:hover {
       border-color: var(--color-primary);
       color: var(--color-primary);
     }
 
-    .filter-btn--active {
+    .control-pill--active {
       background: var(--color-navy);
-      color: #FFFFFF;
-      border-color: var(--color-navy);
+      color: #FFFFFF !important;
+      border-color: var(--color-navy) !important;
       box-shadow: 0 4px 12px rgba(10, 25, 47, 0.15);
+    }
+
+    .refinement-bar {
+      display: grid;
+      grid-template-columns: 2fr repeat(3, 1.2fr);
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .search-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-box svg {
+      position: absolute;
+      left: 1rem;
+      width: 16px;
+      height: 16px;
+      color: var(--color-text-muted);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 48px;
+      padding: 0 1rem 0 2.6rem;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      color: var(--color-text-main);
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xs);
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .search-input:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(201, 160, 80, 0.15);
+    }
+
+    .control-select {
+      width: 100%;
+      height: 48px;
+      padding: 0 2.25rem 0 1rem;
+      font-family: var(--font-heading);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-text-main);
+      background: #FFFFFF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230A192F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right 0.875rem center;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xs);
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      outline: none;
+      transition: border-color var(--transition-fast);
+    }
+
+    .control-select:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(201, 160, 80, 0.15);
+    }
+
+    .controls-status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+      padding-top: 0.875rem;
+      border-top: 1px dashed var(--color-border);
+      font-size: 0.8125rem;
+      color: var(--color-text-muted);
+    }
+
+    .results-counter {
+      font-weight: 600;
+      color: var(--color-navy);
+    }
+
+    .reset-filters-btn {
+      background: none;
+      border: none;
+      color: var(--color-primary);
+      font-family: var(--font-heading);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0.25rem 0.5rem;
+      display: none;
+    }
+
+    .reset-filters-btn:hover {
+      color: var(--color-primary-hover);
+    }
+
+    .no-results-card {
+      grid-column: 1 / -1;
+      background: #FFFFFF;
+      border: 1px dashed rgba(201, 160, 80, 0.4);
+      border-radius: var(--radius-sm);
+      padding: clamp(2.5rem, 5vw, 4rem) 2rem;
+      text-align: center;
+      display: none;
+    }
+
+    .no-results-title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .no-results-desc {
+      max-width: 52ch;
+      margin: 0 auto 1.75rem auto;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+    }
+
+    .no-results-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .refinement-bar {
+        grid-template-columns: 1fr 1fr;
+      }
+      .search-box {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .refinement-bar {
+        grid-template-columns: 1fr;
+      }
     }
 
     .commercial-grid {
@@ -370,19 +533,62 @@
   <section class="commercial-section" aria-label="Commercial Assets Catalog">
     <div class="container">
 
-      <!-- Category Filter Tabs -->
-      <div class="filter-bar" role="tablist" aria-label="Property Categories">
-        <button class="filter-btn filter-btn--active" data-filter="all" role="tab" aria-selected="true">All Properties (11)</button>
-        <button class="filter-btn" data-filter="land" role="tab" aria-selected="false">Prime Land</button>
-        <button class="filter-btn" data-filter="industrial" role="tab" aria-selected="false">Industrial &amp; Logistics</button>
-        <button class="filter-btn" data-filter="office" role="tab" aria-selected="false">Corporate Offices</button>
-        <button class="filter-btn" data-filter="retail" role="tab" aria-selected="false">Retail &amp; Showrooms</button>
+      <!-- Property Discovery Console -->
+      <div class="property-controls" role="region" aria-label="Commercial Property Filters">
+        <!-- Top Row: Transaction Type Pills -->
+        <div class="control-pills" role="tablist" aria-label="Filter by Transaction Type">
+          <button class="control-pill control-pill--active" data-type-filter="all" role="tab" aria-selected="true">All Properties (11)</button>
+          <button class="control-pill" data-type-filter="sale" role="tab" aria-selected="false">For Sale</button>
+          <button class="control-pill" data-type-filter="lease" role="tab" aria-selected="false">To Let</button>
+        </div>
+
+        <!-- Refinement Bar -->
+        <div class="refinement-bar">
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" class="search-input" id="commercialSearch" placeholder="Search by park, area, or property..." aria-label="Search commercial properties">
+          </div>
+
+          <div>
+            <select class="control-select" id="commCategoryFilter" aria-label="Filter by Property Type">
+              <option value="all">All Types</option>
+              <option value="office">Corporate Offices</option>
+              <option value="industrial">Industrial &amp; Logistics</option>
+              <option value="land">Commercial Land</option>
+              <option value="retail">Retail &amp; Showrooms</option>
+            </select>
+          </div>
+
+          <div>
+            <select class="control-select" id="commLocationFilter" aria-label="Filter by Location">
+              <option value="all">All Locations</option>
+              <option value="umhlanga">Umhlanga &amp; Ridgeside</option>
+              <option value="durban-north">Durban North &amp; Riverside</option>
+              <option value="northfield">Northfield &amp; Riverhorse</option>
+              <option value="hilton">Hilton &amp; Midlands</option>
+            </select>
+          </div>
+
+          <div>
+            <select class="control-select" id="commSortFilter" aria-label="Sort Properties">
+              <option value="featured">Recommended</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="size-desc">Size: Largest First</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="controls-status">
+          <span class="results-counter" id="commercialCount">Showing 11 properties</span>
+          <button class="reset-filters-btn" id="commercialReset">Reset filters</button>
+        </div>
       </div>
 
       <div class="commercial-grid" id="commercialGrid">
 
         <!-- 1. Urban Corner, Umhlanga (Land) -->
-        <article class="comm-card" data-category="land" data-href="urban-corner.html">
+        <article class="comm-card" data-category="land" data-type="sale" data-location="umhlanga" data-price="33000000" data-size="8213" data-title="Urban Corner Umhlanga Prime Commercial Land Corner Park Way Twilight Drive" data-href="urban-corner.html">
           <a href="urban-corner.html" class="comm-card__media" aria-label="View Urban Corner, Umhlanga details">
             <img src="assets/properties/commercial/urban-corner/1.png" alt="Urban Corner Umhlanga Prime Commercial Land" class="comm-card__img" width="800" height="500" loading="eager">
             <div class="comm-card__tag-group">
@@ -430,7 +636,7 @@
         </article>
 
         <!-- 2. 1 Fortrose Avenue, Northfield Business Park (Industrial) -->
-        <article class="comm-card" data-category="industrial" data-href="northfield-business-park.html">
+        <article class="comm-card" data-category="industrial" data-type="lease" data-location="northfield" data-price="110" data-size="2731" data-title="1 Fortrose Avenue JT Ross Park Northfield Glen Anil Durban North Logistics" data-href="northfield-business-park.html">
           <a href="northfield-business-park.html" class="comm-card__media" aria-label="View 1 Fortrose Avenue, Northfield details">
             <img src="assets/properties/commercial/northfield-park/1.jpg" alt="1 Fortrose Avenue JT Ross Park Northfield Logistics Facility" class="comm-card__img" width="800" height="500" loading="eager">
             <div class="comm-card__tag-group">
@@ -478,7 +684,7 @@
         </article>
 
         <!-- 3. Glass House Building 5 (Office HQ) -->
-        <article class="comm-card" data-category="office" data-href="glass-house-building-5.html">
+        <article class="comm-card" data-category="office" data-type="lease" data-location="umhlanga" data-price="160" data-size="1679" data-title="Glass House Building 5 First Floor HQ Umhlanga Rocks Drive La Lucia Ridge" data-href="glass-house-building-5.html">
           <a href="glass-house-building-5.html" class="comm-card__media" aria-label="View Glass House Building 5 details">
             <img src="assets/properties/commercial/glass-house-b5/1.jpg" alt="Glass House Building 5 First Floor Offices" class="comm-card__img" width="800" height="500" loading="lazy">
             <div class="comm-card__tag-group">
@@ -526,7 +732,7 @@
         </article>
 
         <!-- 4. 21 Richefond Circle (Office) -->
-        <article class="comm-card" data-category="office" data-href="21-richefond.html">
+        <article class="comm-card" data-category="office" data-type="lease" data-location="umhlanga" data-price="185" data-size="552" data-title="21 Richefond Circle Ground Floor Suite Ridgeside Office Precinct Umhlanga Ridge" data-href="21-richefond.html">
           <a href="21-richefond.html" class="comm-card__media" aria-label="View 21 Richefond Circle details">
             <img src="assets/properties/commercial/21-richefond/1.jpg" alt="21 Richefond Circle Ground Floor Unit" class="comm-card__img" width="800" height="500" loading="lazy">
             <div class="comm-card__tag-group">
@@ -574,7 +780,7 @@
         </article>
 
         <!-- 5. The Glades Office Park (Standalone Campus) -->
-        <article class="comm-card" data-category="office" data-href="the-glades-office-park.html">
+        <article class="comm-card" data-category="office" data-type="lease" data-location="umhlanga" data-price="185" data-size="992" data-title="The Glades Office Park Stand Alone HQ Armstrong Avenue La Lucia Ridge" data-href="the-glades-office-park.html">
           <a href="the-glades-office-park.html" class="comm-card__media" aria-label="View The Glades Office Park details">
             <img src="assets/properties/commercial/the-glades/1.jpg" alt="The Glades Office Park Standalone Building" class="comm-card__img" width="800" height="500" loading="lazy">
             <div class="comm-card__tag-group">
@@ -622,7 +828,7 @@
         </article>
 
         <!-- 6. Dunlop House, 265 Sydney Road (Port Logistics Office) -->
-        <article class="comm-card" data-category="office" data-href="dunlop-house.html">
+        <article class="comm-card" data-category="industrial" data-type="lease" data-location="durban-north" data-price="85" data-size="760" data-title="Dunlop House 265 Sydney Road Congela Durban Port Corridor" data-href="dunlop-house.html">
           <a href="dunlop-house.html" class="comm-card__media" aria-label="View Dunlop House details">
             <img src="assets/properties/commercial/dunlop-house/1.jpg" alt="Dunlop House 265 Sydney Road Congela Port Office" class="comm-card__img" width="800" height="500" loading="lazy">
             <div class="comm-card__tag-group">
@@ -670,7 +876,7 @@
         </article>
 
         <!-- 7. 580 Riverside Road (Flex Retail / Showroom) -->
-        <article class="comm-card" data-category="retail" data-href="580-riverside-road.html">
+        <article class="comm-card" data-category="retail" data-type="lease" data-location="durban-north" data-price="100" data-size="650" data-title="580 Riverside Road Ground 1st Floor Durban North Retail Showroom" data-href="580-riverside-road.html">
           <a href="580-riverside-road.html" class="comm-card__media" aria-label="View 580 Riverside Road details">
             <img src="assets/properties/commercial/580-riverside/1.jpg" alt="580 Riverside Road Durban North Commercial Showroom" class="comm-card__img" width="800" height="500" loading="lazy">
             <div class="comm-card__tag-group">
@@ -718,7 +924,7 @@
         </article>
 
         <!-- 8. The Avenues Centre, Hilton (Retail Showroom) -->
-        <article class="comm-card" data-category="retail" data-href="the-avenues-centre.html">
+        <article class="comm-card" data-category="retail" data-type="lease" data-location="hilton" data-price="200" data-size="209" data-title="The Avenues Centre Prime Retail Unit Hilton KZN Midlands" data-href="the-avenues-centre.html">
           <a href="the-avenues-centre.html" class="comm-card__media" aria-label="View The Avenues Centre, Hilton details">
             <img src="assets/properties/commercial/the-avenues-hilton/1.jpg" alt="The Avenues Centre Hilton Retail Showroom" class="comm-card__img" width="800" height="500" loading="lazy">
             <div class="comm-card__tag-group">
@@ -766,7 +972,7 @@
         </article>
 
         <!-- 9. Building 2, Glass House Office Park (Office) -->
-        <article class="comm-card" data-category="office" data-href="glass-house-building-2.html">
+        <article class="comm-card" data-category="office" data-type="lease" data-location="umhlanga" data-price="150" data-size="716" data-title="Building 2 Glass House Office Park Umhlanga Rocks Drive La Lucia Ridge" data-href="glass-house-building-2.html">
           <a href="glass-house-building-2.html" class="comm-card__media" aria-label="View Building 2, Glass House details">
             <img src="assets/properties/commercial/glass-house-b2/1.jpg" alt="Building 2 Glass House Office Park Ground Floor" class="comm-card__img" width="800" height="500" loading="lazy">
             <div class="comm-card__tag-group">
@@ -814,7 +1020,7 @@
         </article>
 
         <!-- 10. Glass House Building 1 (Boutique Office) -->
-        <article class="comm-card" data-category="office" data-href="glass-house-building-1.html">
+        <article class="comm-card" data-category="office" data-type="lease" data-location="umhlanga" data-price="175" data-size="235" data-title="Glass House Building 1 Ground Floor Umhlanga Rocks Drive La Lucia Ridge" data-href="glass-house-building-1.html">
           <a href="glass-house-building-1.html" class="comm-card__media" aria-label="View Glass House Building 1 details">
             <img src="assets/properties/commercial/glass-house-b1/1.jpg" alt="Glass House Building 1 Ground Floor Office" class="comm-card__img" width="800" height="500" loading="lazy">
             <div class="comm-card__tag-group">
@@ -862,7 +1068,7 @@
         </article>
 
         <!-- 11. 7 The Boulevard, Westway Office Park (Office) -->
-        <article class="comm-card" data-category="office" data-href="7-the-boulevard.html">
+        <article class="comm-card" data-category="office" data-type="lease" data-location="umhlanga" data-price="148" data-size="134" data-title="7 The Boulevard Westway Office Park Westville N3 Corridor" data-href="7-the-boulevard.html">
           <a href="7-the-boulevard.html" class="comm-card__media" aria-label="View 7 The Boulevard, Westway details">
             <img src="assets/properties/commercial/7-boulevard-westway/1.jpg" alt="7 The Boulevard Westway Office Park Westville" class="comm-card__img" width="800" height="500" loading="lazy">
             <div class="comm-card__tag-group">
@@ -909,6 +1115,20 @@
           </div>
         </article>
 
+        <!-- No Results Fallback Card -->
+        <div class="no-results-card" id="commercialNoResults" role="status">
+          <div class="no-results-title">No matching commercial properties found</div>
+          <p class="no-results-desc">
+            We do not have a public mandate that matches your current search. If you require corporate offices, warehousing, industrial land, or retail space across KwaZulu-Natal, contact our commercial desk for private instructions.
+          </p>
+          <div class="no-results-actions">
+            <a href="https://wa.me/27695224226?text=Hi%20Rohan,%20I%20have%20a%20commercial%20property%20mandate%20to%20discuss." target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+              Chat on WhatsApp: 069 522 4226
+            </a>
+            <button type="button" class="btn btn--outline" id="noResultsReset">Clear All Filters</button>
+          </div>
+        </div>
+
       </div>
 
       <!-- Corporate Advisory Banner -->
@@ -951,7 +1171,6 @@
             <div>Registered with the <strong>PPRA</strong> &bull; Holding a Valid Fidelity Fund Certificate</div>
             <div>Durban North Executive Operations &bull; Suite 6, 66 Adelaide Tambo Drive</div>
           </div>
-        </div>
         </div>
 
         <!-- Col 2: Portfolios -->
@@ -1052,37 +1271,124 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Master Portal Scripts -->
   <script src="js/main.js"></script>
+
+  <!-- Commercial Discovery Script -->
   <script>
-    // Client-side filtering logic
     document.addEventListener('DOMContentLoaded', () => {
-      const filterBtns = document.querySelectorAll('.filter-btn');
-      const cards = document.querySelectorAll('#commercialGrid .comm-card');
+      const typeBtns = document.querySelectorAll('[data-type-filter]');
+      const searchInput = document.getElementById('commercialSearch');
+      const categoryFilter = document.getElementById('commCategoryFilter');
+      const locationFilter = document.getElementById('commLocationFilter');
+      const sortFilter = document.getElementById('commSortFilter');
+      const counterEl = document.getElementById('commercialCount');
+      const resetBtn = document.getElementById('commercialReset');
+      const noResultsReset = document.getElementById('noResultsResetComm');
+      const noResultsCard = document.getElementById('commercialNoResults');
+      const grid = document.getElementById('commercialGrid');
+      const originalCards = Array.from(document.querySelectorAll('#commercialGrid .comm-card'));
 
-      filterBtns.forEach(btn => {
+      let currentType = 'all';
+
+      function applyFilters() {
+        const query = (searchInput ? searchInput.value.trim().toLowerCase() : '');
+        const selectedCategory = categoryFilter ? categoryFilter.value : 'all';
+        const selectedLocation = locationFilter ? locationFilter.value : 'all';
+        const selectedSort = sortFilter ? sortFilter.value : 'featured';
+
+        let visibleCount = 0;
+        const isFiltered = (currentType !== 'all' || query !== '' || selectedCategory !== 'all' || selectedLocation !== 'all' || selectedSort !== 'featured');
+
+        // Filter cards
+        originalCards.forEach(card => {
+          const type = card.getAttribute('data-type');
+          const category = card.getAttribute('data-category');
+          const location = card.getAttribute('data-location');
+          const title = (card.getAttribute('data-title') || '').toLowerCase();
+
+          const matchesType = (currentType === 'all' || type === currentType);
+          const matchesCategory = (selectedCategory === 'all' || category === selectedCategory);
+          const matchesLocation = (selectedLocation === 'all' || location === selectedLocation);
+          const matchesQuery = (query === '' || title.includes(query));
+
+          if (matchesType && matchesCategory && matchesLocation && matchesQuery) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // Sort cards
+        if (selectedSort !== 'featured') {
+          const sortedCards = [...originalCards].sort((a, b) => {
+            const priceA = parseFloat(a.getAttribute('data-price')) || 0;
+            const priceB = parseFloat(b.getAttribute('data-price')) || 0;
+            const sizeA = parseFloat(a.getAttribute('data-size')) || 0;
+            const sizeB = parseFloat(b.getAttribute('data-size')) || 0;
+
+            if (selectedSort === 'price-desc') return priceB - priceA;
+            if (selectedSort === 'price-asc') return priceA - priceB;
+            if (selectedSort === 'size-desc') return sizeB - sizeA;
+            return 0;
+          });
+          sortedCards.forEach(card => grid.appendChild(card));
+        } else {
+          originalCards.forEach(card => grid.appendChild(card));
+        }
+        if (noResultsCard) grid.appendChild(noResultsCard);
+
+        // Update counter & empty state
+        if (counterEl) {
+          counterEl.textContent = `Showing ${visibleCount} of ${originalCards.length} properties`;
+        }
+
+        if (visibleCount === 0) {
+          if (noResultsCard) noResultsCard.style.display = 'block';
+        } else {
+          if (noResultsCard) noResultsCard.style.display = 'none';
+        }
+
+        if (resetBtn) {
+          resetBtn.style.display = isFiltered ? 'inline-block' : 'none';
+        }
+      }
+
+      function resetAll() {
+        currentType = 'all';
+        typeBtns.forEach(btn => {
+          const isAll = btn.getAttribute('data-type-filter') === 'all';
+          btn.classList.toggle('control-pill--active', isAll);
+          btn.setAttribute('aria-selected', isAll ? 'true' : 'false');
+        });
+        if (searchInput) searchInput.value = '';
+        if (categoryFilter) categoryFilter.value = 'all';
+        if (locationFilter) locationFilter.value = 'all';
+        if (sortFilter) sortFilter.value = 'featured';
+        applyFilters();
+      }
+
+      // Event listeners
+      typeBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          const filter = btn.getAttribute('data-filter');
-
-          // Update active button state
-          filterBtns.forEach(b => {
-            b.classList.remove('filter-btn--active');
+          currentType = btn.getAttribute('data-type-filter');
+          typeBtns.forEach(b => {
+            b.classList.remove('control-pill--active');
             b.setAttribute('aria-selected', 'false');
           });
-          btn.classList.add('filter-btn--active');
+          btn.classList.add('control-pill--active');
           btn.setAttribute('aria-selected', 'true');
-
-          // Filter cards
-          cards.forEach(card => {
-            const category = card.getAttribute('data-category');
-            if (filter === 'all' || category === filter) {
-              card.style.display = 'flex';
-            } else {
-              card.style.display = 'none';
-            }
-          });
+          applyFilters();
         });
       });
+
+      if (searchInput) searchInput.addEventListener('input', applyFilters);
+      if (categoryFilter) categoryFilter.addEventListener('change', applyFilters);
+      if (locationFilter) locationFilter.addEventListener('change', applyFilters);
+      if (sortFilter) sortFilter.addEventListener('change', applyFilters);
+      if (resetBtn) resetBtn.addEventListener('click', resetAll);
+      if (noResultsReset) noResultsReset.addEventListener('click', resetAll);
     });
   </script>
 </body>
