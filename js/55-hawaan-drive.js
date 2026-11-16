@@ -418,37 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: true });
 
-  // Mobile Hamburger Toggle & Drawer Controller
-  if (navToggle && navMobile) {
-    function toggleDrawer(open) {
-      const shouldOpen = typeof open === 'boolean' ? open : !navMobile.classList.contains('is-open');
-      navMobile.classList.toggle('is-open', shouldOpen);
-      navToggle.classList.toggle('is-active', shouldOpen);
-      navToggle.setAttribute('aria-expanded', shouldOpen.toString());
-      document.body.classList.toggle('drawer-open', shouldOpen);
-    }
-
-    navToggle.addEventListener('click', () => toggleDrawer());
-
-    // Close Mobile Menu when clicking any navigation link
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => toggleDrawer(false));
-    });
-
-    // Close drawer on Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navMobile.classList.contains('is-open')) {
-        toggleDrawer(false);
-      }
-    });
-
-    // Close when tapping outside drawer on mobile
-    document.addEventListener('click', (e) => {
-      if (navMobile.classList.contains('is-open') && !navMobile.contains(e.target) && !navToggle.contains(e.target)) {
-        toggleDrawer(false);
-      }
-    });
-  }
+  // Mobile navigation drawer is handled universally and idempotently by js/main.js
 
   /* ============================================================
      6. SCROLL REVEAL OBSERVER (.animate-on-scroll)

@@ -1,59 +1,50 @@
 # Active Session — Blue Ocean Realty (Pty) Ltd
 
-## Current Status: Production PHP + FormSubmit Dual Routing & Anti-Bot Infrastructure Active Across All 17 Contact Forms
+## Current Status: Comprehensive Mobile Viewport Optimization & Interaction Hardening Complete Across All 23 Pages
 
 ### Accomplished in this Session
 
-1. **Standardized Dual-Recipient Routing Engine:**
-   - Unified all 17 enquiry and contact forms across the website to route simultaneously to both designated agency recipients:
-     - Primary: `rohanramlall2005@gmail.com` (Rohan Ramlall, Candidate Property Practitioner)
-     - Secondary / CC: `benjamingovindraj@gmail.com` (Benjamin Govindraj, Principal Property Practitioner)
-   - Guaranteed delivery via 3-tier resilient architecture:
-     - **Tier 1 (PHP First):** Asynchronous dispatch to `api/contact.php` (with `contact.php` root proxy) generating responsive, bespoke HTML emails with DKIM/SPF-compliant headers.
-     - **Tier 2 (FormSubmit AJAX Fallback):** Automated fallback to `https://formsubmit.co/ajax/rohanramlall2005@gmail.com` with `_cc=benjamingovindraj@gmail.com` and table templating if PHP or mail server is unreachable.
-     - **Tier 3 (Native FormSubmit POST):** Native browser form action fallback ensuring 100% submission delivery even if JavaScript or fetch APIs are blocked.
+1. **Resolution of Mobile Screenshot 1 (Contact Direct Cards Viewport Overflow on `contact.html`):**
+   - Root Cause: `.contact-grid` lacked `minmax(0, 1fr)` tracks, and `.contact-direct-card` had rigid 2.25rem (72px) desktop horizontal padding without `min-width: 0`, forcing cards beyond the right edge of narrow mobile screens.
+   - Fix: Added `min-width: 0; box-sizing: border-box;` to `.contact-cards-col`, `.contact-direct-card`, `.contact-direct-info`, and `.contact-form-card`. Set `.contact-grid` to `grid-template-columns: minmax(0, 1fr)` at `<= 1024px`. Added `@media (max-width: 768px)` clamp padding `clamp(1.25rem, 4vw, 1.75rem)` and full-width container containment with zero horizontal overflow.
 
-2. **Hardened Production PHP Backend (`api/contact.php`):**
-   - **Method Enforcement:** Restricts execution strictly to HTTP POST (HTTP 405 for other methods).
-   - **Security Headers:** Enforces `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, and `Referrer-Policy: strict-origin-when-cross-origin`.
-   - **Anti-Bot Honeypot Tarpit:** Detects hidden honeypot fields (`_honey`, `_gotcha`, `website`, `hp_company`); automatically tarpits automated bots with silent 200 OK responses without transmitting spam emails.
-   - **Velocity Check:** Flags and tarpits submissions completed in under 1.2 seconds from page render.
-   - **IP Rate Limiting:** Token-bucket file limiter restricting client IPs to 5 requests per 10 minutes (HTTP 429 on abuse).
-   - **Sanitization & Injection Shield:** Strips carriage returns (`\r`, `\n`, `%0a`, `%0d`) from email headers to neutralize SMTP header injection attacks; validates email syntax, phone length, and mandatory POPIA consent.
-   - **Bespoke Luxury HTML Email Layout:** Custom Obsidian (`#060B14`) and Gold (`#C9A050`) branded email template featuring key asset callouts, high-contrast lead data table, client brief callout, SAST timestamps, and instant mobile action buttons (WhatsApp Lead, Call Client, Reply Email).
+2. **Resolution of Mobile Screenshot 2 (Price Wrapping Below "R" on Commercial & Residential Listings):**
+   - Root Cause: In `urban-corner.html` and 10 other commercial listings, hero price strips used `<div class="flex items-center gap-2.5 px-3 py-2 sm:ml-auto">` with normal whitespace inside `R 33,000,000`. On mobile, subtitle text squeezed the price, causing the number to wrap below "R".
+   - Fix: Converted hero price containers to `<div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-3 py-2 sm:ml-auto">`. Wrapped all price spans in `whitespace-nowrap` with non-breaking spaces (`R&nbsp;33,000,000`, `R&nbsp;185&nbsp;/&nbsp;m&sup2;`, etc.) across all 11 commercial listings and 4 residential listings. Enforced global `white-space: nowrap !important;` on `.price, [class*="__price"], [class*="__rate"], .value-strip__number` in `css/main.css` and `css/header.css`.
 
-3. **Universal Form Standardization (17 Form Templates):**
-   - Standardized hidden metadata across all forms:
-     - `_cc`: `benjamingovindraj@gmail.com`
-     - `_subject`: Niche-specific, branded subject line for every property and form type
-     - `_template`: `table`
-     - `_captcha`: `false`
-     - `_autoresponse`: Tailored confirmation copy per asset/form
-     - `form_type`: Canonical categorization (e.g. Residential Luxury Viewing, Commercial Info Pack, Private Advisory Consultation)
-     - `property_name`: Precise property address/title
-     - `page_url`: Current page filename
-     - `_honey`: Hidden honeypot trap with zero-dimension inline CSS
-     - `_submission_time`: Render timestamp
-   - Eradicated legacy Web3Forms keys (`b0614a11-d4cb-459e-9c91-fea8e0bce7cb`) and endpoints across all 11 commercial property pages.
-   - Removed legacy mock Netlify simulation from `5-nightjar-close.html` and `js/5-nightjar-close.js`.
-   - Synchronized all 4 residential scripts (`5-nightjar-close.js`, `12-sera-bella.js`, `55-hawaan-drive.js`, `6-sera-bella.js`) to coordinate seamlessly with `js/main.js`.
+3. **Resolution of Mobile Screenshot 3 (Transparent Overlay / Broken Hamburger Drawer on Property Pages):**
+   - Root Cause: All 4 residential scripts (`5-nightjar-close.js`, `55-hawaan-drive.js`, `12-sera-bella.js`, `6-sera-bella.js`) registered duplicate click event listeners on `.nav__toggle`. When clicked, `main.js` opened the menu and backdrop, and the page script immediately closed it, leaving only the blurred backdrop visible. Additionally, `.mobile-action-bar` had z-index 1500 which collided with navigation drawers.
+   - Fix: Removed redundant navigation listeners from all 4 page scripts. Hardened `openMobileNav` and `closeMobileNav` in `js/main.js` with dataset idempotency guards and `aria-expanded` synchronization. Adjusted z-indices: `.nav__toggle` (2001), `.nav__mobile` (2000), `.nav__mobile-backdrop` (1999). Added `body.menu-open .mobile-action-bar { opacity: 0 !important; pointer-events: none !important; transform: translateY(100%) !important; }` to hide the bottom action dock when the mobile menu is active.
 
-4. **Client-Side Form Engine (`js/main.js` & `js/contact-engine.js`):**
-   - Integrated unified asynchronous dispatch controller into `js/main.js` and standalone `js/contact-engine.js`.
-   - Supports commercial `#successModal`, residential `#formFeedback` luxury checkmark cards, and flagship portal in-place card replacement.
-   - Implemented real-time loading state on submit buttons with animated SVG spinner and tactile feedback.
-   - Provided backward-compatible `window.handleForm` bridge.
+4. **Resolution of Mobile Screenshot 4 (TOC / "OUTLINE Jump To" Floating Card Bouncing on Touch Devices):**
+   - Root Cause: On mobile touch devices, tapping the TOC icon triggered persistent CSS `:hover` on `.notion-toc`, which asserted `transform: translateY(-50%) !important`. Clicking toggled `.is-open` (`translateY(0)`), creating conflicting transform cycles that caused the menu to bounce rather than opening or closing cleanly. Furthermore, TOC rail was improperly injected into portal pages on Cloudflare Pages due to lack of clean-URL path normalization.
+   - Fix: Normalized route path matching in `initNotionSideNav` so `notion-toc` is never injected into portal pages (`index`, `residential`, `commercial`, `about`, `contact`, `privacy-policy`, etc.). Scoped desktop hover expansion inside `@media (min-width: 1101px) and (hover: hover) and (pointer: fine)`. For mobile (`max-width: 1100px`), `.notion-toc__card` is hidden by default (`opacity: 0`, `visibility: hidden`, `pointer-events: none`, `transform: translateY(12px) scale(0.96)`) and transitions smoothly only when `.notion-toc.is-open` is active. Added `e.preventDefault()` and `e.stopPropagation()` to mobile toggle taps.
 
-5. **Quality Floor & Anti-Slop Verification:**
-   - Validated zero syntax errors across PHP (`php -l api/contact.php`) and JavaScript files.
-   - Verified 100% health across all 20 pages via `node scripts/verify_all_pages.js` (0 issues).
-   - Verified 877 internal links with 100% resolution via `node scripts/audit_links.js`.
-   - Audited zero emojis across all 22 inspected code, HTML, CSS, PHP, and documentation files.
+5. **Resolution of Mobile Screenshot 5 (Button Text Overflow & Spec Multi-Line Wrapping on `residential.html`):**
+   - Root Cause: `.estate-card__body` had 2.25rem (72px) padding, leaving only 256px inner card width on a 360px mobile viewport. `.estate-card__specs` used a 4-column grid (only 64px per column), causing "5 En-Suite" and "24/7 Armed" to wrap awkwardly into broken multiple lines. `.btn` had `white-space: nowrap` and 60px horizontal padding, causing "View Full Trophy Mandate" to protrude beyond the button and card.
+   - Fix: Added `@media (max-width: 768px)` rules setting `.portfolio-grid` to `grid-template-columns: minmax(0, 1fr)`, `.estate-card` to `min-width: 0; width: 100%; box-sizing: border-box;`, `.estate-card__body` padding to `clamp(1.25rem, 4vw, 1.5rem)`, `.estate-card__specs` to `repeat(2, 1fr)` (providing 120px+ per spec cell for clean single-line rendering), `.estate-card__spec-val` to `white-space: nowrap;`, and `.estate-card .btn` to `width: 100%; padding: 0.75rem 1rem; font-size: 0.8125rem; white-space: normal; text-align: center; box-sizing: border-box;`.
+
+6. **Resolution of Mobile Screenshot 6 (Cards Extending Out of Mobile View on `index.html`):**
+   - Root Cause: In `index.html`, `.property-grid` was defined as `repeat(auto-fit, minmax(360px, 1fr))`, forcing a minimum 360px card width that, combined with section container padding, caused horizontal page overflow on standard 360px–390px mobile viewports.
+   - Fix: Changed `.property-grid` desktop declaration to `repeat(auto-fit, minmax(min(100%, 340px), 1fr))`. Added `@media (max-width: 768px)` rules setting `.property-grid` to `grid-template-columns: minmax(0, 1fr); gap: 1.5rem; margin-top: 2rem;`, `.property-card` to `min-width: 0; width: 100%; box-sizing: border-box;`, `.property-card__body` to `padding: clamp(1.25rem, 4vw, 1.5rem);`, `.property-card__price` to `white-space: nowrap; font-size: clamp(1.35rem, 5vw, 1.625rem);`, and `.property-card .btn` to `width: 100%; white-space: normal; text-align: center;`.
+
+7. **Site-Wide Mobile Hardening & Anti-Overflow Audits:**
+   - **`commercial.html`:** Added mobile `@media (max-width: 768px)` rules for `.comm-card`, `.comm-card__body`, `.comm-card__rate` (`white-space: nowrap`), 2-column specs, and stacked full-width button actions. Replaced prices with `R&nbsp;...`.
+   - **`about.html`:** Added `@media (max-width: 768px)` rules adjusting `.foundation-card` padding to clamp scale and `.social-box` to `min-width: 0; width: 100%;`.
+   - **All 11 Commercial Detail Pages:** Updated hero price strip to flex-wrap with `whitespace-nowrap` and non-breaking spaces on both hero and sidebar spec tables.
+   - **All 4 Residential Detail Pages:** Hardened price elements and removed conflicting drawer handlers.
+   - **Shared Stylesheets (`css/main.css`, `css/header.css`):** Added universal mobile viewport and price hardening enforcing `white-space: nowrap !important;` on `.price, [class*="__price"], [class*="__rate"], .value-strip__number` and full box-sizing containment on all cards and buttons.
+
+8. **Quality Floor & Anti-Slop Verification:**
+   - Ran `node scripts/verify_all_pages.js`: 0 issues found across all 20 pages; all assets and structure 100% healthy.
+   - Ran `node scripts/audit_links.js`: 877 internal links verified with 100% resolution.
+   - Audited for emojis across all modified files: zero emojis detected.
+   - Cleaned up temporary inspection scripts.
 
 ### Next Execution Milestones
-1. Review live browser submission flow in staging environment.
-2. Commit all updated templates, PHP backend, and documentation to Git.
-3. Deploy to production cPanel / Cloudflare Pages environment.
+1. Review mobile live rendering on staging environment (Cloudflare Pages).
+2. Commit all mobile optimization changes to Git repository.
+3. Deploy to production environment.
 
 1. **Strategic Legal Realignment (Property Practitioners Act 22 of 2019):**
    - Eliminated statutory liability under PPA Section 48, Section 56, and Regulation 34 by transforming the entire website into the official commercial showcase of **Blue Ocean Realty (Pty) Ltd**.

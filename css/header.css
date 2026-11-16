@@ -255,7 +255,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
   border-radius: var(--radius-xs, 4px) !important;
   cursor: pointer !important;
-  z-index: 1201 !important;
+  z-index: 2001 !important;
   padding: 0 !important;
   -webkit-tap-highlight-color: transparent !important;
   touch-action: manipulation !important;
@@ -312,7 +312,7 @@ body {
   display: flex !important;
   flex-direction: column !important;
   gap: 1.25rem !important;
-  z-index: 1200 !important;
+  z-index: 2000 !important;
   box-shadow: -10px 0 40px rgba(0, 0, 0, 0.75) !important;
   transition: right var(--transition-normal, 0.35s ease) !important;
   overflow-y: auto !important;
@@ -350,7 +350,7 @@ body {
   inset: 0 !important;
   background: rgba(0, 0, 0, 0.7) !important;
   backdrop-filter: blur(4px) !important;
-  z-index: 1199 !important;
+  z-index: 1999 !important;
   opacity: 0 !important;
   pointer-events: none !important;
   transition: opacity var(--transition-fast, 0.2s ease) !important;
@@ -359,6 +359,14 @@ body {
 .nav__mobile-backdrop.is-visible {
   opacity: 1 !important;
   pointer-events: auto !important;
+}
+
+/* Hide mobile action bar when navigation drawer is open */
+body.menu-open .mobile-action-bar {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(100%) !important;
+  transition: transform 0.25s ease, opacity 0.25s ease !important;
 }
 
 /* ==========================================================================
@@ -446,12 +454,15 @@ body {
   width: 14px !important;
 }
 
-/* Trigger Expansion on Rail Hover or Card Hover or Open State */
-.notion-toc:hover .notion-toc__card,
-.notion-toc.is-expanded .notion-toc__card {
-  opacity: 1 !important;
-  pointer-events: auto !important;
-  transform: translateY(-50%) translateX(0) scale(1) !important;
+/* Trigger Expansion on Rail Hover or Card Hover (Strictly Desktop with Fine Pointer) */
+@media (min-width: 1101px) and (hover: hover) and (pointer: fine) {
+  .notion-toc:hover .notion-toc__card,
+  .notion-toc.is-expanded .notion-toc__card {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(-50%) translateX(0) scale(1) !important;
+  }
 }
 
 .notion-toc__card-header {
@@ -560,20 +571,29 @@ body {
 
   .notion-toc__btn:hover,
   .notion-toc__btn:active {
-    transform: scale(0.96) !important;
+    transform: scale(0.94) !important;
     background: #060B14 !important;
     border-color: #C9A050 !important;
   }
 
   .notion-toc__card {
+    position: absolute !important;
     top: auto !important;
     bottom: 56px !important;
     right: 0 !important;
+    left: auto !important;
+    width: 250px !important;
+    max-width: calc(100vw - 2.5rem) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
     transform: translateY(12px) scale(0.96) !important;
+    transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s ease !important;
   }
 
   .notion-toc.is-open .notion-toc__card {
     opacity: 1 !important;
+    visibility: visible !important;
     pointer-events: auto !important;
     transform: translateY(0) scale(1) !important;
   }
@@ -712,6 +732,48 @@ body {
     gap: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
+  }
+
+  /* Universal Mobile Viewport, Price & Button Hardening */
+  .price,
+  [class*="__price"],
+  [class*="__rate"],
+  .value-strip__number {
+    white-space: nowrap !important;
+  }
+
+  .btn {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .estate-card,
+  .property-card,
+  .comm-card {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .estate-card__body,
+  .property-card__body,
+  .comm-card__body {
+    padding: clamp(1.25rem, 4vw, 1.75rem) !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+  }
+
+  .estate-card .btn,
+  .property-card .btn,
+  .comm-card .btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.75rem 1rem !important;
+    font-size: clamp(0.75rem, 3.5vw, 0.8125rem) !important;
+    letter-spacing: 0.04em !important;
+    white-space: normal !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
   }
 }
 

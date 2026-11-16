@@ -32,19 +32,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const openMobileNav = () => {
     navToggle?.setAttribute('aria-expanded', 'true');
+    navToggle?.classList.add('is-active');
     navMobile?.classList.add('is-open');
     navBackdrop?.classList.add('is-visible');
+    document.body.classList.add('menu-open');
     document.body.style.overflow = 'hidden';
   };
 
   const closeMobileNav = () => {
     navToggle?.setAttribute('aria-expanded', 'false');
+    navToggle?.classList.remove('is-active');
     navMobile?.classList.remove('is-open');
     navBackdrop?.classList.remove('is-visible');
+    document.body.classList.remove('menu-open');
     document.body.style.overflow = '';
   };
 
-  if (navToggle && navMobile) {
+  if (navToggle && navMobile && !navToggle.dataset.navBound) {
+    navToggle.dataset.navBound = 'true';
     navToggle.addEventListener('click', (e) => {
       e.stopPropagation();
       const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
@@ -536,9 +541,10 @@ document.addEventListener('DOMContentLoaded', () => {
      -------------------------------------------------------------------------- */
   const initNotionSideNav = () => {
     // 1. Only run on property landing pages (exclude main portal indices)
-    const portalPages = ['index.html', 'residential.html', 'commercial.html', 'about.html', 'contact.html', ''];
-    const currentFile = window.location.pathname.split('/').pop() || 'index.html';
-    if (portalPages.includes(currentFile)) {
+    const rawFile = window.location.pathname.split('/').pop() || 'index.html';
+    const cleanFile = rawFile.replace(/\.html$/, '').toLowerCase();
+    const portalPages = ['index', 'residential', 'commercial', 'about', 'contact', 'privacy-policy', 'terms-and-conditions', 'statutory-disclosure', ''];
+    if (portalPages.includes(cleanFile)) {
       return;
     }
 
@@ -722,6 +728,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile button toggle
     mobileBtn.addEventListener('click', (e) => {
       e.stopPropagation();
+      e.preventDefault();
       const isOpen = tocNav.classList.toggle('is-open');
       mobileBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });

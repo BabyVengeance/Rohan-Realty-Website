@@ -48,6 +48,8 @@
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     .contact-direct-card {
@@ -59,6 +61,8 @@
       display: flex;
       align-items: flex-start;
       gap: 1.25rem;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     .contact-direct-icon {
@@ -110,7 +114,37 @@
 
     @media (max-width: 1024px) {
       .contact-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contact-direct-card {
+        padding: clamp(1.25rem, 4vw, 1.75rem);
+        gap: 1rem;
+        width: 100%;
+      }
+      .contact-direct-icon {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+      }
+      .contact-direct-info {
+        min-width: 0;
+        flex: 1;
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+      .contact-form-card {
+        padding: clamp(1.25rem, 4vw, 2rem);
+        width: 100%;
+      }
+      .form__submit {
+        width: 100%;
+        padding: 0.875rem 1.25rem;
+        white-space: normal;
+        text-align: center;
       }
     }
   </style>

@@ -335,6 +335,7 @@
       font-weight: 800;
       color: var(--color-navy);
       line-height: 1.1;
+      white-space: nowrap;
     }
 
     .comm-card__base-rental {
@@ -454,7 +455,7 @@
 
     @media (max-width: 1024px) {
       .commercial-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
       .comm-advisory {
         grid-template-columns: 1fr;
@@ -463,6 +464,57 @@
       .comm-card__specs {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .commercial-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.5rem;
+      }
+      .comm-card {
+        min-width: 0;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .comm-card__media {
+        height: 240px;
+      }
+      .comm-card__body {
+        padding: clamp(1.25rem, 4vw, 1.5rem);
+      }
+      .comm-card__rate {
+        font-size: clamp(1.35rem, 5vw, 1.75rem);
+        white-space: nowrap;
+      }
+      .comm-card__title {
+        font-size: 1.15rem;
+      }
+      .comm-card__desc {
+        font-size: 0.875rem;
+      }
+      .comm-card__specs {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem 1rem;
+        padding: 0.875rem 0;
+      }
+      .comm-card__spec {
+        min-width: 0;
+      }
+      .comm-card__actions {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .comm-card__btn {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 0.8125rem;
+        white-space: normal;
+        text-align: center;
+        box-sizing: border-box;
+      }
+      .comm-advisory {
+        padding: 2rem 1.5rem;
       }
     }
 
@@ -600,7 +652,7 @@
           </a>
           <div class="comm-card__body">
             <div class="comm-card__pricing">
-              <div class="comm-card__rate">R 33,000,000</div>
+              <div class="comm-card__rate">R&nbsp;33,000,000</div>
               <div class="comm-card__base-rental">Excl. VAT &bull; Investment Land Opportunity</div>
             </div>
             <h2 class="comm-card__title"><a href="urban-corner.html" style="color: inherit; text-decoration: none;" class="hover:text-amber-600 transition">Urban Corner, Umhlanga: Prime Commercial Land</a></h2>
@@ -648,7 +700,7 @@
           </a>
           <div class="comm-card__body">
             <div class="comm-card__pricing">
-              <div class="comm-card__rate">R 110 / m&sup2;</div>
+              <div class="comm-card__rate">R&nbsp;110 / m&sup2;</div>
               <div class="comm-card__base-rental">Warehouse @ R110/m&sup2; &bull; Offices @ R125/m&sup2;</div>
             </div>
             <h2 class="comm-card__title"><a href="northfield-business-park.html" style="color: inherit; text-decoration: none;" class="hover:text-amber-600 transition">1 Fortrose Avenue, JT Ross Park: Northfield</a></h2>
@@ -696,7 +748,7 @@
           </a>
           <div class="comm-card__body">
             <div class="comm-card__pricing">
-              <div class="comm-card__rate">R 160 / m&sup2;</div>
+              <div class="comm-card__rate">R&nbsp;160 / m&sup2;</div>
               <div class="comm-card__base-rental">Indicative Base: R 268,572.80 / month</div>
             </div>
             <h2 class="comm-card__title"><a href="glass-house-building-5.html" style="color: inherit; text-decoration: none;" class="hover:text-amber-600 transition">Glass House Building 5: First Floor HQ</a></h2>
@@ -744,7 +796,7 @@
           </a>
           <div class="comm-card__body">
             <div class="comm-card__pricing">
-              <div class="comm-card__rate">R 185 / m&sup2;</div>
+              <div class="comm-card__rate">R&nbsp;185 / m&sup2;</div>
               <div class="comm-card__base-rental">Indicative Base: R 102,197.70 / month</div>
             </div>
             <h2 class="comm-card__title"><a href="21-richefond.html" style="color: inherit; text-decoration: none;" class="hover:text-amber-600 transition">21 Richefond Circle: Ground Floor Suite</a></h2>
@@ -792,7 +844,7 @@
           </a>
           <div class="comm-card__body">
             <div class="comm-card__pricing">
-              <div class="comm-card__rate">R 185 / m&sup2;</div>
+              <div class="comm-card__rate">R&nbsp;185 / m&sup2;</div>
               <div class="comm-card__base-rental">Indicative Base: R 183,544.05 / month</div>
             </div>
             <h2 class="comm-card__title"><a href="the-glades-office-park.html" style="color: inherit; text-decoration: none;" class="hover:text-amber-600 transition">The Glades Office Park: Stand Alone HQ</a></h2>
@@ -840,7 +892,7 @@
           </a>
           <div class="comm-card__body">
             <div class="comm-card__pricing">
-              <div class="comm-card__rate">R 85 / m&sup2;</div>
+              <div class="comm-card__rate">R&nbsp;85 / m&sup2;</div>
               <div class="comm-card__base-rental">Indicative Base: R 64,600.00 / month</div>
             </div>
             <h2 class="comm-card__title">Dunlop House: 265 Sydney Road</h2>
@@ -888,7 +940,7 @@
           </a>
           <div class="comm-card__body">
             <div class="comm-card__pricing">
-              <div class="comm-card__rate">R 100 / m&sup2;</div>
+              <div class="comm-card__rate">R&nbsp;100 / m&sup2;</div>
               <div class="comm-card__base-rental">Indicative Base: R 65,037.00 / month (Negotiable)</div>
             </div>
             <h2 class="comm-card__title"><a href="580-riverside-road.html" style="color: inherit; text-decoration: none;" class="hover:text-amber-600 transition">580 Riverside Road: Ground &amp; 1st Floor</a></h2>
@@ -936,7 +988,7 @@
           </a>
           <div class="comm-card__body">
             <div class="comm-card__pricing">
-              <div class="comm-card__rate">R 200 / m&sup2;</div>
+              <div class="comm-card__rate">R&nbsp;200 / m&sup2;</div>
               <div class="comm-card__base-rental">Indicative Base: R 41,800.00 / month</div>
             </div>
             <h2 class="comm-card__title"><a href="the-avenues-centre.html" style="color: inherit; text-decoration: none;" class="hover:text-amber-600 transition">The Avenues Centre: Prime Retail Unit</a></h2>
@@ -984,7 +1036,7 @@
           </a>
           <div class="comm-card__body">
             <div class="comm-card__pricing">
-              <div class="comm-card__rate">R 150 / m&sup2;</div>
+              <div class="comm-card__rate">R&nbsp;150 / m&sup2;</div>
               <div class="comm-card__base-rental">Indicative Base: R 13,743.65 / month (716 m&sup2; total)</div>
             </div>
             <h2 class="comm-card__title"><a href="glass-house-building-2.html" style="color: inherit; text-decoration: none;" class="hover:text-amber-600 transition">Building 2, Glass House Office Park</a></h2>
@@ -1032,7 +1084,7 @@
           </a>
           <div class="comm-card__body">
             <div class="comm-card__pricing">
-              <div class="comm-card__rate">R 175 / m&sup2;</div>
+              <div class="comm-card__rate">R&nbsp;175 / m&sup2;</div>
               <div class="comm-card__base-rental">Indicative Base: R 41,125.00 / month</div>
             </div>
             <h2 class="comm-card__title"><a href="glass-house-building-1.html" style="color: inherit; text-decoration: none;" class="hover:text-amber-600 transition">Glass House Building 1: Ground Floor</a></h2>
@@ -1080,7 +1132,7 @@
           </a>
           <div class="comm-card__body">
             <div class="comm-card__pricing">
-              <div class="comm-card__rate">R 148 / m&sup2;</div>
+              <div class="comm-card__rate">R&nbsp;148 / m&sup2;</div>
               <div class="comm-card__base-rental">Indicative Base: R 19,846.80 / month</div>
             </div>
             <h2 class="comm-card__title"><a href="7-the-boulevard.html" style="color: inherit; text-decoration: none;" class="hover:text-amber-600 transition">7 The Boulevard: Westway Office Park</a></h2>

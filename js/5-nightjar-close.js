@@ -5,48 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* --------------------------------------------------------------------------
-     1. Mobile Menu Drawer Toggle & Accessible Interaction
-     -------------------------------------------------------------------------- */
-  const navToggle = document.querySelector('.nav__toggle');
-  const navMobile = document.querySelector('.nav__mobile');
-
-  if (navToggle && navMobile) {
-    navToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', !isExpanded);
-      navToggle.classList.toggle('is-active', !isExpanded);
-      navMobile.classList.toggle('is-open', !isExpanded);
-    });
-
-    // Close menu when clicking links
-    navMobile.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.classList.remove('is-active');
-        navMobile.classList.remove('is-open');
-      });
-    });
-
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-      if (navMobile.classList.contains('is-open') && !navMobile.contains(e.target) && !navToggle.contains(e.target)) {
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.classList.remove('is-active');
-        navMobile.classList.remove('is-open');
-      }
-    });
-
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navMobile.classList.contains('is-open')) {
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.classList.remove('is-active');
-        navMobile.classList.remove('is-open');
-      }
-    });
-  }
+  /* Mobile navigation drawer is handled universally and idempotently by js/main.js */
 
   /* --------------------------------------------------------------------------
      2. Sticky Navbar Background Scroll State

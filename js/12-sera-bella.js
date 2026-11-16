@@ -7,55 +7,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* --------------------------------------------------------------------------
-     1. Mobile Menu Drawer Toggle & Touch State
-     -------------------------------------------------------------------------- */
-  const navToggle = document.querySelector('.nav__toggle');
-  const navMobile = document.querySelector('.nav__mobile');
-
-  if (navToggle && navMobile) {
-    function closeMobileMenu() {
-      navToggle.setAttribute('aria-expanded', 'false');
-      navMobile.classList.remove('is-open');
-      document.body.style.overflow = '';
-    }
-
-    function openMobileMenu() {
-      navToggle.setAttribute('aria-expanded', 'true');
-      navMobile.classList.add('is-open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    navToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-      if (isExpanded) {
-        closeMobileMenu();
-      } else {
-        openMobileMenu();
-      }
-    });
-
-    navMobile.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        closeMobileMenu();
-      });
-    });
-
-    // Close on click outside mobile drawer
-    document.addEventListener('click', (e) => {
-      if (navMobile.classList.contains('is-open') && !navMobile.contains(e.target) && !navToggle.contains(e.target)) {
-        closeMobileMenu();
-      }
-    });
-
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navMobile.classList.contains('is-open')) {
-        closeMobileMenu();
-      }
-    });
-  }
+  /* Mobile navigation drawer is handled universally and idempotently by js/main.js */
 
   /* --------------------------------------------------------------------------
      2. Sticky Navbar Background Scroll State

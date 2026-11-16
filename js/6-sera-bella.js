@@ -11,58 +11,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* --------------------------------------------------------------------------
-     1. Mobile Menu Drawer Toggle & Touch State
-     -------------------------------------------------------------------------- */
-  const navToggle = document.querySelector('.nav__toggle');
-  const navMobile = document.getElementById('navMobile') || document.querySelector('.nav__mobile');
-  const navBackdrop = document.getElementById('navBackdrop');
-  const navClose = document.getElementById('navClose');
-  const mobileActionBar = document.getElementById('mobileActionBar');
-
-  const openMobileMenu = () => {
-    navToggle?.setAttribute('aria-expanded', 'true');
-    navMobile?.classList.add('is-open');
-    navBackdrop?.classList.add('is-active');
-    document.body.classList.add('menu-open');
-    mobileActionBar?.classList.add('is-hidden');
-  };
-
-  const closeMobileMenu = () => {
-    navToggle?.setAttribute('aria-expanded', 'false');
-    navMobile?.classList.remove('is-open');
-    navBackdrop?.classList.remove('is-active');
-    document.body.classList.remove('menu-open');
-    if (window.scrollY > 350) {
-      mobileActionBar?.classList.remove('is-hidden');
-    }
-  };
-
-  if (navToggle && navMobile) {
-    navToggle.addEventListener('click', () => {
-      const isOpen = navMobile.classList.contains('is-open');
-      if (isOpen) {
-        closeMobileMenu();
-      } else {
-        openMobileMenu();
-      }
-    });
-
-    navClose?.addEventListener('click', closeMobileMenu);
-    navBackdrop?.addEventListener('click', closeMobileMenu);
-
-    // Close menu when clicking links
-    navMobile.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closeMobileMenu);
-    });
-
-    // ESC to close drawer
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navMobile.classList.contains('is-open')) {
-        closeMobileMenu();
-      }
-    });
-  }
+  /* Mobile navigation drawer is handled universally and idempotently by js/main.js */
 
   /* --------------------------------------------------------------------------
      2. Sticky Navbar Background Scroll State (rAF Throttled)
