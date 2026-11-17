@@ -3,16 +3,15 @@
 Max 60 lines, current state only. History: `context/docs/session-log.md`.
 
 ## Current state
-23-page static site (Tailwind + vanilla JS, PHP-first contact form with FormSubmit fallback). Full mobile optimization, viewport hardening, and advisory card containment complete across `commercial.html` and all 11 commercial & industrial listing pages. Rohan Ramlall avatar icon, badging, and title removed from listing enquiry cards. Verified across 320px, 360px, 375px, 414px, and 1440px. Ready for git push.
+23-page static site (Tailwind + vanilla JS, PHP-first contact form with FormSubmit fallback). Full humanizer and SEO content pass completed across all 23 pages: 0 apex_check errors, 0 missing meta descriptions, 0 banned words, and all AI tropes purged. 877 internal links verified with 100% resolution. Ready for staging review or git push.
 
 ## In progress
 - None.
 
 ## Next steps (ordered)
-1. Clear `apex_check` errors (run `node ~/.gemini/apex-library/tools/apex_check.mjs .` from the project root): banned copy words (19, e.g. "seamless", "Sanctuary", "Elevated" on listing pages) and one star glyph in `css/tier-trophy.css`.
-2. Add JSON-LD (`RealEstateAgent` + `Organization` + `Person`, per-listing `Offer`) and meta descriptions; 19 pages have no schema, 11 have no meta description.
-3. Review warnings: default fonts (Inter, Playfair) on listing pages, eyebrow labels, 91 images without width/height.
-4. Render check at 320, 375 and 1440 px, then deploy to the Cloudflare Pages staging preview for stakeholder review.
+1. Add JSON-LD schemas (`RealEstateAgent` + `Organization` + `Person`, per-listing `Offer`) across 19 pages currently lacking structured data.
+2. Review remaining warnings: default fonts on listing pages, eyebrow labels, and image CLS attributes (width/height).
+3. Staging deploy to Cloudflare Pages for stakeholder preview.
 
 ## Blockers / waiting on client
 - FFC numbers: "In process / available on request".

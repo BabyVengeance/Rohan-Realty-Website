@@ -74,11 +74,6 @@ body.theme-trophy {
   margin-bottom: 1.5rem;
 }
 
-.hero-trophy__badge::before {
-  content: '★';
-  font-size: 0.875rem;
-}
-
 .hero-trophy__title {
   font-family: var(--font-serif);
   font-size: clamp(2.75rem, 5.5vw, 4.75rem);
