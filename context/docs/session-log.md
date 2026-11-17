@@ -2,6 +2,8 @@
 
 History moved out of active_session.md on 2026-11-17. Newest first. Read only when the history is needed.
 
+- 2026-11-17: Resolved commercial advisory card mobile overflow on `commercial.html` (Screenshot 1). Re-engineered `.comm-advisory` with `min-width: 0`, full box-sizing containment, fluid clamp padding, and responsive wrapping for `.comm-advisory__action .btn` buttons to eliminate horizontal blowout at 320px–414px viewports. Removed the Rohan Ramlall round avatar icon, badging, and candidate title widget from the `#inquiry` contact form across all 11 commercial listing pages (Screenshot 2). Verified 0 horizontal overflow across all mobile viewports.
+
 - 2026-11-17: Comprehensive mobile viewport optimization across all 11 commercial and industrial property pages (21-richefond, 580-riverside-road, 7-the-boulevard, dunlop-house, glass-house-building-1, glass-house-building-2, glass-house-building-5, northfield-business-park, the-avenues-centre, the-glades-office-park, urban-corner). Resolved root cause of horizontal blowout (unconstrained whitespace-nowrap and flex-justify-between on financial & spatial detail rows), tightened excessively tall hero sections with fluid typography and budgeted padding, eliminated orphan metric cards on 2-col mobile viewports (100% cell occupancy), and added universal mobile viewport safeguards in css/header.css. 100% verified across 320px, 375px, 414px, and 1440px with zero overflow failures.
 
 ## Up to 2026-11-16 (archived verbatim)

@@ -3,7 +3,7 @@
 Max 60 lines, current state only. History: `context/docs/session-log.md`.
 
 ## Current state
-23-page static site (Tailwind + vanilla JS, PHP-first contact form with FormSubmit fallback). Full mobile optimization and viewport hardening across all 11 commercial & industrial listing pages completed and verified across 320px, 375px, 414px, and 1440px. Not yet deployed.
+23-page static site (Tailwind + vanilla JS, PHP-first contact form with FormSubmit fallback). Full mobile optimization, viewport hardening, and advisory card containment complete across `commercial.html` and all 11 commercial & industrial listing pages. Rohan Ramlall avatar icon, badging, and title removed from listing enquiry cards. Verified across 320px, 360px, 375px, 414px, and 1440px. Ready for git push.
 
 ## In progress
 - None.
