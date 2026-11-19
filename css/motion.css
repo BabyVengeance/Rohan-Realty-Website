@@ -1,0 +1,222 @@
+/* ==========================================================================
+   BLUE OCEAN REALTY — MOTION SYSTEM
+   Loaded on every page through main.css / header.css.
+
+   1. Hero entrance: the one orchestrated moment, CSS only, runs once on load.
+   2. Scroll reveals: driven by js/main.js. Content is visible by default and
+      is only hidden once JS has confirmed it sits below the fold, so a
+      failed script, print or crawler never sees a blank page.
+   3. Hover and press feedback on things people actually click.
+
+   Pages with their own reveal engines carry <body data-motion="bespoke"> and
+   receive only sections 3 to 5.
+   ========================================================================== */
+
+:root {
+  --mo-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --mo-ease-ui: cubic-bezier(0.23, 1, 0.32, 1);
+  --mo-reveal: 900ms;
+  --mo-ui: 220ms;
+  --mo-card: 520ms;
+  --mo-image: 1200ms;
+}
+
+html {
+  scroll-padding-top: calc(var(--nav-height, 80px) + 1rem);
+}
+
+/* --------------------------------------------------------------------------
+   1. Hero entrance
+   -------------------------------------------------------------------------- */
+@keyframes mo-rise {
+  from { opacity: 0; translate: 0 18px; }
+  to   { opacity: 1; translate: 0 0; }
+}
+
+@keyframes mo-settle {
+  from { scale: 1.08; }
+  to   { scale: 1; }
+}
+
+body:not([data-motion="bespoke"]) :is(.home-hero__content, .page-hero .container, #featured > .relative) > * {
+  animation: mo-rise 850ms var(--mo-ease-out) both;
+}
+
+body:not([data-motion="bespoke"]) :is(.home-hero__content, .page-hero .container, #featured > .relative) > :nth-child(1) { animation-delay: 80ms; }
+body:not([data-motion="bespoke"]) :is(.home-hero__content, .page-hero .container, #featured > .relative) > :nth-child(2) { animation-delay: 170ms; }
+body:not([data-motion="bespoke"]) :is(.home-hero__content, .page-hero .container, #featured > .relative) > :nth-child(3) { animation-delay: 260ms; }
+body:not([data-motion="bespoke"]) :is(.home-hero__content, .page-hero .container, #featured > .relative) > :nth-child(4) { animation-delay: 350ms; }
+body:not([data-motion="bespoke"]) :is(.home-hero__content, .page-hero .container, #featured > .relative) > :nth-child(n+5) { animation-delay: 440ms; }
+
+/* Slow settle on the hero photograph; both containers clip overflow. */
+body:not([data-motion="bespoke"]) :is(.home-hero__img, #featured > .absolute > img) {
+  animation: mo-settle 2400ms var(--mo-ease-out) both;
+}
+
+/* --------------------------------------------------------------------------
+   2. Scroll reveals (classes applied by js/main.js)
+   Uses the individual `translate` / `scale` properties so reveals never
+   collide with the `transform` that hover states already use.
+   -------------------------------------------------------------------------- */
+html.mo-ready .mo-reveal {
+  opacity: 0;
+  translate: 0 28px;
+  transition:
+    opacity var(--mo-reveal) var(--mo-ease-out) var(--mo-delay, 0ms),
+    translate var(--mo-reveal) var(--mo-ease-out) var(--mo-delay, 0ms);
+}
+
+html.mo-ready .mo-reveal.mo-in {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Photography inside a revealing card settles from a gentle zoom. */
+html.mo-ready .mo-reveal :is(.gateway-card__img, .property-card__img, .estate-card__img, .comm-card__img, .advisor__img, [data-clickable-card] img) {
+  scale: 1.08;
+  transition: scale 1400ms var(--mo-ease-out) var(--mo-delay, 0ms);
+}
+
+html.mo-ready .mo-reveal.mo-in :is(.gateway-card__img, .property-card__img, .estate-card__img, .comm-card__img, .advisor__img, [data-clickable-card] img) {
+  scale: 1;
+}
+
+/* --------------------------------------------------------------------------
+   3. Press feedback (all pointers)
+   `scale` composes with any hover translate instead of replacing it.
+   -------------------------------------------------------------------------- */
+:root :is(.btn, .nav__cta, .footer__social-btn, .control-pill, .gallery__filter) {
+  transition-property: transform, background, background-color, border-color, color, box-shadow, scale;
+  transition-duration: var(--mo-ui);
+  transition-timing-function: var(--mo-ease-ui);
+}
+
+:root :is(.btn, .nav__cta, .footer__social-btn, .control-pill, .gallery__filter, button):active {
+  scale: 0.97;
+}
+
+:root :is(.gateway-card, .property-card, .estate-card, .comm-card, [data-clickable-card]):active {
+  scale: 0.99;
+}
+
+/* --------------------------------------------------------------------------
+   4. Hover (fine pointers only, so touch never gets stuck states)
+   -------------------------------------------------------------------------- */
+@media (hover: hover) and (pointer: fine) {
+
+  /* Cards: a short lift, a deeper layered shadow and a slow photo drift. */
+  :root :is(.gateway-card, .property-card, .estate-card, .comm-card, [data-clickable-card]) {
+    transition:
+      transform var(--mo-card) var(--mo-ease-out),
+      box-shadow var(--mo-card) var(--mo-ease-out),
+      border-color var(--mo-card) var(--mo-ease-out),
+      scale 160ms var(--mo-ease-ui);
+  }
+
+  :root :is(.property-card, .estate-card, .comm-card, [data-clickable-card]):hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 1px 2px rgba(6, 11, 20, 0.04),
+      0 12px 24px -8px rgba(6, 11, 20, 0.10),
+      0 32px 56px -24px rgba(6, 11, 20, 0.18);
+    border-color: rgba(201, 160, 80, 0.45);
+  }
+
+  :root .gateway-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 12px 24px -8px rgba(6, 11, 20, 0.20),
+      0 40px 72px -28px rgba(6, 11, 20, 0.40);
+  }
+
+  :root :is(.gateway-card__img, .property-card__img, .estate-card__img, .comm-card__img, .advisor__img, [data-clickable-card] img) {
+    transition:
+      transform var(--mo-image) var(--mo-ease-out),
+      scale 1400ms var(--mo-ease-out);
+  }
+
+  :root :is(.gateway-card, .property-card, .estate-card, .comm-card, [data-clickable-card]):hover :is(.gateway-card__img, .property-card__img, .estate-card__img, .comm-card__img, img) {
+    transform: scale(1.05);
+  }
+
+  :root .advisor__media:hover .advisor__img {
+    transform: scale(1.03);
+  }
+
+  /* Arrows inside buttons and card CTAs nudge toward their destination. */
+  :root :is(.btn, .gateway-card__cta, .comm-card__btn) svg {
+    transition: transform var(--mo-card) var(--mo-ease-out);
+  }
+
+  :root :is(.btn, .comm-card__btn):hover svg,
+  :root .gateway-card:hover .gateway-card__cta svg {
+    transform: translateX(4px);
+  }
+
+  /* Navigation underline draws in on the brand easing. */
+  :root .nav__link::after {
+    transition: width 320ms var(--mo-ease-out);
+  }
+
+  :root :is(.nav__link, .footer__links a, .advisor__meta-link, .form__checkbox-link) {
+    transition-property: color, padding-left, opacity;
+    transition-duration: var(--mo-ui);
+    transition-timing-function: var(--mo-ease-ui);
+  }
+
+  /* Secondary cards on About and Contact. */
+  :root :is(.foundation-card, .social-box, .contact-direct-card) {
+    transition:
+      transform var(--mo-card) var(--mo-ease-out),
+      border-color var(--mo-card) var(--mo-ease-out),
+      background var(--mo-card) var(--mo-ease-out);
+  }
+
+  :root :is(.foundation-card, .contact-direct-card):hover {
+    border-color: rgba(201, 160, 80, 0.45);
+  }
+}
+
+/* Form fields: a calm focus ring for every input method. */
+:root :is(.form__input, .form__select, .form__textarea) {
+  transition: border-color var(--mo-ui) var(--mo-ease-ui), box-shadow var(--mo-ui) var(--mo-ease-ui), background-color var(--mo-ui) var(--mo-ease-ui);
+}
+
+:root :is(.form__input, .form__select, .form__textarea):focus {
+  border-color: #C9A050;
+  box-shadow: 0 0 0 3px rgba(201, 160, 80, 0.22);
+}
+
+/* --------------------------------------------------------------------------
+   5. Reduced motion and print
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html.mo-ready .mo-reveal,
+  html.mo-ready .mo-reveal * {
+    opacity: 1 !important;
+    translate: none !important;
+    scale: none !important;
+  }
+
+  :root :is(.gateway-card, .property-card, .estate-card, .comm-card, [data-clickable-card], .btn):hover {
+    transform: none;
+  }
+}
+
+@media print {
+  html.mo-ready .mo-reveal,
+  html.mo-ready .mo-reveal * {
+    opacity: 1 !important;
+    translate: none !important;
+    scale: none !important;
+  }
+}

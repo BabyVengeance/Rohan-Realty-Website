@@ -849,4 +849,88 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initPropertyCardClickability();
 
+  /* --------------------------------------------------------------------------
+     7. Scroll Reveals (styles in css/motion.css)
+     Only content below the fold is ever hidden, so nothing the visitor can
+     already see blinks out. Each batch that enters together is staggered in
+     reading order, and once an element has settled its motion classes are
+     removed so it returns to its native hover and transition styles.
+     -------------------------------------------------------------------------- */
+  const initScrollReveals = () => {
+    if (document.body.dataset.motion === 'bespoke') return;
+    if (!('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const REVEAL_SELECTORS = [
+      '.section-kicker', '.section-label', '.section-title', '.section-subtitle',
+      '.gateway-card', '.property-card', '.estate-card', '.comm-card',
+      '.advisor__media', '.advisor__card', '.advisor__pillar',
+      '.about-story__grid > *', '.foundation-card', '.social-box',
+      '.enquiry__info', '.enquiry__card',
+      '.contact-direct-card', '.contact-form-card',
+      '.legal-section',
+      '#property-grid > *',
+      'section[data-toc-title]:not(#featured) h2',
+      '#overview .grid > div > *'
+    ].join(', ');
+
+    // Heroes animate on load in CSS; chrome, dialogs, sticky panels and the
+    // script-managed gallery keep their own behaviour.
+    const EXCLUDED_ZONES = '.site-header, .nav__mobile, .footer, .home-hero, .page-hero, #featured, [role="dialog"], .sticky, .gallery__item';
+
+    const candidates = Array.from(document.querySelectorAll(REVEAL_SELECTORS))
+      .filter((el) => !el.closest(EXCLUDED_ZONES));
+
+    // Animate the outermost match only, so a card and its own heading never
+    // reveal twice.
+    const targets = candidates.filter((el) => !candidates.some((other) => other !== el && other.contains(el)));
+
+    const foldLine = window.innerHeight * 0.92;
+    const belowFold = targets.filter((el) => el.getBoundingClientRect().top > foldLine);
+    if (!belowFold.length) return;
+
+    const REVEAL_MS = 900;
+    const STAGGER_MS = 80;
+    const MAX_STAGGER_STEPS = 5;
+
+    const settle = (el, delay) => {
+      window.setTimeout(() => {
+        el.classList.remove('mo-reveal', 'mo-in');
+        el.style.removeProperty('--mo-delay');
+      }, REVEAL_MS + delay + 400);
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      const entering = entries
+        .filter((entry) => entry.isIntersecting)
+        .map((entry) => entry.target)
+        .sort((a, b) => {
+          const ra = a.getBoundingClientRect();
+          const rb = b.getBoundingClientRect();
+          return (ra.top - rb.top) || (ra.left - rb.left);
+        });
+
+      entering.forEach((el, index) => {
+        const delay = Math.min(index, MAX_STAGGER_STEPS) * STAGGER_MS;
+        el.style.setProperty('--mo-delay', `${delay}ms`);
+        el.classList.add('mo-in');
+        observer.unobserve(el);
+        settle(el, delay);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
+
+    document.documentElement.classList.add('mo-ready');
+    belowFold.forEach((el) => {
+      el.classList.add('mo-reveal');
+      observer.observe(el);
+    });
+
+    // Printing should never capture half-revealed content.
+    window.addEventListener('beforeprint', () => {
+      belowFold.forEach((el) => el.classList.add('mo-in'));
+    });
+  };
+
+  initScrollReveals();
+
 });
