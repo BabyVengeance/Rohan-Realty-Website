@@ -15,6 +15,7 @@ Max 60 lines, current state only. History: `context/docs/session-log.md`.
 
 ## Blockers / waiting on client
 - FFC numbers: "In process / available on request".
+- Drone shot for the index.html hero (coastline, Umhlanga/Zimbali, dusk, 3000px+ wide, empty sky on the left). Interim hero since 2026-11-19: `55-hawaan-drive/images/house-06.jpg` (1620px, slightly soft on retina) with a left-weighted overlay from 1024px up. When the drone shot arrives, swap the src and re-tune `object-position`.
 
 ## Decisions that must not be re-litigated
 - 2026-11 — Site is the official showcase of Blue Ocean Realty (Pty) Ltd; Rohan Ramlall appears as Candidate Property Practitioner under Benjamin Govindraj (PPA 22 of 2019, Reg. 34).
