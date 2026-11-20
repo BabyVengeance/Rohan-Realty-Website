@@ -139,7 +139,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const PRIMARY_ROUTING = 'rohanramlall2005@gmail.com';
   const CC_ROUTING = 'benjamingovindraj@gmail.com';
-  const PHP_ENDPOINT = 'api/contact.php';
+  // Primary route. PRIMARY_ROUTING / CC_ROUTING above are only used by the FormSubmit fallback;
+  // swap PRIMARY_ROUTING for FormSubmit's hashed alias once it is activated (see context/docs/cloudflare-email-setup.md).
+  const PRIMARY_ENDPOINT = '/api/contact';
   const FORMSUBMIT_AJAX = `https://formsubmit.co/ajax/${PRIMARY_ROUTING}`;
   const FORMSUBMIT_NATIVE = `https://formsubmit.co/${PRIMARY_ROUTING}`;
   const PAGE_RENDER_TIME = Date.now();
@@ -176,6 +178,15 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (err) {}
     } else {
       alert(message);
+    }
+  }
+
+  function restoreSubmitButton(form) {
+    form._borSending = false;
+    const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+    if (submitBtn && submitBtn._originalContent) {
+      submitBtn.innerHTML = submitBtn._originalContent;
+      submitBtn.disabled = false;
     }
   }
 
@@ -329,6 +340,11 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    // Commercial pages bind this handler twice (inline onsubmit and addEventListener);
+    // without this guard every enquiry was sent and counted twice.
+    if (form._borSending) return;
+    form._borSending = true;
+
     // 4. Set loading state on submit button
     const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
     if (submitBtn) {
@@ -353,33 +369,39 @@ document.addEventListener('DOMContentLoaded', () => {
       formData.set('page_url', window.location.href);
     }
     formData.set('_submission_time', PAGE_RENDER_TIME.toString());
-    formData.set('_cc', CC_ROUTING);
+    formData.set('_elapsed_ms', String(Date.now() - PAGE_RENDER_TIME));
+    // One ID per lead, shared by both routes, so a rare double delivery is easy to spot.
+    if (!formData.get('submission_id')) {
+      formData.set('submission_id', (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2));
+    }
 
     let isDelivered = false;
 
-    // TIER 1: PHP First (api/contact.php)
+    // TIER 1: Cloudflare Worker (/api/contact). Inbox routing lives server-side.
     try {
-      const phpRes = await fetchWithTimeout(PHP_ENDPOINT, {
+      const primaryRes = await fetchWithTimeout(PRIMARY_ENDPOINT, {
         method: 'POST',
         body: formData,
-        headers: {
-          'Accept': 'application/json'
-        },
-        timeout: 6000
+        headers: { 'Accept': 'application/json' },
+        timeout: 8000
       });
+      const primaryData = await primaryRes.json().catch(() => null);
 
-      if (phpRes.ok) {
-        const phpData = await phpRes.json();
-        if (phpData && phpData.success) {
-          isDelivered = true;
-        }
+      if (primaryRes.ok && primaryData && primaryData.success) {
+        isDelivered = true;
+      } else if (primaryRes.status === 422 && primaryData && primaryData.error) {
+        // The server rejected the details themselves: resending them elsewhere would not help.
+        showFormFeedback(form, primaryData.error, 'error');
+        restoreSubmitButton(form);
+        return;
       }
-    } catch (phpErr) {
-      // PHP backend failed, transition seamlessly to FormSubmit fallback
+    } catch (primaryErr) {
+      // Network error or timeout: fall through to FormSubmit.
     }
 
     // TIER 2: FormSubmit.co AJAX Fallback
     if (!isDelivered) {
+      formData.set('_cc', CC_ROUTING);
       try {
         const jsonPayload = {};
         formData.forEach((value, key) => {
@@ -424,19 +446,31 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    form._borSending = false;
     renderSuccessState(form, nameVal);
   }
 
   // Setup all forms across DOM
   const allContactForms = document.querySelectorAll(
-    'form#contact-form, form#propertyEnquiryForm, form[name="viewing-enquiry"], form[name="contact-enquiry"]'
+    'form#contact-form, form#propertyEnquiryForm, form[name="viewing-enquiry"], form[name="contact-enquiry"], form[action="/api/contact"]'
   );
+
+  // Visitors without JavaScript post straight to /api/contact, which redirects back with ?enquiry=sent|failed.
+  const enquiryOutcome = new URLSearchParams(window.location.search).get('enquiry');
+  if (enquiryOutcome && allContactForms.length) {
+    const firstForm = allContactForms[0];
+    if (enquiryOutcome === 'sent') renderSuccessState(firstForm, '');
+    else showFormFeedback(firstForm, 'Your enquiry could not be sent. Please WhatsApp or call Rohan on +27 69 522 4226.', 'error');
+    // Drop the flag so a reload does not count the lead twice.
+    const cleanUrl = new URL(window.location.href);
+    cleanUrl.searchParams.delete('enquiry');
+    history.replaceState(null, '', cleanUrl.pathname + cleanUrl.search + cleanUrl.hash);
+  }
 
   allContactForms.forEach(form => {
     if (form._borInitialized) return;
     form._borInitialized = true;
 
-    form.action = FORMSUBMIT_NATIVE;
     form.method = 'POST';
     form.noValidate = true;
 

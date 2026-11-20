@@ -1,0 +1,35 @@
+// Cloudflare Worker: serves the static site and routes enquiry forms by email.
+// Deploy: npx wrangler deploy   (setup steps: context/docs/cloudflare-email-setup.md)
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "blue-ocean-luxury",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-11-20",
+
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
+  },
+
+  // Sends only from the forms address; recipients must be verified Email Routing destinations.
+  "send_email": [
+    { "name": "EMAIL", "allowed_sender_addresses": ["forms@blueoceanluxury.co.za"] }
+  ],
+
+  // Inbox addresses are secrets, set once with:
+  //   npx wrangler secret put LEAD_INBOX_ROHAN
+  //   npx wrangler secret put LEAD_INBOX_BEN
+  "vars": {
+    "MAIL_FROM": "forms@blueoceanluxury.co.za",
+    "MAIL_FROM_NAME": "Blue Ocean Realty website"
+  },
+
+  "routes": [
+    { "pattern": "blueoceanluxury.co.za", "custom_domain": true }
+  ],
+
+  "observability": { "enabled": true }
+}

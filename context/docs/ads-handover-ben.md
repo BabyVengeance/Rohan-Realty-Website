@@ -60,8 +60,8 @@ Every listing page has a sticky WhatsApp + Call bar on mobile, a five-question F
 
 ## 5. Go-live checklist (owner)
 
-1. Cloudflare Pages: connect the repo, build command none, output directory `/`. `_headers` and `_redirects` are picked up automatically.
-2. Custom domain `blueoceanluxury.co.za`, plus a Cloudflare Redirect Rule for `www.blueoceanluxury.co.za/*` to `https://blueoceanluxury.co.za/$1` (301). Pages `_redirects` cannot do domain redirects.
+1. Hosting is a Cloudflare Worker with static assets (not Pages), so the enquiry forms can send email. Follow `context/docs/cloudflare-email-setup.md` for Email Routing, the deploy and the www redirect rule.
+2. Enquiries arrive by email from `forms@blueoceanluxury.co.za`, with the gclid and UTM fields included, which is the input for offline conversion imports.
 3. Google Search Console: add the domain property (DNS TXT in Cloudflare), submit `https://blueoceanluxury.co.za/sitemap.xml`. Do the same in Bing Webmaster Tools.
 4. Google Business Profile: once it exists, add its URL to `SITE.sameAs` in `scripts/seo/site.config.mjs` and run `node scripts/seo/build.mjs`.
 5. FormSubmit: send a test enquiry from the live domain. FormSubmit asks for a one-time activation per new domain.

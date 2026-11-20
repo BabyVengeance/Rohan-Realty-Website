@@ -1,17 +1,15 @@
-# Cloudflare Pages redirects. Redirects run before static files, so these also hide files that exist.
-# www -> apex is NOT possible here: set it as a Cloudflare Redirect Rule (see context/docs/ads-handover-ben.md).
-# Pages already strips .html (308 /about.html -> /about).
+# Cloudflare Worker static-asset redirects. Redirects run before asset matching.
+# They do not apply to /api/*, which the Worker handles first (wrangler.jsonc run_worker_first).
+# www -> apex is NOT possible here: set it as a Cloudflare Redirect Rule (see context/docs/cloudflare-email-setup.md).
+# html_handling "auto-trailing-slash" already redirects /about.html to /about.
 
 /index          /   301
 /index.html     /   301
 
-# Internal files that must never be served publicly
+# Internal paths. These are also excluded from upload by .assetsignore; the redirects are a second layer.
 /context        /   302
 /context/*      /   302
 /scripts/*      /   302
-/api/*          /   302
+/worker/*       /   302
 /contact.php    /   302
 /AGENTS.md      /   302
-/.gitignore     /   302
-/_headers       /   302
-/_redirects     /   302

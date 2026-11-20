@@ -1230,9 +1230,9 @@
           <h3 class="enquiry__card-title">Direct Client Inquiry</h3>
           <p class="enquiry__card-desc">Complete your details for a prompt response from Rohan Ramlall.</p>
 
-          <form name="contact-enquiry" action="https://formsubmit.co/rohanramlall2005@gmail.com" method="POST" novalidate>
-            <!-- FormSubmit & Dispatch Routing Configuration -->
-            <input type="hidden" name="_cc" value="benjamingovindraj@gmail.com">
+          <form name="contact-enquiry" action="/api/contact" method="POST" novalidate>
+              <input type="hidden" name="form_id" value="general-home">
+            <!-- FormSubmit & Dispatch Routing Configuration -->
             <input type="hidden" name="_subject" value="[Blue Ocean Realty] Direct Client Inquiry - Flagship Portal">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">

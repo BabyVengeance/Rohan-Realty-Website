@@ -9,3 +9,7 @@ context/**/*.zip
 .DS_Store
 Thumbs.db
 node_modules/
+
+# Cloudflare Worker local state and secrets
+.wrangler/
+.dev.vars

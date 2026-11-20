@@ -1604,15 +1604,10 @@
           <h3 class="enquiry__form-title">Request a Viewing</h3>
           <p class="enquiry__form-subtitle">Fill in your details and we'll arrange a private showing.</p>
 
-          <form id="propertyEnquiryForm" action="https://formsubmit.co/info@blueoceanrealty.co.za" method="POST"
+          <form id="propertyEnquiryForm" action="/api/contact" method="POST"
             novalidate>
-            <!-- FormSubmit Configuration -->
-            <input type="hidden" name="_subject"
-              value="New Private Viewing Request: Unit 6 Sera Bella, 61 Mahogany Drive, Izinga (R8,995,000)">
-            <form id="propertyEnquiryForm" action="https://formsubmit.co/rohanramlall2005@gmail.com" method="POST"
-              novalidate>
+              <input type="hidden" name="form_id" value="residential-6-sera-bella">
               <!-- FormSubmit & Dispatch Routing Configuration -->
-              <input type="hidden" name="_cc" value="benjamingovindraj@gmail.com">
               <input type="hidden" name="form_type" value="Residential Luxury Viewing Request">
               <input type="hidden" name="property_name"
                 value="Unit 6 Sera Bella, 61 Mahogany Drive, Izinga Ridge, Umhlanga (R8,995,000)">

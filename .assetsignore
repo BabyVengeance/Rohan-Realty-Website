@@ -1,0 +1,28 @@
+# Files in the project root that must never be uploaded as public assets.
+.git
+.claude
+.assetsignore
+.gitignore
+.htaccess
+.dev.vars
+node_modules
+context
+scripts
+worker
+api
+contact.php
+wrangler.jsonc
+package.json
+package-lock.json
+AGENTS.md
+GEMINI.md
+*.md
+
+# Original photography: kept in the repo as source, the site serves the WebP copies.
+# Share images in assets/og/ stay published. Re-run scripts/optimize-images.mjs after adding photos.
+assets/properties/**/*.jpg
+assets/properties/**/*.jpeg
+assets/properties/**/*.png
+assets/agent/**/*.jpg
+assets/agent/**/*.jpeg
+assets/agent/**/*.png

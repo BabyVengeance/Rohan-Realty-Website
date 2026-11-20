@@ -1,0 +1,14 @@
+{
+  "name": "blue-ocean-luxury",
+  "private": true,
+  "description": "blueoceanluxury.co.za: static site served by a Cloudflare Worker with an email form router.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "seo": "node scripts/seo/build.mjs",
+    "images": "node scripts/optimize-images.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "4.165.0"
+  }
+}

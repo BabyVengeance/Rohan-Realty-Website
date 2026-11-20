@@ -14,7 +14,8 @@ Max 60 lines, current state only. History: `context/docs/session-log.md`.
 - Gates: `verify_architecture.js` and `apex_check` pass across all pages with 0 errors. All 20 portal pages and 40 Idwala Circle 100% healthy.
 
 ## In progress
-- Contact form email routing (next task from Rohan, 2026-11-20).
+- Form email routing built 2026-11-20 and tested locally (wrangler dev, simulated email). Hosting is now a Cloudflare Worker with static assets (`wrangler.jsonc`, `worker/index.js`). All 18 forms post to `/api/contact` with a `form_id`; the Worker emails the Rohan and Ben secrets; `js/main.js` falls back to FormSubmit. Not yet deployed: owner steps in `context/docs/cloudflare-email-setup.md`.
+- Fixed: commercial enquiries were sent twice (duplicate submit handler); nested form tags on 6-sera-bella.
 - 40 Idwala Circle finalised 2026-11-20: form handled by js/main.js (FormSubmit, gclid/UTM stamped, POPIA gate), no banned words, all 26 pages render clean at 320/375/1440. Committed on branch `seo-geo-ads-readiness`.
 
 ## Next steps (ordered)

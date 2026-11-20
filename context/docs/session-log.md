@@ -150,3 +150,4 @@ History moved out of active_session.md on 2026-11-17. Newest first. Read only wh
   - `apex_check.mjs`: 0 errors.
   - `verify_architecture.js`: PASS on all tested pages.
 - 2026-11-20 — SEO/GEO/Ads readiness (Claude Code): domain moved to blueoceanluxury.co.za with clean URLs; generated JSON-LD @graph, listing FAQs, sitemap, robots and llms.txt from scripts/seo; stale commercial facts corrected; consent and tracking layer; WebP (110 MB to 37 MB); compiled Tailwind; _headers, _redirects, .htaccess, 404, cookie policy; Ads handover doc.
+- 2026-11-20 — Form email routing (Claude Code): moved hosting to a Cloudflare Worker with static assets; /api/contact sends via the send_email binding to secret-held inboxes; form_id on all 18 forms; FormSubmit fallback kept; fixed double-sent commercial enquiries and nested forms on 6-sera-bella; JS/CSS cache cut to 5 min.
