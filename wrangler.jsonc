@@ -27,9 +27,11 @@
     "MAIL_FROM_NAME": "Blue Ocean Realty website"
   },
 
+  // Live domain, plus a free *.workers.dev address for testing.
   "routes": [
     { "pattern": "blueoceanluxury.co.za", "custom_domain": true }
   ],
+  "workers_dev": true,
 
   "observability": { "enabled": true }
 }
