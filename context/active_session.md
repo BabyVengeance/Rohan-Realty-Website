@@ -13,16 +13,16 @@ Max 60 lines, current state only. History: `context/docs/session-log.md`.
 - Ads handover: `context/docs/ads-handover-ben.md`.
 - Gates: `verify_architecture.js` and `apex_check` pass across all pages with 0 errors. All 20 portal pages and 40 Idwala Circle 100% healthy.
 
-## In progress
-- Form email routing built 2026-11-20 and tested locally (wrangler dev, simulated email). Hosting is now a Cloudflare Worker with static assets (`wrangler.jsonc`, `worker/index.js`). All 18 forms post to `/api/contact` with a `form_id`; the Worker emails the Rohan and Ben secrets; `js/main.js` falls back to FormSubmit. Not yet deployed: owner steps in `context/docs/cloudflare-email-setup.md`.
-- Fixed: commercial enquiries were sent twice (duplicate submit handler); nested form tags on 6-sera-bella.
-- 40 Idwala Circle finalised 2026-11-20: form handled by js/main.js (FormSubmit, gclid/UTM stamped, POPIA gate), no banned words, all 26 pages render clean at 320/375/1440. Committed on branch `seo-geo-ads-readiness`.
+## Live (2026-11-20)
+- blueoceanluxury.co.za is served by the Cloudflare Worker `blue-ocean-luxury` (custom domain attached, workers.dev on), auto-deployed from GitHub `main` (Workers Builds). The old Pages project `rohan-realty-website` is a demo only; never attach the domain to it.
+- Forms: `/api/contact` accepts instantly and emails in the background (Cloudflare send takes about 10 s); on failure the Worker forwards to FormSubmit. Verified live by Rohan. Inbox: `LEAD_INBOX_ROHAN` only (dashboard variable, kept across deploys by `keep_vars`). Ben not added by choice; the FormSubmit backup CC is empty.
+- FormSubmit activated for blueoceanluxury.co.za. www redirects to apex with the query string kept. A rate-limit rule is on `/api/contact`.
 
 ## Next steps (ordered)
-1. Merge `seo-geo-ads-readiness` into main and push.
-2. Deploy to Cloudflare Pages, add the www-to-apex redirect rule and test a live enquiry (FormSubmit domain activation).
-3. Search Console and Bing: verify the domain and submit the sitemap.
-4. Ben pastes the GTM / GA4 / Ads IDs, then verify in Tag Assistant.
+1. Turn on Cloudflare Web Analytics for blueoceanluxury.co.za (the CSP already allows it).
+2. Search Console and Bing: verify the domain and submit the sitemap.
+3. Ben pastes the GTM / GA4 / Ads IDs into `js/consent.js`, then verify in Tag Assistant.
+4. Optional: 301 rohanrealty.co.za to blueoceanluxury.co.za; swap FormSubmit's Gmail target for its hashed alias; add `LEAD_INBOX_BEN` when Ben agrees.
 
 ## Blockers / waiting on client
 - GTM, GA4 and Google Ads IDs (Ben).
