@@ -3,21 +3,19 @@
 Max 60 lines, current state only. History: `context/docs/session-log.md`.
 
 ## Current state
-Full GEO, SEO, AIO, Technical, and Keyword overhaul completed across all 23 production HTML pages.
-- Technical Infrastructure: `robots.txt`, `sitemap.xml` (all 23 URLs), and root `/llms.txt` deployed. Canonical tags added across all 23 pages. Render-blocking local scripts deferred across all pages.
-- Schema.org Knowledge Graphs: Master `@graph` (`RealEstateAgent`, `Organization`, `Person`, CIPC/PPRA `sameAs`, geo-coordinates, `FAQPage`) injected on hub pages (`index.html`, `about.html`, `contact.html`, `residential.html`, `commercial.html`). 11 commercial listings injected with `CommercialProperty` + `Offer` schemas. Property24 URL leak purged from `5-nightjar-close.html`.
-- Target Community Architecture: `index.html` elevated with high-intent H1, Foreign & Offshore Investor Advisory block (unrestricted freehold, 100% SARB capital repatriation, currency arbitrage, remote VIP concierge), and conversational FAQ block (5 Q&As matching Schema). `residential.html` and `commercial.html` H1/subtitles elevated with logistics and coastal estate search anchors.
-- Google Ads & Quality Scores: All 80 unsized `<img>` tags resolved with exact natural pixel dimensions via Pillow (CLS reduced to 0).
-- Public Display Email: Changed to `info@blueoceanluxury.co.za` across all display text, mailto links, and schemas; all contact form actions and FormSubmit routing left 100% untouched.
+Flagship hero on `index.html` streamlined and de-cluttered per client review (`context/docs/specs/2026-11-20-hero-streamlining-design.md`).
+- H1 tightened from 4 lines to 2 lines: "Coastal Estates & Commercial Property" (White) + "Across KwaZulu-Natal" (Gold).
+- Subtitle reduced from 38 words to 21 words, eliminating suburb list clutter while preserving quiet luxury authority and PPRA credentials.
+- Full GEO, SEO, AIO, Technical, and Keyword overhaul active across all 23 production HTML pages (`robots.txt`, `sitemap.xml`, `/llms.txt`, full Schema.org graphs, zero-CLS image dimensions, public email info@blueoceanluxury.co.za).
 - Quality Gates: `apex_check.mjs` reports 0 errors; `verify_architecture.js` passes.
 
 ## In progress
-- Complete. Ready for staging review and Google Ads deployment.
+- Ready to commit and push to GitHub.
 
 ## Next steps (ordered)
-1. Review on staging / Cloudflare Pages.
-2. Submit `sitemap.xml` to Google Search Console and Bing Webmaster Tools.
-3. Configure Google Ads campaigns targeting the 3 communities with exact message match to page H1s.
+1. Commit and push streamlined hero to `origin/main`.
+2. Review on staging preview.
+3. Submit `sitemap.xml` to Google Search Console and Bing Webmaster Tools.
 
 ## Blockers / waiting on client
 - FFC numbers: "In process / available on request".
