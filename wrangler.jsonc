@@ -22,6 +22,8 @@
   // Inbox addresses are secrets, set once with:
   //   npx wrangler secret put LEAD_INBOX_ROHAN
   //   npx wrangler secret put LEAD_INBOX_BEN
+  // Keep variables added in the dashboard when GitHub deploys run (otherwise each deploy deletes them).
+  "keep_vars": true,
   "vars": {
     "MAIL_FROM": "forms@blueoceanluxury.co.za",
     "MAIL_FROM_NAME": "Blue Ocean Realty website"

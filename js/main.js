@@ -138,7 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const PRIMARY_ROUTING = 'rohanramlall2005@gmail.com';
-  const CC_ROUTING = 'benjamingovindraj@gmail.com';
+  // Backup-route CC. Empty while leads go to Rohan only; put an address back here to copy someone in.
+  const CC_ROUTING = '';
   // Primary route. PRIMARY_ROUTING / CC_ROUTING above are only used by the FormSubmit fallback;
   // swap PRIMARY_ROUTING for FormSubmit's hashed alias once it is activated (see context/docs/cloudflare-email-setup.md).
   const PRIMARY_ENDPOINT = '/api/contact';
@@ -401,14 +402,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // TIER 2: FormSubmit.co AJAX Fallback
     if (!isDelivered) {
-      formData.set('_cc', CC_ROUTING);
+      if (CC_ROUTING) formData.set('_cc', CC_ROUTING);
       try {
         const jsonPayload = {};
         formData.forEach((value, key) => {
           jsonPayload[key] = value;
         });
 
-        jsonPayload['_cc'] = CC_ROUTING;
+        if (CC_ROUTING) jsonPayload['_cc'] = CC_ROUTING;
+        else delete jsonPayload['_cc'];
         jsonPayload['_template'] = 'table';
         jsonPayload['_captcha'] = 'false';
         if (!jsonPayload['_subject']) {
@@ -495,8 +497,8 @@ document.addEventListener('DOMContentLoaded', () => {
       form.appendChild(timeInput);
     }
 
-    // CC injection
-    if (!form.querySelector('[name="_cc"]')) {
+    // CC injection (only when a backup CC is configured)
+    if (CC_ROUTING && !form.querySelector('[name="_cc"]')) {
       const ccInput = document.createElement('input');
       ccInput.type = 'hidden';
       ccInput.name = '_cc';
