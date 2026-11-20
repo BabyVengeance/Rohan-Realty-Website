@@ -59,9 +59,12 @@ The code never contains the email addresses. You enter them once here.
    - Domain > **Rules** > **Redirect Rules** (or Rules > Overview > Create rule) > use the template **Redirect from WWW to root** > Deploy. If there is no template: when the hostname equals `www.blueoceanluxury.co.za`, a dynamic redirect to `concat("https://blueoceanluxury.co.za", http.request.uri.path)`, status 301, preserve query string.
 2. **Rate limit the form endpoint** (stops floods of spam)
    - Domain > **Security** > **WAF** > **Rate limiting rules** > **Create rule**.
-   - Name `Form flood guard`. If incoming requests match: URI Path equals `/api/contact` AND Request Method equals `POST`.
-   - Rate: 5 requests per 1 minute, counted per IP. Action: **Block** for 10 minutes. Deploy.
-3. **Logs:** Workers & Pages > blue-ocean-luxury > **Logs** (observability is already on). Every lead shows as `lead_sent`; a failed send shows `lead_send_failed` with an error code, and that lead will have gone through FormSubmit.
+   - Name `Form flood guard`. If incoming requests match: URI Path equals `/api/contact` (add Request Method equals `POST` only if the field is offered; it is optional).
+   - Free plan limits the choices: requests counted per IP, period 10 seconds, block duration 10 seconds. Set 3 requests per 10 seconds, action **Block**. Deploy. (Paid plans can use 5 per minute with a 10-minute block.)
+3. **Logs:** Workers & Pages > blue-ocean-luxury > **Logs** (observability is already on). The Worker accepts each lead instantly and emails it in the background (Cloudflare's send takes about 10 seconds).
+   - `lead_sent`: delivered by Cloudflare email (normal).
+   - `lead_send_failed` then `lead_backup_sent`: Cloudflare email failed, the Worker passed the lead to FormSubmit.
+   - `lead_backup_failed`: both failed. Rare; the log line has the lead ID, but contact details are not logged, so check Cloudflare Email Routing and FormSubmit activation straight away.
 
 ## Part 7. Test everything (before Ben starts ads)
 1. Open `https://blueoceanluxury.co.za` in an incognito window. Check the home page, a residential listing and a commercial listing load with photos.

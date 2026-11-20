@@ -28,15 +28,15 @@ const SECURITY_HEADERS = {
 };
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
-    if (url.pathname === '/api/contact') return handleContact(request, env, url);
+    if (url.pathname === '/api/contact') return handleContact(request, env, url, ctx);
     if (url.pathname.startsWith('/api/')) return json({ success: false, error: 'Not found' }, 404);
     return env.ASSETS.fetch(request);
   },
 };
 
-async function handleContact(request, env, url) {
+async function handleContact(request, env, url, ctx) {
   if (request.method !== 'POST') {
     return json({ success: false, error: 'Method not allowed' }, 405, { Allow: 'POST' });
   }
@@ -80,6 +80,15 @@ async function handleContact(request, env, url) {
   const submissionId = clean(fields.submission_id, 64) || crypto.randomUUID();
   const message = buildEmail(fields, route, formId, submissionId, request);
 
+  // Cloudflare's send takes around 10 seconds, longer than a visitor should wait.
+  // Accept the lead now and deliver in the background; if the send fails, the Worker
+  // hands the lead to FormSubmit itself, so a failure still never loses it.
+  ctx.waitUntil(deliver(env, { to, fields, formId, submissionId, message, origin: url.origin }));
+  return respond(isNativePost, request, { success: true, id: submissionId }, 200);
+}
+
+async function deliver(env, { to, fields, formId, submissionId, message, origin }) {
+  const started = Date.now();
   try {
     await env.EMAIL.send({
       to,
@@ -90,14 +99,34 @@ async function handleContact(request, env, url) {
       html: message.html,
       headers: { 'X-Lead-Id': submissionId, 'X-Form-Id': formId },
     });
+    console.log(JSON.stringify({ event: 'lead_sent', formId, submissionId, ms: Date.now() - started }));
+    return;
   } catch (err) {
     // No personal data in logs: only the form and the platform error code.
-    console.error(JSON.stringify({ event: 'lead_send_failed', formId, submissionId, code: err && err.code ? err.code : 'unknown' }));
-    return respond(isNativePost, request, { success: false, error: 'Delivery failed.' }, 502);
+    console.error(JSON.stringify({ event: 'lead_send_failed', formId, submissionId, code: err && err.code ? err.code : 'unknown', ms: Date.now() - started }));
   }
 
-  console.log(JSON.stringify({ event: 'lead_sent', formId, submissionId }));
-  return respond(isNativePost, request, { success: true, id: submissionId }, 200);
+  try {
+    const [primary, ...cc] = to;
+    const payload = {
+      ...Object.fromEntries(Object.entries(fields).filter(([k]) => !HONEYPOTS.includes(k) && !['_elapsed_ms', '_submission_time'].includes(k))),
+      _subject: message.subject,
+      _template: 'table',
+      _captcha: 'false',
+      _cc: cc.join(','),
+      lead_id: submissionId,
+      form_id: formId,
+      delivery_note: 'Sent by the website backup route (Cloudflare email failed).',
+    };
+    const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(primary)}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json', Origin: origin, Referer: origin + '/' },
+      body: JSON.stringify(payload),
+    });
+    console[res.ok ? 'log' : 'error'](JSON.stringify({ event: res.ok ? 'lead_backup_sent' : 'lead_backup_failed', formId, submissionId, status: res.status }));
+  } catch (err) {
+    console.error(JSON.stringify({ event: 'lead_backup_failed', formId, submissionId, code: 'network' }));
+  }
 }
 
 async function readFields(request) {
