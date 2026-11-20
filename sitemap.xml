@@ -1,148 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Core Hub Pages -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://rohanrealty.co.za/</loc>
+    <loc>https://blueoceanluxury.co.za/</loc>
     <lastmod>2026-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/55-hawaan-drive/images/house-06.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://rohanrealty.co.za/residential.html</loc>
+    <loc>https://blueoceanluxury.co.za/residential</loc>
     <lastmod>2026-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/5-nightjar-close/images/photo_01_384268194.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://rohanrealty.co.za/commercial.html</loc>
+    <loc>https://blueoceanluxury.co.za/commercial</loc>
     <lastmod>2026-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/commercial/glass-house-b5/1.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://rohanrealty.co.za/about.html</loc>
+    <loc>https://blueoceanluxury.co.za/about</loc>
     <lastmod>2026-11-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <image:image><image:loc>https://blueoceanluxury.co.za/assets/agent/rohan-ramlall-portrait.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://rohanrealty.co.za/contact.html</loc>
+    <loc>https://blueoceanluxury.co.za/contact</loc>
     <lastmod>2026-11-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Luxury Residential Inventory (KwaZulu-Natal) -->
-  <url>
-    <loc>https://rohanrealty.co.za/55-hawaan-drive.html</loc>
-    <lastmod>2026-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://rohanrealty.co.za/5-nightjar-close.html</loc>
+    <loc>https://blueoceanluxury.co.za/privacy-policy</loc>
     <lastmod>2026-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://rohanrealty.co.za/12-sera-bella.html</loc>
+    <loc>https://blueoceanluxury.co.za/cookie-policy</loc>
     <lastmod>2026-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://rohanrealty.co.za/6-sera-bella.html</loc>
+    <loc>https://blueoceanluxury.co.za/terms-and-conditions</loc>
     <lastmod>2026-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Commercial & Industrial Logistics Inventory (KwaZulu-Natal) -->
-  <url>
-    <loc>https://rohanrealty.co.za/northfield-business-park.html</loc>
-    <lastmod>2026-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rohanrealty.co.za/21-richefond.html</loc>
+    <loc>https://blueoceanluxury.co.za/statutory-disclosure</loc>
     <lastmod>2026-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rohanrealty.co.za/580-riverside-road.html</loc>
+    <loc>https://blueoceanluxury.co.za/5-nightjar-close</loc>
     <lastmod>2026-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/5-nightjar-close/images/photo_01_384268194.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://rohanrealty.co.za/7-the-boulevard.html</loc>
+    <loc>https://blueoceanluxury.co.za/40-idwala-circle</loc>
     <lastmod>2026-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/40-idwala-circle/images/photo_01_389426148.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://rohanrealty.co.za/dunlop-house.html</loc>
+    <loc>https://blueoceanluxury.co.za/55-hawaan-drive</loc>
     <lastmod>2026-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/55-hawaan-drive/images/house-01.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://rohanrealty.co.za/glass-house-building-1.html</loc>
+    <loc>https://blueoceanluxury.co.za/12-sera-bella</loc>
     <lastmod>2026-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/12-sera-bella/images/hero.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://rohanrealty.co.za/glass-house-building-2.html</loc>
+    <loc>https://blueoceanluxury.co.za/6-sera-bella</loc>
     <lastmod>2026-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/6-sera-bella/images/photo-01.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://rohanrealty.co.za/glass-house-building-5.html</loc>
+    <loc>https://blueoceanluxury.co.za/21-richefond</loc>
     <lastmod>2026-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/commercial/21-richefond/1.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://rohanrealty.co.za/the-avenues-centre.html</loc>
+    <loc>https://blueoceanluxury.co.za/glass-house-building-1</loc>
     <lastmod>2026-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/commercial/glass-house-b1/1.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://rohanrealty.co.za/the-glades-office-park.html</loc>
+    <loc>https://blueoceanluxury.co.za/glass-house-building-2</loc>
     <lastmod>2026-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/commercial/glass-house-b2/1.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://rohanrealty.co.za/urban-corner.html</loc>
+    <loc>https://blueoceanluxury.co.za/glass-house-building-5</loc>
     <lastmod>2026-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Legal & Regulatory Disclosures -->
-  <url>
-    <loc>https://rohanrealty.co.za/privacy-policy.html</loc>
-    <lastmod>2026-11-20</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/commercial/glass-house-b5/1.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://rohanrealty.co.za/statutory-disclosure.html</loc>
+    <loc>https://blueoceanluxury.co.za/the-glades-office-park</loc>
     <lastmod>2026-11-20</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/commercial/the-glades/1.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://rohanrealty.co.za/terms-and-conditions.html</loc>
+    <loc>https://blueoceanluxury.co.za/7-the-boulevard</loc>
     <lastmod>2026-11-20</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/commercial/7-boulevard-westway/1.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://blueoceanluxury.co.za/dunlop-house</loc>
+    <lastmod>2026-11-20</lastmod>
+    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/commercial/dunlop-house/1.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://blueoceanluxury.co.za/580-riverside-road</loc>
+    <lastmod>2026-11-20</lastmod>
+    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/commercial/580-riverside/1.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://blueoceanluxury.co.za/northfield-business-park</loc>
+    <lastmod>2026-11-20</lastmod>
+    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/commercial/northfield-park/1.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://blueoceanluxury.co.za/the-avenues-centre</loc>
+    <lastmod>2026-11-20</lastmod>
+    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/commercial/the-avenues-hilton/1.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://blueoceanluxury.co.za/urban-corner</loc>
+    <lastmod>2026-11-20</lastmod>
+    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/commercial/urban-corner/1.webp</image:loc></image:image>
   </url>
 </urlset>

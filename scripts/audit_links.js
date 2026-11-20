@@ -7,6 +7,7 @@ const pages = [
   'commercial.html',
   'contact.html',
   '5-nightjar-close.html',
+  '40-idwala-circle.html',
   '55-hawaan-drive.html',
   '12-sera-bella.html',
   '6-sera-bella.html',
@@ -39,7 +40,10 @@ pages.forEach(p => {
 
     const [cleanUrl] = href.split('?');
     const [pagePart] = cleanUrl.split('#');
-    const targetFile = pagePart || p;
+    let targetFile = pagePart || p;
+    if (targetFile.startsWith('/')) {
+      targetFile = '.' + targetFile;
+    }
 
     if (!fs.existsSync(targetFile)) {
       brokenLinks.push({ from: p, href, reason: `Target file ${targetFile} not found` });

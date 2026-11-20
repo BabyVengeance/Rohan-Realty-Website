@@ -2,6 +2,10 @@
 
 History moved out of active_session.md on 2026-11-17. Newest first. Read only when the history is needed.
 
+- 2026-11-20: Resolved duplicate body and broken unstyled form on 40-idwala-circle.html. Removed duplicate sections 2 through 9 that had caused unstyled form inputs, visible error spans, and duplicate DOM IDs. Unified on the single master enquiry form with brand styling, POPIA consent gating, and FormSubmit/PHP routing. Verified apex_check passes with 0 errors across 52 files.
+
+- 2026-11-20: Removed generic listing FAQ accordion ('Questions about [Property]') site-wide across all 16 property listing pages and from scripts/seo/build.mjs generator. Cleaned up .listing-faq styles from css/conversion.css. Verified zero leftover FAQ references, 0 page errors, and 100% link resolution.
+
 - 2026-11-20: Executed site-wide /humanizer pass eradicating the word "coastal" across all 25 production files (78 replacements). Replaced limiting "coastal" terminology with natural, premium, to-the-point phrasing ("luxury residential estates", "estate residences", "indigenous forest", "ocean horizon"). Unified brand descriptions across footers, JSON-LD schemas, and listing metadata. Cleaned and quarantined p24_raw.html to context/raw/. Passed apex_check.mjs with 0 errors and verify_architecture.js.
 
 - 2026-11-20: Humanized and simplified index.html hero section per client direction. Removed "coastal" restriction to encompass luxury and premium residential estates as well as commercial property across KZN. Rewrote hero subtitle using /humanizer to simple, direct, high-status prose ("We help you buy, sell, and lease luxury estate residences and prime commercial property. Direct representation, private viewings, and personal guidance from first viewing to transfer."), eliminating corporate legalese ("discreet acquisition and disposal", "direct advisory with registered property practitioners"). Passed apex_check.mjs (0 errors) and verify_architecture.js.
@@ -145,3 +149,4 @@ History moved out of active_session.md on 2026-11-17. Newest first. Read only wh
 - **Quality Gates:**
   - `apex_check.mjs`: 0 errors.
   - `verify_architecture.js`: PASS on all tested pages.
+- 2026-11-20 — SEO/GEO/Ads readiness (Claude Code): domain moved to blueoceanluxury.co.za with clean URLs; generated JSON-LD @graph, listing FAQs, sitemap, robots and llms.txt from scripts/seo; stale commercial facts corrected; consent and tracking layer; WebP (110 MB to 37 MB); compiled Tailwind; _headers, _redirects, .htaccess, 404, cookie policy; Ads handover doc.

@@ -7,6 +7,7 @@ const pages = [
   'commercial.html',
   'contact.html',
   '5-nightjar-close.html',
+  '40-idwala-circle.html',
   '55-hawaan-drive.html',
   '12-sera-bella.html',
   '6-sera-bella.html',
@@ -33,7 +34,10 @@ pages.forEach(p => {
     const src = m[1];
     if (src.startsWith('http') || src.startsWith('data:') || src === '') continue;
     totalMedia++;
-    const clean = src.split('?')[0].split('#')[0].replace(/%20/g, ' ');
+    let clean = src.split('?')[0].split('#')[0].replace(/%20/g, ' ');
+    if (clean.startsWith('/')) {
+      clean = '.' + clean;
+    }
     if (!fs.existsSync(clean)) {
       missing.push({ page: p, src });
     }

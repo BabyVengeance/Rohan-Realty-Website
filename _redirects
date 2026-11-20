@@ -1,0 +1,17 @@
+# Cloudflare Pages redirects. Redirects run before static files, so these also hide files that exist.
+# www -> apex is NOT possible here: set it as a Cloudflare Redirect Rule (see context/docs/ads-handover-ben.md).
+# Pages already strips .html (308 /about.html -> /about).
+
+/index          /   301
+/index.html     /   301
+
+# Internal files that must never be served publicly
+/context        /   302
+/context/*      /   302
+/scripts/*      /   302
+/api/*          /   302
+/contact.php    /   302
+/AGENTS.md      /   302
+/.gitignore     /   302
+/_headers       /   302
+/_redirects     /   302

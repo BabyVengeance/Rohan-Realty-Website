@@ -179,7 +179,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Ad and analytics conversions listen for this; it only fires once a lead has actually been delivered.
+  function announceLead(form, channel) {
+    document.dispatchEvent(new CustomEvent('bor:lead', { detail: { form, channel } }));
+  }
+
   function renderSuccessState(form, leadName) {
+    announceLead(form, 'ajax');
     const safeName = leadName || 'Valued Client';
     const successModal = document.getElementById('successModal');
 
@@ -411,6 +417,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // TIER 3: Native FormSubmit POST (Last-resort fallback)
     if (!isDelivered) {
+      announceLead(form, 'native');
       form.action = FORMSUBMIT_NATIVE;
       form.method = 'POST';
       HTMLFormElement.prototype.submit.call(form);
