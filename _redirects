@@ -13,3 +13,6 @@
 /worker/*       /   302
 /contact.php    /   302
 /AGENTS.md      /   302
+/wrangler.jsonc   /   302
+/package.json     /   302
+/package-lock.json /  302
