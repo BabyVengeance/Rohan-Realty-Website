@@ -5,7 +5,7 @@
 - **Agency Affiliation & Licensing:** Operating with full corporate backing, licensing, and compliance under **Blue Ocean Realty** (KZN, South Africa).
 - **Core Market:** High-Net-Worth Individuals (HNWIs), Ultra-HNWIs, property investors, developers, and corporate entities seeking prime South African real estate.
 - **Sectors:**
-  1. **Residential:** Trophy residences, sea-facing villas, penthouses, luxury apartments, private golf/coastal estates (e.g. Zimbali, Umhlanga, Ballito, Simbithi).
+  1. **Residential:** Trophy residences, sea-facing villas, penthouses, luxury apartments, private golf and residential estates (e.g. Zimbali, Umhlanga, Ballito, Simbithi, Izinga Ridge).
   2. **Commercial & Industrial:** Prime logistics hubs, heavy/light industrial warehousing, retail developments, and commercial development land.
 
 ## 2. Contact & Key Stakeholders

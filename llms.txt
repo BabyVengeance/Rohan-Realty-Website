@@ -1,5 +1,5 @@
 # Blue Ocean Realty (Pty) Ltd
-> Premier real estate brokerage firm specializing in luxury coastal residential estates, corporate headquarters, and prime industrial logistics warehousing across KwaZulu-Natal, South Africa.
+> Premier real estate brokerage firm specializing in luxury residential estates, corporate headquarters, and prime industrial logistics warehousing across KwaZulu-Natal, South Africa.
 
 ## Primary Business & Entity Overview
 - Official Entity: Blue Ocean Realty (Pty) Ltd
@@ -15,7 +15,7 @@
 ## Target Market Specializations
 
 ### 1. High-Net-Worth South African Residential Buyers
-- Geographic Focus: Umhlanga Rocks, Hawaan Forest Estate, Izinga Ridge, Zimbali Coastal Resort, Ballito, Simbithi Eco Estate, Durban North.
+- Geographic Focus: Umhlanga Rocks, Hawaan Forest Estate, Izinga Ridge, Zimbali Estate, Ballito, Simbithi Eco Estate, Durban North.
 - Core Assets: Trophy oceanfront residences, contemporary forest villas, secure gated estate homes, off-grid solar and water infrastructure, and zero-transfer-duty new developments.
 
 ### 2. Commercial, Logistics & Industrial Decision-Makers

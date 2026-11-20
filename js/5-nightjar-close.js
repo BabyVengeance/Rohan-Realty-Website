@@ -461,7 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { area: 'Bedrooms', title: 'Upper Bedroom Wing & Terrace', dur: '0:18', src: 'assets/properties/5-nightjar-close/videos/walkthrough_08.mp4', thumb: 'assets/properties/5-nightjar-close/images/thumbnails/video_thumb_08.jpg', desc: 'Private bedroom suites with en-suite bathrooms and private balcony access.' },
     { area: 'Living & Art', title: 'Art Promenade & Glass Cabinets', dur: '0:13', src: 'assets/properties/5-nightjar-close/videos/walkthrough_09.mp4', thumb: 'assets/properties/5-nightjar-close/images/thumbnails/video_thumb_09.jpg', desc: 'Upper gallery walkway lined with illuminated glass display cabinets.' },
     { area: 'Upper Level', title: 'Landing Corridor & Suites', dur: '0:18', src: 'assets/properties/5-nightjar-close/videos/walkthrough_10.mp4', thumb: 'assets/properties/5-nightjar-close/images/thumbnails/video_thumb_10.jpg', desc: 'Spacious upper landing connecting the primary suites with hardwood floors.' },
-    { area: 'Outdoor Living', title: 'Swimming Pool Terrace & Deck', dur: '0:16', src: 'assets/properties/5-nightjar-close/videos/walkthrough_11.mp4', thumb: 'assets/properties/5-nightjar-close/images/thumbnails/video_thumb_11.jpg', desc: 'Private sparkling pool framed by indigenous Hawaan coastal forest trees.' }
+    { area: 'Outdoor Living', title: 'Swimming Pool Terrace & Deck', dur: '0:16', src: 'assets/properties/5-nightjar-close/videos/walkthrough_11.mp4', thumb: 'assets/properties/5-nightjar-close/images/thumbnails/video_thumb_11.jpg', desc: 'Private sparkling pool framed by indigenous Hawaan forest trees.' }
   ];
 
   let currentStoryIdx = 0;
