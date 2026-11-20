@@ -13,7 +13,7 @@
 - **Direct Phone:** 069 522 4226 (+27 69 522 4226)
 - **Principal Property Practitioner / Mentor:** Benjamin Govindraj (073 691 0478)
 - **Agency Firm:** Blue Ocean Realty (Pty) Ltd (PPRA Registered Firm)
-- **Email:** info@blueoceanrealty.co.za
+- **Email:** info@blueoceanluxury.co.za
 - **Physical Headquarters:** Suite 6, 66 Adelaide Tambo Drive, Durban North, 4051, KwaZulu-Natal
 - **Statutory Standing:** Operating under statutory mentorship and supervision pursuant to PPRA Regulation 34.3.4.6. All mandates, OTPs, leases, and Section 54 trust accounts concluded strictly under Blue Ocean Realty (Pty) Ltd. FFC numbers currently marked: *In Process / Available on Request*.
 

@@ -113,3 +113,31 @@ History moved out of active_session.md on 2026-11-17. Newest first. Read only wh
 1. Review live browser rendering across desktop (1440px) and mobile (375px) viewports.
 2. Commit all updated templates and active session documentation to Git.
 3. Deploy to Cloudflare Pages staging preview for stakeholder demonstration.
+
+
+### 2026-11-20 — Master GEO, SEO, AIO, Technical, and Community Keyword Intent Overhaul
+- **Forensic Audit & Scorecard:** Audited all 23 HTML pages using `geo-architect`, `seo-technical`, and `seo-sxo`. Initial GEO visibility scored 40/100 (Invisible). Identified 19 pages lacking schema, 23 lacking canonical tags, missing `robots.txt`/`sitemap.xml`/`llms.txt`, and a Property24 schema URL leak on `5-nightjar-close.html`.
+- **Technical Infrastructure Deployed:**
+  - `robots.txt`: Added with explicit crawler directives for Googlebot, Bingbot, GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, and Bytespider, with XML sitemap link.
+  - `sitemap.xml`: Deployed with all 23 production URLs, change frequencies, priorities, and lastmod timestamps.
+  - `/llms.txt`: Structured markdown entity document deployed at root outlining credentials, PPRA registration, residential and commercial inventory, and non-resident foreign buyer advisory.
+  - Canonicalization: `<link rel="canonical" href="...">` injected into `<head>` across all 23 HTML pages.
+  - Performance: Added `defer` to all local script tags across 22 HTML pages to prevent render-blocking.
+- **Master Schema.org Knowledge Graphs Injected:**
+  - `index.html`: Injected connected `@graph` (`WebSite`, `RealEstateAgent`, `Person`, CIPC/PPRA `sameAs` consensus nodes, geo-coordinates, and `FAQPage`).
+  - `about.html`, `contact.html`, `residential.html`, `commercial.html`: Injected specialized Schema graphs (`AboutPage`, `ContactPage`, `CollectionPage`).
+  - Commercial Listings (11 pages): Injected `CommercialProperty` + `Offer` schema declaring GLA (m²), rental rates, address, and geo-coordinates.
+  - Residential Listings (4 pages): Cleaned up schemas, purged the Property24 URL from `5-nightjar-close.html`, and connected all to Blue Ocean Realty.
+  - Compliance Pages (3 pages): Injected `WebPage` schemas with statutory anchors.
+- **Target Community Content Architecture:**
+  - Community 1 (Wealthy SA KZN Luxury): Elevated `residential.html` H1 and subtitle with high-intent search anchors (Umhlanga, Zimbali, Ballito, Hawaan Forest, Izinga Ridge, off-grid solar/water resilience).
+  - Community 2 (Commercial / Industrial): Elevated `commercial.html` H1 and subtitle with logistics and corporate search anchors (Riverhorse Valley, Umhlanga Ridge, La Lucia Ridge, high-cube eaves, 3-phase power).
+  - Community 3 (Foreign & Offshore HNWI Investors): Injected dedicated **Foreign & Offshore Investor Advisory Desk** section on `index.html` detailing unrestricted freehold ownership, 100% SARB capital repatriation, currency arbitrage (USD, GBP, EUR purchasing power), and remote acquisition concierge.
+  - Conversational RAG / AI Citability: Injected 5-question conversational FAQ section on `index.html` matching the schema `FAQPage`.
+- **Google Ads & Core Web Vitals Hardening:**
+  - Dimensioned all 80 unsized `<img>` tags across listing pages using Pillow to read natural image pixel dimensions from disk, reducing Cumulative Layout Shift (CLS) warnings to 0.
+- **Public Display Email Update:**
+  - Updated all display email text, mailto links, contact panels, and structured schemas across the site to `info@blueoceanluxury.co.za`. Contact form action endpoints and FormSubmit routing left completely untouched.
+- **Quality Gates:**
+  - `apex_check.mjs`: 0 errors.
+  - `verify_architecture.js`: PASS on all tested pages.
