@@ -35,6 +35,7 @@ Max 60 lines, current state only. History: `context/docs/session-log.md`.
 ## Decisions that must not be re-litigated
 - 2026-11-23 — Ben (Benjamin Govindraj) is named only where legally required: statutory footer line, statutory disclosure, privacy and terms pages. No phone, schema node, contact blocks or autoresponder mentions. Paid ads work waits until Ben starts it.
 - 2026-11-23 — Glass House Building 2 removed; /glass-house-building-2 301s to /commercial. rohanrealty.co.za already redirects here.
+- 2026-11-23 — Commercial listings must match the partner feed (screenshots from Rohan). Kept: Glass House B1, B5, The Glades, 7 The Boulevard, Dunlop House, The Avenues Centre. Removed and 301ed to /commercial: 21 Richefond, 580 Riverside Road, Northfield, Urban Corner. Partner listings not yet on the site: Glass House Building 3, 30A The Boulevard, 13 The Boulevard, Lion Match Office Park (2 units), The Shed at Lion Match.
 - 2026-11-23 — Site goal: win seller and landlord mandates (sole or open) as much as buyers. About page leads with that.
 - 2026-11 — Site is the official showcase of Blue Ocean Realty (Pty) Ltd; Rohan Ramlall appears as Candidate Property Practitioner under Benjamin Govindraj (PPA 22 of 2019, Reg. 34).
 - 2026-11 — Public display email is info@blueoceanluxury.co.za; enquiry routing stays on FormSubmit.

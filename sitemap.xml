@@ -66,11 +66,6 @@
     <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/6-sera-bella/images/photo-01.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://blueoceanluxury.co.za/21-richefond</loc>
-    <lastmod>2026-11-23</lastmod>
-    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/commercial/21-richefond/1.webp</image:loc></image:image>
-  </url>
-  <url>
     <loc>https://blueoceanluxury.co.za/glass-house-building-1</loc>
     <lastmod>2026-11-23</lastmod>
     <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/commercial/glass-house-b1/1.webp</image:loc></image:image>
@@ -96,23 +91,8 @@
     <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/commercial/dunlop-house/1.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://blueoceanluxury.co.za/580-riverside-road</loc>
-    <lastmod>2026-11-23</lastmod>
-    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/commercial/580-riverside/1.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://blueoceanluxury.co.za/northfield-business-park</loc>
-    <lastmod>2026-11-23</lastmod>
-    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/commercial/northfield-park/1.webp</image:loc></image:image>
-  </url>
-  <url>
     <loc>https://blueoceanluxury.co.za/the-avenues-centre</loc>
     <lastmod>2026-11-23</lastmod>
     <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/commercial/the-avenues-hilton/1.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://blueoceanluxury.co.za/urban-corner</loc>
-    <lastmod>2026-11-23</lastmod>
-    <image:image><image:loc>https://blueoceanluxury.co.za/assets/properties/commercial/urban-corner/1.webp</image:loc></image:image>
   </url>
 </urlset>

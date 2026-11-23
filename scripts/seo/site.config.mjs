@@ -51,7 +51,7 @@ export const PAGES = [
   {
     file: 'index.html', path: '/', kind: 'home',
     title: 'Luxury Homes and Commercial Property in KZN | Blue Ocean',
-    description: 'Luxury estate homes in Umhlanga and Izinga, plus offices, retail and warehouses to let across KwaZulu-Natal. Private viewings with Rohan Ramlall.',
+    description: 'Luxury estate homes in Umhlanga and Izinga, plus offices and retail space to let across KwaZulu-Natal. Private viewings with Rohan Ramlall.',
     image: '/assets/properties/55-hawaan-drive/images/house-06.jpg',
   },
   {
@@ -63,10 +63,10 @@ export const PAGES = [
   },
   {
     file: 'commercial.html', path: '/commercial', kind: 'hub', crumbs: [COM],
-    title: 'Offices and Warehouses to Let in KZN | Blue Ocean Realty',
-    description: 'Office suites in Umhlanga, La Lucia Ridge and Westville, retail in Hilton, a 4,706 m² Riverhorse Valley warehouse and development land. Enquire today.',
+    title: 'Office and Retail Space to Let in KZN | Blue Ocean Realty',
+    description: 'Office space to let at Glass House Office Park and The Glades in La Lucia Ridge, Westville and Congella, plus retail in Hilton. Enquire today.',
     image: '/assets/properties/commercial/glass-house-b5/1.jpg',
-    listings: ['21-richefond.html', 'glass-house-building-1.html', 'glass-house-building-5.html', 'the-glades-office-park.html', '7-the-boulevard.html', 'dunlop-house.html', '580-riverside-road.html', 'northfield-business-park.html', 'the-avenues-centre.html', 'urban-corner.html'],
+    listings: ['glass-house-building-1.html', 'glass-house-building-5.html', 'the-glades-office-park.html', '7-the-boulevard.html', 'dunlop-house.html', 'the-avenues-centre.html'],
   },
   {
     file: 'about.html', path: '/about', kind: 'about', crumbs: [{ name: 'About', path: '/about' }],
@@ -169,17 +169,6 @@ export const PAGES = [
 
   // Commercial listings. Figures mirror each page's hero stat cards (checked 2026-11-20).
   {
-    file: '21-richefond.html', path: '/21-richefond', kind: 'commercial', crumbs: [COM],
-    title: '552 m² Office to Let, 21 Richefond Circle, Umhlanga',
-    description: '552.42 m² ground-floor office to let at 21 Richefond Circle, Ridgeside, Umhlanga. R185/m² gross, 28 parking bays, backup power and water. From 1 June 2026.',
-    image: '/assets/properties/commercial/21-richefond/1.jpg',
-    listing: {
-      name: '21 Richefond Circle, Ridgeside Office Park', use: 'Office',
-      street: '21 Richefond Circle, Ridgeside Office Park', locality: 'Umhlanga Ridge', postalCode: '4319',
-      floor: 552.42, parking: 28, offer: { mode: 'lease', price: 185, basis: 'gross' },
-    },
-  },
-  {
     file: 'glass-house-building-1.html', path: '/glass-house-building-1', kind: 'commercial', crumbs: [COM],
     title: '235 m² Office to Let, Glass House Office Park, La Lucia',
     description: '235 m² ground-floor office to let at Glass House Building 1, 30-34 Meridian Drive, La Lucia Ridge. R175/m² gross, backup power. Available now.',
@@ -235,28 +224,6 @@ export const PAGES = [
     },
   },
   {
-    file: '580-riverside-road.html', path: '/580-riverside-road', kind: 'commercial', crumbs: [COM],
-    title: '650 m² Retail or Office Space to Let, Durban North',
-    description: '650.37 m² ground and first-floor retail or office space to let at 580 Riverside Road, Durban North, with shared yard. R100/m² gross, negotiable.',
-    image: '/assets/properties/commercial/580-riverside/1.jpg',
-    listing: {
-      name: '580 Riverside Road, Durban North', use: 'Retail or office',
-      street: '580 Riverside Road', locality: 'Durban North', postalCode: '4051',
-      floor: 650.37, offer: { mode: 'lease', price: 100, basis: 'gross' },
-    },
-  },
-  {
-    file: 'northfield-business-park.html', path: '/northfield-business-park', kind: 'commercial', crumbs: [COM],
-    title: '2,730 m² Warehouse to Let, Riverhorse Valley, Durban',
-    description: '2,730.79 m² warehouse and office to let at 1 Fortrose Avenue, Northfield Logistics Park, with a 1,510 m² yard and dock levellers. From R110/m² gross.',
-    image: '/assets/properties/commercial/northfield-park/1.jpg',
-    listing: {
-      name: 'Northfield Logistics Park, 1 Fortrose Avenue', use: 'Warehouse and office',
-      street: '1 Fortrose Avenue, Northfield Logistics Park', locality: 'Riverhorse Valley', postalCode: '4051',
-      floor: 2730.79, yard: 1510, offer: { mode: 'lease', price: 110, basis: 'gross', note: 'warehouse R110/m², office R125/m²' },
-    },
-  },
-  {
     file: 'the-avenues-centre.html', path: '/the-avenues-centre', kind: 'commercial', crumbs: [COM],
     title: '209 m² Retail Shop to Let, The Avenues Centre, Hilton',
     description: '209 m² retail and commercial space to let at The Avenues Centre, Hilton, KZN Midlands. R200/m² gross. Available immediately.',
@@ -265,17 +232,6 @@ export const PAGES = [
       name: 'The Avenues Centre, Hilton', use: 'Retail',
       street: 'The Avenues Centre', locality: 'Hilton', postalCode: '3245',
       floor: 209, offer: { mode: 'lease', price: 200, basis: 'gross' },
-    },
-  },
-  {
-    file: 'urban-corner.html', path: '/urban-corner', kind: 'commercial', crumbs: [COM],
-    title: '4,831 m² Development Land for Sale, Umhlanga Ridge',
-    description: '4,831 m² development site with 8,213 m² of bulk on the corner of Park Way and Twilight Drive, Umhlanga Ridge. R33,000,000 excluding VAT.',
-    image: '/assets/properties/commercial/urban-corner/1.png',
-    listing: {
-      name: 'Urban Corner, Umhlanga Ridge', use: 'Development land',
-      street: 'Corner of Park Way and Twilight Drive', locality: 'Umhlanga Ridge', postalCode: '4319',
-      lot: 4831, bulk: 8213, offer: { mode: 'sale', price: 33000000, vatNote: 'excluding VAT' },
     },
   },
 ];

@@ -19,11 +19,13 @@
 
 # Old .html URLs: permanent redirects so link equity consolidates (html_handling alone returns 307).
 /12-sera-bella.html    /12-sera-bella    301
-/21-richefond.html    /21-richefond    301
+/21-richefond.html    /commercial    301
+/21-richefond    /commercial    301
 /40-idwala-circle.html    /40-idwala-circle    301
 /5-nightjar-close.html    /5-nightjar-close    301
 /55-hawaan-drive.html    /55-hawaan-drive    301
-/580-riverside-road.html    /580-riverside-road    301
+/580-riverside-road.html    /commercial    301
+/580-riverside-road    /commercial    301
 /6-sera-bella.html    /6-sera-bella    301
 /7-the-boulevard.html    /7-the-boulevard    301
 /about.html    /about    301
@@ -35,11 +37,13 @@
 /glass-house-building-2.html    /commercial    301
 /glass-house-building-2    /commercial    301
 /glass-house-building-5.html    /glass-house-building-5    301
-/northfield-business-park.html    /northfield-business-park    301
+/northfield-business-park.html    /commercial    301
+/northfield-business-park    /commercial    301
 /privacy-policy.html    /privacy-policy    301
 /residential.html    /residential    301
 /statutory-disclosure.html    /statutory-disclosure    301
 /terms-and-conditions.html    /terms-and-conditions    301
 /the-avenues-centre.html    /the-avenues-centre    301
 /the-glades-office-park.html    /the-glades-office-park    301
-/urban-corner.html    /urban-corner    301
+/urban-corner.html    /commercial    301
+/urban-corner    /commercial    301
