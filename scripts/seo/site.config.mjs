@@ -64,9 +64,9 @@ export const PAGES = [
   {
     file: 'commercial.html', path: '/commercial', kind: 'hub', crumbs: [COM],
     title: 'Offices, Retail and Development Land in KZN | Blue Ocean',
-    description: 'Office space to let at Glass House Office Park and The Glades in La Lucia Ridge, Westville and Congella, retail in Hilton and development land in Umhlanga Ridge.',
+    description: 'Offices to let in La Lucia Ridge, Westway (Westville), Lion Match (Durban) and Congella, retail in Hilton, and development land in Umhlanga Ridge.',
     image: '/assets/properties/commercial/glass-house-b5/1.jpg',
-    listings: ['glass-house-building-1.html', 'glass-house-building-5.html', 'the-glades-office-park.html', '7-the-boulevard.html', 'dunlop-house.html', 'the-avenues-centre.html', 'urban-corner.html'],
+    listings: ['glass-house-building-1.html', 'glass-house-building-5.html', 'the-glades-office-park.html', '7-the-boulevard.html', 'dunlop-house.html', 'the-avenues-centre.html', 'urban-corner.html', 'lion-match-the-shed.html', 'lion-match-stadium-building.html', 'lion-match-office-park-5th-floor.html', '13-the-boulevard.html', '30a-the-boulevard.html'],
   },
   {
     file: 'about.html', path: '/about', kind: 'about', crumbs: [{ name: 'About', path: '/about' }],
@@ -243,6 +243,61 @@ export const PAGES = [
       name: 'Urban Corner, Umhlanga Ridge', use: 'Development land',
       street: 'Corner of Park Way and Twilight Drive', locality: 'Umhlanga Ridge', postalCode: '4319',
       lot: 4831, bulk: 8213, offer: { mode: 'sale', price: 33000000, vatNote: 'excluding VAT' },
+    },
+  },
+  {
+    file: 'lion-match-the-shed.html', path: '/lion-match-the-shed', kind: 'commercial', crumbs: [COM],
+    title: '72 m² Standalone Office to Let, The Shed, Lion Match, Durban',
+    description: '72 m² ground-floor standalone office to let at The Shed, Lion Match Office Park, 892 Umgeni Road, Durban. R165/m² gross, 3 open bays.',
+    image: '/assets/properties/commercial/lion-match-the-shed/1.jpg',
+    listing: {
+      name: 'The Shed, Lion Match Office Park', use: 'Office',
+      street: '892 Umgeni Road, Lion Match Office Park', locality: 'Durban', postalCode: '4001',
+      floor: 72, parking: 3, offer: { mode: 'lease', price: 165, basis: 'gross' },
+    },
+  },
+  {
+    file: 'lion-match-stadium-building.html', path: '/lion-match-stadium-building', kind: 'commercial', crumbs: [COM],
+    title: 'Offices to Let, The Stadium Building, Lion Match, Durban',
+    description: 'Offices to let at The Stadium Building, Lion Match Office Park, Durban: 178.08 m² mezzanine and 190.78 m² second floor at R160/m² gross.',
+    image: '/assets/properties/commercial/lion-match-stadium-building/1.jpg',
+    listing: {
+      name: 'The Stadium Building, Lion Match Office Park', use: 'Office',
+      street: '892 Umgeni Road, Lion Match Office Park', locality: 'Durban', postalCode: '4001',
+      floor: 178.08, parking: 7, offer: { mode: 'lease', price: 160, basis: 'gross', note: 'mezzanine 178.08 m² from 1 February 2027; second floor 190.78 m² from 1 March 2027' },
+    },
+  },
+  {
+    file: 'lion-match-office-park-5th-floor.html', path: '/lion-match-office-park-5th-floor', kind: 'commercial', crumbs: [COM],
+    title: '261 m² Fifth-Floor Office to Let, Lion Match Office Park',
+    description: '261.19 m² fifth-floor office to let at Lion Match Office Park, 892 Umgeni Road, Durban. R165/m² gross, 11 bays. From 1 January 2027.',
+    image: '/assets/properties/commercial/lion-match-5th-floor/1.jpg',
+    listing: {
+      name: 'Lion Match Office Park, Fifth Floor', use: 'Office',
+      street: '892 Umgeni Road, Lion Match Office Park', locality: 'Durban', postalCode: '4001',
+      floor: 261.19, parking: 11, offer: { mode: 'lease', price: 165, basis: 'gross' },
+    },
+  },
+  {
+    file: '13-the-boulevard.html', path: '/13-the-boulevard', kind: 'commercial', crumbs: [COM],
+    title: '336 m² Office to Let, 13 The Boulevard, Westville',
+    description: '336.40 m² first-floor office to let at 13 The Boulevard, Westway Office Park, Westville. R155/m² gross, 10 bays, backup water and power.',
+    image: '/assets/properties/commercial/13-boulevard-westway/1.jpg',
+    listing: {
+      name: '13 The Boulevard, Westway Office Park', use: 'Office',
+      street: '13 The Boulevard, Westway Office Park', locality: 'Westville', postalCode: '3629',
+      floor: 336.4, parking: 10, offer: { mode: 'lease', price: 155, basis: 'gross' },
+    },
+  },
+  {
+    file: '30a-the-boulevard.html', path: '/30a-the-boulevard', kind: 'commercial', crumbs: [COM],
+    title: '393 m² Office to Let, 30A The Boulevard, Westville',
+    description: '392.57 m² first-floor office to let at 30A The Boulevard, Westway Office Park, Westville, with N3 visibility. R160/m² gross, 14 bays.',
+    image: '/assets/properties/commercial/30a-boulevard-westway/1.jpg',
+    listing: {
+      name: '30A The Boulevard, Westway Office Park', use: 'Office',
+      street: '30 The Boulevard, Westway Office Park', locality: 'Westville', postalCode: '3629',
+      floor: 392.57, parking: 14, offer: { mode: 'lease', price: 160, basis: 'gross' },
     },
   },
 ];
