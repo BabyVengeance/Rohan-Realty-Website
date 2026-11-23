@@ -21,7 +21,7 @@ const pages = [
 
   'the-avenues-centre.html',
 
-  'glass-house-building-1.html',
+  'glass-house-building-3.html', 'glass-house-main-building.html',
   '7-the-boulevard.html',
   'privacy-policy.html',
   'terms-and-conditions.html',

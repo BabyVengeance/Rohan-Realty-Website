@@ -66,7 +66,7 @@ export const PAGES = [
     title: 'Offices, Retail and Development Land in KZN | Blue Ocean',
     description: 'Offices to let in La Lucia Ridge, Westway (Westville), Lion Match (Durban) and Congella, retail in Hilton, and development land in Umhlanga Ridge.',
     image: '/assets/properties/commercial/glass-house-b5/1.jpg',
-    listings: ['glass-house-building-1.html', 'glass-house-building-5.html', 'the-glades-office-park.html', '7-the-boulevard.html', 'dunlop-house.html', 'the-avenues-centre.html', 'urban-corner.html', 'lion-match-the-shed.html', 'lion-match-stadium-building.html', 'lion-match-office-park-5th-floor.html', '13-the-boulevard.html', '30a-the-boulevard.html'],
+    listings: ['glass-house-building-5.html', 'the-glades-office-park.html', '7-the-boulevard.html', 'dunlop-house.html', 'the-avenues-centre.html', 'urban-corner.html', 'glass-house-main-building.html', 'glass-house-building-3.html', 'lion-match-the-shed.html', 'lion-match-stadium-building.html', 'lion-match-office-park-5th-floor.html', '13-the-boulevard.html', '30a-the-boulevard.html'],
   },
   {
     file: 'about.html', path: '/about', kind: 'about', crumbs: [{ name: 'About', path: '/about' }],
@@ -169,24 +169,13 @@ export const PAGES = [
 
   // Commercial listings. Figures mirror each page's hero stat cards (checked 2026-11-20).
   {
-    file: 'glass-house-building-1.html', path: '/glass-house-building-1', kind: 'commercial', crumbs: [COM],
-    title: '235 m² Office to Let, Glass House Office Park, La Lucia',
-    description: '235 m² ground-floor office to let at Glass House Building 1, 30-34 Meridian Drive, La Lucia Ridge. R175/m² gross, backup power. Available now.',
-    image: '/assets/properties/commercial/glass-house-b1/1.jpg',
-    listing: {
-      name: 'Glass House Building 1, Glass House Office Park', use: 'Office',
-      street: '30-34 Meridian Drive, Glass House Office Park', locality: 'La Lucia Ridge', postalCode: '4051',
-      floor: 235, offer: { mode: 'lease', price: 175, basis: 'gross' },
-    },
-  },
-  {
     file: 'glass-house-building-5.html', path: '/glass-house-building-5', kind: 'commercial', crumbs: [COM],
     title: '1,678 m² Office to Let, Glass House Building 5, La Lucia',
-    description: '1,678.58 m² first-floor office to let at Glass House Building 5, La Lucia Ridge. R160/m² nett, 69 parking bays, full backup infrastructure.',
+    description: '1,678.58 m² first-floor office to let at Glass House Building 5, 309 Umhlanga Rocks Drive, La Lucia Ridge. R160/m² nett, 69 parking bays, full backup infrastructure.',
     image: '/assets/properties/commercial/glass-house-b5/1.jpg',
     listing: {
       name: 'Glass House Building 5, Glass House Office Park', use: 'Office',
-      street: '30-34 Meridian Drive, Glass House Office Park', locality: 'La Lucia Ridge', postalCode: '4051',
+      street: '309 Umhlanga Rocks Drive, Glass House Office Park', locality: 'La Lucia Ridge', postalCode: '4051',
       floor: 1678.58, parking: 69, offer: { mode: 'lease', price: 160, basis: 'nett' },
     },
   },
@@ -203,13 +192,13 @@ export const PAGES = [
   },
   {
     file: '7-the-boulevard.html', path: '/7-the-boulevard', kind: 'commercial', crumbs: [COM],
-    title: '134 m² Office to Let, Westway Office Park, Westville',
-    description: '134.10 m² first-floor office to let at 7 The Boulevard, Westway Office Park, Westville. R148/m² gross. Available immediately.',
+    title: '215 m² Office to Let, 7 The Boulevard, Westville',
+    description: '214.92 m² first-floor office to let at 7 The Boulevard, Westway Office Park, Westville. R155/m² gross, 9 bays, backup water. One month notice.',
     image: '/assets/properties/commercial/7-boulevard-westway/1.jpg',
     listing: {
       name: '7 The Boulevard, Westway Office Park', use: 'Office',
       street: '7 The Boulevard, Westway Office Park', locality: 'Westville', postalCode: '3629',
-      floor: 134.1, offer: { mode: 'lease', price: 148, basis: 'gross' },
+      floor: 214.92, parking: 9, offer: { mode: 'lease', price: 155, basis: 'gross' },
     },
   },
   {
@@ -298,6 +287,28 @@ export const PAGES = [
       name: '30A The Boulevard, Westway Office Park', use: 'Office',
       street: '30 The Boulevard, Westway Office Park', locality: 'Westville', postalCode: '3629',
       floor: 392.57, parking: 14, offer: { mode: 'lease', price: 160, basis: 'gross' },
+    },
+  },
+  {
+    file: 'glass-house-building-3.html', path: '/glass-house-building-3', kind: 'commercial', crumbs: [COM],
+    title: '338 m² Office to Let, Glass House Building 3, La Lucia',
+    description: '337.63 m² ground-floor office to let at Glass House Building 3, 309 Umhlanga Rocks Drive, La Lucia Ridge. R165/m² gross, 12 bays. Available now.',
+    image: '/assets/properties/commercial/glass-house-b3/1.jpg',
+    listing: {
+      name: 'Glass House Building 3, Glass House Office Park', use: 'Office',
+      street: '309 Umhlanga Rocks Drive, Glass House Office Park', locality: 'La Lucia Ridge', postalCode: '4051',
+      floor: 337.63, parking: 12, offer: { mode: 'lease', price: 165, basis: 'gross' },
+    },
+  },
+  {
+    file: 'glass-house-main-building.html', path: '/glass-house-main-building', kind: 'commercial', crumbs: [COM],
+    title: '1,523 m² Office to Let, Glass House Main Building, La Lucia',
+    description: '1,523 m² subdivisible upper-ground-floor office to let at the Glass House Main Building, 309 Umhlanga Rocks Drive. R190/m² gross, 62 bays.',
+    image: '/assets/properties/commercial/glass-house-main/1.jpg',
+    listing: {
+      name: 'Glass House Main Building, Glass House Office Park', use: 'Office',
+      street: '309 Umhlanga Rocks Drive, Glass House Office Park', locality: 'La Lucia Ridge', postalCode: '4051',
+      floor: 1523, parking: 62, offer: { mode: 'lease', price: 190, basis: 'gross' },
     },
   },
 ];

@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'urban-corner.html', 'glass-house-building-5.html',
  'the-glades-office-park.html', 'dunlop-house.html',
  'the-avenues-centre.html',
-    'glass-house-building-1.html', '7-the-boulevard.html'
+    'glass-house-building-3.html', 'glass-house-main-building.html', '7-the-boulevard.html'
   ];
 
   let targetActive = currentPath;
