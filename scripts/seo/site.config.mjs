@@ -171,23 +171,23 @@ export const PAGES = [
   {
     file: 'glass-house-building-5.html', path: '/glass-house-building-5', kind: 'commercial', crumbs: [COM],
     title: '1,678 m² Office to Let, Glass House Building 5, La Lucia',
-    description: '1,678.58 m² first-floor office to let at Glass House Building 5, 309 Umhlanga Rocks Drive, La Lucia Ridge. R160/m² nett, 69 parking bays, full backup infrastructure.',
+    description: '1,678.58 m² first-floor office to let at Glass House Building 5, 309 Umhlanga Rocks Drive, La Lucia Ridge. R165/m² nett, 69 parking bays, full backup infrastructure.',
     image: '/assets/properties/commercial/glass-house-b5/1.jpg',
     listing: {
       name: 'Glass House Building 5, Glass House Office Park', use: 'Office',
       street: '309 Umhlanga Rocks Drive, Glass House Office Park', locality: 'La Lucia Ridge', postalCode: '4051',
-      floor: 1678.58, parking: 69, offer: { mode: 'lease', price: 160, basis: 'nett' },
+      floor: 1678.58, parking: 69, offer: { mode: 'lease', price: 165, basis: 'nett' },
     },
   },
   {
     file: 'the-glades-office-park.html', path: '/the-glades-office-park', kind: 'commercial', crumbs: [COM],
-    title: '992 m² Standalone Office to Let, The Glades, La Lucia',
-    description: '992.13 m² standalone office building to let at The Glades Office Park, Armstrong Avenue, La Lucia Ridge. R185/m² gross, 50 parking bays.',
+    title: '1,834 m² Office Building to Let, The Glades, La Lucia',
+    description: 'Entire 1,834 m² office building to let at The Glades Office Park, 70 Armstrong Avenue, La Lucia Ridge. R190/m² gross, 77 bays, floors can be split. From 1 December 2026.',
     image: '/assets/properties/commercial/the-glades/1.jpg',
     listing: {
-      name: 'The Glades Office Park, Armstrong Avenue', use: 'Office',
-      street: 'Armstrong Avenue, The Glades Office Park', locality: 'La Lucia Ridge', postalCode: '4051',
-      floor: 992.13, parking: 50, offer: { mode: 'lease', price: 185, basis: 'gross' },
+      name: 'The Glades Office Park, 70 Armstrong Avenue', use: 'Office',
+      street: '70 Armstrong Avenue, The Glades Office Park', locality: 'La Lucia Ridge', postalCode: '4051',
+      floor: 1834, parking: 77, offer: { mode: 'lease', price: 190, basis: 'gross' },
     },
   },
   {
@@ -214,13 +214,13 @@ export const PAGES = [
   },
   {
     file: 'the-avenues-centre.html', path: '/the-avenues-centre', kind: 'commercial', crumbs: [COM],
-    title: '209 m² Retail Shop to Let, The Avenues Centre, Hilton',
-    description: '209 m² retail and commercial space to let at The Avenues Centre, Hilton, KZN Midlands. R200/m² gross. Available immediately.',
+    title: '177 m² Retail Shop to Let, The Avenues Centre, Hilton',
+    description: '177 m² retail and commercial space to let at The Avenues Centre, Hilton, KZN Midlands. R215/m² gross. Available immediately.',
     image: '/assets/properties/commercial/the-avenues-hilton/1.jpg',
     listing: {
       name: 'The Avenues Centre, Hilton', use: 'Retail',
-      street: 'The Avenues Centre', locality: 'Hilton', postalCode: '3245',
-      floor: 209, offer: { mode: 'lease', price: 200, basis: 'gross' },
+      street: 'The Avenues Centre, Hilton College Road', locality: 'Hilton', postalCode: '3245',
+      floor: 177, offer: { mode: 'lease', price: 215, basis: 'gross' },
     },
   },
   {
