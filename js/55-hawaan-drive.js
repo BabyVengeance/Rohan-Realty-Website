@@ -319,16 +319,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /**
-   * SARS Official Transfer Duty Formula (2024–2026 Tax Schedule)
-   * Values exceeding R12.1M are taxed at R1,128,600 + 13% of the value above R12,100,000.
+   * SARS Official Transfer Duty Formula (rates from 1 April 2025, unchanged for 2026/27)
+   * Values above R13.31M are taxed at R1,241,456 + 13% of the value above R13,310,000.
    */
   function calculateTransferDuty(price) {
-    if (price <= 1100000) return 0;
-    if (price <= 1512500) return (price - 1100000) * 0.03;
-    if (price <= 2117500) return 12375 + (price - 1512500) * 0.06;
-    if (price <= 2722500) return 48675 + (price - 2117500) * 0.08;
-    if (price <= 12100000) return 97075 + (price - 2722500) * 0.11;
-    return 1128600 + (price - 12100000) * 0.13;
+    if (price <= 1210000) return 0;
+    if (price <= 1663800) return (price - 1210000) * 0.03;
+    if (price <= 2329300) return 13614 + (price - 1663800) * 0.06;
+    if (price <= 2994800) return 53544 + (price - 2329300) * 0.08;
+    if (price <= 13310000) return 106784 + (price - 2994800) * 0.11;
+    return 1241456 + (price - 13310000) * 0.13;
   }
 
   function calculateBond() {

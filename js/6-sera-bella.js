@@ -302,20 +302,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // SARS Transfer Duty Calculation Formula
   function calculateTransferDuty(propertyPrice) {
-    if (propertyPrice <= 1100000) return 0;
-    if (propertyPrice <= 1512500) {
-      return (propertyPrice - 1100000) * 0.03;
-    }
-    if (propertyPrice <= 2117500) {
-      return 12375 + (propertyPrice - 1512500) * 0.06;
-    }
-    if (propertyPrice <= 2722500) {
-      return 12375 + 36300 + (propertyPrice - 2117500) * 0.08;
-    }
-    if (propertyPrice <= 12100000) {
-      return 12375 + 36300 + 48400 + (propertyPrice - 2722500) * 0.11;
-    }
-    return 12375 + 36300 + 48400 + 1031525 + (propertyPrice - 12100000) * 0.13;
+    if (propertyPrice <= 1210000) return 0;
+    if (propertyPrice <= 1663800) return (propertyPrice - 1210000) * 0.03;
+    if (propertyPrice <= 2329300) return 13614 + (propertyPrice - 1663800) * 0.06;
+    if (propertyPrice <= 2994800) return 53544 + (propertyPrice - 2329300) * 0.08;
+    if (propertyPrice <= 13310000) return 106784 + (propertyPrice - 2994800) * 0.11;
+    return 1241456 + (propertyPrice - 13310000) * 0.13;
   }
 
   function updateCalculator() {

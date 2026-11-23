@@ -251,12 +251,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function calculateSARSDuty(price) {
-    if (price <= 1100000) return 0;
-    if (price <= 1512500) return (price - 1100000) * 0.03;
-    if (price <= 2117500) return 12375 + (price - 1512500) * 0.06;
-    if (price <= 2722500) return 48675 + (price - 2117500) * 0.08;
-    if (price <= 12100000) return 97075 + (price - 2722500) * 0.11;
-    return 1128600 + (price - 12100000) * 0.13;
+    if (price <= 1210000) return 0;
+    if (price <= 1663800) return (price - 1210000) * 0.03;
+    if (price <= 2329300) return 13614 + (price - 1663800) * 0.06;
+    if (price <= 2994800) return 53544 + (price - 2329300) * 0.08;
+    if (price <= 13310000) return 106784 + (price - 2994800) * 0.11;
+    return 1241456 + (price - 13310000) * 0.13;
   }
 
   function updateCalculator() {
