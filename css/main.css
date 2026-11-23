@@ -1104,6 +1104,9 @@ body.menu-open .mobile-action-bar {
   gap: 8px !important;
   padding: 12px 6px !important;
   cursor: pointer !important;
+  /* Dark backing keeps ticks legible over white sections as well as navy ones */
+  background-color: rgba(6, 11, 20, 0.72) !important;
+  border-radius: 6px !important;
 }
 
 .notion-toc__tick {
