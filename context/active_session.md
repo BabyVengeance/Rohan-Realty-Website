@@ -18,6 +18,8 @@ Max 60 lines, current state only. History: `context/docs/session-log.md`.
 - Forms: `/api/contact` accepts instantly and emails in the background (Cloudflare send takes about 10 s); on failure the Worker forwards to FormSubmit. Verified live by Rohan. Inbox: `LEAD_INBOX_ROHAN` only (dashboard variable, kept across deploys by `keep_vars`). Ben not added by choice; the FormSubmit backup CC is empty.
 - FormSubmit activated for blueoceanluxury.co.za. www redirects to apex with the query string kept. A rate-limit rule is on `/api/contact`.
 
+- 2026-11-23: SEO/GEO audit in `context/docs/2026-11-23-seo-geo-audit.md`. Applied: footer credit (Apex Digital SA), shorter titles, hub FAQs + FAQPage, dateModified, .html 301s, self-hosted fonts (`node scripts/fonts.mjs`). Not yet committed or deployed.
+
 ## Next steps (ordered)
 1. Turn on Cloudflare Web Analytics for blueoceanluxury.co.za (the CSP already allows it).
 2. Search Console and Bing: verify the domain and submit the sitemap.

@@ -48,6 +48,7 @@
         "width": 1200,
         "height": 630
       },
+      "dateModified": "2026-11-23",
       "breadcrumb": {
         "@id": "https://blueoceanluxury.co.za/40-idwala-circle#breadcrumb"
       },
@@ -285,9 +286,8 @@
   <meta name="theme-color" content="#090A0F">
 
   <!-- Typography: Editorial Serif & Clean Geometric Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/outfit-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/40-idwala-circle.css">
@@ -1193,7 +1193,7 @@
 
           <form id="propertyEnquiryForm" name="viewing-enquiry" action="/api/contact" method="POST" novalidate>
               <input type="hidden" name="form_id" value="residential-40-idwala-circle">
-            <!-- FormSubmit & Dispatch Routing Configuration -->
+            <!-- FormSubmit & Dispatch Routing Configuration -->
             <input type="hidden" name="_subject" value="[Blue Ocean Realty] Private Viewing Request: 40 Idwala Circle, Izinga Park (R25,000,000)">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
@@ -1351,6 +1351,7 @@
       <div class="footer__bottom">
         <p>&copy; 2026 Blue Ocean Realty (Pty) Ltd. All rights reserved. Operating in full compliance with the Property Practitioners Act 22 of 2019.</p>
         <p class="footer__disclaimer">Information provided herein is for marketing guidance and subject to formal contract and OTP verification (E&amp;OE).</p>
+        <p class="footer__credit">Engineered by <a href="https://apexdigitalsa.com" target="_blank" rel="noopener">Apex Digital SA</a></p>
       </div>
     </div>
   </footer>

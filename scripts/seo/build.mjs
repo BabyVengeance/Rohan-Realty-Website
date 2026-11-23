@@ -2,6 +2,7 @@
 // Idempotent: run it after any copy or listing change.  Usage: node scripts/seo/build.mjs
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { ORIGIN, SITE, PAGES } from './site.config.mjs';
 
@@ -149,6 +150,17 @@ function pageType(kind) {
   return { home: 'WebPage', hub: 'CollectionPage', about: 'AboutPage', contact: 'ContactPage' }[kind] || 'WebPage';
 }
 
+// Date of the page's last committed change; uncommitted edits count as today. A rebuild alone never bumps it.
+function lastModified(file) {
+  try {
+    const dirty = execFileSync('git', ['status', '--porcelain', '--', file], { encoding: 'utf8' }).trim();
+    if (dirty) return new Date().toISOString().slice(0, 10);
+    return execFileSync('git', ['log', '-1', '--format=%cs', '--', file], { encoding: 'utf8' }).trim() || null;
+  } catch {
+    return null;
+  }
+}
+
 function buildGraph(page, html, faqPairs) {
   const url = abs(page.path);
   const image = abs(`/assets/og/${slug(page)}.jpg`);
@@ -159,6 +171,8 @@ function buildGraph(page, html, faqPairs) {
     isPartOf: { '@id': ID.website }, inLanguage: 'en-ZA',
     primaryImageOfPage: { '@type': 'ImageObject', url: image, width: 1200, height: 630 },
   };
+  const modified = lastModified(page.file);
+  if (modified) webpage.dateModified = modified;
   if (crumbs) { webpage.breadcrumb = { '@id': crumbs['@id'] }; graph.push(crumbs); }
   if (page.kind === 'home' || page.kind === 'contact') webpage.about = { '@id': ID.agency };
   if (page.kind === 'about') webpage.mainEntity = { '@id': ID.rohan };

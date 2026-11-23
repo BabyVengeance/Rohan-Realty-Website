@@ -50,20 +50,20 @@ const COM = { name: 'Commercial', path: '/commercial' };
 export const PAGES = [
   {
     file: 'index.html', path: '/', kind: 'home',
-    title: 'Luxury Homes & Commercial Property in KZN | Blue Ocean Realty',
+    title: 'Luxury Homes and Commercial Property in KZN | Blue Ocean',
     description: 'Luxury estate homes in Umhlanga and Izinga, plus offices, retail and warehouses to let across KwaZulu-Natal. Private viewings with Rohan Ramlall.',
     image: '/assets/properties/55-hawaan-drive/images/house-06.jpg',
   },
   {
     file: 'residential.html', path: '/residential', kind: 'hub', crumbs: [RES],
-    title: 'Luxury Houses for Sale in Umhlanga & Izinga | Blue Ocean Realty',
+    title: 'Luxury Houses for Sale in Umhlanga | Blue Ocean Realty',
     description: 'Estate homes for sale in Hawaan Forest Estate, Izinga Park and Sera Bella, Umhlanga, from R8,995,000 to R28,000,000. Book a private viewing.',
     image: '/assets/properties/5-nightjar-close/images/photo_01_384268194.jpg',
     listings: ['5-nightjar-close.html', '40-idwala-circle.html', '55-hawaan-drive.html', '12-sera-bella.html', '6-sera-bella.html'],
   },
   {
     file: 'commercial.html', path: '/commercial', kind: 'hub', crumbs: [COM],
-    title: 'Offices, Retail & Warehouses to Let in KZN | Blue Ocean Realty',
+    title: 'Offices and Warehouses to Let in KZN | Blue Ocean Realty',
     description: 'Office suites in Umhlanga, La Lucia Ridge and Westville, retail in Hilton, a 4,706 m² Riverhorse Valley warehouse and development land. Enquire today.',
     image: '/assets/properties/commercial/glass-house-b5/1.jpg',
     listings: ['21-richefond.html', 'glass-house-building-1.html', 'glass-house-building-2.html', 'glass-house-building-5.html', 'the-glades-office-park.html', '7-the-boulevard.html', 'dunlop-house.html', '580-riverside-road.html', 'northfield-business-park.html', 'the-avenues-centre.html', 'urban-corner.html'],
@@ -101,7 +101,7 @@ export const PAGES = [
   },
   {
     file: 'statutory-disclosure.html', path: '/statutory-disclosure', kind: 'legal', crumbs: [{ name: 'Statutory disclosure', path: '/statutory-disclosure' }],
-    title: 'Statutory Disclosure and PPRA Compliance | Blue Ocean Realty',
+    title: 'Statutory Disclosure and PPRA | Blue Ocean Realty',
     description: 'PPRA registration, candidate practitioner supervision and complaints procedure for Blue Ocean Realty (Pty) Ltd.',
   },
 
