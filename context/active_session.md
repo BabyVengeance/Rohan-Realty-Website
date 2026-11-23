@@ -18,22 +18,24 @@ Max 60 lines, current state only. History: `context/docs/session-log.md`.
 - Forms: `/api/contact` accepts instantly and emails in the background (Cloudflare send takes about 10 s); on failure the Worker forwards to FormSubmit. Verified live by Rohan. Inbox: `LEAD_INBOX_ROHAN` only (dashboard variable, kept across deploys by `keep_vars`). Ben not added by choice; the FormSubmit backup CC is empty.
 - FormSubmit activated for blueoceanluxury.co.za. www redirects to apex with the query string kept. A rate-limit rule is on `/api/contact`.
 
-- 2026-11-23: SEO/GEO audit in `context/docs/2026-11-23-seo-geo-audit.md`. Applied: footer credit (Apex Digital SA), shorter titles, hub FAQs + FAQPage, dateModified, .html 301s, self-hosted fonts (`node scripts/fonts.mjs`). Not yet committed or deployed.
+- 2026-11-23: SEO/GEO audit applied and live (see context/docs/2026-11-23-seo-geo-audit.md). About page rewritten from Rohan's answers; Ben reduced to legal mentions; Glass House Building 2 removed.
 
 ## Next steps (ordered)
 1. Turn on Cloudflare Web Analytics for blueoceanluxury.co.za (the CSP already allows it).
 2. Search Console and Bing: verify the domain and submit the sitemap.
 3. Ben pastes the GTM / GA4 / Ads IDs into `js/consent.js`, then verify in Tag Assistant.
-4. Optional: 301 rohanrealty.co.za to blueoceanluxury.co.za; swap FormSubmit's Gmail target for its hashed alias; add `LEAD_INBOX_BEN` when Ben agrees.
+4. Optional: swap FormSubmit's Gmail target for its hashed alias; add `LEAD_INBOX_BEN` when Ben agrees.
 
 ## Blockers / waiting on client
 - GTM, GA4 and Google Ads IDs (Ben).
 - Google Business Profile URL / Maps CID for `sameAs`.
 - FFC numbers: "In process / available on request".
-- Glass House Building 2 page says "Available 1 June 2024": confirm the current date.
 - Drone shot for the index.html hero (Umhlanga/Zimbali).
 
 ## Decisions that must not be re-litigated
+- 2026-11-23 — Ben (Benjamin Govindraj) is named only where legally required: statutory footer line, statutory disclosure, privacy and terms pages. No phone, schema node, contact blocks or autoresponder mentions. Paid ads work waits until Ben starts it.
+- 2026-11-23 — Glass House Building 2 removed; /glass-house-building-2 301s to /commercial. rohanrealty.co.za already redirects here.
+- 2026-11-23 — Site goal: win seller and landlord mandates (sole or open) as much as buyers. About page leads with that.
 - 2026-11 — Site is the official showcase of Blue Ocean Realty (Pty) Ltd; Rohan Ramlall appears as Candidate Property Practitioner under Benjamin Govindraj (PPA 22 of 2019, Reg. 34).
 - 2026-11 — Public display email is info@blueoceanluxury.co.za; enquiry routing stays on FormSubmit.
 - 2026-11 — Agency scope covers luxury residential estates and commercial property across KZN (no coastal-only wording).

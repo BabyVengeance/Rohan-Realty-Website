@@ -29,7 +29,6 @@ const ID = {
   agency: `${ORIGIN}/#agency`,
   website: `${ORIGIN}/#website`,
   rohan: `${ORIGIN}/#rohan-ramlall`,
-  benjamin: `${ORIGIN}/#benjamin-govindraj`,
 };
 
 function siteNodes() {
@@ -51,7 +50,7 @@ function siteNodes() {
         '@type': 'EducationalOccupationalCredential', credentialCategory: 'Registered property practitioner firm',
         recognizedBy: { '@type': 'GovernmentOrganization', name: 'Property Practitioners Regulatory Authority', url: 'https://theppra.org.za/' },
       },
-      employee: [{ '@id': ID.benjamin }, { '@id': ID.rohan }],
+      employee: [{ '@id': ID.rohan }],
       contactPoint: {
         '@type': 'ContactPoint', contactType: 'sales', telephone: SITE.telephone, email: SITE.email,
         areaServed: 'ZA', availableLanguage: ['en'],
@@ -62,10 +61,6 @@ function siteNodes() {
       '@type': 'Person', '@id': ID.rohan, name: SITE.people.rohan.name, jobTitle: SITE.people.rohan.jobTitle,
       telephone: SITE.people.rohan.telephone, image: abs(SITE.people.rohan.image), worksFor: { '@id': ID.agency },
       url: ORIGIN + '/about', sameAs: SITE.people.rohan.sameAs,
-    },
-    {
-      '@type': 'Person', '@id': ID.benjamin, name: SITE.people.benjamin.name, jobTitle: SITE.people.benjamin.jobTitle,
-      telephone: SITE.people.benjamin.telephone, worksFor: { '@id': ID.agency },
     },
   ];
 }
@@ -316,7 +311,7 @@ const res = PAGES.filter((p) => p.kind === 'residential');
 const com = PAGES.filter((p) => p.kind === 'commercial');
 fs.writeFileSync(path.join(ROOT, 'llms.txt'), `# ${SITE.legalName}
 
-> Property practitioners in Durban North, KwaZulu-Natal, South Africa, selling luxury estate homes in Umhlanga and Izinga Ridge and letting offices, retail and industrial space across KZN. Listing agent: ${SITE.people.rohan.name} (${SITE.people.rohan.jobTitle}), supervised by principal ${SITE.people.benjamin.name}.
+> Property practitioners in Durban North, KwaZulu-Natal, South Africa, selling luxury estate homes in Umhlanga and Izinga Ridge and letting offices, retail and industrial space across KZN. Listing agent: ${SITE.people.rohan.name} (${SITE.people.rohan.jobTitle}).
 
 ## Contact
 - Office: ${SITE.address.streetAddress}, ${SITE.address.addressLocality}, ${SITE.address.postalCode}, ${SITE.address.addressRegion}

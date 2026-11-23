@@ -21,7 +21,7 @@ const HTML_FILES = [
   'dunlop-house.html',
   '580-riverside-road.html',
   'the-avenues-centre.html',
-  'glass-house-building-2.html',
+
   'glass-house-building-1.html',
   '7-the-boulevard.html',
   'privacy-policy.html',

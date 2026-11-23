@@ -66,12 +66,12 @@ export const PAGES = [
     title: 'Offices and Warehouses to Let in KZN | Blue Ocean Realty',
     description: 'Office suites in Umhlanga, La Lucia Ridge and Westville, retail in Hilton, a 4,706 m² Riverhorse Valley warehouse and development land. Enquire today.',
     image: '/assets/properties/commercial/glass-house-b5/1.jpg',
-    listings: ['21-richefond.html', 'glass-house-building-1.html', 'glass-house-building-2.html', 'glass-house-building-5.html', 'the-glades-office-park.html', '7-the-boulevard.html', 'dunlop-house.html', '580-riverside-road.html', 'northfield-business-park.html', 'the-avenues-centre.html', 'urban-corner.html'],
+    listings: ['21-richefond.html', 'glass-house-building-1.html', 'glass-house-building-5.html', 'the-glades-office-park.html', '7-the-boulevard.html', 'dunlop-house.html', '580-riverside-road.html', 'northfield-business-park.html', 'the-avenues-centre.html', 'urban-corner.html'],
   },
   {
     file: 'about.html', path: '/about', kind: 'about', crumbs: [{ name: 'About', path: '/about' }],
     title: 'About Rohan Ramlall | Blue Ocean Realty, Durban North',
-    description: 'Rohan Ramlall is a Candidate Property Practitioner at Blue Ocean Realty (Pty) Ltd, Durban North, supervised by principal Benjamin Govindraj.',
+    description: 'Rohan Ramlall sells and lets luxury homes and commercial property across KZN for Blue Ocean Realty, Durban North. Sole and open mandates welcome.',
     image: '/assets/agent/rohan-ramlall-portrait.webp',
   },
   {
@@ -188,17 +188,6 @@ export const PAGES = [
       name: 'Glass House Building 1, Glass House Office Park', use: 'Office',
       street: '30-34 Meridian Drive, Glass House Office Park', locality: 'La Lucia Ridge', postalCode: '4051',
       floor: 235, offer: { mode: 'lease', price: 175, basis: 'gross' },
-    },
-  },
-  {
-    file: 'glass-house-building-2.html', path: '/glass-house-building-2', kind: 'commercial', crumbs: [COM],
-    title: '716 m² Office to Let, Glass House Building 2, La Lucia',
-    description: '716 m² ground-floor office to let at Glass House Building 2, 30-34 Meridian Drive, La Lucia Ridge. R150/m² nett, parking available.',
-    image: '/assets/properties/commercial/glass-house-b2/1.jpg',
-    listing: {
-      name: 'Glass House Building 2, Glass House Office Park', use: 'Office',
-      street: '30-34 Meridian Drive, Glass House Office Park', locality: 'La Lucia Ridge', postalCode: '4051',
-      floor: 716, offer: { mode: 'lease', price: 150, basis: 'nett' },
     },
   },
   {

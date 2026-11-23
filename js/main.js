@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const commercialProps = [
     'urban-corner.html', 'northfield-business-park.html', 'glass-house-building-5.html',
     '21-richefond.html', 'the-glades-office-park.html', 'dunlop-house.html',
-    '580-riverside-road.html', 'the-avenues-centre.html', 'glass-house-building-2.html',
+    '580-riverside-road.html', 'the-avenues-centre.html',
     'glass-house-building-1.html', '7-the-boulevard.html'
   ];
 
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
             Viewing Request Received
           </div>
           <p style="font-size: 0.875rem; color: #475569; margin: 0 auto 1.25rem; max-width: 38ch; line-height: 1.5;">
-            Thank you, <strong>${safeName}</strong>. Rohan Ramlall and Benjamin Govindraj have received your request and will contact you directly to confirm.
+            Thank you, <strong>${safeName}</strong>. Rohan Ramlall has received your request and will contact you directly to confirm.
           </p>
           <div style="display: flex; flex-wrap: wrap; gap: 0.625rem; justify-content: center;">
             <a href="tel:0695224226" class="btn btn--primary" style="padding: 0.5rem 1rem; font-size: 0.8125rem; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
           Confidential Request Received
         </h4>
         <p style="font-size: 0.9375rem; color: #64748B; max-width: 44ch; margin: 0 auto 1.5rem; line-height: 1.6;">
-          Thank you, <strong>${safeName}</strong>. Rohan Ramlall and Benjamin Govindraj of Blue Ocean Realty have received your brief and will be in touch directly.
+          Thank you, <strong>${safeName}</strong>. Rohan Ramlall of Blue Ocean Realty has received your brief and will be in touch directly.
         </p>
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-bottom: 1.5rem;">
           <a href="tel:0695224226" class="btn btn--primary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
