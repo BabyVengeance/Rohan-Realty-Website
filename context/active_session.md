@@ -7,7 +7,7 @@ Max 60 lines, current state only. History: `context/docs/session-log.md`.
 - SEO, schema and sitemaps are generated: `scripts/seo/site.config.mjs` holds every page's title, description and listing facts; `node scripts/seo/build.mjs` rebuilds heads, JSON-LD @graph, sitemap.xml, robots.txt and llms.txt. Generic listing FAQ accordions have been removed site-wide. Never hand-edit the `seo:start` blocks.
 - Listing facts in the registry mirror each page's hero stat cards (checked 2026-11-20). Old commercial titles and schema were stale and have been corrected.
 - Tracking layer ready, inactive until IDs are pasted in `js/consent.js`: Consent Mode v2 (basic), POPIA cookie banner (hidden until an ID exists), dataLayer events, gclid/UTM capture into enquiry forms. `js/main.js` fires `bor:lead` on delivered enquiries.
-- Images: 299 WebP files (110 MB down to 37 MB) via `scripts/optimize-images.mjs`; 26 share images in `assets/og/`.
+- Images: WebP plus 640/1280 copies (`npm run images`); listing pages load photos via `js/photos.js` (decode-before-swap, neighbour preload). CSS/JS are cached 1 year and stamped ?v=hash: run `npm run version-assets` after any CSS/JS edit, before pushing.
 - Commercial pages use compiled `css/tailwind-commercial.css` instead of the Tailwind Play CDN.
 - `_headers`, `_redirects`, `.htaccess`, `404.html` and `cookie-policy.html` were added. Privacy policy section 8 (analytics/ads) is a draft for legal review.
 - Ads handover: `context/docs/ads-handover-ben.md`.

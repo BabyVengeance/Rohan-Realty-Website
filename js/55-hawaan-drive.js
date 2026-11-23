@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
       itemEl.dataset.index = index;
 
       itemEl.innerHTML = `
-        <img src="${photo.thumb}" alt="${photo.title}" loading="lazy" class="gallery__img" onerror="this.style.display='none'">
+        <img src="${photo.thumb.replace(/\.webp$/, '-640.webp')}" decoding="async" alt="${photo.title}" loading="lazy" class="gallery__img" onerror="this.style.display='none'">
         <div class="gallery__item-overlay" aria-hidden="true">
           <div class="gallery__expand-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -210,11 +210,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   }
 
+  const showPhoto = (window.BORPhotos ? window.BORPhotos.lightbox(lightboxImg) : (u, a) => { lightboxImg.src = u; if (a) lightboxImg.alt = a; });
+
   function updateLightboxContent() {
     if (!activeFilteredList[activeLightboxIndex]) return;
     const photo = activeFilteredList[activeLightboxIndex];
-    lightboxImg.src = photo.full;
-    lightboxImg.alt = photo.title;
+    const n = activeFilteredList.length;
+    showPhoto(photo.full, photo.title, [activeFilteredList[(activeLightboxIndex + 1) % n].full, activeFilteredList[(activeLightboxIndex - 1 + n) % n].full]);
     lightboxCounter.innerHTML = `<span class="lightbox__caption-title">${photo.title}</span> &middot; <span class="lightbox__counter-nums">${activeLightboxIndex + 1} / ${activeFilteredList.length}</span>`;
   }
 

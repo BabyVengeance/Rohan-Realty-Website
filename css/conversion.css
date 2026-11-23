@@ -119,3 +119,19 @@
   .enquiry-bar__btn,
   .cookie-banner__btn { transition: none; }
 }
+
+/* Commercial photo carousel (js/photos.js) */
+.carousel-controls { opacity: 0; }
+#carousel-container:hover .carousel-controls,
+#carousel-container:focus-within .carousel-controls { opacity: 1; }
+@media (hover: none) { .carousel-controls { opacity: 1; } }
+#carousel-container:focus-visible { outline: 2px solid #C9A050; outline-offset: 3px; }
+#carousel-container [data-carousel]:active { transform: scale(0.96); }
+#carousel-container::after {
+  content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 100%;
+  background: #C9A050; transform-origin: left; transform: scaleX(0); opacity: 0;
+  transition: opacity 150ms ease; pointer-events: none;
+}
+#carousel-container.is-loading::after { opacity: 1; animation: carousel-progress 1.2s ease-in-out infinite; }
+@keyframes carousel-progress { 0% { transform: scaleX(0); } 60% { transform: scaleX(0.85); } 100% { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { #carousel-container.is-loading::after { animation: none; transform: scaleX(1); } }

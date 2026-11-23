@@ -25,9 +25,9 @@
   <meta name="twitter:title" content="1,678 m² Office to Let, Glass House Building 5, La Lucia">
   <meta name="twitter:description" content="1,678.58 m² first-floor office to let at Glass House Building 5, 309 Umhlanga Rocks Drive, La Lucia Ridge. R160/m² nett, 69 parking bays, full backup infrastructure.">
   <meta name="twitter:image" content="https://blueoceanluxury.co.za/assets/og/glass-house-building-5.jpg">
-  <link rel="stylesheet" href="/css/conversion.css">
-  <script src="/js/consent.js"></script>
-  <script src="/js/tracking.js" defer></script>
+  <link rel="stylesheet" href="/css/conversion.css?v=6f0e453e69">
+  <script src="/js/consent.js?v=c378d837a0"></script>
+  <script src="/js/tracking.js?v=d6b7699b03" defer></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -276,9 +276,9 @@
   </script>
   <!-- seo:end -->
   <link rel="icon" type="image/svg+xml" href="assets/branding/favicon.png">
-    <link rel="stylesheet" href="css/tailwind-commercial.css">
+    <link rel="stylesheet" href="css/tailwind-commercial.css?v=6c88df32c1">
   <link rel="preload" href="assets/fonts/outfit-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/fonts/fonts.css?v=0df4b14492">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -288,7 +288,8 @@
             background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
         }
     </style>
-  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/header.css?v=4dc9a4929d">
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/api/*"}}]},"eagerness":"moderate"}]}</script>
 </head>
 
 <body class="bg-slate-50 text-slate-900">
@@ -335,7 +336,7 @@
     <!-- Hero Section -->
     <section id="featured" class="relative bg-[#060B14] min-h-[auto] sm:min-h-screen sm:min-h-[100dvh] flex items-center overflow-hidden pt-24 pb-8 sm:pt-28 sm:pb-16" data-toc-title="Overview &amp; Valuation">
         <div class="absolute inset-0 opacity-50">
-            <img src="assets/properties/commercial/glass-house-b5/1.webp" alt="Glass House Building 5"
+            <img fetchpriority="high" decoding="async" src="assets/properties/commercial/glass-house-b5/1.webp" srcset="assets/properties/commercial/glass-house-b5/1-640.webp 640w, assets/properties/commercial/glass-house-b5/1-1280.webp 1280w, assets/properties/commercial/glass-house-b5/1.webp 1920w" sizes="100vw" alt="Glass House Building 5"
                 class="w-full h-full object-cover" width="2048" height="1152">
         </div>
         <div class="absolute inset-0 property-gradient"></div>
@@ -458,22 +459,22 @@
                         </ul>
                     </div>
 
-                    <div id="carousel-container" class="rounded-xl overflow-hidden bg-[#060B14] aspect-video mb-6 sm:mb-8 relative group border border-slate-200 shadow-md">
-                        <img id="carousel-image" src="assets/properties/commercial/glass-house-b5/1.webp"
+                    <div id="carousel-container" data-images='["assets/properties/commercial/glass-house-b5/1.webp","assets/properties/commercial/glass-house-b5/2.webp","assets/properties/commercial/glass-house-b5/3.webp"]' aria-roledescription="carousel" aria-label="Photo gallery" class="rounded-xl overflow-hidden bg-[#060B14] aspect-video mb-6 sm:mb-8 relative group border border-slate-200 shadow-md">
+                        <img id="carousel-image" src="assets/properties/commercial/glass-house-b5/1.webp" srcset="assets/properties/commercial/glass-house-b5/1-640.webp 640w, assets/properties/commercial/glass-house-b5/1-1280.webp 1280w, assets/properties/commercial/glass-house-b5/1.webp 1920w" sizes="(min-width: 1024px) 66vw, 100vw"
                             alt="Glass House Building 5"
                             class="w-full h-full object-cover transition-opacity duration-300" width="2048" height="1152">
 
                         <!-- Carousel Controls -->
                         <div
-                            class="absolute inset-0 flex items-center justify-between p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <button onclick="prevSlide()"
+                            class="absolute inset-0 flex items-center justify-between p-4 carousel-controls transition-opacity duration-300">
+                            <button type="button" data-carousel="prev" aria-label="Previous photo"
                                 class="bg-black/50 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition shadow-lg transform hover:scale-110">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M15 19l-7-7 7-7"></path>
                                 </svg>
                             </button>
-                            <button onclick="nextSlide()"
+                            <button type="button" data-carousel="next" aria-label="Next photo"
                                 class="bg-black/50 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition shadow-lg transform hover:scale-110">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -485,7 +486,7 @@
                         <!-- Image Counter -->
                         <div
                             class="absolute bottom-4 right-4 bg-black/60 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-md border border-white/10">
-                            <span id="current-slide">1</span> / <span id="total-slides">1</span>
+                            <span id="current-slide" aria-live="polite">1</span> / <span id="total-slides">1</span>
                         </div>
                     </div>
                 </div>
@@ -616,7 +617,7 @@
                 <div data-transaction="rent" data-category="commercial"
                     class="property-card bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition group" data-clickable-card="true">
                     <div class="relative h-56 overflow-hidden">
-                        <img src="assets/properties/commercial/glass-house-main/1.webp" alt="Glass House Main Building"
+                        <img src="assets/properties/commercial/glass-house-main/1.webp" srcset="assets/properties/commercial/glass-house-main/1-640.webp 640w, assets/properties/commercial/glass-house-main/1.webp 1024w" sizes="100vw" alt="Glass House Main Building"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500 text-transparent flex justify-center items-center" width="1024" height="576" loading="lazy">
                         <div class="absolute top-4 left-4">
                             <span
@@ -659,7 +660,7 @@
                 <div data-transaction="rent" data-category="commercial"
                     class="property-card bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition group" data-clickable-card="true">
                     <div class="relative h-56 overflow-hidden">
-                        <img src="assets/properties/commercial/glass-house-b3/1.webp" alt="Glass House Building 3"
+                        <img src="assets/properties/commercial/glass-house-b3/1.webp" srcset="assets/properties/commercial/glass-house-b3/1-640.webp 640w, assets/properties/commercial/glass-house-b3/1.webp 1024w" sizes="100vw" alt="Glass House Building 3"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500 text-transparent flex justify-center items-center" width="1024" height="683" loading="lazy">
                         <div class="absolute top-4 left-4">
                             <span
@@ -702,7 +703,7 @@
                 <div data-transaction="rent" data-category="commercial"
                     class="property-card bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition group" data-clickable-card="true">
                     <div class="relative h-56 overflow-hidden">
-                        <img src="assets/properties/commercial/the-glades/1.webp" alt="The Glades Office Park"
+                        <img src="assets/properties/commercial/the-glades/1.webp" srcset="assets/properties/commercial/the-glades/1-640.webp 640w, assets/properties/commercial/the-glades/1-1280.webp 1280w, assets/properties/commercial/the-glades/1.webp 1920w" sizes="100vw" alt="The Glades Office Park"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500 text-transparent flex justify-center items-center" width="1920" height="1148" loading="lazy">
                         <div class="absolute top-4 left-4">
                             <span
@@ -880,48 +881,7 @@
   </footer>
 
     <script>
-        const images = [
-            "assets/properties/commercial/glass-house-b5/1.webp",
-            "assets/properties/commercial/glass-house-b5/2.webp",
-            "assets/properties/commercial/glass-house-b5/3.webp"
-        ];
-
-        let currentIndex = 0;
-        const imgElement = document.getElementById('carousel-image');
-        const currentSlideElement = document.getElementById('current-slide');
-        const totalSlidesElement = document.getElementById('total-slides');
-
-        // Initialize
-        if (totalSlidesElement) {
-            totalSlidesElement.textContent = images.length;
-        }
-
-        function showSlide(index) {
-            if (images.length === 1) return; // Disallow sliding logic if single image
-            if (index < 0) index = images.length - 1;
-            if (index >= images.length) index = 0;
-
-            currentIndex = index;
-
-            // Fade effect
-            imgElement.style.opacity = '0.5';
-            setTimeout(() => {
-                imgElement.src = images[currentIndex];
-                imgElement.style.opacity = '1';
-                if (currentSlideElement) {
-                    currentSlideElement.textContent = currentIndex + 1;
-                }
-            }, 100);
-        }
-
-        function nextSlide() {
-            showSlide(currentIndex + 1);
-        }
-
-        function prevSlide() {
-            showSlide(currentIndex - 1);
-        }
-
+        
         function scrollToContact() {
             document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });
         }
@@ -951,7 +911,8 @@
             });
         });
     </script>
-  <script src="js/main.js" defer></script>
+  <script src="js/main.js?v=2841abc845" defer></script>
+<script src="js/photos.js?v=a6faf7b0a0" defer></script>
 </body>
 
 </html>

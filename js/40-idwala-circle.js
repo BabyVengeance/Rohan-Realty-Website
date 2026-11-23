@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       itemEl.innerHTML = `
         <img 
-          src="${photo.thumb}" 
+          src="${photo.thumb.replace(/\.webp$/, '-640.webp')}" decoding="async" 
           alt="${photo.title}" 
           class="gallery__img"
           loading="lazy" 
@@ -217,11 +217,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   }
 
+  const showPhoto = (window.BORPhotos ? window.BORPhotos.lightbox(lightboxImg) : (u, a) => { lightboxImg.src = u; if (a) lightboxImg.alt = a; });
+
   function updateLightboxContent() {
     if (!activeFilteredList[activeLightboxIndex]) return;
     const photo = activeFilteredList[activeLightboxIndex];
-    lightboxImg.src = photo.full;
-    lightboxImg.alt = photo.title;
+    const n = activeFilteredList.length;
+    showPhoto(photo.full, photo.title, [activeFilteredList[(activeLightboxIndex + 1) % n].full, activeFilteredList[(activeLightboxIndex - 1 + n) % n].full]);
     lightboxCounter.innerHTML = `<span class="lightbox__caption-title">${photo.title}</span> <span class="lightbox__counter-nums">${activeLightboxIndex + 1} / ${activeFilteredList.length}</span>`;
   }
 

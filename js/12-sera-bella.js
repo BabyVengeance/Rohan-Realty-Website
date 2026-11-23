@@ -114,10 +114,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const showPhoto = lightboxImg ? (window.BORPhotos ? window.BORPhotos.lightbox(lightboxImg) : (u, a) => { lightboxImg.src = u; if (a) lightboxImg.alt = a; }) : null;
+
   function showImage(index) {
     if (!lightboxImg || !activeGalleryList[index]) return;
-    lightboxImg.src = activeGalleryList[index].src;
-    lightboxImg.alt = activeGalleryList[index].alt;
+    const n = activeGalleryList.length;
+    showPhoto(activeGalleryList[index].src, activeGalleryList[index].alt,
+      [activeGalleryList[(index + 1) % n].src, activeGalleryList[(index - 1 + n) % n].src]);
     if (lightboxCounter) {
       lightboxCounter.textContent = `${index + 1} / ${activeGalleryList.length}`;
     }

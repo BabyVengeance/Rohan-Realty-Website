@@ -177,14 +177,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  const showPhoto = lightboxImg ? (window.BORPhotos ? window.BORPhotos.lightbox(lightboxImg) : (u, a) => { lightboxImg.src = u; if (a) lightboxImg.alt = a; }) : null;
+
   function renderLightboxItem() {
     const activeItem = activeReel[currentReelIndex];
     if (!activeItem) return;
 
     const img = activeItem.querySelector('.gallery__img');
     if (img && lightboxImg) {
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt || 'Unit 6 Sera Bella photography';
+      const n = activeReel.length;
+      const near = [activeReel[(currentReelIndex + 1) % n], activeReel[(currentReelIndex - 1 + n) % n]]
+        .map((el) => el && el.querySelector('.gallery__img')).filter(Boolean).map((el) => el.getAttribute('src'));
+      showPhoto(img.getAttribute('src'), img.alt || 'Unit 6 Sera Bella photography', near);
       lightboxImg.style.display = 'block';
     }
 
