@@ -420,7 +420,17 @@
     @keyframes about-draw-x { from { transform: scaleX(0); } }
     @media (min-width: 900px) { .about-timeline.is-drawing::before { animation-name: about-draw-x; } }
     @media (prefers-reduced-motion: reduce) { .about-timeline.is-drawing::before { animation: none; } .about-door img { transition: none; } }
-    .about-agency { max-width: 860px; }
+    .agency-foundation.agency-foundation { background: #fff; border-top: 0; }
+    .about-agency { display: grid; gap: 2.5rem; align-items: center; }
+    @media (min-width: 960px) { .about-agency { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(3rem, 7vw, 7rem); } }
+    .about-agency__mark { margin: 0; }
+    .about-agency__logo { display: block; width: 100%; max-width: 440px; height: auto; }
+    .about-agency__wave { display: block; width: 100%; max-width: 440px; height: auto; margin-top: 1.25rem; color: var(--color-primary); }
+    .about-agency__facts { margin: 1.75rem 0 0; display: grid; gap: 1rem; max-width: 440px; }
+    .about-agency__facts div { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--color-border); font-size: 0.9375rem; line-height: 1.5; }
+    .about-agency__facts dt { color: var(--color-text-muted); }
+    .about-agency__facts dd { margin: 0; color: var(--color-navy); font-weight: 500; }
+    @media (max-width: 380px) { .about-agency__facts div { grid-template-columns: 1fr; gap: 0.125rem; } }
     .about-note { font-size: 0.9375rem; color: var(--color-text-muted); margin: 0; }
 
   </style>
@@ -563,9 +573,20 @@
 
   <section class="agency-foundation" aria-labelledby="agency-title">
     <div class="container about-agency">
+      <figure class="about-agency__mark">
+        <img class="about-agency__logo" src="assets/branding/blue-ocean-full-logo-960.webp" alt="Blue Ocean Realty logo" width="960" height="196" loading="lazy" decoding="async">
+        <svg class="about-agency__wave" viewBox="0 0 440 24" aria-hidden="true" focusable="false"><path d="M0 4 C 120 26, 260 22, 440 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+        <dl class="about-agency__facts">
+          <div><dt>Registered with</dt><dd>Property Practitioners Regulatory Authority</dd></div>
+          <div><dt>Office</dt><dd>Suite 6, 66 Adelaide Tambo Drive, Durban North</dd></div>
+          <div><dt>Main website</dt><dd><a class="about-link" href="https://www.blueoceanrealty.co.za/" target="_blank" rel="noopener">blueoceanrealty.co.za</a></dd></div>
+        </dl>
+      </figure>
+      <div>
       <h2 id="agency-title" class="section-title">Who is Blue Ocean Realty?</h2>
       <p class="about-body">Blue Ocean Realty (Pty) Ltd is a property firm registered with the Property Practitioners Regulatory Authority, based at Suite 6, 66 Adelaide Tambo Drive, Durban North. Its main website, <a class="about-link" href="https://www.blueoceanrealty.co.za/" target="_blank" rel="noopener">blueoceanrealty.co.za</a>, lists the agency&rsquo;s full range of property. This site is its specialist showcase for luxury estates and for commercial and industrial property across KwaZulu-Natal.</p>
       <p class="about-note">Registration and supervision details are on the <a class="about-link" href="statutory-disclosure.html">statutory disclosure</a> page.</p>
+    </div>
     </div>
   </section>
 
