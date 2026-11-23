@@ -13,6 +13,7 @@ const pages = [
   '6-sera-bella.html',
 
 
+  'urban-corner.html',
   'glass-house-building-5.html',
 
   'the-glades-office-park.html',

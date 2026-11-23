@@ -63,10 +63,10 @@ export const PAGES = [
   },
   {
     file: 'commercial.html', path: '/commercial', kind: 'hub', crumbs: [COM],
-    title: 'Office and Retail Space to Let in KZN | Blue Ocean Realty',
-    description: 'Office space to let at Glass House Office Park and The Glades in La Lucia Ridge, Westville and Congella, plus retail in Hilton. Enquire today.',
+    title: 'Offices, Retail and Development Land in KZN | Blue Ocean',
+    description: 'Office space to let at Glass House Office Park and The Glades in La Lucia Ridge, Westville and Congella, retail in Hilton and development land in Umhlanga Ridge.',
     image: '/assets/properties/commercial/glass-house-b5/1.jpg',
-    listings: ['glass-house-building-1.html', 'glass-house-building-5.html', 'the-glades-office-park.html', '7-the-boulevard.html', 'dunlop-house.html', 'the-avenues-centre.html'],
+    listings: ['glass-house-building-1.html', 'glass-house-building-5.html', 'the-glades-office-park.html', '7-the-boulevard.html', 'dunlop-house.html', 'the-avenues-centre.html', 'urban-corner.html'],
   },
   {
     file: 'about.html', path: '/about', kind: 'about', crumbs: [{ name: 'About', path: '/about' }],
@@ -232,6 +232,17 @@ export const PAGES = [
       name: 'The Avenues Centre, Hilton', use: 'Retail',
       street: 'The Avenues Centre', locality: 'Hilton', postalCode: '3245',
       floor: 209, offer: { mode: 'lease', price: 200, basis: 'gross' },
+    },
+  },
+  {
+    file: 'urban-corner.html', path: '/urban-corner', kind: 'commercial', crumbs: [COM],
+    title: '4,831 m² Development Land for Sale, Umhlanga Ridge',
+    description: '4,831 m² development site with 8,213 m² of bulk on the corner of Park Way and Twilight Drive, Umhlanga Ridge. R33,000,000 excluding VAT.',
+    image: '/assets/properties/commercial/urban-corner/1.png',
+    listing: {
+      name: 'Urban Corner, Umhlanga Ridge', use: 'Development land',
+      street: 'Corner of Park Way and Twilight Drive', locality: 'Umhlanga Ridge', postalCode: '4319',
+      lot: 4831, bulk: 8213, offer: { mode: 'sale', price: 33000000, vatNote: 'excluding VAT' },
     },
   },
 ];

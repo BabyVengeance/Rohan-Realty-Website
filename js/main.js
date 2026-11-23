@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const residentialProps = ['5-nightjar-close.html', '55-hawaan-drive.html', '12-sera-bella.html', '6-sera-bella.html'];
   const commercialProps = [
- 'glass-house-building-5.html',
+    'urban-corner.html', 'glass-house-building-5.html',
  'the-glades-office-park.html', 'dunlop-house.html',
  'the-avenues-centre.html',
     'glass-house-building-1.html', '7-the-boulevard.html'
