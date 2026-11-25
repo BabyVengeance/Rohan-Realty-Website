@@ -66,7 +66,7 @@ export const PAGES = [
     title: 'Offices, Retail and Development Land in KZN | Blue Ocean',
     description: 'Offices to let in La Lucia Ridge, Westway (Westville), Lion Match (Durban) and Congella, retail in Hilton, and development land in Umhlanga Ridge.',
     image: '/assets/properties/commercial/glass-house-b5/1.jpg',
-    listings: ['glass-house-building-5.html', 'the-glades-office-park.html', '7-the-boulevard.html', 'dunlop-house.html', 'the-avenues-centre.html', 'urban-corner.html', 'glass-house-main-building.html', 'glass-house-building-3.html', 'lion-match-the-shed.html', 'lion-match-stadium-building.html', 'lion-match-office-park-5th-floor.html', '13-the-boulevard.html', '30a-the-boulevard.html'],
+    listings: ['glass-house-building-5.html', 'the-glades-office-park.html', '7-the-boulevard.html', 'dunlop-house.html', 'the-avenues-centre.html', 'urban-corner.html', 'glass-house-main-building.html', 'glass-house-building-3.html', 'lion-match-the-shed.html', 'lion-match-stadium-building.html', 'lion-match-office-park-5th-floor.html', '13-the-boulevard.html', '30a-the-boulevard.html', 'musgrave-commercial-campus.html'],
   },
   {
     file: 'about.html', path: '/about', kind: 'about', crumbs: [{ name: 'About', path: '/about' }],
@@ -221,6 +221,17 @@ export const PAGES = [
       name: 'The Avenues Centre, Hilton', use: 'Retail',
       street: 'The Avenues Centre, Hilton College Road', locality: 'Hilton', postalCode: '3245',
       floor: 177, offer: { mode: 'lease', price: 215, basis: 'gross' },
+    },
+  },
+  {
+    file: 'musgrave-commercial-campus.html', path: '/musgrave-commercial-campus', kind: 'commercial', crumbs: [COM],
+    title: '990 m² 3-Building Commercial Campus for Sale, Musgrave, Durban',
+    description: 'Versatile 3-building commercial campus on Peter Mokaba, Musgrave, Durban. 990 m², 30 parking bays, approved vertical expansion rights. R10,000,000.',
+    image: '/assets/properties/commercial/musgrave-campus/1.jpg',
+    listing: {
+      name: '3-Building Commercial Campus, Musgrave', use: 'Commercial',
+      street: 'Peter Mokaba Road, Musgrave', locality: 'Durban', postalCode: '4001',
+      floor: 990, parking: 30, offer: { mode: 'sale', price: 10000000 },
     },
   },
   {

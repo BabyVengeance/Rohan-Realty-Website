@@ -22,6 +22,8 @@ Max 60 lines, current state only. History: `context/docs/session-log.md`.
 
 - 2026-11-23: Full info check done. All 13 commercial listings matched to the JT Ross broker portal (brokerportal.jtrossgroup.com): Glades now whole 1,834 m2 building R190 from 1 Dec 2026; B5 R165 nett; Avenues 177 m2 R215. Transfer duty uses the SARS table in force since 1 April 2025. Open: 5 Nightjar shows R32M at Tyson/Pam Golding; 40 Idwala shows 980 m2/7 baths on property.mg (left as is by Rohan).
 
+- 2026-11-26: Added /musgrave-commercial-campus (3-building campus, Peter Mokaba, Musgrave, R10,000,000, 990 m2, 18 photos) copied verbatim from Property24 117618138 (Acutts Morningside) except parking set to 30 per Rohan. Street address withheld as on the source. Verbatim copy contains "tailored", which fails the banned-word check by Rohan's choice.
+
 ## Next steps (ordered)
 1. Turn on Cloudflare Web Analytics for blueoceanluxury.co.za (the CSP already allows it).
 2. Search Console and Bing: verify the domain and submit the sitemap.

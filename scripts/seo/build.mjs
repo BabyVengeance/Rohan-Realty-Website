@@ -109,7 +109,7 @@ function listingNodes(page, url, image) {
     if (L.floor) property.floorSize = { '@type': 'QuantitativeValue', value: L.floor, unitCode: 'MTK' };
   } else {
     const props = [{ name: 'Property use', value: L.use }];
-    if (L.floor) props.push({ name: 'Lettable area', value: L.floor, unitCode: 'MTK', unitText: 'm²' });
+    if (L.floor) props.push({ name: L.offer.mode === 'sale' ? 'Floor area' : 'Lettable area', value: L.floor, unitCode: 'MTK', unitText: 'm²' });
     if (L.parking) props.push({ name: 'Parking bays', value: L.parking });
     if (L.lot) props.push({ name: 'Site area', value: L.lot, unitCode: 'MTK', unitText: 'm²' });
     if (L.bulk) props.push({ name: 'Approved bulk', value: L.bulk, unitCode: 'MTK', unitText: 'm²' });
